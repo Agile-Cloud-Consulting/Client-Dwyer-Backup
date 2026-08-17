@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>64.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <environments>Default</environments>
+    <interviewLabel>EDU Admissions: Schedule Populate Educational Institution Searchable Profile Job {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>EDU Admissions: Schedule Populate Educational Institution Searchable Profile Job</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <sourceTemplate>eduadmissions__SchdEducInstSrchProfl</sourceTemplate>
+    <start>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Cloned_EDU_Admissions_Populate_Educational_Institution_Searchable_Profile</targetReference>
+        </connector>
+        <schedule>
+            <frequency>Daily</frequency>
+            <startDate>2025-07-07</startDate>
+            <startTime>00:00:00.000Z</startTime>
+        </schedule>
+        <triggerType>Scheduled</triggerType>
+    </start>
+    <status>Active</status>
+    <subflows>
+        <description>Calls a flow that uses Data Processing Engine to populate an educational institution searchable profile.</description>
+        <name>Cloned_EDU_Admissions_Populate_Educational_Institution_Searchable_Profile</name>
+        <label>Cloned EDU Admissions: Populate Educational Institution Searchable Profile</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <flowName>EDU_Admissions_Populate_Educational_Institution_Searchable_Profile</flowName>
+    </subflows>
+</Flow>

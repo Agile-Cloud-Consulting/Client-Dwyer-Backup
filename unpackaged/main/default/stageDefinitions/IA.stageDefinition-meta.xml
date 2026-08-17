@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StageDefinition xmlns="http://soap.sforce.com/2006/04/metadata">
+    <active>false</active>
+    <masterLabel>IA</masterLabel>
+    <referenceObject>IndividualApplication</referenceObject>
+    <referenceObjectField>Status</referenceObjectField>
+    <referenceObjectRecordType>IndividualApplication.Admissions</referenceObjectRecordType>
+    <stageTransition>
+        <criteria>
+            <condition>
+                <operator>Equals</operator>
+                <sequenceNumber>1</sequenceNumber>
+                <sourceField>ApplicationReview.Status</sourceField>
+                <value>Completed</value>
+            </condition>
+            <criteriaType>AND</criteriaType>
+            <executionType>CONDITION</executionType>
+            <isChildObject>true</isChildObject>
+            <logicalExpression>1</logicalExpression>
+            <targetFieldName>ApplicationId</targetFieldName>
+            <targetObject>ApplicationReview</targetObject>
+        </criteria>
+        <fromStageValue>In Review</fromStageValue>
+        <toStageValue>Ready For Decision</toStageValue>
+    </stageTransition>
+    <stageTransition>
+        <fromStageValue>Processing</fromStageValue>
+        <toStageValue>In Review</toStageValue>
+    </stageTransition>
+    <stageValue>
+        <stepGroup>
+            <name>Processing</name>
+            <step>
+                <apiName>Processing</apiName>
+                <isVisibleByExternalUsers>false</isVisibleByExternalUsers>
+                <name>Processing</name>
+                <stepType>Milestone</stepType>
+            </step>
+            <step>
+                <apiName>Manual_Task</apiName>
+                <assignedToUser>jseba1@dwyerworkforcedev.org.accdev</assignedToUser>
+                <dependency>
+                    <step>Processing</step>
+                </dependency>
+                <isVisibleByExternalUsers>false</isVisibleByExternalUsers>
+                <name>New Application</name>
+                <stepType>ManualTask</stepType>
+            </step>
+        </stepGroup>
+        <value>Processing</value>
+    </stageValue>
+    <stageValue>
+        <stepGroup>
+            <name>In Review</name>
+            <step>
+                <apiName>Review_Completed</apiName>
+                <dependency>
+                    <step>Manual_Task</step>
+                </dependency>
+                <isVisibleByExternalUsers>false</isVisibleByExternalUsers>
+                <name>Review Completed</name>
+                <stepType>Milestone</stepType>
+            </step>
+            <step>
+                <apiName>Manual_Task</apiName>
+                <assignedToQueue>Application_Reviewer</assignedToQueue>
+                <isVisibleByExternalUsers>false</isVisibleByExternalUsers>
+                <name>Manual Task</name>
+                <stepType>ManualTask</stepType>
+            </step>
+        </stepGroup>
+        <value>In Review</value>
+    </stageValue>
+    <stageValue>
+        <value>Ready For Decision</value>
+    </stageValue>
+</StageDefinition>

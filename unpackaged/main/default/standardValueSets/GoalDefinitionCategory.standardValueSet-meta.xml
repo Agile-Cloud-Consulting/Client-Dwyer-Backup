@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StandardValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sorted>false</sorted>
+    <standardValue>
+        <fullName>Academic</fullName>
+        <default>false</default>
+        <label>Academic</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Well-Being</fullName>
+        <default>false</default>
+        <label>Well-Being</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Extra Curricular</fullName>
+        <default>false</default>
+        <label>Extra Curricular</label>
+    </standardValue>
+</StandardValueSet>

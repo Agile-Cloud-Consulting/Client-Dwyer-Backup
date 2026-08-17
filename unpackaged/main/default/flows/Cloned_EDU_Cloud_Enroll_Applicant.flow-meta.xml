@@ -1,0 +1,390 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionCalls>
+        <description>Calls an action that enrolls the applicant into a learning program plan for a learning program.</description>
+        <name>EnrollLearner</name>
+        <label>Enroll Learner</label>
+        <locationX>578</locationX>
+        <locationY>914</locationY>
+        <actionName>enrollLearner</actionName>
+        <actionType>enrollLearner</actionType>
+        <connector>
+            <targetReference>SetStatusOfIndividualApplicationEnrolled</targetReference>
+        </connector>
+        <faultConnector>
+            <isGoTo>true</isGoTo>
+            <targetReference>SetApplnStatusToEnrlFailed2</targetReference>
+        </faultConnector>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>ContactId</name>
+            <value>
+                <elementReference>GetIndividualApplication.ContactId</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>LearningProgramPlanId</name>
+            <value>
+                <elementReference>GetLearningProgramPlanId</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>LearnerProgramStatus</name>
+            <value>
+                <stringValue>Active</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>LearnerProgramRequirementStatus</name>
+            <value>
+                <stringValue>Active</stringValue>
+            </value>
+        </inputParameters>
+        <nameSegment>enrollLearner</nameSegment>
+        <offset>0</offset>
+        <outputParameters>
+            <assignToReference>learnerProgramIds</assignToReference>
+            <name>LearnerProgramIds</name>
+        </outputParameters>
+    </actionCalls>
+    <apiVersion>62.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <assignments>
+        <description>For the Academic Term Enrollment from GetAcademicTermEnrollment record variable, sets the academic term ID to the GetAcademicTermId value and sets the contact ID to the contact ID from the Individual Application from GetIndividualApplication record variable.</description>
+        <name>SetAcademicTermIdContactIdVariables</name>
+        <label>Set Academic Term ID and Contact ID Variables</label>
+        <locationX>314</locationX>
+        <locationY>566</locationY>
+        <assignmentItems>
+            <assignToReference>GetAcademicTermEnrollment.AcademicTermId</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>GetAcademicTermId</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>GetAcademicTermEnrollment.LearnerContactId</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>GetIndividualApplication.ContactId</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>CreateAcademicTermEnrollment</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <description>Sets the application status of the Individual Application fromGetIndividualApplication record variable to Enrollment Failed and sets the errorMessage value.</description>
+        <name>SetApplnStatusToEnrlFailed</name>
+        <label>Set Application Status to Enrollment Failed</label>
+        <locationX>50</locationX>
+        <locationY>350</locationY>
+        <assignmentItems>
+            <assignToReference>GetIndividualApplication.Status</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Enrollment Failed</stringValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>errorMessage</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Missing required values for enrollment</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>UpdateIndividualApplication</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <description>Sets the application status of the Individual Application from GetIndividualApplication record variable to Enrollment Failed.</description>
+        <name>SetApplnStatusToEnrlFailed2</name>
+        <label>Set Status of Individual Application</label>
+        <locationX>1546</locationX>
+        <locationY>1322</locationY>
+        <assignmentItems>
+            <assignToReference>errorMessage</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Flow.FaultMessage</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>GetIndividualApplication.Status</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Enrollment Failed</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>UpdateIndividualApplication2</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <description>Sets the application status of the Individual Application from GetIndividualApplication record variable to Enrolled.</description>
+        <name>SetStatusOfIndividualApplicationEnrolled</name>
+        <label>Set Status of Individual Application</label>
+        <locationX>578</locationX>
+        <locationY>1022</locationY>
+        <assignmentItems>
+            <assignToReference>GetIndividualApplication.Status</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Enrolled</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>UpdateIndividualApplication</targetReference>
+        </connector>
+    </assignments>
+    <decisions>
+        <description>Determines if the required field values are available by checking if Individual Application from GetIndividualApplication, AcademicTermId, LearningProgramId, or the contact ID of the individual application contain values.</description>
+        <name>AreRequiredFieldValuesAvailable</name>
+        <label>Are Required Field Values Available?</label>
+        <locationX>314</locationX>
+        <locationY>242</locationY>
+        <defaultConnector>
+            <targetReference>GetAcademicTermEnrollment</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Yes (Default)</defaultConnectorLabel>
+        <rules>
+            <name>AreNotAvailableRequiredFieldValues</name>
+            <conditionLogic>or</conditionLogic>
+            <conditions>
+                <leftValueReference>GetIndividualApplication</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>GetAcademicTermId</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>GetLearningProgramPlanId</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>GetIndividualApplication.ContactId</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>SetApplnStatusToEnrlFailed</targetReference>
+            </connector>
+            <label>No</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>Determines if an academic term enrollment record was found by checking if the Academic Term Enrollment from GetAcademicTermEnrollment variable has a record.</description>
+        <name>HaveAcademicTermEnrollment</name>
+        <label>Have Academic Term Enrollment?</label>
+        <locationX>578</locationX>
+        <locationY>458</locationY>
+        <defaultConnector>
+            <targetReference>EnrollLearner</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Yes (Default)</defaultConnectorLabel>
+        <rules>
+            <name>DoesNotHaveAcademicTermEnrollment</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>GetAcademicTermEnrollment</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>SetAcademicTermIdContactIdVariables</targetReference>
+            </connector>
+            <label>No</label>
+        </rules>
+    </decisions>
+    <environments>Default</environments>
+    <formulas>
+        <description>Gets the default academic term record for the individual application if no academic term is provided.</description>
+        <name>GetAcademicTermId</name>
+        <dataType>String</dataType>
+        <expression>BLANKVALUE({!academicTermId}, {!GetIndividualApplication.ProgramTermApplnTimeline.AcademicTermId})</expression>
+    </formulas>
+    <formulas>
+        <description>Gets the default learning program plan ID for the individual application if no learning program plan record is provided.</description>
+        <name>GetLearningProgramPlanId</name>
+        <dataType>String</dataType>
+        <expression>BLANKVALUE({!learningProgramPlanId}, {!GetIndividualApplication.ProgramTermApplnTimeline.LearningProgramPlanId})</expression>
+    </formulas>
+    <interviewLabel>Cloned EDU Cloud: Enroll Applicant {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Cloned EDU Cloud: Enroll Applicant</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordCreates>
+        <description>Creates an academic term enrollment record using the values from the Academic Term Enrollment from GetAcademicTermEnrollment record variable.</description>
+        <name>CreateAcademicTermEnrollment</name>
+        <label>Create Academic Term Enrollment</label>
+        <locationX>314</locationX>
+        <locationY>674</locationY>
+        <connector>
+            <targetReference>EnrollLearner</targetReference>
+        </connector>
+        <faultConnector>
+            <isGoTo>true</isGoTo>
+            <targetReference>SetApplnStatusToEnrlFailed2</targetReference>
+        </faultConnector>
+        <inputReference>GetAcademicTermEnrollment</inputReference>
+    </recordCreates>
+    <recordLookups>
+        <description>Gets the academic term enrollment record with an academic term ID that matches AcademicTermId and learner contact ID that matches the contact ID of the Individual Application fromGetIndividualApplication record variable.</description>
+        <name>GetAcademicTermEnrollment</name>
+        <label>Get Academic Term Enrollment</label>
+        <locationX>578</locationX>
+        <locationY>350</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>HaveAcademicTermEnrollment</targetReference>
+        </connector>
+        <faultConnector>
+            <isGoTo>true</isGoTo>
+            <targetReference>SetApplnStatusToEnrlFailed2</targetReference>
+        </faultConnector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>AcademicTermId</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>GetAcademicTermId</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>LearnerContactId</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>GetIndividualApplication.ContactId</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>AcademicTermEnrollment</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <description>Gets the individual application record with an ID that matches the individualApplicationId value passed into the flow.</description>
+        <name>GetIndividualApplication</name>
+        <label>Get Individual Application</label>
+        <locationX>314</locationX>
+        <locationY>134</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>AreRequiredFieldValuesAvailable</targetReference>
+        </connector>
+        <faultConnector>
+            <isGoTo>true</isGoTo>
+            <targetReference>SetApplnStatusToEnrlFailed2</targetReference>
+        </faultConnector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>individualApplicationId</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>IndividualApplication</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordUpdates>
+        <description>Updates the individual application record using the values from the Individual Application from Get IndividualApplication record variable.</description>
+        <name>UpdateIndividualApplication</name>
+        <label>Update Individual Application</label>
+        <locationX>314</locationX>
+        <locationY>1214</locationY>
+        <faultConnector>
+            <targetReference>SetApplnStatusToEnrlFailed2</targetReference>
+        </faultConnector>
+        <inputReference>GetIndividualApplication</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <description>Updates the individual application record using the values from the Individual Application from Get IndividualApplication record variable.</description>
+        <name>UpdateIndividualApplication2</name>
+        <label>Update Individual Application</label>
+        <locationX>1546</locationX>
+        <locationY>1430</locationY>
+        <inputReference>GetIndividualApplication</inputReference>
+    </recordUpdates>
+    <sourceTemplate>eduacademics__EnrollApplicant</sourceTemplate>
+    <start>
+        <locationX>188</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>GetIndividualApplication</targetReference>
+        </connector>
+    </start>
+    <status>Active</status>
+    <variables>
+        <description>Stores the academic term ID for enrollment.</description>
+        <name>academicTermId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <description>Stores the message that&#39;s shown if there is an error.</description>
+        <name>errorMessage</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+    <variables>
+        <description>Stores the individual application record ID.</description>
+        <name>individualApplicationId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <description>Stores the learner program IDs from EnrollLearner after the applicant is enrolled.</description>
+        <name>learnerProgramIds</name>
+        <dataType>String</dataType>
+        <isCollection>true</isCollection>
+        <isInput>false</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+    <variables>
+        <description>Stores the learning program plan ID for enrollment.</description>
+        <name>learningProgramPlanId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+</Flow>

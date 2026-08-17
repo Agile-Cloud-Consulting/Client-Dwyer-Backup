@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StandardValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sorted>false</sorted>
+    <standardValue>
+        <fullName>Novice</fullName>
+        <default>false</default>
+        <label>Novice</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Superior</fullName>
+        <default>false</default>
+        <label>Superior</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Advanced</fullName>
+        <default>false</default>
+        <label>Advanced</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Intermediate</fullName>
+        <default>false</default>
+        <label>Intermediate</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Distinguished</fullName>
+        <default>false</default>
+        <label>Distinguished</label>
+    </standardValue>
+</StandardValueSet>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Disable_Account__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Disables all validation rules on Account that check this setting.</description>
+    <inlineHelpText>Check to bypass Account validation rules.</inlineHelpText>
+    <label>Disable Account</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

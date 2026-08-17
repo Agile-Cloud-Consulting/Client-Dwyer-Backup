@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>GiftCommitmentSchdBefEditId</fullName>
+    <inlineHelpText>The schedule that&#39;s associated with the current gift commitment schedule before it was edited.</inlineHelpText>
+    <trackHistory>false</trackHistory>
+    <type>Lookup</type>
+</CustomField>

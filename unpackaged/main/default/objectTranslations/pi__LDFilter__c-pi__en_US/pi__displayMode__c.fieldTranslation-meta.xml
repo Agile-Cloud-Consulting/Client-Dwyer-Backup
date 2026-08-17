@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- the mode of the card to determine what should be displayed as the source of the card --></help>
+        <label><!-- Display Mode --></label>
+        <name>pi__displayMode__c</name>
+    </CustomFieldTranslation>

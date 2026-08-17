@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StandardValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sorted>false</sorted>
+    <standardValue>
+        <fullName>Actor or Entertainer</fullName>
+        <default>false</default>
+        <label>Actor or Entertainer</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Architect or Urban Planner</fullName>
+        <default>false</default>
+        <label>Architect or Urban Planner</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Artist</fullName>
+        <default>false</default>
+        <label>Artist</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Business (Clerical)</fullName>
+        <default>false</default>
+        <label>Business (Clerical)</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Business Executive (Management, Administrator)</fullName>
+        <default>false</default>
+        <label>Business Executive (Management, Administrator)</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Business Owner or Proprietor</fullName>
+        <default>false</default>
+        <label>Business Owner or Proprietor</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Business Salesperson or Buyer</fullName>
+        <default>false</default>
+        <label>Business Salesperson or Buyer</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Clergy (Minister, Priest)</fullName>
+        <default>false</default>
+        <label>Clergy (Minister, Priest)</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Clergy (Other Religious)</fullName>
+        <default>false</default>
+        <label>Clergy (Other Religious)</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Clinical Psychologist</fullName>
+        <default>false</default>
+        <label>Clinical Psychologist</label>
+    </standardValue>
+    <standardValue>
+        <fullName>College Administrator or Staff</fullName>
+        <default>false</default>
+        <label>College Administrator or Staff</label>
+    </standardValue>
+    <standardValue>
+        <fullName>College Teacher</fullName>
+        <default>false</default>
+        <label>College Teacher</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Computer Programmer or Analyst</fullName>
+        <default>false</default>
+        <label>Computer Programmer or Analyst</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Conservationist or Forester</fullName>
+        <default>false</default>
+        <label>Conservationist or Forester</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Dentist (Including Orthodontist)</fullName>
+        <default>false</default>
+        <label>Dentist (Including Orthodontist)</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Dietitian or Nutritionist</fullName>
+        <default>false</default>
+        <label>Dietitian or Nutritionist</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Engineer</fullName>
+        <default>false</default>
+        <label>Engineer</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Farmer or Rancher</fullName>
+        <default>false</default>
+        <label>Farmer or Rancher</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Foreign Service Worker (Including Diplomat)</fullName>
+        <default>false</default>
+        <label>Foreign Service Worker (Including Diplomat)</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Homemaker (Full-Time)</fullName>
+        <default>false</default>
+        <label>Homemaker (Full-Time)</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Interior Decorator (Including Designer)</fullName>
+        <default>false</default>
+        <label>Interior Decorator (Including Designer)</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Lab Technician or Hygienist</fullName>
+        <default>false</default>
+        <label>Lab Technician or Hygienist</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Laborer</fullName>
+        <default>false</default>
+        <label>Laborer</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Law Enforcement Officer</fullName>
+        <default>false</default>
+        <label>Law Enforcement Officer</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Lawyer (Attorney) or Judge</fullName>
+        <default>false</default>
+        <label>Lawyer (Attorney) or Judge</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Military Service (Career)</fullName>
+        <default>false</default>
+        <label>Military Service (Career)</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Musician (Performer, Composer)</fullName>
+        <default>false</default>
+        <label>Musician (Performer, Composer)</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Nurse</fullName>
+        <default>false</default>
+        <label>Nurse</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Optometrist</fullName>
+        <default>false</default>
+        <label>Optometrist</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Pharmacist</fullName>
+        <default>false</default>
+        <label>Pharmacist</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Physician</fullName>
+        <default>false</default>
+        <label>Physician</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Policymaker or Government</fullName>
+        <default>false</default>
+        <label>Policymaker or Government</label>
+    </standardValue>
+    <standardValue>
+        <fullName>School Counselor</fullName>
+        <default>false</default>
+        <label>School Counselor</label>
+    </standardValue>
+    <standardValue>
+        <fullName>School Principal or Superintendent</fullName>
+        <default>false</default>
+        <label>School Principal or Superintendent</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Scientific Researcher</fullName>
+        <default>false</default>
+        <label>Scientific Researcher</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Skilled Trades</fullName>
+        <default>false</default>
+        <label>Skilled Trades</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Social, Welfare, or Recreation Worker</fullName>
+        <default>false</default>
+        <label>Social, Welfare, or Recreation Worker</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Teacher or Administrator (Elementary)</fullName>
+        <default>false</default>
+        <label>Teacher or Administrator (Elementary)</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Teacher or Administrator (Secondary)</fullName>
+        <default>false</default>
+        <label>Teacher or Administrator (Secondary)</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Therapist (Physical, Occupational, Speech)</fullName>
+        <default>false</default>
+        <label>Therapist (Physical, Occupational, Speech)</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Veterinarian</fullName>
+        <default>false</default>
+        <label>Veterinarian</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Writer or Journalist</fullName>
+        <default>false</default>
+        <label>Writer or Journalist</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Other</fullName>
+        <default>false</default>
+        <label>Other</label>
+    </standardValue>
+</StandardValueSet>

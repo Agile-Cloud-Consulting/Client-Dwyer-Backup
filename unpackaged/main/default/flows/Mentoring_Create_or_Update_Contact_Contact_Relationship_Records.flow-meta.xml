@@ -1,0 +1,631 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>60.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <assignments>
+        <description>Assigns the ID of the Party Role Relationship record to the PartyRoleRelationshipId variable</description>
+        <name>SetPartyRoleRelationshipId</name>
+        <label>Set Party Role Relationship ID</label>
+        <locationX>50</locationX>
+        <locationY>492</locationY>
+        <assignmentItems>
+            <assignToReference>PartyRoleRelationshipId</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>GetExistingPartyRoleRelationship.Id</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>GetExistingContactContactRelationship</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <description>Adds the ID of the current program enrollment record to the ProgramEnrollmentIds collection.</description>
+        <name>SetProgramEnrollmentID</name>
+        <label>Set Program Enrollment ID</label>
+        <locationX>1150</locationX>
+        <locationY>924</locationY>
+        <assignmentItems>
+            <assignToReference>ProgramEnrollmentIds</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>IterateOverProgramEnrollments.Id</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>IterateOverProgramEnrollments</targetReference>
+        </connector>
+    </assignments>
+    <decisions>
+        <description>Determines whether to create or update the Contact Contact Relationship.</description>
+        <name>CreateOrUpdateContactContactRelationship</name>
+        <label>Create or Update Contact Contact Relationship?</label>
+        <locationX>182</locationX>
+        <locationY>792</locationY>
+        <defaultConnector>
+            <targetReference>CreateContactContactRelationship</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Create (Default)</defaultConnectorLabel>
+        <rules>
+            <name>DoNotCreaOrUpdtContactContactRela</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>GetExistingContactContactRelationship</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>GetExistingContactContactRelationship.IsActive</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <elementReference>IsActive</elementReference>
+                </rightValue>
+            </conditions>
+            <label>No</label>
+        </rules>
+        <rules>
+            <name>DecisionUpdtContactContactRela</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>GetExistingContactContactRelationship</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>GetExistingContactContactRelationship.IsActive</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <elementReference>IsActive</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>UpdateContactContactRelationship</targetReference>
+            </connector>
+            <label>Update</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>Determines whether the contact contact relationship exists.</description>
+        <name>DoesContactContactRelationshipExist</name>
+        <label>Does Contact Contact Relationship Exist?</label>
+        <locationX>1194</locationX>
+        <locationY>600</locationY>
+        <defaultConnectorLabel>No (Default)</defaultConnectorLabel>
+        <rules>
+            <name>ContactContactRelationshipExists</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>GetContactContactRelationship</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>GetProgramEnrollments</targetReference>
+            </connector>
+            <label>Yes</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>Determines whether the party role relationship record for the mentoring relationship exists.</description>
+        <name>DoesPartyRoleRelationshipExist</name>
+        <label>Does Party Role Relationship Exist?</label>
+        <locationX>1392</locationX>
+        <locationY>384</locationY>
+        <defaultConnectorLabel>No (Default)</defaultConnectorLabel>
+        <rules>
+            <name>PartyRoleRelationshipExists</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>GetPartyRoleRelationship</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>GetContactContactRelationship</targetReference>
+            </connector>
+            <label>Yes</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>Determines whether the current benefit assignment record is active.</description>
+        <name>IsCurrentBenefitAssignmentActive</name>
+        <label>Is Current Benefit Assignment Active?</label>
+        <locationX>1282</locationX>
+        <locationY>1332</locationY>
+        <defaultConnector>
+            <targetReference>IterateOverBenefitAssignments</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>No (Default)</defaultConnectorLabel>
+        <rules>
+            <name>BenefitAssignmentIsActive</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>IterateOverBenefitAssignments.Benefit.BenefitType.Category</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Mentoring</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>IterateOverBenefitAssignments.EndDateTime</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>IterateOverBenefitAssignments.EndDateTime</leftValueReference>
+                <operator>GreaterThan</operator>
+                <rightValue>
+                    <elementReference>$Flow.CurrentDateTime</elementReference>
+                </rightValue>
+            </conditions>
+            <label>Yes</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>Determines whether the party role relationship record for the mentoring relationship needs to be created.</description>
+        <name>ShouldCreatePartyRoleRelationship</name>
+        <label>Should Create Party Role Relationship?</label>
+        <locationX>182</locationX>
+        <locationY>384</locationY>
+        <defaultConnector>
+            <targetReference>CreatePartyRoleRelationship</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Yes (Default)</defaultConnectorLabel>
+        <rules>
+            <name>DoNotCreatePartyRoleRelationship</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>GetExistingPartyRoleRelationship</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>SetPartyRoleRelationshipId</targetReference>
+            </connector>
+            <label>No</label>
+        </rules>
+    </decisions>
+    <environments>Default</environments>
+    <formulas>
+        <description>The date used to populate the End Date field on the contact contact relationship record.</description>
+        <name>EndDate</name>
+        <dataType>Date</dataType>
+        <expression>IF(OR(ISBLANK({!$Record.EndDateTime}), {!$Record.EndDateTime} &gt;= {!$Flow.CurrentDateTime}), null, {!$Flow.CurrentDate})</expression>
+    </formulas>
+    <formulas>
+        <description>Stores a boolean value that indicates whether the contact contact relationship is active.</description>
+        <name>IsActive</name>
+        <dataType>Boolean</dataType>
+        <expression>IF(OR(ISBLANK({!$Record.EndDateTime}), {!$Record.EndDateTime} &gt;= {!$Flow.CurrentDateTime}), true, false)</expression>
+    </formulas>
+    <interviewLabel>Mentoring: Create or Update Contact Contact Relationship Records {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Mentoring: Create or Update Contact Contact Relationship Records</label>
+    <loops>
+        <description>Repeats an action for each benefit assignment record from GetBenefitAssignments.</description>
+        <name>IterateOverBenefitAssignments</name>
+        <label>Iterate Over Benefit Assignments</label>
+        <locationX>1062</locationX>
+        <locationY>1224</locationY>
+        <collectionReference>GetBenefitAssignments</collectionReference>
+        <iterationOrder>Asc</iterationOrder>
+        <nextValueConnector>
+            <targetReference>IsCurrentBenefitAssignmentActive</targetReference>
+        </nextValueConnector>
+        <noMoreValuesConnector>
+            <targetReference>DeactivateContactContactRelationshipRec</targetReference>
+        </noMoreValuesConnector>
+    </loops>
+    <loops>
+        <description>Repeats an action for each program enrollment record in GetProgramEnrollments.</description>
+        <name>IterateOverProgramEnrollments</name>
+        <label>Iterate Over Program Enrollments</label>
+        <locationX>1062</locationX>
+        <locationY>816</locationY>
+        <collectionReference>GetProgramEnrollments</collectionReference>
+        <iterationOrder>Asc</iterationOrder>
+        <nextValueConnector>
+            <targetReference>SetProgramEnrollmentID</targetReference>
+        </nextValueConnector>
+        <noMoreValuesConnector>
+            <targetReference>GetBenefitAssignments</targetReference>
+        </noMoreValuesConnector>
+    </loops>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordCreates>
+        <description>Creates the contact contact relationship record, and sets the following record variable fields. 
+The ContactId field is set to the Contact ID of the triggering record.
+The EndDate field is set using the EndDate formula.
+The IsActive field is set using the IsActive formula.
+The PartyRoleRelationId field is set using the PartyRoleRelationshipId variable.
+The RelatedContactId field is set to the Contact ID of the Program Enrollment associated with the triggering record.
+The StartDate field is set to the current date.</description>
+        <name>CreateContactContactRelationship</name>
+        <label>Create Contact Contact Relationship</label>
+        <locationX>446</locationX>
+        <locationY>900</locationY>
+        <inputAssignments>
+            <field>ContactId</field>
+            <value>
+                <elementReference>$Record.ProviderId</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>EndDate</field>
+            <value>
+                <elementReference>EndDate</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>IsActive</field>
+            <value>
+                <elementReference>IsActive</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>PartyRoleRelationId</field>
+            <value>
+                <elementReference>PartyRoleRelationshipId</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>RelatedContactId</field>
+            <value>
+                <elementReference>$Record.ProgramEnrollment.ContactId</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>StartDate</field>
+            <value>
+                <elementReference>$Flow.CurrentDate</elementReference>
+            </value>
+        </inputAssignments>
+        <object>ContactContactRelation</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordCreates>
+    <recordCreates>
+        <description>Creates the mentoring party role relationship record. Sets the following record variable fields and stores the fields in the PartyRoleRelationshipId variable.
+The Related Role Name field is set to Mentee.
+The Relationship Object Name field is set to Contact_Contact_Relationship.
+The Role Name field is set to Mentor.</description>
+        <name>CreatePartyRoleRelationship</name>
+        <label>Create Party Role Relationship</label>
+        <locationX>314</locationX>
+        <locationY>492</locationY>
+        <assignRecordIdToReference>PartyRoleRelationshipId</assignRecordIdToReference>
+        <connector>
+            <targetReference>GetExistingContactContactRelationship</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>RelatedRoleName</field>
+            <value>
+                <stringValue>Mentee</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>RelationshipObjectName</field>
+            <value>
+                <stringValue>Contact_Contact_Relationship</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>RoleName</field>
+            <value>
+                <stringValue>Mentor</stringValue>
+            </value>
+        </inputAssignments>
+        <object>PartyRoleRelation</object>
+    </recordCreates>
+    <recordLookups>
+        <description>Gets Benefit Assignment records with the following. 
+A ProviderId that matches the Contact ID of the triggering record.
+A ProgramEnrollmentId in the ProgramEnrollmentsId collection variable.
+An ID that doesn’t match an ID from the triggering record.</description>
+        <name>GetBenefitAssignments</name>
+        <label>Get Benefit Assignments</label>
+        <locationX>1062</locationX>
+        <locationY>1116</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>IterateOverBenefitAssignments</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>ProviderId</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.ProviderId</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>ProgramEnrollmentId</field>
+            <operator>In</operator>
+            <value>
+                <elementReference>ProgramEnrollmentIds</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>Id</field>
+            <operator>NotEqualTo</operator>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>false</getFirstRecordOnly>
+        <object>BenefitAssignment</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <description>Gets the contact contact relationship record with a party role relationship that matches the Party Role Relationship from GetPartyRoleRelationship, a ContactId that matches the triggering record, and the RelatedContactId from the program enrollment associated with the triggering record.</description>
+        <name>GetContactContactRelationship</name>
+        <label>Get Contact Contact Relationship</label>
+        <locationX>1194</locationX>
+        <locationY>492</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>DoesContactContactRelationshipExist</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>PartyRoleRelationId</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>GetPartyRoleRelationship.Id</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>ContactId</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.ProviderId</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>RelatedContactId</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.ProgramEnrollment.ContactId</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>ContactContactRelation</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <description>Gets the existing contact contact relationship record with a party role relationship that matches the PartyRoleRelationshipId variable, a ContactId that matches the Contact ID of the triggering record, and the RelatedContactId that matches the program enrollment associated with the triggering record.</description>
+        <name>GetExistingContactContactRelationship</name>
+        <label>Get Contact Contact Relationship</label>
+        <locationX>182</locationX>
+        <locationY>684</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>CreateOrUpdateContactContactRelationship</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>PartyRoleRelationId</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>PartyRoleRelationshipId</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>ContactId</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.ProviderId</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>RelatedContactId</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.ProgramEnrollment.ContactId</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>ContactContactRelation</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <description>Gets the party role relationship record with a role name of Mentor and related role name of Mentee.</description>
+        <name>GetExistingPartyRoleRelationship</name>
+        <label>Get Existing Party Role Relationship</label>
+        <locationX>182</locationX>
+        <locationY>276</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>ShouldCreatePartyRoleRelationship</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>RoleName</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Mentor</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>RelatedRoleName</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Mentee</stringValue>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>PartyRoleRelation</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <description>Gets the party role relationship record with a role name of Mentor and a related role name of Mentee.</description>
+        <name>GetPartyRoleRelationship</name>
+        <label>Get Party Role Relationship</label>
+        <locationX>1392</locationX>
+        <locationY>276</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>DoesPartyRoleRelationshipExist</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>RoleName</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Mentor</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>RelatedRoleName</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Mentee</stringValue>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>PartyRoleRelation</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <description>Gets the program enrollment records with the contact ID from the program enrollment associated with the triggering record.</description>
+        <name>GetProgramEnrollments</name>
+        <label>Get Program Enrollments</label>
+        <locationX>1062</locationX>
+        <locationY>708</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>IterateOverProgramEnrollments</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>ContactId</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.ProgramEnrollment.ContactId</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>false</getFirstRecordOnly>
+        <object>ProgramEnrollment</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordUpdates>
+        <description>Updates the contact contact relationship record with an ID that matches the ContactContactRelationshipID from GetContactContactRelationship, and sets the EndDate field to the current date and the IsActive field to False.</description>
+        <name>DeactivateContactContactRelationshipRec</name>
+        <label>Deactivate Contact Contact Relationship</label>
+        <locationX>1062</locationX>
+        <locationY>1716</locationY>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>GetContactContactRelationship.Id</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>EndDate</field>
+            <value>
+                <elementReference>$Flow.CurrentDate</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>IsActive</field>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </inputAssignments>
+        <object>ContactContactRelation</object>
+    </recordUpdates>
+    <recordUpdates>
+        <description>Updates the contact contact relationship record with an ID that matches the ContactContactRelationshipID from GetExistingContactContactRelationship, sets the IsActive field with the IsActive formula and the EndDate field with the EndDate formula.</description>
+        <name>UpdateContactContactRelationship</name>
+        <label>Update Contact Contact Relationship</label>
+        <locationX>182</locationX>
+        <locationY>900</locationY>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>GetExistingContactContactRelationship.Id</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>EndDate</field>
+            <value>
+                <elementReference>EndDate</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>IsActive</field>
+            <value>
+                <elementReference>IsActive</elementReference>
+            </value>
+        </inputAssignments>
+        <object>ContactContactRelation</object>
+    </recordUpdates>
+    <sourceTemplate>mentoring__CreaUpdtCtctCtctRelaRec</sourceTemplate>
+    <start>
+        <locationX>661</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>GetExistingPartyRoleRelationship</targetReference>
+        </connector>
+        <filterFormula>AND(NOT(ISBLANK({!$Record.ProviderId})), 
+OR(ISCHANGED({!$Record.ProviderId}),ISCHANGED({!$Record.ProgramEnrollmentId}),ISCHANGED({!$Record.EndDateTime})),
+NOT(ISBLANK({!$Record.ProgramEnrollmentId})),ISPICKVAL({!$Record.Benefit.BenefitType.Category}, &quot;Mentoring&quot;))</filterFormula>
+        <object>BenefitAssignment</object>
+        <recordTriggerType>Update</recordTriggerType>
+        <scheduledPaths>
+            <name>DeactivateContactContactRelationship</name>
+            <connector>
+                <targetReference>GetPartyRoleRelationship</targetReference>
+            </connector>
+            <label>Deactivate Contact Contact Relationship</label>
+            <offsetNumber>1</offsetNumber>
+            <offsetUnit>Minutes</offsetUnit>
+            <recordField>EndDateTime</recordField>
+            <timeSource>RecordField</timeSource>
+        </scheduledPaths>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+    <variables>
+        <description>Stores the record ID for the mentoring party role relationship.</description>
+        <name>PartyRoleRelationshipId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <description>Stores a collection of program enrollment IDs associated with the program enrollment contact on the benefit assignment record.</description>
+        <name>ProgramEnrollmentIds</name>
+        <dataType>String</dataType>
+        <isCollection>true</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+</Flow>

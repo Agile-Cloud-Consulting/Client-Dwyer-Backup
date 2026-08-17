@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- Text that will be displayed on the button that will be used to trigger the action. --></help>
+        <label><!-- Note --></label>
+        <name>Note__c</name>
+    </CustomFieldTranslation>

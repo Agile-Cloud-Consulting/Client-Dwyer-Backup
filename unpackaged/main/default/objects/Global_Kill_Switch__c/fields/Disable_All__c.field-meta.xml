@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Disable_All__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Master kill switch. When checked, disables ALL automations that check kill switches.</description>
+    <inlineHelpText>Check to disable all automations org-wide.</inlineHelpText>
+    <label>Disable All</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

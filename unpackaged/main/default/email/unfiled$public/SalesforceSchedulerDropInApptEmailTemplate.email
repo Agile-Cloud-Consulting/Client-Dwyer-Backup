@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style type="text/css">
+      * {
+       font-family: 'Segoe UI', sans-serif; 
+      }
+      .header {
+        padding: 2rem;
+        font-size: 20px;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .container-success {
+        background: #B7F5D280;
+        border-top: 5px solid #4BCA81;
+      }
+      .container-warning {
+        background: #fcf3e0;
+        border-top: 5px solid #d79301;
+      }
+      body {
+        background-color: #B7F5D2;
+        margin: 0;
+      }
+      .top-border {
+        border-top: 0.35rem solid #4BCA81;
+      }
+      .inner-container {
+        background-color: #ffffff;
+        margin-right: 1.5rem;
+        margin-left: 1.5rem;
+        padding: 2rem;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+      th, td{
+        border: 1px solid #C9C9C9;
+        padding: 1.5rem 2rem;
+        text-align: left;
+      }
+      .check-mark {
+        margin-right: 1rem;
+      }
+      .check-mark img {
+        vertical-align: middle;
+      }
+      .circle {
+        background-color: #4BCA81;
+        width: 2.5rem;
+        height: 2.5rem;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        margin-right: 0.25rem;
+      }
+      .tick {
+        font-size: 1.5rem;
+      }
+    </style>
+  </head>
+  <body>
+            <div class="top-border">
+            </div>
+            <div class="header">
+            </div>
+            <div class="inner-container">
+                <p>Hello {!WaitlistParticipant.Participant} ,</p>
+                <p>You've been successfully added to {!WaitlistParticipant.Waitlist}.</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>
+                                Service Appointment Details
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <p><strong>{!WaitlistParticipant.Waitlist}</strong></p>
+                                <p>Waitlist position at checkin - [[CURRENT_POSITION]]/[[TOTAL_PARTICIPANTS]]</p>
+                                <p>for {!WaitlistParticipant.WorkType}</p>
+                                <p>on {!WaitlistParticipant.CreatedDate}</p>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p>To view your current waitlist status, <a target="_blank" href="[[WAITLIST_STATUS_URL]]">click here</a>.</p>
+                <p>If you select a preferred service resource, your waitlist position can fluctuate.</p>
+            </div>
+          </body>
+</html>

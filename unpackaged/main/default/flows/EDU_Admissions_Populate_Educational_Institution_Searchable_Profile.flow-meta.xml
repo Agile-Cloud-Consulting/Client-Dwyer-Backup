@@ -1,0 +1,389 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionCalls>
+        <description>Calls an action that runs the Data Processing Engine (DPE) job to populate educational institution searchable data.</description>
+        <name>RunDpeJobPopulateEducationalInstitutionSearchableProfile</name>
+        <label>Run DPE Job: Populate Educational Institution Searchable Profile</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <actionName>Maintain_Searchable_Campus_Data</actionName>
+        <actionType>dataProcessingEngineAction</actionType>
+        <connector>
+            <targetReference>DoesDpeJobSubmissionFail</targetReference>
+        </connector>
+        <faultConnector>
+            <isGoTo>true</isGoTo>
+            <targetReference>SetDpeJobSubmissionFailureEmailVariables</targetReference>
+        </faultConnector>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <nameSegment>Maintain_Searchable_Campus_Data</nameSegment>
+        <offset>0</offset>
+        <outputParameters>
+            <assignToReference>DpeBatchJobId</assignToReference>
+            <name>batchJobId</name>
+        </outputParameters>
+        <outputParameters>
+            <assignToReference>HasDpeBatchSubmitted</assignToReference>
+            <name>accepted</name>
+        </outputParameters>
+    </actionCalls>
+    <actionCalls>
+        <description>Calls an action that sends an email to the running user when the Data Processing Engine job to populate the educational institution searchable profile wasn’t submitted or failed during processing.</description>
+        <name>SendFailureEmail</name>
+        <label>Send Failure Email</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <actionName>emailSimple</actionName>
+        <actionType>emailSimple</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>emailAddresses</name>
+            <value>
+                <elementReference>$User.Email</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailSubject</name>
+            <value>
+                <elementReference>DpeFailureEmailSubject</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailBody</name>
+            <value>
+                <elementReference>DpeFailureEmailBody</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>emailSimple</nameSegment>
+        <offset>0</offset>
+    </actionCalls>
+    <apiVersion>64.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <assignments>
+        <description>Sets the email subject and body to notify the user that the Data Processing Engine job to populate the educational institution searchable profile failed to be processed.</description>
+        <name>SetDpeJobProcessingFailureEmailVariables</name>
+        <label>Set DPE Job Processing Failure Email Variables</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignmentItems>
+            <assignToReference>DpeFailureEmailSubject</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>DpeProcessingFailureEmailSubjectFormula</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>DpeFailureEmailBody</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>DpeProcessingFailureEmailBodyFormula</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>SendFailureEmail</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <description>Sets the email subject and body to notify the user that the Data Processing Engine job to populate the educational institution searchable profile failed to be submitted.</description>
+        <name>SetDpeJobSubmissionFailureEmailVariables</name>
+        <label>Set DPE Job Submission Failure Email Variables</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignmentItems>
+            <assignToReference>DpeFailureEmailSubject</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>DpeSubmissionFailureEmailSubjectFormula</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>DpeFailureEmailBody</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>DpeSubmissionFailureEmailBodyFormula</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>SendFailureEmail</targetReference>
+        </connector>
+    </assignments>
+    <decisions>
+        <description>Determines whether the Data Processing Engine job started by the RunDpeDefinitionPopulateEducationalInstitutionSearchableProfile action failed to be submitted by checking if HasDpeBatchSubmitted is null or false.</description>
+        <name>DoesDpeJobSubmissionFail</name>
+        <label>Does DPE Job Submission Fail?</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <defaultConnector>
+            <targetReference>IsWaitForWhat</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>No (Default)</defaultConnectorLabel>
+        <rules>
+            <name>DoesFailSubmission</name>
+            <conditionLogic>or</conditionLogic>
+            <conditions>
+                <leftValueReference>HasDpeBatchSubmitted</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>HasDpeBatchSubmitted</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>SetDpeJobSubmissionFailureEmailVariables</targetReference>
+            </connector>
+            <label>Yes</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>Determines whether the Data Processing Engine job is successful.</description>
+        <name>IsDpeJobSuccessful</name>
+        <label>Is DPE Job Successful?</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <defaultConnector>
+            <targetReference>SetDpeJobProcessingFailureEmailVariables</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>No (Default)</defaultConnectorLabel>
+        <rules>
+            <name>IsSuccessful</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>BatchJobStatusChangedEvent.Status</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Success</stringValue>
+                </rightValue>
+            </conditions>
+            <label>Yes</label>
+        </rules>
+    </decisions>
+    <environments>Default</environments>
+    <formulas>
+        <description>Uses DpeProcessingFailureEmailBodyTextTemplate to generate a rich-text email body to notify the user that the Data Processing Engine job to populate the educational institution searchable profile failed to process.</description>
+        <name>DpeProcessingFailureEmailBodyFormula</name>
+        <dataType>String</dataType>
+        <expression>SUBSTITUTE(
+    SUBSTITUTE(
+        SUBSTITUTE(
+            {!DpeProcessingFailureEmailBodyTextTemplate},
+            &quot;{0}&quot;,
+            &quot;We couldn&#39;t complete the Data Processing Engine request.&quot;),
+        &quot;&lt;p&gt;&quot;,
+        &quot;&quot;),
+    &quot;&lt;/p&gt;&quot;,
+    &quot;&quot;
+)</expression>
+    </formulas>
+    <formulas>
+        <description>Uses DpeProcessingFailureEmailSubjectTextTemplate to generate an email subject to notify the user that the Data Processing Engine job to populate the educational institution searchable profile failed to process.</description>
+        <name>DpeProcessingFailureEmailSubjectFormula</name>
+        <dataType>String</dataType>
+        <expression>SUBSTITUTE(
+    SUBSTITUTE(
+        {!DpeProcessingFailureEmailSubjectTextTemplate},
+        &quot;&lt;p&gt;&quot;,
+        &quot;&quot;),
+    &quot;&lt;/p&gt;&quot;,
+    &quot;&quot;
+)</expression>
+    </formulas>
+    <formulas>
+        <description>Uses DpeSubmissionFailureEmailBodyTextTemplate to generate a rich-text email body notifying the user that the Data Processing Engine job to populate the educational institution searchable profile failed to be submitted.</description>
+        <name>DpeSubmissionFailureEmailBodyFormula</name>
+        <dataType>String</dataType>
+        <expression>SUBSTITUTE(
+    SUBSTITUTE(
+        SUBSTITUTE(
+            {!DpeSubmissionFailureEmailBodyTextTemplate},
+            &quot;{0}&quot;,
+            &quot;placeholder&quot;),
+        &quot;&lt;p&gt;&quot;,
+        &quot;&quot;),
+    &quot;&lt;/p&gt;&quot;,
+    &quot;&quot;
+)</expression>
+    </formulas>
+    <formulas>
+        <description>Uses DpeSubmissionFailureEmailSubjectTextTemplate to generate an email subject notifying the user that the Data Processing Engine job to populate the educational institution searchable profile failed to be submitted.</description>
+        <name>DpeSubmissionFailureEmailSubjectFormula</name>
+        <dataType>String</dataType>
+        <expression>SUBSTITUTE(
+    SUBSTITUTE(
+        {!DpeSubmissionFailureEmailSubjectTextTemplate},
+        &quot;&lt;p&gt;&quot;,
+        &quot;&quot;),
+    &quot;&lt;/p&gt;&quot;,
+    &quot;&quot;
+)</expression>
+    </formulas>
+    <interviewLabel>EDU Admissions: Populate Educational Institution Searchable Profile {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Cloned EDU Admissions: Populate Educational Institution Searchable Profile</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <sourceTemplate>eduadmissions__PopEducInstSrchProfl</sourceTemplate>
+    <start>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>RunDpeJobPopulateEducationalInstitutionSearchableProfile</targetReference>
+        </connector>
+    </start>
+    <status>Active</status>
+    <textTemplates>
+        <description>Stores the text template that contains the email body to notify the user that the Data Processing Engine job to populate the educational institution searchable profile failed to process.
+
+To customize the email body, update this text.</description>
+        <name>DpeProcessingFailureEmailBodyTextTemplate</name>
+        <isViewedAsPlainText>false</isViewedAsPlainText>
+        <text>&lt;p&gt;We couldn&#39;t process the Data Processing Engine job that populates the educational institution searchable profile.&lt;/p&gt;</text>
+    </textTemplates>
+    <textTemplates>
+        <description>Stores the text template that contains the email subject to notify the user that the Data Processing Engine job to populate the educational institution searchable profile failed to process.
+
+To customize the email subject, update this text.</description>
+        <name>DpeProcessingFailureEmailSubjectTextTemplate</name>
+        <isViewedAsPlainText>false</isViewedAsPlainText>
+        <text>&lt;p&gt;EDU Cloud - Data Processing Engine Request Not Processed&lt;/p&gt;</text>
+    </textTemplates>
+    <textTemplates>
+        <description>Stores the text template that contains the body to notify the user that the Data Processing Engine job to populate the educational institution searchable profile failed to be submitted.
+
+To customize the email body, update this text.</description>
+        <name>DpeSubmissionFailureEmailBodyTextTemplate</name>
+        <isViewedAsPlainText>false</isViewedAsPlainText>
+        <text>&lt;p&gt;We couldn&#39;t submit the Data Processing Engine job that populates the educational institution searchable profile.&lt;/p&gt;</text>
+    </textTemplates>
+    <textTemplates>
+        <description>Stores the text template that contains the subject notifying the user that the Data Processing Engine job to populate the educational institution searchable profile failed to be submitted.
+
+To customize the email subject, update this text.</description>
+        <name>DpeSubmissionFailureEmailSubjectTextTemplate</name>
+        <isViewedAsPlainText>false</isViewedAsPlainText>
+        <text>&lt;p&gt;EDU Cloud - Data Processing Engine Request Not Submitted&lt;/p&gt;</text>
+    </textTemplates>
+    <variables>
+        <description>Stores the record that indicates a change in the Data Processing Engine batch job status.</description>
+        <name>BatchJobStatusChangedEvent</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <objectType>BatchJobStatusChangedEvent</objectType>
+    </variables>
+    <variables>
+        <description>Stores the batch job ID related to the Data Processing Engine job started by the RunDpeJobPopulateEducationalInstitutionSearchableProfile action.</description>
+        <name>DpeBatchJobId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <description>Stores the rich-text body for the email to notify the user that the Data Processing Engine job to populate the educational institution searchable profile wasn’t submitted or failed during processing.</description>
+        <name>DpeFailureEmailBody</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <description>Stores the subject for the email to notify the user that the Data Processing Engine job to populate the educational institution searchable profile wasn’t submitted or failed during processing.</description>
+        <name>DpeFailureEmailSubject</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <description>Stores a boolean value that indicates whether the Data Processing Engine job started by the RunDpeDefinitionPopulateEducationalInstitutionSearchableProfile action has been submitted and DPE created a batch job ID.</description>
+        <name>HasDpeBatchSubmitted</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <waits>
+        <description>Pauses the flow until the Data Processing Engine job times out after 23 hours from the start of the run, until the DpeBatchJobId is received, or something else happens. If something else happens, the flow ends. To use a different time-out period, change the Base Time and Offset Unit (Hours or Days) fields of the resume event for the Job Times Out configuration.</description>
+        <name>IsWaitForWhat</name>
+        <label>Wait for What?</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <defaultConnector>
+            <targetReference>SetDpeJobProcessingFailureEmailVariables</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Job Does Anything Else (Default)</defaultConnectorLabel>
+        <faultConnector>
+            <isGoTo>true</isGoTo>
+            <targetReference>SetDpeJobProcessingFailureEmailVariables</targetReference>
+        </faultConnector>
+        <waitEvents>
+            <name>IsStatusChanged</name>
+            <conditionLogic>and</conditionLogic>
+            <connector>
+                <targetReference>IsDpeJobSuccessful</targetReference>
+            </connector>
+            <eventType>BatchJobStatusChangedEvent</eventType>
+            <inputParameters>
+                <name>BatchJob</name>
+                <value>
+                    <elementReference>DpeBatchJobId</elementReference>
+                </value>
+            </inputParameters>
+            <label>Job Changes Status</label>
+            <outputParameters>
+                <assignToReference>BatchJobStatusChangedEvent</assignToReference>
+                <name>BatchJobStatusChangedEvent</name>
+            </outputParameters>
+        </waitEvents>
+        <waitEvents>
+            <name>IsTimedOut</name>
+            <conditionLogic>and</conditionLogic>
+            <connector>
+                <targetReference>SetDpeJobProcessingFailureEmailVariables</targetReference>
+            </connector>
+            <eventType>AlarmEvent</eventType>
+            <inputParameters>
+                <name>AlarmTime</name>
+                <value>
+                    <elementReference>$Flow.InterviewStartTime</elementReference>
+                </value>
+            </inputParameters>
+            <inputParameters>
+                <name>TimeOffset</name>
+                <value>
+                    <numberValue>23.0</numberValue>
+                </value>
+            </inputParameters>
+            <inputParameters>
+                <name>TimeOffsetUnit</name>
+                <value>
+                    <stringValue>Hours</stringValue>
+                </value>
+            </inputParameters>
+            <label>Job Times Out</label>
+        </waitEvents>
+    </waits>
+</Flow>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Disable_Case__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Disables all automations on Case.</description>
+    <inlineHelpText>Check to disable all Case automations.</inlineHelpText>
+    <label>Disable Case</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ActionPlanTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionPlanTemplateItem>
+        <actionPlanTemplateItemValue>
+            <itemEntityType>Task</itemEntityType>
+            <name>Transfer required documentation.Subject</name>
+            <valueLiteral>Transfer required documentation</valueLiteral>
+        </actionPlanTemplateItemValue>
+        <actionPlanTemplateItemValue>
+            <itemEntityType>Task</itemEntityType>
+            <name>Transfer required documentation.Description</name>
+            <valueLiteral>Ensure executed agreements, scope/attachments, compliance requirements, reporting templates, and data-sharing terms are transferred.</valueLiteral>
+        </actionPlanTemplateItemValue>
+        <displayOrder>4</displayOrder>
+        <isRequired>true</isRequired>
+        <itemEntityType>Task</itemEntityType>
+        <name>Transfer required documentation</name>
+        <uniqueName>FWH_Task_04</uniqueName>
+    </actionPlanTemplateItem>
+    <actionPlanTemplateItem>
+        <actionPlanTemplateItemValue>
+            <itemEntityType>Task</itemEntityType>
+            <name>Schedule handoff meeting.Subject</name>
+            <valueLiteral>Schedule handoff meeting</valueLiteral>
+        </actionPlanTemplateItemValue>
+        <actionPlanTemplateItemValue>
+            <itemEntityType>Task</itemEntityType>
+            <name>Schedule handoff meeting.Description</name>
+            <valueLiteral>Schedule a meeting including the Partner Engagement lead and the assigned Partner Success owner.</valueLiteral>
+        </actionPlanTemplateItemValue>
+        <displayOrder>8</displayOrder>
+        <isRequired>true</isRequired>
+        <itemEntityType>Task</itemEntityType>
+        <name>Schedule handoff meeting</name>
+        <uniqueName>FWH_Task_08</uniqueName>
+    </actionPlanTemplateItem>
+    <actionPlanTemplateItem>
+        <actionPlanTemplateItemValue>
+            <itemEntityType>Task</itemEntityType>
+            <name>Provide engagement history.Subject</name>
+            <valueLiteral>Provide engagement history</valueLiteral>
+        </actionPlanTemplateItemValue>
+        <actionPlanTemplateItemValue>
+            <itemEntityType>Task</itemEntityType>
+            <name>Provide engagement history.Description</name>
+            <valueLiteral>Share qualification notes, vetting outcomes, and negotiated commitments.</valueLiteral>
+        </actionPlanTemplateItemValue>
+        <displayOrder>3</displayOrder>
+        <isRequired>true</isRequired>
+        <itemEntityType>Task</itemEntityType>
+        <name>Provide engagement history</name>
+        <uniqueName>FWH_Task_03</uniqueName>
+    </actionPlanTemplateItem>
+    <actionPlanTemplateItem>
+        <actionPlanTemplateItemValue>
+            <itemEntityType>Task</itemEntityType>
+            <name>Conduct joint introduction.Subject</name>
+            <valueLiteral>Conduct joint introduction</valueLiteral>
+        </actionPlanTemplateItemValue>
+        <actionPlanTemplateItemValue>
+            <itemEntityType>Task</itemEntityType>
+            <name>Conduct joint introduction.Description</name>
+            <valueLiteral>Send a formal email/meeting introducing Partner Success as the primary point of contact.</valueLiteral>
+        </actionPlanTemplateItemValue>
+        <displayOrder>9</displayOrder>
+        <isRequired>true</isRequired>
+        <itemEntityType>Task</itemEntityType>
+        <name>Conduct joint introduction</name>
+        <uniqueName>FWH_Task_09</uniqueName>
+    </actionPlanTemplateItem>
+    <actionPlanTemplateItem>
+        <actionPlanTemplateItemValue>
+            <itemEntityType>Task</itemEntityType>
+            <name>Define success measures.Subject</name>
+            <valueLiteral>Define success measures</valueLiteral>
+        </actionPlanTemplateItemValue>
+        <actionPlanTemplateItemValue>
+            <itemEntityType>Task</itemEntityType>
+            <name>Define success measures.Description</name>
+            <valueLiteral>Establish intended outcomes, baseline metrics, and reporting cadence.</valueLiteral>
+        </actionPlanTemplateItemValue>
+        <displayOrder>5</displayOrder>
+        <isRequired>true</isRequired>
+        <itemEntityType>Task</itemEntityType>
+        <name>Define success measures</name>
+        <uniqueName>FWH_Task_05</uniqueName>
+    </actionPlanTemplateItem>
+    <actionPlanTemplateItem>
+        <actionPlanTemplateItemValue>
+            <itemEntityType>Task</itemEntityType>
+            <name>Confirm operational details.Subject</name>
+            <valueLiteral>Confirm operational details</valueLiteral>
+        </actionPlanTemplateItemValue>
+        <actionPlanTemplateItemValue>
+            <itemEntityType>Task</itemEntityType>
+            <name>Confirm operational details.Description</name>
+            <valueLiteral>Outline the launch/onboarding timeline and key milestones.</valueLiteral>
+        </actionPlanTemplateItemValue>
+        <displayOrder>6</displayOrder>
+        <isRequired>true</isRequired>
+        <itemEntityType>Task</itemEntityType>
+        <name>Confirm operational details</name>
+        <uniqueName>FWH_Task_06</uniqueName>
+    </actionPlanTemplateItem>
+    <actionPlanTemplateItem>
+        <actionPlanTemplateItemValue>
+            <itemEntityType>Task</itemEntityType>
+            <name>Systems and access.Subject</name>
+            <valueLiteral>Systems and access</valueLiteral>
+        </actionPlanTemplateItemValue>
+        <actionPlanTemplateItemValue>
+            <itemEntityType>Task</itemEntityType>
+            <name>Systems and access.Description</name>
+            <valueLiteral>Ensure the partner record is updated, files are stored correctly, and Partner Success has access.</valueLiteral>
+        </actionPlanTemplateItemValue>
+        <displayOrder>7</displayOrder>
+        <isRequired>true</isRequired>
+        <itemEntityType>Task</itemEntityType>
+        <name>Systems and access</name>
+        <uniqueName>FWH_Task_07</uniqueName>
+    </actionPlanTemplateItem>
+    <actionPlanTemplateItem>
+        <actionPlanTemplateItemValue>
+            <itemEntityType>Task</itemEntityType>
+            <name>Document completion.Subject</name>
+            <valueLiteral>Document completion</valueLiteral>
+        </actionPlanTemplateItemValue>
+        <actionPlanTemplateItemValue>
+            <itemEntityType>Task</itemEntityType>
+            <name>Document completion.Description</name>
+            <valueLiteral>Record the handoff date and obtain written confirmation that Partner Success has accepted ownership.</valueLiteral>
+        </actionPlanTemplateItemValue>
+        <displayOrder>10</displayOrder>
+        <isRequired>true</isRequired>
+        <itemEntityType>Task</itemEntityType>
+        <name>Document completion</name>
+        <uniqueName>FWH_Task_10</uniqueName>
+    </actionPlanTemplateItem>
+    <actionPlanTemplateItem>
+        <actionPlanTemplateItemValue>
+            <itemEntityType>Task</itemEntityType>
+            <name>Share partner profile.Subject</name>
+            <valueLiteral>Share partner profile</valueLiteral>
+        </actionPlanTemplateItemValue>
+        <actionPlanTemplateItemValue>
+            <itemEntityType>Task</itemEntityType>
+            <name>Share partner profile.Description</name>
+            <valueLiteral>Confirm organization overview, partner type, key contacts, and communication preferences are documented.</valueLiteral>
+        </actionPlanTemplateItemValue>
+        <displayOrder>2</displayOrder>
+        <isRequired>true</isRequired>
+        <itemEntityType>Task</itemEntityType>
+        <name>Share partner profile</name>
+        <uniqueName>FWH_Task_02</uniqueName>
+    </actionPlanTemplateItem>
+    <actionPlanTemplateItem>
+        <actionPlanTemplateItemValue>
+            <itemEntityType>Task</itemEntityType>
+            <name>Confirm agreement status.Subject</name>
+            <valueLiteral>Confirm agreement status</valueLiteral>
+        </actionPlanTemplateItemValue>
+        <actionPlanTemplateItemValue>
+            <itemEntityType>Task</itemEntityType>
+            <name>Confirm agreement status.Description</name>
+            <valueLiteral>Verify the MOU/contract is fully executed, and effective dates, terms, and renewal notice requirements are finalized.</valueLiteral>
+        </actionPlanTemplateItemValue>
+        <displayOrder>1</displayOrder>
+        <isRequired>true</isRequired>
+        <itemEntityType>Task</itemEntityType>
+        <name>Confirm agreement status</name>
+        <uniqueName>FWH_Task_01</uniqueName>
+    </actionPlanTemplateItem>
+    <description>Handoff checklist from Partner Engagement to Partner Success when an MOU is signed.</description>
+    <isAdHocItemCreationEnabled>false</isAdHocItemCreationEnabled>
+    <name>Formal Warm Handoff</name>
+    <status>Final</status>
+    <targetEntityType>Account</targetEntityType>
+    <uniqueName>Formal_Warm_Handoff</uniqueName>
+</ActionPlanTemplate>

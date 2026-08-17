@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Verbosity_Level__c</fullName>
+    <defaultValue>&quot;DEBUG&quot;</defaultValue>
+    <description>Controls which severity levels are logged. ERROR = only errors. WARNING = warnings and errors. INFO = info, warnings, and errors. DEBUG = everything.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Valid values: ERROR, WARNING, INFO, DEBUG. Controls which severity levels are logged. ERROR = only errors. WARNING = warnings and errors. INFO = info, warnings, and errors. DEBUG = everything.</inlineHelpText>
+    <label>Verbosity Level</label>
+    <length>10</length>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

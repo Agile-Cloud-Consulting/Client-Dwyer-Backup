@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>OtherNonprofitGiftCount</fullName>
+    <inlineHelpText>The number of the party&#39;s donations to other nonprofits.</inlineHelpText>
+    <trackHistory>false</trackHistory>
+</CustomField>

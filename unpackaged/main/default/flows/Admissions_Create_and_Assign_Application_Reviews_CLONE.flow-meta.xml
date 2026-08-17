@@ -1,0 +1,657 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionCalls>
+        <description>Calls an action that sends an email to ErrorEmailAddress if an action plan template assignment is missing for the program term application timeline and review type.</description>
+        <name>SendErrorEmailIfMissingActionPlanTemplateAssignment</name>
+        <label>Send Error Email</label>
+        <locationX>842</locationX>
+        <locationY>782</locationY>
+        <actionName>emailSimple</actionName>
+        <actionType>emailSimple</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>emailSubject</name>
+            <value>
+                <stringValue>Error creating Application Reviews in the Admissions: Assign Application Reviews Subflow</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailBody</name>
+            <value>
+                <stringValue>Error creating Application Review records in the Admissions: Assign Application Review Subflow clone due to no matching Action Plan Template Assignment</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailAddresses</name>
+            <value>
+                <elementReference>ErrorEmailAddress</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>emailSimple</nameSegment>
+        <offset>0</offset>
+    </actionCalls>
+    <actionCalls>
+        <description>Calls an action that sends an email to ErrorEmailAddress if no individual application record was passed into the flow.</description>
+        <name>SendErrorEmailIfMissingIndividualApplication</name>
+        <label>Send Error Email</label>
+        <locationX>1634</locationX>
+        <locationY>242</locationY>
+        <actionName>emailSimple</actionName>
+        <actionType>emailSimple</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>emailSubject</name>
+            <value>
+                <stringValue>Error creating Application Reviews in the Admissions: Assign Application Reviews Subflow</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailBody</name>
+            <value>
+                <stringValue>Error creating Application Review records in the Admissions: Assign Application Review Subflow clone due to no Individual Application being passed into the flow.</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailAddresses</name>
+            <value>
+                <elementReference>ErrorEmailAddress</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>emailSimple</nameSegment>
+        <offset>0</offset>
+    </actionCalls>
+    <actionCalls>
+        <description>Calls an action that sends an email to ErrorEmailAddress if a program term application timeline is missing from the individual application.</description>
+        <name>SendErrorEmailIfMissingProgramTermApplicationTimeline</name>
+        <label>Send Error Email</label>
+        <locationX>1106</locationX>
+        <locationY>566</locationY>
+        <actionName>emailSimple</actionName>
+        <actionType>emailSimple</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>emailSubject</name>
+            <value>
+                <stringValue>Error creating Application Reviews in the Admissions: Assign Application Reviews Subflow</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailBody</name>
+            <value>
+                <stringValue>Error creating Application Review records in the Admissions: Assign Application Review Subflow clone due to no Program Term Application Timeline on the Individual Application.</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailAddresses</name>
+            <value>
+                <elementReference>ErrorEmailAddress</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>emailSimple</nameSegment>
+        <offset>0</offset>
+    </actionCalls>
+    <actionCalls>
+        <description>Calls an action that sends an email to ErrorEmailAddress if no queue is found matching the Assignment Queue value of the Action Plan Template Assignment record from GetActionPlanTemplateAssignment.</description>
+        <name>SendErrorEmailIfMissingQueue</name>
+        <label>Send Error Email</label>
+        <locationX>578</locationX>
+        <locationY>998</locationY>
+        <actionName>emailSimple</actionName>
+        <actionType>emailSimple</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>emailSubject</name>
+            <value>
+                <stringValue>Error creating Application Reviews in the Admissions: Assign Application Reviews Subflow</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailBody</name>
+            <value>
+                <stringValue>Error creating Application Review records in the Admissions: Assign Application Review Subflow clone due to no queues.</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailAddresses</name>
+            <value>
+                <elementReference>ErrorEmailAddress</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>emailSimple</nameSegment>
+        <offset>0</offset>
+    </actionCalls>
+    <actionCalls>
+        <description>Calls an action that sends an email to ErrorEmailAddress if no review type was passed into the flow.</description>
+        <name>SendErrorEmailIfMissingReviewType</name>
+        <label>Send Error Email</label>
+        <locationX>1370</locationX>
+        <locationY>350</locationY>
+        <actionName>emailSimple</actionName>
+        <actionType>emailSimple</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>emailSubject</name>
+            <value>
+                <stringValue>Error creating Application Reviews in the Admissions: Assign Application Reviews Subflow</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailBody</name>
+            <value>
+                <stringValue>Error creating Application Review records in the Admissions: Assign Application Review Subflow clone due to no Assignment Review Type value being passed into the flow.</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailAddresses</name>
+            <value>
+                <elementReference>ErrorEmailAddress</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>emailSimple</nameSegment>
+        <offset>0</offset>
+    </actionCalls>
+    <apiVersion>63.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <assignments>
+        <description>Adds the action plan to the collection of new action plans.</description>
+        <name>AddActionPlanToCollection</name>
+        <label>Add Action Plan to Collection</label>
+        <locationX>138</locationX>
+        <locationY>1538</locationY>
+        <assignmentItems>
+            <assignToReference>ActionPlans</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>ActionPlan</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>IterateOverApplicationReviews</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <description>Adds the current application review to the ApplicationReviews collection.</description>
+        <name>AddApplicationReviewToCollection</name>
+        <label>Add Application Review to Collection</label>
+        <locationX>314</locationX>
+        <locationY>1214</locationY>
+        <assignmentItems>
+            <assignToReference>ApplicationReviews</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>ApplicationReview</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>IncrementApplicationReviewCount</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <description>Increments the NumberOfApplicationReviewsCreated variable by one.</description>
+        <name>IncrementApplicationReviewCount</name>
+        <label>Increment Application Review Count</label>
+        <locationX>314</locationX>
+        <locationY>1322</locationY>
+        <assignmentItems>
+            <assignToReference>NumberOfApplicationReviewsCreated</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <numberValue>1.0</numberValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <isGoTo>true</isGoTo>
+            <targetReference>HaveCreatedRequiredNumberOfApplicationReviews</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <description>Sets the details of an action plan based on details in the application review.</description>
+        <name>SetActionPlanDetails</name>
+        <label>Set Action Plan Details</label>
+        <locationX>138</locationX>
+        <locationY>1430</locationY>
+        <assignmentItems>
+            <assignToReference>ActionPlan.ActionPlanType</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Industries</stringValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>ActionPlan.ActionPlanTemplateVersionId</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>GetActionPlanTemplateAssignment.ActionPlanTemplateVersionId</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>ActionPlan.StartDate</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$System.OriginDateTime</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>ActionPlan.ActionPlanState</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Not Started</stringValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>ActionPlan.TargetId</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>IterateOverApplicationReviews.Id</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>ActionPlan.Name</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>GetActionPlanTemplateAssignment.ActionPlanTemplateVersion.ActionPlanTemplate.Name</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>AddActionPlanToCollection</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <description>Sets review details, including application review status and application ID, to be used across all the application reviews.</description>
+        <name>SetApplicationReviewDetails</name>
+        <label>Set Application Review Details</label>
+        <locationX>182</locationX>
+        <locationY>998</locationY>
+        <assignmentItems>
+            <assignToReference>ApplicationReview.Status</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Not Started</stringValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>ApplicationReview.OwnerId</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>GetReviewerQueue.Id</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>ApplicationReview.ApplicationId</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>IndividualApplication.Id</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>HaveCreatedRequiredNumberOfApplicationReviews</targetReference>
+        </connector>
+    </assignments>
+    <constants>
+        <description>The email address of the user to receive the email error notification.</description>
+        <name>ErrorEmailAddress</name>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>example@email.com.invalid</stringValue>
+        </value>
+    </constants>
+    <decisions>
+        <description>Determines whether an action plan template assignment exists by checking whether the ID is available in the Action Plan Template Assignment from GetActionPlanTemplateAssignment.</description>
+        <name>HaveActionPlanTemplateAssignment</name>
+        <label>Have Action Plan Template Assignment?</label>
+        <locationX>611</locationX>
+        <locationY>674</locationY>
+        <defaultConnector>
+            <targetReference>SendErrorEmailIfMissingActionPlanTemplateAssignment</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>No (Default)</defaultConnectorLabel>
+        <rules>
+            <name>HasActionPlanTemplateAssignment</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>GetActionPlanTemplateAssignment.AssignmentQueueName</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>GetReviewerQueue</targetReference>
+            </connector>
+            <label>Yes</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>Determines whether the required number of application reviews is created.</description>
+        <name>HaveCreatedRequiredNumberOfApplicationReviews</name>
+        <label>Have Created Required Number of Application Reviews?</label>
+        <locationX>182</locationX>
+        <locationY>1106</locationY>
+        <defaultConnector>
+            <targetReference>AddApplicationReviewToCollection</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>No (Default)</defaultConnectorLabel>
+        <rules>
+            <name>HasCreatedRequiredNumberOfApplicationReviews</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>NumberOfApplicationReviewsCreated</leftValueReference>
+                <operator>GreaterThanOrEqualTo</operator>
+                <rightValue>
+                    <elementReference>GetActionPlanTemplateAssignment.AssignmentSize</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>CreateApplicationReviewRecords</targetReference>
+            </connector>
+            <label>Yes</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>Determines whether an individual application record was passed into the flow by checking if the record in the $Input global input variable has a value for the individual application ID.</description>
+        <name>HaveIndividualApplicationRecord</name>
+        <label>Have Individual Application Record?</label>
+        <locationX>1374</locationX>
+        <locationY>134</locationY>
+        <defaultConnector>
+            <targetReference>SendErrorEmailIfMissingIndividualApplication</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>No (Default)</defaultConnectorLabel>
+        <rules>
+            <name>HasIndividualApplicationRecord</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>IndividualApplication.Id</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>HaveReviewAssignmentType</targetReference>
+            </connector>
+            <label>Yes</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>Determines whether a program term application timeline record exists by checking if the ID is available in the Program Term Application Timeline from GetProgramTermApplicationTimeline.</description>
+        <name>HaveProgramTermApplicationTimeline</name>
+        <label>Have Program Term Application Timeline?</label>
+        <locationX>858</locationX>
+        <locationY>458</locationY>
+        <defaultConnector>
+            <targetReference>SendErrorEmailIfMissingProgramTermApplicationTimeline</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>No (Default)</defaultConnectorLabel>
+        <rules>
+            <name>HasProgramTermApplicationTimeline</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>GetProgramTermApplicationTimeline.Id</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>GetActionPlanTemplateAssignment</targetReference>
+            </connector>
+            <label>Yes</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>Determines whether an assignment type value was passed into the flow by checking if the $Input global input variable has a value for the assignment type.</description>
+        <name>HaveReviewAssignmentType</name>
+        <label>Have Review Assignment Type?</label>
+        <locationX>1114</locationX>
+        <locationY>242</locationY>
+        <defaultConnector>
+            <targetReference>SendErrorEmailIfMissingReviewType</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>No (Default)</defaultConnectorLabel>
+        <rules>
+            <name>HasReviewAssignmentType</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>reviewAssignmentType</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>GetProgramTermApplicationTimeline</targetReference>
+            </connector>
+            <label>Yes</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>Determines whether a queue exists by checking whether the ID is available in the Group from GetReviewerQueue.</description>
+        <name>HaveReviewerQueue</name>
+        <label>Have Reviewer Queue?</label>
+        <locationX>380</locationX>
+        <locationY>890</locationY>
+        <defaultConnector>
+            <targetReference>SendErrorEmailIfMissingQueue</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>No (Default)</defaultConnectorLabel>
+        <rules>
+            <name>HasReviewerQueue</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>GetReviewerQueue.Id</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>SetApplicationReviewDetails</targetReference>
+            </connector>
+            <label>Yes</label>
+        </rules>
+    </decisions>
+    <environments>Default</environments>
+    <interviewLabel>Admissions: Create and Assign Application Reviews CLONE {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Admissions: Create and Assign Application Reviews CLONE</label>
+    <loops>
+        <description>Repeats actions for each application review record in ApplicationReviews.</description>
+        <name>IterateOverApplicationReviews</name>
+        <label>Iterate Over Application Reviews</label>
+        <locationX>50</locationX>
+        <locationY>1322</locationY>
+        <collectionReference>ApplicationReviews</collectionReference>
+        <iterationOrder>Asc</iterationOrder>
+        <nextValueConnector>
+            <targetReference>SetActionPlanDetails</targetReference>
+        </nextValueConnector>
+        <noMoreValuesConnector>
+            <targetReference>CreateActionPlanRecords</targetReference>
+        </noMoreValuesConnector>
+    </loops>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordCreates>
+        <description>Creates records using the values in the ActionPlans record collection.</description>
+        <name>CreateActionPlanRecords</name>
+        <label>Create Action Plan Records</label>
+        <locationX>50</locationX>
+        <locationY>1730</locationY>
+        <inputReference>ActionPlans</inputReference>
+    </recordCreates>
+    <recordCreates>
+        <description>Creates records based on the values in the ApplicationReviews record collection.</description>
+        <name>CreateApplicationReviewRecords</name>
+        <label>Create Application Review Records</label>
+        <locationX>50</locationX>
+        <locationY>1214</locationY>
+        <connector>
+            <targetReference>IterateOverApplicationReviews</targetReference>
+        </connector>
+        <inputReference>ApplicationReviews</inputReference>
+    </recordCreates>
+    <recordLookups>
+        <description>Gets the action plan template assignment record that matches the program term application timeline and the reviewAssignmentType variable.</description>
+        <name>GetActionPlanTemplateAssignment</name>
+        <label>Get Action Plan Template Assignment</label>
+        <locationX>611</locationX>
+        <locationY>566</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>HaveActionPlanTemplateAssignment</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>AssociatedObjectId</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>GetProgramTermApplicationTimeline.Id</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>AssignmentType</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>reviewAssignmentType</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>ActionPlanTemplateAssignment</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <description>Gets the program term application timeline record associated with the individual application. Stores the result in the Program Term Application Timeline from GetProgramTermApplicationTimeline record variable.</description>
+        <name>GetProgramTermApplicationTimeline</name>
+        <label>Get Program Term Application Timeline</label>
+        <locationX>858</locationX>
+        <locationY>350</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>HaveProgramTermApplicationTimeline</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>IndividualApplication.ProgramTermApplnTimeline.Id</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>ProgramTermApplnTimeline</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <description>Gets the queue with a developer name that matches the assignment queue name field of the ActionPlanTemplateAssignment record from the GetActionPlanTemplateAssignment. Stores the result in the Group from GetReviewerQueue record variable.</description>
+        <name>GetReviewerQueue</name>
+        <label>Get Reviewer Queue</label>
+        <locationX>380</locationX>
+        <locationY>782</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>HaveReviewerQueue</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>DeveloperName</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>GetActionPlanTemplateAssignment.AssignmentQueueName</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Group</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <sourceTemplate>eduadmissions__CreaAsgnApplnRvw</sourceTemplate>
+    <start>
+        <locationX>1248</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>HaveIndividualApplicationRecord</targetReference>
+        </connector>
+    </start>
+    <status>Active</status>
+    <variables>
+        <description>A new action plan that will be related to an application review.</description>
+        <name>ActionPlan</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <objectType>ActionPlan</objectType>
+    </variables>
+    <variables>
+        <description>A collection of action plans.</description>
+        <name>ActionPlans</name>
+        <dataType>SObject</dataType>
+        <isCollection>true</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <objectType>ActionPlan</objectType>
+    </variables>
+    <variables>
+        <description>Stores the details of an application review record to be used for creating additional application reviews.</description>
+        <name>ApplicationReview</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <objectType>ApplicationReview</objectType>
+    </variables>
+    <variables>
+        <description>Stores a collection of application reviews to be created.</description>
+        <name>ApplicationReviews</name>
+        <dataType>SObject</dataType>
+        <isCollection>true</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <objectType>ApplicationReview</objectType>
+    </variables>
+    <variables>
+        <description>The individual application for which application review records should be created.</description>
+        <name>IndividualApplication</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+        <objectType>IndividualApplication</objectType>
+    </variables>
+    <variables>
+        <description>Stores the number of application reviews the flow has created.</description>
+        <name>NumberOfApplicationReviewsCreated</name>
+        <dataType>Number</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <scale>0</scale>
+        <value>
+            <numberValue>0.0</numberValue>
+        </value>
+    </variables>
+    <variables>
+        <description>Stores the review assignment type to identify the correct action plan template version.</description>
+        <name>reviewAssignmentType</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+</Flow>

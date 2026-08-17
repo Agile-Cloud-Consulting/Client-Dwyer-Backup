@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Deleted_via_Flow__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>For deleting the reciprocal relationship when the partner is deleted.</description>
+    <label>Deleted via Flow</label>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

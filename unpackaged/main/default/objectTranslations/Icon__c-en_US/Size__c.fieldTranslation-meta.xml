@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <label><!-- Size --></label>
+        <name>Size__c</name>
+        <picklistValues>
+            <masterLabel>large</masterLabel>
+            <translation><!-- large --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>medium</masterLabel>
+            <translation><!-- medium --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>small</masterLabel>
+            <translation><!-- small --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>x-small</masterLabel>
+            <translation><!-- x-small --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>xx-small</masterLabel>
+            <translation><!-- xx-small --></translation>
+        </picklistValues>
+    </CustomFieldTranslation>

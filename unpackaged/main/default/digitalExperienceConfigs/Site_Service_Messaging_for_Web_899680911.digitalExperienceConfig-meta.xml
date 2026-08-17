@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DigitalExperienceConfig xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label>Site_Service_Messaging_for_Web_89968091</label>
+    <site>
+        <urlPathPrefix>SiteServiceMessagingforWeb8996</urlPathPrefix>
+    </site>
+    <space>site/Site_Service_Messaging_for_Web_899680911</space>
+</DigitalExperienceConfig>

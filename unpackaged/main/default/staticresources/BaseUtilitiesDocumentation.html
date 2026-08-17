@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Base Utilities Documentation</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: 'Salesforce Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            color: #181818;
+            background: #fff;
+            line-height: 1.6;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem;
+        }
+        h1 { font-size: 1.75rem; margin-bottom: 0.5rem; color: #032d60; }
+        h2 { font-size: 1.35rem; margin-top: 2rem; margin-bottom: 0.75rem; color: #032d60; border-bottom: 2px solid #e5e5e5; padding-bottom: 0.25rem; }
+        h3 { font-size: 1.1rem; margin-top: 1.25rem; margin-bottom: 0.5rem; color: #444; }
+        p { margin-bottom: 0.75rem; }
+        ul, ol { margin: 0.5rem 0 1rem 1.5rem; }
+        li { margin-bottom: 0.35rem; }
+        code {
+            background: #f4f6f9;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            padding: 0.15rem 0.4rem;
+            font-size: 0.9em;
+            font-family: 'SF Mono', 'Consolas', 'Monaco', monospace;
+        }
+        pre {
+            background: #f4f6f9;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 1rem;
+            overflow-x: auto;
+            margin: 0.75rem 0 1rem;
+            font-size: 0.85em;
+            line-height: 1.5;
+        }
+        pre code { background: none; border: none; padding: 0; }
+        table { width: 100%; border-collapse: collapse; margin: 0.75rem 0 1rem; font-size: 0.9em; }
+        th, td { padding: 0.5rem 0.75rem; text-align: left; border: 1px solid #ddd; }
+        th { background: #f4f6f9; font-weight: 600; }
+        .intro { background: #f0f7ff; border-left: 4px solid #0070d2; padding: 1rem; margin-bottom: 1.5rem; border-radius: 0 4px 4px 0; }
+        .warning { background: #fff8e1; border-left: 4px solid #f9a825; padding: 0.75rem 1rem; margin: 0.75rem 0; border-radius: 0 4px 4px 0; }
+    </style>
+</head>
+<body>
+    <h1>Base Utilities Documentation</h1>
+    <div class="intro">
+        <p><strong>Base Utilities</strong> is a foundational package deployed to every client org. It provides error logging, automation kill switches, a trigger framework, and common screen flow resources.</p>
+    </div>
+
+    <h2>1. Error Logging</h2>
+    <p>Errors are captured as platform events and stored as <code>Error_Log__c</code> records. This provides transaction isolation: errors are logged even if the originating transaction rolls back.</p>
+
+    <h3>From Apex (try/catch)</h3>
+<pre><code>try {
+    // business logic
+} catch (Exception ex) {
+    ErrorLogger.log(ex, 'MyClassName', 'myMethod');
+}</code></pre>
+
+    <h3>From Apex (full parameters)</h3>
+<pre><code>ErrorLogger.log(
+    'ClassName',       // class or flow name
+    'methodName',      // method or element
+    'Error message',   // the error message
+    'stack trace',     // stack trace or context
+    recordId,          // related record ID (optional)
+    'WARNING',         // severity: ERROR, WARNING, INFO, DEBUG
+    'Integration'      // source: Apex, Flow, Integration, Other
+);</code></pre>
+
+    <h3>From Flows</h3>
+    <ol>
+        <li>Add a <strong>Fault Path</strong> from any element that can fail.</li>
+        <li>On the fault path, add an <strong>Action</strong> element.</li>
+        <li>Search for the action: <strong>"Log Error"</strong>.</li>
+        <li>Fill in the inputs:</li>
+    </ol>
+    <table>
+        <tr><th>Input</th><th>Required</th><th>Value</th></tr>
+        <tr><td>className</td><td>Yes</td><td>Your Flow API name</td></tr>
+        <tr><td>methodName</td><td>No</td><td>The element that failed</td></tr>
+        <tr><td>errorMessage</td><td>Yes</td><td><code>{!$Flow.FaultMessage}</code></td></tr>
+        <tr><td>recordId</td><td>No</td><td><code>{!$Record.Id}</code> if applicable</td></tr>
+        <tr><td>severity</td><td>No</td><td>Defaults to ERROR</td></tr>
+        <tr><td>source</td><td>No</td><td>Defaults to Flow</td></tr>
+    </table>
+
+    <h3>Verbosity Levels</h3>
+    <p>The <code>Error_Log_Settings__c.Verbosity_Level__c</code> custom setting controls which messages are logged:</p>
+    <table>
+        <tr><th>Setting</th><th>Logs</th></tr>
+        <tr><td>DEBUG</td><td>Everything (DEBUG, INFO, WARNING, ERROR)</td></tr>
+        <tr><td>INFO</td><td>INFO, WARNING, ERROR</td></tr>
+        <tr><td>WARNING</td><td>WARNING, ERROR</td></tr>
+        <tr><td>ERROR</td><td>ERROR only</td></tr>
+    </table>
+
+    <h3>Email Notifications</h3>
+    <p>Set <code>Enable_Email_Notifications__c = true</code> and provide <code>Email_Recipients__c</code> (comma-separated) in <strong>Error Log Settings</strong> to receive email alerts when ERROR severity logs are created.</p>
+
+    <h3>Log Retention</h3>
+    <p>A scheduled batch job (<code>ErrorLogRetentionBatch</code>) runs daily and deletes <code>Error_Log__c</code> records older than the configured <code>Log_Retention_Days__c</code> (default: 90 days).</p>
+
+    <h2>2. Kill Switches</h2>
+    <p>Hierarchy custom settings provide layered automation and validation rule control:</p>
+    <table>
+        <tr><th>Custom Setting</th><th>Purpose</th><th>Naming Convention</th></tr>
+        <tr><td>Global_Kill_Switch__c</td><td>Disable ALL automations + outbound emails</td><td><code>Disable_All__c</code>, <code>Disable_Outbound_Emails__c</code></td></tr>
+        <tr><td>Object_Kill_Switch__c</td><td>Disable all automations for one object</td><td><code>Disable_[ObjectName]__c</code></td></tr>
+        <tr><td>Automation_Kill_Switch__c</td><td>Disable a specific automation</td><td><code>Disable_[AutomationName]__c</code></td></tr>
+        <tr><td>Validation_Kill_Switch__c</td><td>Disable validation rules for one object</td><td><code>Disable_[ObjectName]__c</code></td></tr>
+    </table>
+    <p>As hierarchy custom settings, these support org-default, profile-level, and user-level values.</p>
+
+    <h3>Email Kill Switch</h3>
+    <p>The <code>Disable_Outbound_Emails__c</code> field on <code>Global_Kill_Switch__c</code> suppresses outbound emails from automations without disabling the automations themselves. Use during data migrations or sandbox testing.</p>
+    <p>In Apex, check before sending: <code>if (!KillSwitchHelper.isEmailDisabled()) { Messaging.sendEmail(...); }</code></p>
+    <p>In Flows, add a Decision element checking: <code>{!$Setup.Global_Kill_Switch__c.Disable_Outbound_Emails__c} = FALSE</code></p>
+
+    <h3>Validation Rule Kill Switch</h3>
+    <p>The <code>Validation_Kill_Switch__c</code> setting lets you bypass validation rules per object without deactivating them. This is separate from <code>Object_Kill_Switch__c</code> so you can disable automations and validation rules independently.</p>
+    <p>Each validation rule must include a check in its formula:</p>
+<pre><code>AND(
+    NOT($Setup.Validation_Kill_Switch__c.Disable_Account__c),
+    /* actual validation logic */
+)</code></pre>
+
+    <h3>Checking Automation Kill Switches in Flows</h3>
+    <p>Add formula conditions to your flow's entry criteria:</p>
+<pre><code>{!$Setup.Global_Kill_Switch__c.Disable_All__c} = FALSE
+AND {!$Setup.Object_Kill_Switch__c.Disable_Account__c} = FALSE
+AND {!$Setup.Automation_Kill_Switch__c.Disable_My_Flow__c} = FALSE</code></pre>
+
+    <h3>Adding New Kill Switches</h3>
+    <ol>
+        <li>Go to <strong>Setup &gt; Custom Settings</strong>.</li>
+        <li>Click <strong>Manage</strong> on the appropriate setting.</li>
+        <li>Add a new Checkbox field: <code>Disable_[YourName]__c</code>, default unchecked.</li>
+        <li>No code changes needed for automation/object kill switches. <code>KillSwitchHelper</code> uses dynamic field access.</li>
+        <li>For validation rule kill switches, also update each validation rule formula to include the <code>$Setup</code> check.</li>
+    </ol>
+
+    <h2>3. Trigger Framework</h2>
+    <p>The framework enforces one trigger per object and one handler per object. Kill switches and recursion prevention are built in.</p>
+
+    <h3>Creating a New Trigger</h3>
+<pre><code>// MyObjectTrigger.trigger
+trigger MyObjectTrigger on MyObject__c (
+    before insert, before update, before delete,
+    after insert, after update, after delete, after undelete
+) {
+    new MyObjectTriggerHandler().run();
+}</code></pre>
+
+    <h3>Creating a New Handler</h3>
+<pre><code>public with sharing class MyObjectTriggerHandler extends TriggerHandler {
+    public MyObjectTriggerHandler() {
+        this.objectName = 'MyObject';
+    }
+
+    protected override void afterUpdate(
+        List&lt;SObject&gt; newRecords,
+        Map&lt;Id, SObject&gt; oldMap,
+        Map&lt;Id, SObject&gt; newMap
+    ) {
+        // Check automation-level kill switch inline
+        if (!KillSwitchHelper.isAutomationDisabled('MyObject_FeatureName')) {
+            MyObjectService.doSomething(newRecords, oldMap);
+        }
+    }
+}</code></pre>
+    <div class="warning">
+        <strong>Sharing:</strong> Always declare an explicit sharing keyword on handler classes. Use <code>with sharing</code> by default. The base <code>TriggerHandler</code> uses <code>inherited sharing</code>, so it takes on the subclass's sharing context.
+    </div>
+
+    <div class="warning">
+        <strong>Recursion:</strong> By default, each handler runs once per trigger operation per transaction. Set <code>this.allowRecursion = true</code> in the constructor only if re-entry is intentional.
+    </div>
+
+    <h2>4. Screen Flow Icons</h2>
+    <p>Four SVG icons are available as static resources for use in screen flows:</p>
+    <table>
+        <tr><th>Resource Name</th><th>Description</th><th>Use Case</th></tr>
+        <tr><td><code>Icon_Warning</code></td><td>Yellow warning triangle</td><td>Warning screens</td></tr>
+        <tr><td><code>Icon_Success</code></td><td>Green checkmark</td><td>Confirmation screens</td></tr>
+        <tr><td><code>Icon_Error</code></td><td>Red X circle</td><td>Error screens</td></tr>
+        <tr><td><code>Icon_Info</code></td><td>Blue info circle</td><td>Informational screens</td></tr>
+    </table>
+    <p>Reference in flows via formula: <code>{!$Resource.Icon_Warning}</code></p>
+
+    <h3>Standard Error Screen Pattern</h3>
+    <p>On every screen flow fault path:</p>
+    <ol>
+        <li>Add the <strong>Log Error</strong> action to capture the error.</li>
+        <li>Add an error screen with <code>Icon_Error</code> image and <code>{!$Setup.Error_Log_Settings__c.User_Facing_Error_Message__c}</code> as the message text.</li>
+    </ol>
+
+    <h2>5. Permission Sets</h2>
+    <table>
+        <tr><th>Permission Set</th><th>Access</th><th>Assign To</th></tr>
+        <tr><td>Error Log Admin</td><td>Full CRUD + View All on Error_Log__c</td><td>Admins, support team</td></tr>
+        <tr><td>Error Log Viewer</td><td>Read-only on Error_Log__c</td><td>Developers, analysts</td></tr>
+        <tr><td>Email Scrubber Admin</td><td>Email Scrubbing tab + EmailScrubberController + EmailScrubberBatch Apex access + <code>Run_Email_Scrubber</code> custom permission</td><td>Admins who run sandbox email scrubbing</td></tr>
+    </table>
+
+    <h2>7. Email Scrubber Tool</h2>
+    <p>The Email Scrubber is a sandbox utility that appends <code>.invalid</code> to email address fields across any configured object, preventing sandbox orgs from sending emails to real end users.</p>
+    <div class="warning">
+        <strong>Sandbox use only.</strong> This tool permanently modifies email field values for every record on the configured objects. Do not run it in production.
+    </div>
+
+    <h3>How It Works</h3>
+    <p>The tool is driven by <code>Email_Scrubber_Config__mdt</code> custom metadata records. Each active record identifies one object and one email field to scrub. When the scrubber runs, it launches an Apex batch job (<code>EmailScrubberBatch</code>) that processes each configured object in sequence, appending <code>.invalid</code> to any non-blank email value that does not already end in <code>.invalid</code>. Records are processed in batches of 200.</p>
+
+    <h3>Setup</h3>
+    <ol>
+        <li>Assign the <strong>Email Scrubber Admin</strong> permission set to any admin who needs access. This permission set includes the <code>Run_Email_Scrubber</code> custom permission, which is required server-side to save configurations and run the scrubber. Users without this permission will see an access denied banner and the New Config, Edit, and Run buttons will be disabled.</li>
+        <li>Open the <strong>Email Scrubbing</strong> tab in the Base Utilities app.</li>
+        <li>Click <strong>New Config</strong> and create a configuration record for each object/field pair you want to scrub. Set <strong>Active</strong> to on.</li>
+        <li>Click <strong>Run Email Scrubber</strong> to start the batch job.</li>
+    </ol>
+
+    <h3>Configuration Fields</h3>
+    <table>
+        <tr><th>Field</th><th>Description</th></tr>
+        <tr><td>Label</td><td>Human-readable name for the configuration (e.g., <em>Contact – Email</em>).</td></tr>
+        <tr><td>Developer Name</td><td>Auto-generated unique identifier. Cannot be changed after creation.</td></tr>
+        <tr><td>Object API Name</td><td>API name of the object whose email field should be scrubbed.</td></tr>
+        <tr><td>Email Field API Name</td><td>API name of the email-type field on that object.</td></tr>
+        <tr><td>Active</td><td>Only active configurations are included when the scrubber runs.</td></tr>
+    </table>
+
+    <h3>Running the Scrubber</h3>
+    <p>Click <strong>Run Email Scrubber</strong> on the Email Scrubbing tab. A status badge and progress counter appear while the job runs. You will receive a success or warning toast when the job completes. The tool polls for status every 3 seconds automatically — no need to refresh.</p>
+    <p>The job is idempotent: re-running it on a field that already ends in <code>.invalid</code> has no effect.</p>
+    <div class="warning">
+        <strong>Production org protection.</strong> If the tool detects a production org, a warning banner is displayed at the top of the component. Clicking <strong>Run Email Scrubber</strong> will then show a confirmation dialog before the batch starts. The job will not run unless the user explicitly confirms. If the org type cannot be determined, the tool defaults to treating the org as production.
+    </div>
+    <div class="warning">
+        <strong>Kill switch.</strong> To halt the scrubber without removing the permission set, check <code>Disable_Email_Scrubber__c</code> in Setup &gt; Custom Settings &gt; Automation Kill Switch. The batch will refuse to start and return a user-facing error.
+    </div>
+    <div class="warning">
+        <strong>Partial failure handling.</strong> The batch uses <code>Database.update(records, false)</code> so a single failing record does not roll back the entire chunk. Failures are captured and logged as a single <code>Error_Log__c</code> entry per batch chunk, not per record.
+    </div>
+
+    <h3>Adding or Editing Configurations</h3>
+    <p>Use the <strong>New Config</strong> button or the <strong>Edit</strong> button on any existing row. The object field is a searchable dropdown — type the object label to filter results. The email field dropdown automatically populates with email-type fields for the selected object once an object is chosen.</p>
+    <p>Configuration changes deploy via the Metadata API and take a few seconds to reflect. Click <strong>Refresh</strong> after saving a new config to see it in the table.</p>
+
+    <h3>Deactivating a Configuration</h3>
+    <p>Click <strong>Edit</strong> on the config row, toggle <strong>Active</strong> off, and save. Inactive configurations are visible in the table but are excluded from the next scrub run.</p>
+
+    <h2>6. Post-Deployment Steps</h2>
+    <ol>
+        <li>Schedule the retention batch: run <code>scripts/setup/schedule-retention-job.apex</code> in Developer Console.</li>
+        <li>Set org-default values for <code>Error_Log_Settings__c</code> (especially <code>User_Facing_Error_Message__c</code>).</li>
+        <li>Assign permission sets to appropriate users.</li>
+        <li>Verify by running: <code>ErrorLogger.log('TestClass', 'testMethod', 'Test error', '', '', 'ERROR', 'Apex');</code></li>
+    </ol>
+</body>
+</html>

@@ -1,0 +1,313 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionCalls>
+        <description>Calls an action that applies the academic term registration timeline to eligible academic term enrollments.</description>
+        <name>ApplyRegistrationTimeline</name>
+        <label>Apply Registration Timeline</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <actionName>eduadvncdacad__ApplyRegistrationTimeline</actionName>
+        <actionType>batchJobAction</actionType>
+        <faultConnector>
+            <targetReference>SetEmailVariablesBatchJobRunError</targetReference>
+        </faultConnector>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>criteria_batchJobId</name>
+            <value>
+                <elementReference>$Record.BatchJob</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>eduadvncdacad__ApplyRegistrationTimeline</nameSegment>
+        <offset>0</offset>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </actionCalls>
+    <actionCalls>
+        <description>Calls an action to get the list of batch job IDs based on the batch job definition, statuses, runtime parameters, and jobs count.</description>
+        <name>GetBatchJobIds</name>
+        <label>Get Batch Job IDs</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <actionName>getBatchJobIds</actionName>
+        <actionType>getBatchJobIds</actionType>
+        <connector>
+            <targetReference>HaveDuplicateBatchJobRequest</targetReference>
+        </connector>
+        <faultConnector>
+            <targetReference>SetEmailVariablesMissingBatchJobIdsError</targetReference>
+        </faultConnector>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>BatchJobDefinitionApiName</name>
+            <value>
+                <stringValue>eduadvanced_ApplyRegistrationTimeline</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>BatchJobStatus</name>
+            <value>
+                <elementReference>BatchJobStatuses</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>BatchJobsCount</name>
+            <value>
+                <numberValue>1.0</numberValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>RuntimeParameter1ApiName</name>
+            <value>
+                <stringValue>batchJobId</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>RuntimeParameter1Value</name>
+            <value>
+                <elementReference>$Record.BatchJob</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>getBatchJobIds</nameSegment>
+        <offset>0</offset>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </actionCalls>
+    <actionCalls>
+        <description>Calls an action that sends an email to the flow user when an error occurs.</description>
+        <name>SendEmail</name>
+        <label>Send Email</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <actionName>emailSimple</actionName>
+        <actionType>emailSimple</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>emailAddresses</name>
+            <value>
+                <elementReference>EmailAddress</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>composeEmailContent</name>
+            <value>
+                <stringValue>True</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailSubject</name>
+            <value>
+                <elementReference>ErrorEmailSubject</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailBody</name>
+            <value>
+                <elementReference>ErrorEmailBody</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>emailSimple</nameSegment>
+        <offset>0</offset>
+        <versionString>1.0.1</versionString>
+    </actionCalls>
+    <apiVersion>65.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <assignments>
+        <description>Sets the batch job status values (InProgress, Submitted, QueueingInProgress, and Queued) in the BatchJobStatuses collection variable.</description>
+        <name>SetBatchJobStatuses</name>
+        <label>Set Batch Job Statuses</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignmentItems>
+            <assignToReference>BatchJobStatuses</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <stringValue>InProgress</stringValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>BatchJobStatuses</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <stringValue>Submitted</stringValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>BatchJobStatuses</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <stringValue>QueueingInProgress</stringValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>BatchJobStatuses</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <stringValue>Queued</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>GetBatchJobIds</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <description>Sets the emailSubject and emailBody variables when an error occurs in the batch job.</description>
+        <name>SetEmailVariablesBatchJobRunError</name>
+        <label>Set Email Variables for Batch Job Run Error</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignmentItems>
+            <assignToReference>ErrorEmailSubject</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>We couldn&#39;t run the batch job</stringValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>ErrorEmailBody</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Hello, we couldn’t run the Apply Registration Timeline batch job. Try again later.</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <isGoTo>true</isGoTo>
+            <targetReference>SendEmail</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <description>Sets the emailSubject and emailBody variables when there’s a duplicate batch job request.</description>
+        <name>SetEmailVariablesDuplicateRequest</name>
+        <label>Set Email Variables for Duplicate Request</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignmentItems>
+            <assignToReference>ErrorEmailSubject</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>We found a duplicate batch job request</stringValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>ErrorEmailBody</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Hello, we didn’t run the Apply Registration Timeline batch job as the request already exists and is a duplicate.</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>SendEmail</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <description>Sets the emailSubject and emailBody variables when there’s an error getting the batch job IDs.</description>
+        <name>SetEmailVariablesMissingBatchJobIdsError</name>
+        <label>Set Email Variables for Missing Batch Job IDs Error</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignmentItems>
+            <assignToReference>ErrorEmailSubject</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Unable to find batch job IDs</stringValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>ErrorEmailBody</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Hello, we couldn&#39;t find the batch job IDs for applying the registration timeline. Try again later.</stringValue>
+            </value>
+        </assignmentItems>
+    </assignments>
+    <constants>
+        <description>Stores the email address of the flow user. Defaults to “example@email.com.invalid” when an email address isn’t available.</description>
+        <name>EmailAddress</name>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>example@email.com.invalid</stringValue>
+        </value>
+    </constants>
+    <decisions>
+        <description>Determines whether the batch job is a duplicate request by checking if the batch job ID exists in Outputs from Get Batch Job IDs.</description>
+        <name>HaveDuplicateBatchJobRequest</name>
+        <label>Have Duplicate Batch Job Request?</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <defaultConnector>
+            <targetReference>ApplyRegistrationTimeline</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>No (Default)</defaultConnectorLabel>
+        <rules>
+            <name>HasDuplicateBatchJobRequest</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>GetBatchJobIds.BatchJobIds</leftValueReference>
+                <operator>IsEmpty</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>SetEmailVariablesDuplicateRequest</targetReference>
+            </connector>
+            <label>Yes</label>
+        </rules>
+    </decisions>
+    <environments>Default</environments>
+    <interviewLabel>EDU Student Information: Run Timeline Batch {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>EDU Student Information: Run Timeline Batch</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <sourceTemplate>eduadvncdacad__RunRgstrTmlnApplnJob</sourceTemplate>
+    <start>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>SetBatchJobStatuses</targetReference>
+        </connector>
+        <flowRunAsUser>TriggeringUser</flowRunAsUser>
+        <object>AcadRgstrApplnEvent</object>
+        <triggerType>PlatformEvent</triggerType>
+    </start>
+    <status>Active</status>
+    <variables>
+        <description>Stores a collection of the batch job status values.</description>
+        <name>BatchJobStatuses</name>
+        <dataType>String</dataType>
+        <isCollection>true</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <description>Stores the text for the body of the error email.</description>
+        <name>ErrorEmailBody</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <description>Stores the text for the subject of the error email.</description>
+        <name>ErrorEmailSubject</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+</Flow>

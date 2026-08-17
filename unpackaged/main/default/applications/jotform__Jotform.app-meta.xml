@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomApplication xmlns="http://soap.sforce.com/2006/04/metadata">
+    <brand>
+        <headerColor>#0099FF</headerColor>
+        <logoVersion>1</logoVersion>
+        <shouldOverrideOrgTheme>true</shouldOverrideOrgTheme>
+    </brand>
+    <description>Powerful online forms and workflow automation for Salesforce</description>
+    <formFactors>Large</formFactors>
+    <isNavAutoTempTabsDisabled>false</isNavAutoTempTabsDisabled>
+    <isNavPersonalizationDisabled>false</isNavPersonalizationDisabled>
+    <isNavTabPersistenceDisabled>false</isNavTabPersistenceDisabled>
+    <isOmniPinnedViewEnabled>false</isOmniPinnedViewEnabled>
+    <label>Jotform</label>
+    <navType>Standard</navType>
+    <setupExperience>all</setupExperience>
+    <tabs>jotform__GettingStarted</tabs>
+    <tabs>jotform__Resources</tabs>
+    <tabs>jotform__MyForms</tabs>
+    <uiType>Lightning</uiType>
+</CustomApplication>

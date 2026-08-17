@@ -1,0 +1,331 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionCalls>
+        <name>PC_Vibe_Check</name>
+        <label>PC Vibe Check</label>
+        <locationX>138</locationX>
+        <locationY>566</locationY>
+        <actionName>PC_Vibe_Check</actionName>
+        <actionType>runDecisionMatrix</actionType>
+        <connector>
+            <targetReference>SetAssessmentQuestionResponseScore</targetReference>
+        </connector>
+        <faultConnector>
+            <targetReference>SendErrorEmailEvaluateAssessmentScoreFailed</targetReference>
+        </faultConnector>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>Question</name>
+            <value>
+                <elementReference>IterateOverAssessmentQuestionResponsesIterateOverAssessmentQuestionResponses.AssessmentQuestion.QuestionText</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>Option</name>
+            <value>
+                <elementReference>IterateOverAssessmentQuestionResponsesIterateOverAssessmentQuestionResponses.ResponseValue</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>PC_Vibe_Check</nameSegment>
+        <offset>0</offset>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </actionCalls>
+    <actionCalls>
+        <description>Calls an action that sends an email to the Salesforce admin when an error occurs while invoking the tool that evaluates the assessment score.</description>
+        <name>SendErrorEmailEvaluateAssessmentScoreFailed</name>
+        <label>Send Error Email</label>
+        <locationX>402</locationX>
+        <locationY>674</locationY>
+        <actionName>emailSimple</actionName>
+        <actionType>emailSimple</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>emailSubject</name>
+            <value>
+                <stringValue>Error: Update Assessment Question Response Score Flow Failed</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailBody</name>
+            <value>
+                <stringValue>An error occurred while invoking the tool that evaluates the assessment score.</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>recipientId</name>
+            <value>
+                <elementReference>$User.Email</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>emailSimple</nameSegment>
+        <offset>0</offset>
+    </actionCalls>
+    <actionCalls>
+        <description>Calls an action that sends an email to the Salesforce admin when an error occurs while getting assessment question response records.</description>
+        <name>SendErrorEmailFailedToGetRecords</name>
+        <label>Send Error Email</label>
+        <locationX>1058</locationX>
+        <locationY>350</locationY>
+        <actionName>emailSimple</actionName>
+        <actionType>emailSimple</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>emailSubject</name>
+            <value>
+                <stringValue>Error: Update Assessment Question Response Score Flow Failed</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailBody</name>
+            <value>
+                <stringValue>An error occurred while getting the assessment question response records.</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>recipientId</name>
+            <value>
+                <elementReference>$User.Email</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>emailSimple</nameSegment>
+        <offset>0</offset>
+    </actionCalls>
+    <actionCalls>
+        <description>Calls an action that sends an email to the Salesforce admin when an error occurs while updating the assessment question response records</description>
+        <name>SendErrorEmailFailedToUpdateRecords</name>
+        <label>Send Error Email</label>
+        <locationX>530</locationX>
+        <locationY>1106</locationY>
+        <actionName>emailSimple</actionName>
+        <actionType>emailSimple</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>emailSubject</name>
+            <value>
+                <stringValue>Error: Update Assessment Question Response Score Flow Failed</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailBody</name>
+            <value>
+                <stringValue>An error occurred while updating the assessment question response records.</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>recipientId</name>
+            <value>
+                <elementReference>$User.Email</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>emailSimple</nameSegment>
+        <offset>0</offset>
+    </actionCalls>
+    <apiVersion>60.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <assignments>
+        <description>Adds the record in assessmentQuestionResponse to assessmentQuestionResponseCollection.</description>
+        <name>AddAssessmentQuestionResponseToCollection</name>
+        <label>Add Assessment Question Response to Collection</label>
+        <locationX>138</locationX>
+        <locationY>782</locationY>
+        <assignmentItems>
+            <assignToReference>AssessmentQuestionResponseCollection</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>AssessmentQuestionResponse</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>IterateOverAssessmentQuestionResponsesIterateOverAssessmentQuestionResponses</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <description>Sets the score of the assessment question response record to the score returned by the tool, and sets the ID to the ID of the current item in the loop from IterateOverAssessmentQuestionResponses.</description>
+        <name>SetAssessmentQuestionResponseScore</name>
+        <label>Set Assessment Question Response Score</label>
+        <locationX>138</locationX>
+        <locationY>674</locationY>
+        <assignmentItems>
+            <assignToReference>AssessmentQuestionResponse.ResponseValueScore</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>PC_Vibe_Check.ResponseValueScore</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>AssessmentQuestionResponse.Id</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>IterateOverAssessmentQuestionResponsesIterateOverAssessmentQuestionResponses.Id</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>AddAssessmentQuestionResponseToCollection</targetReference>
+        </connector>
+    </assignments>
+    <decisions>
+        <description>Determines if AssessmentQuestionResponses is null.</description>
+        <name>HasAssessmentQuestionResponseRecords</name>
+        <label>Has Assessment Question Response Records?</label>
+        <locationX>422</locationX>
+        <locationY>350</locationY>
+        <defaultConnectorLabel>No</defaultConnectorLabel>
+        <rules>
+            <name>HasResponseRecords</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>GetAssessmentQuestionResponse</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>IterateOverAssessmentQuestionResponsesIterateOverAssessmentQuestionResponses</targetReference>
+            </connector>
+            <label>Yes</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>Determines if assessmentId is null.</description>
+        <name>IsAssessmentValid</name>
+        <label>Is Assessment Valid?</label>
+        <locationX>872</locationX>
+        <locationY>134</locationY>
+        <defaultConnectorLabel>No</defaultConnectorLabel>
+        <rules>
+            <name>Yes</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>assessmentId</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>GetAssessmentQuestionResponse</targetReference>
+            </connector>
+            <label>Yes</label>
+        </rules>
+    </decisions>
+    <environments>Default</environments>
+    <interviewLabel>PC Vibe Check {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>PC Vibe Check</label>
+    <loops>
+        <description>Repeats actions in a loop for each assessment question response record from GetAssessmentQuestionResponse.</description>
+        <name>IterateOverAssessmentQuestionResponsesIterateOverAssessmentQuestionResponses</name>
+        <label>Iterate Over Assessment Question Responses</label>
+        <locationX>50</locationX>
+        <locationY>458</locationY>
+        <collectionReference>assessmentQuestionResponses</collectionReference>
+        <iterationOrder>Asc</iterationOrder>
+        <nextValueConnector>
+            <targetReference>PC_Vibe_Check</targetReference>
+        </nextValueConnector>
+        <noMoreValuesConnector>
+            <targetReference>UpdateAssessmentQuestionResponseRecords</targetReference>
+        </noMoreValuesConnector>
+    </loops>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordLookups>
+        <description>Gets the assessment question response records with an assessment ID that matches the assessmentId. Stores the ID, AssessmentQuestionId, and ResponseValue fields from the results in the assessment question responses in assessmentQuestionResponseCollection.</description>
+        <name>GetAssessmentQuestionResponse</name>
+        <label>Get Assessment Question Response</label>
+        <locationX>422</locationX>
+        <locationY>242</locationY>
+        <assignNullValuesIfNoRecordsFound>true</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>HasAssessmentQuestionResponseRecords</targetReference>
+        </connector>
+        <faultConnector>
+            <targetReference>SendErrorEmailFailedToGetRecords</targetReference>
+        </faultConnector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>AssessmentId</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>assessmentId</elementReference>
+            </value>
+        </filters>
+        <object>AssessmentQuestionResponse</object>
+        <outputReference>assessmentQuestionResponses</outputReference>
+        <queriedFields>Id</queriedFields>
+        <queriedFields>AssessmentQuestionId</queriedFields>
+        <queriedFields>ResponseValue</queriedFields>
+    </recordLookups>
+    <recordUpdates>
+        <description>Updates the scores of all the assessment question response records in assessmentQuestionResponseCollection</description>
+        <name>UpdateAssessmentQuestionResponseRecords</name>
+        <label>Update Assessment Question Response Records</label>
+        <locationX>50</locationX>
+        <locationY>998</locationY>
+        <faultConnector>
+            <targetReference>SendErrorEmailFailedToUpdateRecords</targetReference>
+        </faultConnector>
+        <inputReference>AssessmentQuestionResponseCollection</inputReference>
+    </recordUpdates>
+    <sourceTemplate>discoveryframework__UpdtAsmtRespScor</sourceTemplate>
+    <start>
+        <locationX>746</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>IsAssessmentValid</targetReference>
+        </connector>
+    </start>
+    <status>Active</status>
+    <variables>
+        <description>Stores the ID of the assessment that’s passed into the flow.</description>
+        <name>assessmentId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+    <variables>
+        <description>Stores the assessment question response record that’s passed into the flow from GetAssessmentQuestionResponse.</description>
+        <name>AssessmentQuestionResponse</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <objectType>AssessmentQuestionResponse</objectType>
+    </variables>
+    <variables>
+        <description>Stores the assessment question response records that are passed into the flow.</description>
+        <name>AssessmentQuestionResponseCollection</name>
+        <dataType>SObject</dataType>
+        <isCollection>true</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <objectType>AssessmentQuestionResponse</objectType>
+    </variables>
+    <variables>
+        <description>Stores the assessment question response records with an ID that matches the assessment ID that&#39;s passed into the flow.</description>
+        <name>assessmentQuestionResponses</name>
+        <dataType>SObject</dataType>
+        <isCollection>true</isCollection>
+        <isInput>false</isInput>
+        <isOutput>true</isOutput>
+        <objectType>AssessmentQuestionResponse</objectType>
+    </variables>
+</Flow>

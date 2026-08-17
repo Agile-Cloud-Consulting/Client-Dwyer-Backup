@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StandardValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sorted>false</sorted>
+    <standardValue>
+        <fullName>Admission</fullName>
+        <default>false</default>
+        <label>Admission</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Academic</fullName>
+        <default>false</default>
+        <label>Academic</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Financial Aid</fullName>
+        <default>false</default>
+        <label>Financial Aid</label>
+    </standardValue>
+</StandardValueSet>

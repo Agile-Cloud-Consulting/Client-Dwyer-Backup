@@ -1,0 +1,233 @@
+<template>
+    <lightning-card title="Email Scrubber Tool" icon-name="utility:email">
+        <div class="slds-p-around_medium">
+
+            <!-- No permission banner -->
+            <template if:true={noPermission}>
+                <div class="slds-notify slds-notify_alert slds-alert_error slds-m-bottom_medium" role="alert">
+                    <lightning-icon
+                        icon-name="utility:error"
+                        alternative-text="Error"
+                        size="small"
+                        class="slds-m-right_x-small">
+                    </lightning-icon>
+                    <h2>
+                        <strong>Access denied.</strong>
+                        You do not have the Run Email Scrubber permission required to use this tool.
+                    </h2>
+                </div>
+            </template>
+
+            <!-- Production org warning -->
+            <template if:true={isProduction}>
+                <div class="slds-notify slds-notify_alert slds-alert_warning slds-m-bottom_medium" role="alert">
+                    <lightning-icon
+                        icon-name="utility:warning"
+                        alternative-text="Warning"
+                        size="small"
+                        class="slds-m-right_x-small">
+                    </lightning-icon>
+                    <h2>
+                        <strong>Production org detected.</strong>
+                        Running the Email Scrubber here will permanently modify real email data.
+                        You will be asked to confirm before the job starts.
+                    </h2>
+                </div>
+            </template>
+
+            <!-- Table header -->
+            <div class="slds-grid slds-grid_align-spread slds-m-bottom_x-small">
+                <p class="slds-text-title_caps">Configurations</p>
+                <lightning-button
+                    label="New Config"
+                    icon-name="utility:add"
+                    disabled={isNewDisabled}
+                    onclick={handleNew}>
+                </lightning-button>
+            </div>
+
+            <!-- Config table -->
+            <template if:true={configs.length}>
+                <table class="slds-table slds-table_cell-buffer slds-table_bordered slds-m-bottom_medium">
+                    <thead>
+                        <tr>
+                            <th>Label</th>
+                            <th>Object</th>
+                            <th>Email Field</th>
+                            <th>Active</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <template for:each={configs} for:item="cfg">
+                            <tr key={cfg.developerName}>
+                                <td>{cfg.label}</td>
+                                <td>{cfg.object}</td>
+                                <td>{cfg.field}</td>
+                                <td>{cfg.activeLabel}</td>
+                                <td>
+                                    <lightning-button
+                                        label="Edit"
+                                        variant="base"
+                                        data-developer-name={cfg.developerName}
+                                        disabled={isEditDisabled}
+                                        onclick={handleEdit}>
+                                    </lightning-button>
+                                </td>
+                            </tr>
+                        </template>
+                    </tbody>
+                </table>
+            </template>
+
+            <template if:false={configs.length}>
+                <p class="slds-text-color_weak slds-m-bottom_medium">
+                    No configurations found. Click "New Config" to add one.
+                </p>
+            </template>
+
+            <!-- Inline form -->
+            <template if:true={showForm}>
+                <div class="slds-box slds-m-bottom_medium">
+                    <p class="slds-text-title_caps slds-m-bottom_small">{formTitle}</p>
+
+                    <div class="slds-grid slds-gutters slds-wrap">
+
+                        <!-- Label -->
+                        <div class="slds-col slds-size_1-of-2 slds-m-bottom_x-small">
+                            <lightning-input
+                                label="Label"
+                                value={formLabel}
+                                required
+                                onchange={handleLabelChange}>
+                            </lightning-input>
+                        </div>
+
+                        <!-- Developer Name -->
+                        <div class="slds-col slds-size_1-of-2 slds-m-bottom_x-small">
+                            <lightning-input
+                                label="Developer Name"
+                                value={formDeveloperName}
+                                read-only={isEditing}
+                                required
+                                onchange={handleDeveloperNameChange}>
+                            </lightning-input>
+                        </div>
+
+                        <!-- Object search + combobox -->
+                        <div class="slds-col slds-size_1-of-2 slds-m-bottom_x-small">
+                            <div class="slds-form-element">
+                                <lightning-input
+                                    label="Search Objects"
+                                    placeholder="Type to search (e.g. Contact, Lead)..."
+                                    value={objectFilter}
+                                    onchange={handleObjectFilterChange}>
+                                </lightning-input>
+                                <template if:true={isSearchingObjects}>
+                                    <div class="slds-m-top_x-small slds-is-relative" style="height:1.5rem">
+                                        <lightning-spinner size="small" alternative-text="Searching..."></lightning-spinner>
+                                    </div>
+                                </template>
+                            </div>
+                            <lightning-combobox
+                                label="Object API Name"
+                                placeholder={objectPlaceholder}
+                                options={objectOptions}
+                                value={formObject}
+                                required
+                                class="slds-m-top_x-small"
+                                onchange={handleObjectChange}>
+                            </lightning-combobox>
+                        </div>
+
+                        <!-- Email field combobox -->
+                        <div class="slds-col slds-size_1-of-2 slds-m-bottom_x-small">
+                            <template if:true={isLoadingFields}>
+                                <div class="slds-m-top_large slds-is-relative" style="height:2rem">
+                                    <lightning-spinner size="small" alternative-text="Loading fields..."></lightning-spinner>
+                                </div>
+                            </template>
+                            <template if:false={isLoadingFields}>
+                                <lightning-combobox
+                                    label="Email Field API Name"
+                                    placeholder={fieldPlaceholder}
+                                    options={fieldOptions}
+                                    value={formField}
+                                    disabled={isFieldDisabled}
+                                    required
+                                    onchange={handleFieldChange}>
+                                </lightning-combobox>
+                            </template>
+                        </div>
+
+                        <!-- Active toggle -->
+                        <div class="slds-col slds-size_1-of-1 slds-m-bottom_x-small">
+                            <lightning-input
+                                type="toggle"
+                                label="Active"
+                                checked={formIsActive}
+                                onchange={handleActiveChange}>
+                            </lightning-input>
+                        </div>
+                    </div>
+
+                    <div class="slds-m-top_small">
+                        <lightning-button
+                            label="Save"
+                            variant="brand"
+                            disabled={isSaving}
+                            onclick={handleSave}>
+                        </lightning-button>
+                        <lightning-button
+                            label="Cancel"
+                            class="slds-m-left_x-small"
+                            disabled={isSaving}
+                            onclick={handleCancel}>
+                        </lightning-button>
+                    </div>
+                </div>
+            </template>
+
+            <!-- Run controls -->
+            <lightning-button
+                label="Run Email Scrubber"
+                variant="brand"
+                icon-name="utility:play"
+                disabled={isRunDisabled}
+                onclick={handleRun}>
+            </lightning-button>
+            <lightning-button
+                label="Refresh"
+                icon-name="utility:refresh"
+                class="slds-m-left_x-small"
+                onclick={handleRefresh}>
+            </lightning-button>
+
+            <!-- Job status -->
+            <template if:true={jobId}>
+                <div class="slds-m-top_medium">
+                    <lightning-badge label={statusLabel} class={statusClass}></lightning-badge>
+
+                    <template if:true={isRunning}>
+                        <div class="slds-m-top_small">
+                            <lightning-spinner alternative-text="Processing..." size="small"></lightning-spinner>
+                            <span class="slds-m-left_small">{progressText}</span>
+                        </div>
+                    </template>
+
+                    <template if:true={errorText}>
+                        <p class="slds-text-color_error slds-m-top_small">{errorText}</p>
+                    </template>
+                </div>
+            </template>
+
+            <!-- Error banner -->
+            <template if:true={errorMessage}>
+                <div class="slds-notify slds-notify_alert slds-alert_error slds-m-top_medium" role="alert">
+                    <span>{errorMessage}</span>
+                </div>
+            </template>
+
+        </div>
+    </lightning-card>
+</template>

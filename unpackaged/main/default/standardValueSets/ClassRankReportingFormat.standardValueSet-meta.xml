@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StandardValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sorted>false</sorted>
+    <standardValue>
+        <fullName>Exact</fullName>
+        <default>false</default>
+        <label>Exact</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Decile</fullName>
+        <default>false</default>
+        <label>Decile</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Quintile</fullName>
+        <default>false</default>
+        <label>Quintile</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Quartile</fullName>
+        <default>false</default>
+        <label>Quartile</label>
+    </standardValue>
+    <standardValue>
+        <fullName>None</fullName>
+        <default>false</default>
+        <label>None</label>
+    </standardValue>
+</StandardValueSet>

@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>63.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <assignments>
+        <description>Sets the recommendation status to Submitted and the Submitted Date to the current date and time for the Application Recommender from GetApplicationRecommender record variable.</description>
+        <name>SetStatusAndSubmittedDate</name>
+        <label>Set Status and Submitted Date</label>
+        <locationX>506</locationX>
+        <locationY>755</locationY>
+        <assignmentItems>
+            <assignToReference>GetApplicationRecommender.RecommendationStatus</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Submitted</stringValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>GetApplicationRecommender.SubmittedDate</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Flow.CurrentDateTime</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>UpdateApplicationRecommender</targetReference>
+        </connector>
+    </assignments>
+    <decisions>
+        <description>Determines if an application recommender record was found by checking if the Application Recommender from GetApplicationRecommender  record variable has a value for ID.</description>
+        <name>HaveApplicationRecommender</name>
+        <label>Have Application Recommender?</label>
+        <locationX>374</locationX>
+        <locationY>647</locationY>
+        <defaultConnector>
+            <targetReference>SetStatusAndSubmittedDate</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Yes (Default)</defaultConnectorLabel>
+        <rules>
+            <name>DoesNotHaveApplicationRecommender</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>GetApplicationRecommender.Id</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <label>No</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>Determines if a survey subject record was found by checking if the Survey Subject from GetSurveySubject record variable has a value for ID.</description>
+        <name>HaveSurveySubject</name>
+        <label>Have Survey Subject?</label>
+        <locationX>176</locationX>
+        <locationY>431</locationY>
+        <defaultConnector>
+            <targetReference>GetApplicationRecommender</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Yes (Default)</defaultConnectorLabel>
+        <rules>
+            <name>DoesNotHaveSurveySubject</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>GetSurveySubject.Id</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <label>No</label>
+        </rules>
+    </decisions>
+    <environments>Default</environments>
+    <interviewLabel>Admissions: Update Application Recommender and Recommendation with Survey Response {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Admissions: Update Application Recommender and Recommendation with Survey Response</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordCreates>
+        <description>Creates an application recommendation record, setting the application recommender ID and name from the Application Recommender from GetApplicationRecommender record variable, and  the temporary survey response to the ID of the triggering record.</description>
+        <name>CreateApplicationRecommendation</name>
+        <label>Create Application Recommendation</label>
+        <locationX>506</locationX>
+        <locationY>971</locationY>
+        <inputAssignments>
+            <field>ApplicationRecommenderId</field>
+            <value>
+                <elementReference>GetApplicationRecommender.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Name</field>
+            <value>
+                <elementReference>GetApplicationRecommender.Name</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>SurveyResponseId</field>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <object>ApplicationRecommendation</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordCreates>
+    <recordLookups>
+        <description>Gets the application recommender record with a survey subject matching the ID of the record from the Survey Subject from GetSurveySubject variable. Stores the result in the Application Recommender from GetApplicationRecommender record variable.</description>
+        <name>GetApplicationRecommender</name>
+        <label>Get Application Recommender</label>
+        <locationX>374</locationX>
+        <locationY>539</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>HaveApplicationRecommender</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>SurveySubject</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>GetSurveySubject.Id</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>ApplicationRecommender</object>
+        <sortField>Id</sortField>
+        <sortOrder>Desc</sortOrder>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <description>Gets the survey subject record with a survey invitation ID matching the invitation ID of the triggering record and a subject entity type of IndividualApplication. Stores the result in the Survey Subject from GetSurveySubject record variable.</description>
+        <name>GetSurveySubject</name>
+        <label>Get Survey Subject</label>
+        <locationX>176</locationX>
+        <locationY>323</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>HaveSurveySubject</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>SurveyInvitationId</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.InvitationId</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>SubjectEntityType</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>IndividualApplication</stringValue>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>SurveySubject</object>
+        <sortField>Id</sortField>
+        <sortOrder>Desc</sortOrder>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordUpdates>
+        <description>Updates the application recommender record.</description>
+        <name>UpdateApplicationRecommender</name>
+        <label>Update Application Recommender</label>
+        <locationX>506</locationX>
+        <locationY>863</locationY>
+        <connector>
+            <targetReference>CreateApplicationRecommendation</targetReference>
+        </connector>
+        <inputReference>GetApplicationRecommender</inputReference>
+    </recordUpdates>
+    <sourceTemplate>eduadmissions__UpdtRcmdrRcmdSrvyResp</sourceTemplate>
+    <start>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>GetSurveySubject</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Status</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Completed</stringValue>
+            </value>
+        </filters>
+        <object>SurveyResponse</object>
+        <recordTriggerType>Create</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+</Flow>

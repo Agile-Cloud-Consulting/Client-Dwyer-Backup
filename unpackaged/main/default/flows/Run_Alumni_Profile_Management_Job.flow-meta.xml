@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>60.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <constants>
+        <description>Designates Alumni Portal as the constant usage type.</description>
+        <name>AlumniUsageType</name>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>Alumni</stringValue>
+        </value>
+    </constants>
+    <environments>Default</environments>
+    <interviewLabel>Run Alumni Profile Management Job {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Run Alumni Profile Management Job</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <sourceTemplate>edualumni__EduRunAlmnProfileMgmtJob</sourceTemplate>
+    <start>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Run_Alumni_Profile_Management_Job</targetReference>
+        </connector>
+        <schedule>
+            <frequency>Weekly</frequency>
+            <startDate>2023-05-29</startDate>
+            <startTime>00:00:00.000Z</startTime>
+        </schedule>
+        <triggerType>Scheduled</triggerType>
+    </start>
+    <status>Active</status>
+    <subflows>
+        <description>Invokes the Alumni Profile Management Job flow.</description>
+        <name>Run_Alumni_Profile_Management_Job</name>
+        <label>Run Alumni Profile Management Job</label>
+        <locationX>176</locationX>
+        <locationY>252</locationY>
+        <flowName>edualumni__EduRunProfileManagementJob</flowName>
+        <inputAssignments>
+            <name>profileUsageType</name>
+            <value>
+                <elementReference>AlumniUsageType</elementReference>
+            </value>
+        </inputAssignments>
+    </subflows>
+</Flow>

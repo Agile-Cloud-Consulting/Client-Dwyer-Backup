@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CanSelfSchedule</fullName>
+    <inlineHelpText>If the Case Team isn&#39;t assigned to the learner&#39;s case, allow the learner to schedule appointments.</inlineHelpText>
+    <trackHistory>false</trackHistory>
+</CustomField>

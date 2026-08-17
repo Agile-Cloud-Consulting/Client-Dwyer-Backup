@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionCalls>
+        <description>Calls an action that creates or updates a contact point address that bidirectionally synchronizes with the corresponding address from the account.</description>
+        <name>SyncAcctAddressWithContactPointAddress</name>
+        <label>Sync Account Address with Contact Point Address</label>
+        <locationX>176</locationX>
+        <locationY>431</locationY>
+        <actionName>syncAccountAndContactPointAddr</actionName>
+        <actionType>syncAccountAndContactPointAddr</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>newAccounts</name>
+            <value>
+                <elementReference>newAccountCollection</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>oldAccounts</name>
+            <value>
+                <elementReference>oldAccountCollection</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>syncAccountAndContactPointAddr</nameSegment>
+        <offset>0</offset>
+    </actionCalls>
+    <apiVersion>62.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <assignments>
+        <description>Adds the triggering account and the prior values of triggering account to the newAccountCollection and oldAccountCollection variables respectively.</description>
+        <name>AddNewAndOldAccountsToCollections</name>
+        <label>Add New and Old Accounts to Collections</label>
+        <locationX>176</locationX>
+        <locationY>323</locationY>
+        <assignmentItems>
+            <assignToReference>newAccountCollection</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>$Record</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>oldAccountCollection</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>$Record__Prior</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>SyncAcctAddressWithContactPointAddress</targetReference>
+        </connector>
+    </assignments>
+    <environments>Default</environments>
+    <interviewLabel>SyncAccountAddressClone {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>SyncAccountAddressClone</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <sourceTemplate>cpauto__SyncAcctContactPointAddress</sourceTemplate>
+    <start>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>AddNewAndOldAccountsToCollections</targetReference>
+        </connector>
+        <filterFormula>OR({!$Record.PersonMailingStreet} != {!$Record__Prior.PersonMailingStreet},
+ {!$Record.PersonMailingCity} != {!$Record__Prior.PersonMailingCity},
+ {!$Record.PersonMailingState} != {!$Record__Prior.PersonMailingState},
+ {!$Record.PersonMailingPostalCode} != {!$Record__Prior.PersonMailingPostalCode},
+ {!$Record.PersonMailingCountry} != {!$Record__Prior.PersonMailingCountry})</filterFormula>
+        <object>Account</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+    <variables>
+        <description>Stores the collection of new account records for address synchronization.</description>
+        <name>newAccountCollection</name>
+        <dataType>SObject</dataType>
+        <isCollection>true</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <objectType>Account</objectType>
+    </variables>
+    <variables>
+        <description>Stores the collection of old account records for address synchronization.</description>
+        <name>oldAccountCollection</name>
+        <dataType>SObject</dataType>
+        <isCollection>true</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <objectType>Account</objectType>
+    </variables>
+</Flow>

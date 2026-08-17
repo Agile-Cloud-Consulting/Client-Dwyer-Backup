@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StandardValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sorted>false</sorted>
+    <standardValue>
+        <fullName>New</fullName>
+        <default>false</default>
+        <label>New</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Actionized - On Track</fullName>
+        <default>false</default>
+        <label>Actionized - On Track</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Actionized - Lagging</fullName>
+        <default>false</default>
+        <label>Actionized - Lagging</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Complete</fullName>
+        <default>false</default>
+        <label>Complete</label>
+    </standardValue>
+</StandardValueSet>

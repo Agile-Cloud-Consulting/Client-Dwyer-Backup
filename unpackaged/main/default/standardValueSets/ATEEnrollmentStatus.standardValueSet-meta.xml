@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StandardValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sorted>false</sorted>
+    <standardValue>
+        <fullName>Active</fullName>
+        <default>false</default>
+        <label>Active</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Dropout</fullName>
+        <default>false</default>
+        <label>Dropout</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Expelled</fullName>
+        <default>false</default>
+        <label>Expelled</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Graduated</fullName>
+        <default>false</default>
+        <label>Graduated</label>
+    </standardValue>
+    <standardValue>
+        <fullName>No show</fullName>
+        <default>false</default>
+        <label>No show</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Other</fullName>
+        <default>false</default>
+        <label>Other</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Transferred</fullName>
+        <default>false</default>
+        <label>Transferred</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Withdrawn</fullName>
+        <default>false</default>
+        <label>Withdrawn</label>
+    </standardValue>
+</StandardValueSet>

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StandardValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sorted>false</sorted>
+    <standardValue>
+        <fullName>Semester</fullName>
+        <default>false</default>
+        <label>Semester</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Trimester</fullName>
+        <default>false</default>
+        <label>Trimester</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Quarter</fullName>
+        <default>false</default>
+        <label>Quarter</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Term 1</fullName>
+        <default>false</default>
+        <label>Term 1</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Term 2</fullName>
+        <default>false</default>
+        <label>Term 2</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Term 3</fullName>
+        <default>false</default>
+        <label>Term 3</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Term 4</fullName>
+        <default>false</default>
+        <label>Term 4</label>
+    </standardValue>
+    <standardValue>
+        <fullName>First Semester</fullName>
+        <default>false</default>
+        <label>First Semester</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Second Semester</fullName>
+        <default>false</default>
+        <label>Second Semester</label>
+    </standardValue>
+    <standardValue>
+        <fullName>MiniTerm</fullName>
+        <default>false</default>
+        <label>MiniTerm</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Others</fullName>
+        <default>false</default>
+        <label>Others</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Mini Term</fullName>
+        <default>false</default>
+        <label>Mini Term</label>
+    </standardValue>
+</StandardValueSet>

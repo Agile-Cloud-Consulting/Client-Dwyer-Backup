@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- boolean to determine whether this is this a default filter --></help>
+        <label><!-- Default Filter --></label>
+        <name>pi__defaultFilter__c</name>
+    </CustomFieldTranslation>

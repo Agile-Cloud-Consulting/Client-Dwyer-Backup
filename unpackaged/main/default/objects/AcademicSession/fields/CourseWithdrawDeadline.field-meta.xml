@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CourseWithdrawDeadline</fullName>
+    <inlineHelpText>The date when withdrawal from a course is recorded on the student&#39;s academic record.</inlineHelpText>
+    <trackHistory>false</trackHistory>
+</CustomField>

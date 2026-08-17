@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>All_ApplicationRenderMethods</fullName>
+    <columns>Name</columns>
+    <columns>MethodType</columns>
+    <columns>MethodName</columns>
+    <filterScope>Everything</filterScope>
+    <label>All Application Render Methods</label>
+</ListView>

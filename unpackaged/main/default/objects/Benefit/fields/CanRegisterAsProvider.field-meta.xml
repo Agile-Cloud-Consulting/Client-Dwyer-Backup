@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CanRegisterAsProvider</fullName>
+    <inlineHelpText>Indicates whether a user can self-register as a provider of the benefit (true) or not (false) on an Experience Cloud site.</inlineHelpText>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+</CustomField>

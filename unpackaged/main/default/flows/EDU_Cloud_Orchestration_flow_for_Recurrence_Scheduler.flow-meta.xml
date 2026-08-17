@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionCalls>
+        <name>Recurrence_Scheduler_batch_job</name>
+        <label>Recurrence Scheduler batch job</label>
+        <locationX>176</locationX>
+        <locationY>298</locationY>
+        <actionName>runtime_industries_recurrence__RecurrenceSchedulerFlowTrigger</actionName>
+        <actionType>batchJobAction</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>criteria_Current_Date</name>
+            <value>
+                <elementReference>ExecutionDate</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>runtime_industries_recurrence__RecurrenceSchedulerFlowTrigger</nameSegment>
+        <offset>0</offset>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </actionCalls>
+    <apiVersion>62.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <environments>Default</environments>
+    <formulas>
+        <description>Gets the date two days before current date</description>
+        <name>ExecutionDate</name>
+        <dataType>Date</dataType>
+        <expression>TODAY()+2</expression>
+    </formulas>
+    <interviewLabel>EDU Cloud: Orchestration flow for Recurrence Scheduler {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>EDU Cloud: Orchestration flow for Recurrence Scheduler</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>FREE_FORM_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <sourceTemplate>runtime_industries_recurrence__Orch</sourceTemplate>
+    <start>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Recurrence_Scheduler_batch_job</targetReference>
+        </connector>
+        <schedule>
+            <frequency>Daily</frequency>
+            <startDate>2022-03-01</startDate>
+            <startTime>00:00:00.000Z</startTime>
+        </schedule>
+        <triggerType>Scheduled</triggerType>
+    </start>
+    <status>Active</status>
+</Flow>

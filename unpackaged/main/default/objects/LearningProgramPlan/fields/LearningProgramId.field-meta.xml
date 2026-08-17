@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>LearningProgramId</fullName>
+    <inlineHelpText>The Learning Program that&#39;s related to the Learning Program Plan.</inlineHelpText>
+    <trackHistory>false</trackHistory>
+    <type>MasterDetail</type>
+</CustomField>

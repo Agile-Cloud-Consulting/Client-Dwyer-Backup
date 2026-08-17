@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <label><!-- Account Type --></label>
+        <name>jotform__AccountType__c</name>
+        <picklistValues>
+            <masterLabel>ENTERPRISE</masterLabel>
+            <translation><!-- ENTERPRISE --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>REGULAR</masterLabel>
+            <translation><!-- REGULAR --></translation>
+        </picklistValues>
+    </CustomFieldTranslation>

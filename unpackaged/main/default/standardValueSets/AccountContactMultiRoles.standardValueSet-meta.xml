@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StandardValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sorted>false</sorted>
+    <standardValue>
+        <fullName>Education Decision Maker</fullName>
+        <default>false</default>
+        <label>Education Decision Maker</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Spouse</fullName>
+        <default>false</default>
+        <label>Spouse</label>
+    </standardValue>
+</StandardValueSet>

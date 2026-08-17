@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>TransactionDay</fullName>
+    <inlineHelpText>Specifies the day of the month to create gift transaction in the future for a monthly transaction period. If you select the day as 29 or 30, the gift transaction will be created on the last day for months that don&#39;t have that many days.</inlineHelpText>
+    <trackHistory>false</trackHistory>
+</CustomField>

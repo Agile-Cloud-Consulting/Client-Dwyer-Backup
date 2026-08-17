@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>DynamicLink</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>DynamicLinks</value>
+    </caseValues>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <layouts>
+        <layout>Community Page</layout>
+        <sections>
+            <label><!-- Fields --></label>
+            <section>Fields</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>InAppDetailsPage Layout</layout>
+        <sections>
+            <label><!-- Fields --></label>
+            <section>Fields</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>InAppPopup Layout</layout>
+        <sections>
+            <label><!-- Fields --></label>
+            <section>Fields</section>
+        </sections>
+    </layouts>
+    <recordTypes>
+        <label><!-- App API Name Page --></label>
+        <name>APINamePage</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- App Home Page --></label>
+        <name>AppPage</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Community Page --></label>
+        <name>CommunityPage</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- DPE Record Page --></label>
+        <name>DPERecordPage</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Flow Record Page --></label>
+        <name>FlowRecordPage</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- InApp Details Page --></label>
+        <name>InAppDetailsPage</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- InApp Popup --></label>
+        <name>InAppPopup</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- App Named Page --></label>
+        <name>NamedPage</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Object List Page --></label>
+        <name>ObjectPage</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Record Page --></label>
+        <name>RecordPage</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Record Relationship Page --></label>
+        <name>RecordRelationshipPage</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Setup Page --></label>
+        <name>SetupPage</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Survey Record Page --></label>
+        <name>SurveyRecordPage</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Web Link Page --></label>
+        <name>WebPage</name>
+    </recordTypes>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

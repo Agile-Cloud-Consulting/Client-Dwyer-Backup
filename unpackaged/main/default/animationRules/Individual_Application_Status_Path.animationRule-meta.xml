@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AnimationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <animationFrequency>sometimes</animationFrequency>
+    <developerName>Individual_Application_Status_Path</developerName>
+    <isActive>true</isActive>
+    <masterLabel>Individual Application Status Path</masterLabel>
+    <recordTypeContext>Custom</recordTypeContext>
+    <recordTypeName>Admissions</recordTypeName>
+    <sobjectType>IndividualApplication</sobjectType>
+    <targetField>Status</targetField>
+    <targetFieldChangeToValues>Ready For Decision,Application Decision</targetFieldChangeToValues>
+</AnimationRule>

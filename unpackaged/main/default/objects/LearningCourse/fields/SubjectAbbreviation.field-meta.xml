@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>SubjectAbbreviation</fullName>
+    <inlineHelpText>Abbreviation of the Academic Subject for the course of study. For example,
+        MAT = Mathematics.</inlineHelpText>
+    <trackHistory>false</trackHistory>
+</CustomField>

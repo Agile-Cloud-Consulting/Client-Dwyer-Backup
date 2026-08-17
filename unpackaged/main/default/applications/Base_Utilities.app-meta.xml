@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomApplication xmlns="http://soap.sforce.com/2006/04/metadata">
+    <defaultLandingTab>Base_Utilities_Documentation</defaultLandingTab>
+    <formFactors>Large</formFactors>
+    <isNavAutoTempTabsDisabled>false</isNavAutoTempTabsDisabled>
+    <isNavPersonalizationDisabled>false</isNavPersonalizationDisabled>
+    <isNavTabPersistenceDisabled>false</isNavTabPersistenceDisabled>
+    <isOmniPinnedViewEnabled>false</isOmniPinnedViewEnabled>
+    <label>Base Utilities</label>
+    <navType>Standard</navType>
+    <tabs>Error_Log__c</tabs>
+    <tabs>Email_Scrubbing</tabs>
+    <tabs>Base_Utilities_Documentation</tabs>
+    <uiType>Lightning</uiType>
+</CustomApplication>

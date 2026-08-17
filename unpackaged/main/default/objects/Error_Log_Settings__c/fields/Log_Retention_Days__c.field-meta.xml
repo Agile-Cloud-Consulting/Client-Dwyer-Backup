@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Log_Retention_Days__c</fullName>
+    <defaultValue>90</defaultValue>
+    <description>Number of days to retain error log records before the retention batch deletes them.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Error logs older than this many days are deleted by the retention batch job.</inlineHelpText>
+    <label>Log Retention Days</label>
+    <precision>4</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

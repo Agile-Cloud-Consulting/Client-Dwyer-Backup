@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Level_of_Relationship__c</fullName>
+    <label>Level of Relationship</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>New</fullName>
+                <default>false</default>
+                <label>New</label>
+            </value>
+            <value>
+                <fullName>Emerging</fullName>
+                <default>false</default>
+                <label>Emerging</label>
+            </value>
+            <value>
+                <fullName>Established</fullName>
+                <default>false</default>
+                <label>Established</label>
+            </value>
+            <value>
+                <fullName>Deep Partnership</fullName>
+                <default>false</default>
+                <label>Deep Partnership</label>
+            </value>
+            <value>
+                <fullName>Pause</fullName>
+                <default>false</default>
+                <label>Pause</label>
+            </value>
+            <value>
+                <fullName>No Longer DWD compliant</fullName>
+                <default>false</default>
+                <label>No Longer DWD compliant</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ExamEndDate</fullName>
+    <inlineHelpText>The date when exams for the Academic Session end.</inlineHelpText>
+    <trackHistory>false</trackHistory>
+</CustomField>

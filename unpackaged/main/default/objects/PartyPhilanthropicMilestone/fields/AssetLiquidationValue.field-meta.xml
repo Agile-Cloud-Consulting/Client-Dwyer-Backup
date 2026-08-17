@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>AssetLiquidationValue</fullName>
+    <inlineHelpText>The value of the party&#39;s assets that can be liquidated within a specified time period.</inlineHelpText>
+    <trackHistory>false</trackHistory>
+</CustomField>
