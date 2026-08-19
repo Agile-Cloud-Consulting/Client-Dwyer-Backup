@@ -6662,6 +6662,9 @@
         <layout>FlowRecord-Flow Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
+        <layout>Geographic_Mapping__mdt-Geographic Mapping Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>Global-Global Layout</layout>
     </layoutAssignments>
     <layoutAssignments>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Sensitive__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Flags this activity as containing a sensitive interaction (e.g. donation amounts, specific negotiations). The activity stays visible on the timeline; the narrative in Sensitive_Details__c is FLS-restricted to authorized viewers only.</description>
+    <label>Sensitive</label>
+    <type>Checkbox</type>
+</CustomField>

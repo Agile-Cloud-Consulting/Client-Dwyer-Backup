@@ -6735,6 +6735,9 @@
         <layout>FlowRecord-Flow Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
+        <layout>Geographic_Mapping__mdt-Geographic Mapping Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>InterestTag-Interest Tag Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
