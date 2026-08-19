@@ -1,0 +1,456 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>60.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <assignments>
+        <description>Sets the following record variable fields. 
+The Account ID field of CurrentAccountShare is set to the Account ID of the Contact ID from the associated Program Enrollment record.
+The Account Access field of CurrentAccountShare is set to Read.
+The Case Access field of CurrentAccountShare is set to None.
+The Contact Access field of CurrentAccountShare is set to Read.
+The Row Cause field of CurrentAccount Share is set to Manual.
+The User/Group ID field of CurrentAccountShare is set to the User ID of the current item from the loop IterateOverMentorUsers.
+The Opportunity Access field of CurrentAccountShare is set to None.</description>
+        <name>CreateAndAssignMenteeAccountShare</name>
+        <label>Create and Assign Mentee Account Share</label>
+        <locationX>138</locationX>
+        <locationY>1271</locationY>
+        <assignmentItems>
+            <assignToReference>CurrentAccountShare.AccountId</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.ProgramEnrollment.Contact.AccountId</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>CurrentAccountShare.AccountAccessLevel</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Read</stringValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>CurrentAccountShare.CaseAccessLevel</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>None</stringValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>CurrentAccountShare.ContactAccessLevel</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Read</stringValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>CurrentAccountShare.RowCause</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Manual</stringValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>CurrentAccountShare.UserOrGroupId</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>IterateOverMentorUsers.Id</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>CurrentAccountShare.OpportunityAccessLevel</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>None</stringValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>AccountSharesToInsert</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>CurrentAccountShare</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>CreateAndAssignMenteeProgramEnrlShare</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <description>Creates the program enrollment sharing record for the mentee, adds it to the list to insert, and sets the following record variable fields. 
+The Parent ID field of CurrentProgramEnrollmentShare is set to the Program Enrollment ID of the associated record.
+The Custom Object Access field of CurrentProgramEnrollmentShare is set to Read.
+The Row Cause field of CurrentProgramEnrollmentShare is set to Manual.
+The User/Group ID field of CurrentProgramEnrollmentShare is set to the User ID of the current item from the loop IterateOverMentorUsers.</description>
+        <name>CreateAndAssignMenteeProgramEnrlShare</name>
+        <label>Create and Assign Mentee Program Enrollment Share</label>
+        <locationX>138</locationX>
+        <locationY>1379</locationY>
+        <assignmentItems>
+            <assignToReference>CurrentProgramEnrollmentShare.ParentId</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.ProgramEnrollmentId</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>CurrentProgramEnrollmentShare.AccessLevel</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Read</stringValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>CurrentProgramEnrollmentShare.RowCause</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Manual</stringValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>CurrentProgramEnrollmentShare.UserOrGroupId</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>IterateOverMentorUsers.Id</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>ProgramEnrollmentSharesToInsert</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>CurrentProgramEnrollmentShare</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>IterateOverMentorUsers</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <description>Sets the following record variable fields. 
+The Account ID field of CurrentAccountShare is set to the Account ID of the associated Contact ID.
+The Account Access field of CurrentAccountShare is set to Read.
+The Case Access field of CurrentAccountShare is set to None.
+The Contact Access field of CurrentAccountShare is set to Read.
+The Row Cause field of CurrentAccountShare is set to Manual.
+The User/Group ID field of CurrentAccountShare is set to the User ID of the current item from the loop Stage_Sharing_Records_for_Mentee.
+The Opportunity Access field of CurrentAccountShare is set to None.</description>
+        <name>CreateAndAssignMentorAccountShare</name>
+        <label>Create and Assign Mentor Account Share</label>
+        <locationX>138</locationX>
+        <locationY>971</locationY>
+        <assignmentItems>
+            <assignToReference>CurrentAccountShare.AccountId</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.Provider.AccountId</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>CurrentAccountShare.AccountAccessLevel</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Read</stringValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>CurrentAccountShare.CaseAccessLevel</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>None</stringValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>CurrentAccountShare.ContactAccessLevel</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Read</stringValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>CurrentAccountShare.RowCause</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Manual</stringValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>CurrentAccountShare.UserOrGroupId</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>IterateOverMenteeUsers.Id</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>CurrentAccountShare.OpportunityAccessLevel</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>None</stringValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>AccountSharesToInsert</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>CurrentAccountShare</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>IterateOverMenteeUsers</targetReference>
+        </connector>
+    </assignments>
+    <decisions>
+        <description>Determines whether the record for the program enrollment contact exists for the benefit assignment.</description>
+        <name>DoesProgramEnrollmentRecordExist</name>
+        <label>Does Program Enrollment Record Exist?</label>
+        <locationX>611</locationX>
+        <locationY>323</locationY>
+        <defaultConnectorLabel>No (Default)</defaultConnectorLabel>
+        <rules>
+            <name>ProgramEnrollmentRecordExists</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.ProgramEnrollment.ContactId</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>GetMenteeUsers</targetReference>
+            </connector>
+            <label>Yes</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>Determines if the mentee has Experience Cloud User records.</description>
+        <name>DoMenteeUsersExist</name>
+        <label>Do Mentee Users Exist?</label>
+        <locationX>380</locationX>
+        <locationY>539</locationY>
+        <defaultConnectorLabel>No (Default)</defaultConnectorLabel>
+        <rules>
+            <name>HasMenteeUsers</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>GetMenteeUsers</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>GetMentorUsers</targetReference>
+            </connector>
+            <label>Yes</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>Determines whether the mentor has Experience Cloud user records.</description>
+        <name>DoMentorUsersExist</name>
+        <label>Do Mentor Users Exist?</label>
+        <locationX>182</locationX>
+        <locationY>755</locationY>
+        <defaultConnectorLabel>No (Default)</defaultConnectorLabel>
+        <rules>
+            <name>HasMentorUsers</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>GetMentorUsers</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>IterateOverMenteeUsers</targetReference>
+            </connector>
+            <label>Yes</label>
+        </rules>
+    </decisions>
+    <environments>Default</environments>
+    <interviewLabel>Mentoring: Share Mentoring Records {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Mentoring: Share Mentoring Records</label>
+    <loops>
+        <description>Repeats an action for each mentee user record in the GetMenteeUsers record collection variable.</description>
+        <name>IterateOverMenteeUsers</name>
+        <label>Iterate Over Mentee Users</label>
+        <locationX>50</locationX>
+        <locationY>863</locationY>
+        <collectionReference>GetMenteeUsers</collectionReference>
+        <iterationOrder>Asc</iterationOrder>
+        <nextValueConnector>
+            <targetReference>CreateAndAssignMentorAccountShare</targetReference>
+        </nextValueConnector>
+        <noMoreValuesConnector>
+            <targetReference>IterateOverMentorUsers</targetReference>
+        </noMoreValuesConnector>
+    </loops>
+    <loops>
+        <description>Repeats an action for each mentor user record in the GetMentorUsers record collection variable.</description>
+        <name>IterateOverMentorUsers</name>
+        <label>Iterate Over Mentor Users</label>
+        <locationX>50</locationX>
+        <locationY>1163</locationY>
+        <collectionReference>GetMentorUsers</collectionReference>
+        <iterationOrder>Asc</iterationOrder>
+        <nextValueConnector>
+            <targetReference>CreateAndAssignMenteeAccountShare</targetReference>
+        </nextValueConnector>
+        <noMoreValuesConnector>
+            <targetReference>CreateAccountShares</targetReference>
+        </noMoreValuesConnector>
+    </loops>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordCreates>
+        <description>Creates the account share records from the AccountSharesToInsert variable.</description>
+        <name>CreateAccountShares</name>
+        <label>Create Account Shares</label>
+        <locationX>50</locationX>
+        <locationY>1571</locationY>
+        <connector>
+            <targetReference>CreateProgramEnrollmentShares</targetReference>
+        </connector>
+        <inputReference>AccountSharesToInsert</inputReference>
+    </recordCreates>
+    <recordCreates>
+        <description>Creates the program enrollment share records from the ProgramEnrollmentSharesToInsert variable.</description>
+        <name>CreateProgramEnrollmentShares</name>
+        <label>Create Program Enrollment Shares</label>
+        <locationX>50</locationX>
+        <locationY>1679</locationY>
+        <inputReference>ProgramEnrollmentSharesToInsert</inputReference>
+    </recordCreates>
+    <recordLookups>
+        <description>Gets the individual active user records with a ContactId that matches the ProgramEnrollmentId of the benefit assignment record that triggered the flow. Stores the results in the Users from GetMenteeUsers record collection variable.</description>
+        <name>GetMenteeUsers</name>
+        <label>Get Mentee Users</label>
+        <locationX>380</locationX>
+        <locationY>431</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>DoMenteeUsersExist</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>ContactId</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.ProgramEnrollment.ContactId</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>IsActive</field>
+            <operator>EqualTo</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </filters>
+        <getFirstRecordOnly>false</getFirstRecordOnly>
+        <object>User</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <description>Gets the individual active user records with a ContactId that matches the ContactId of the benefit assignment record that triggered the flow. Stores the results in the Users from GetMentorUsers record collection variable.</description>
+        <name>GetMentorUsers</name>
+        <label>Get Mentor Users</label>
+        <locationX>182</locationX>
+        <locationY>647</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>DoMentorUsersExist</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>ContactId</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.ProviderId</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>IsActive</field>
+            <operator>EqualTo</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </filters>
+        <getFirstRecordOnly>false</getFirstRecordOnly>
+        <object>User</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <sourceTemplate>mentoring__ShareMentoringRecords</sourceTemplate>
+    <start>
+        <locationX>485</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>DoesProgramEnrollmentRecordExist</targetReference>
+        </connector>
+        <doesRequireRecordChangedToMeetCriteria>true</doesRequireRecordChangedToMeetCriteria>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>ProviderId</field>
+            <operator>IsNull</operator>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </filters>
+        <filters>
+            <field>ProgramEnrollmentId</field>
+            <operator>IsNull</operator>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </filters>
+        <object>BenefitAssignment</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+    <variables>
+        <description>Stores a collection of the account share records to add to the list to insert.</description>
+        <name>AccountSharesToInsert</name>
+        <dataType>SObject</dataType>
+        <isCollection>true</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <objectType>AccountShare</objectType>
+    </variables>
+    <variables>
+        <description>Stores the account share record currently being handled by the loop.</description>
+        <name>CurrentAccountShare</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <objectType>AccountShare</objectType>
+    </variables>
+    <variables>
+        <description>Stores the current Program Enrolment Share record being handled by the loop.</description>
+        <name>CurrentProgramEnrollmentShare</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <objectType>ProgramEnrollmentShare</objectType>
+    </variables>
+    <variables>
+        <description>Stores a collection of the program enrollment share records to add to the list to insert.</description>
+        <name>ProgramEnrollmentSharesToInsert</name>
+        <dataType>SObject</dataType>
+        <isCollection>true</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <objectType>ProgramEnrollmentShare</objectType>
+    </variables>
+</Flow>

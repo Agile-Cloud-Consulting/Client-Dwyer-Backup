@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PermissionSetGroup xmlns="http://soap.sforce.com/2006/04/metadata">
+    <hasActivationRequired>false</hasActivationRequired>
+    <label>Talent_Recruitment_Management_Applicant</label>
+    <permissionSets>force__TlntRcrtMgmtApplicantAccess</permissionSets>
+    <status>Failed</status>
+</PermissionSetGroup>

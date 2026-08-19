@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>New_Class_Requests_Notes__c</fullName>
+    <description>Bi-weekly partner meeting agenda item: discussion to add or remove classes to schedule, focused on meeting scholar annual goals.</description>
+    <label>New Class Requests Notes</label>
+    <length>32768</length>
+    <trackHistory>false</trackHistory>
+    <type>LongTextArea</type>
+    <visibleLines>5</visibleLines>
+</CustomField>

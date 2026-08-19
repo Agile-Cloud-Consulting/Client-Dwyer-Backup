@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StandardValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sorted>false</sorted>
+    <standardValue>
+        <fullName>Secondary Diploma</fullName>
+        <default>false</default>
+        <label>Secondary Diploma</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Associate Degree</fullName>
+        <default>false</default>
+        <label>Associate Degree</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Undergraduate Degree</fullName>
+        <default>false</default>
+        <label>Undergraduate Degree</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Postgraduate Degree</fullName>
+        <default>false</default>
+        <label>Postgraduate Degree</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Certificate or Award</fullName>
+        <default>false</default>
+        <label>Certificate or Award</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Multiple Degrees</fullName>
+        <default>false</default>
+        <label>Multiple Degrees</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Non-Graduate</fullName>
+        <default>false</default>
+        <label>Non-Graduate</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Other</fullName>
+        <default>false</default>
+        <label>Other</label>
+    </standardValue>
+</StandardValueSet>

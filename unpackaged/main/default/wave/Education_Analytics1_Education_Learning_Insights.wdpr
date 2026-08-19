@@ -1,0 +1,3109 @@
+{
+  "version" : "60.0",
+  "nodes" : {
+    "LOAD_DATASET0" : {
+      "action" : "load",
+      "sources" : [ ],
+      "parameters" : {
+        "fields" : [ "Id", "AccountId", "IsPersonAccount", "Name" ],
+        "dataset" : {
+          "type" : "connectedDataset",
+          "label" : "Contact",
+          "connectionName" : "SFDC_LOCAL",
+          "sourceObjectName" : "Contact"
+        },
+        "sampleDetails" : {
+          "type" : "TopN",
+          "sortBy" : [ ]
+        }
+      }
+    },
+    "LOAD_DATASET1" : {
+      "action" : "load",
+      "sources" : [ ],
+      "parameters" : {
+        "fields" : [ "PersonGenderIdentity", "Id", "Name", "Industry", "PersonContactId", "RecordTypeId" ],
+        "dataset" : {
+          "type" : "connectedDataset",
+          "label" : "Account",
+          "connectionName" : "SFDC_LOCAL",
+          "sourceObjectName" : "Account"
+        },
+        "sampleDetails" : {
+          "type" : "TopN",
+          "sortBy" : [ ]
+        }
+      }
+    },
+    "LOAD_DATASET2" : {
+      "action" : "load",
+      "sources" : [ ],
+      "parameters" : {
+        "fields" : [ "LearningProgramId", "Id", "AcademicTermId" ],
+        "dataset" : {
+          "type" : "connectedDataset",
+          "label" : "ProgramTermApplnTimeline",
+          "connectionName" : "SFDC_LOCAL",
+          "sourceObjectName" : "ProgramTermApplnTimeline"
+        },
+        "sampleDetails" : {
+          "type" : "TopN",
+          "sortBy" : [ ]
+        }
+      }
+    },
+    "LOAD_DATASET3" : {
+      "action" : "load",
+      "sources" : [ ],
+      "parameters" : {
+        "fields" : [ "Id", "LearnerAccountId", "LearnerContactId", "Status", "StartDate", "LearningProgramPlanId", "IsProgramCompleted", "Name" ],
+        "dataset" : {
+          "type" : "connectedDataset",
+          "label" : "LearnerProgram",
+          "connectionName" : "SFDC_LOCAL",
+          "sourceObjectName" : "LearnerProgram"
+        },
+        "sampleDetails" : {
+          "type" : "TopN",
+          "sortBy" : [ ]
+        }
+      }
+    },
+    "LOAD_DATASET4" : {
+      "action" : "load",
+      "sources" : [ ],
+      "parameters" : {
+        "fields" : [ "Id", "DeveloperName" ],
+        "dataset" : {
+          "type" : "connectedDataset",
+          "label" : "RecordType",
+          "connectionName" : "SFDC_LOCAL",
+          "sourceObjectName" : "RecordType"
+        },
+        "sampleDetails" : {
+          "type" : "TopN",
+          "sortBy" : [ ]
+        }
+      }
+    },
+    "LOAD_DATASET5" : {
+      "action" : "load",
+      "sources" : [ ],
+      "parameters" : {
+        "fields" : [ "Id", "Name", "AcademicTermId", "Type", "IsActive", "CourseWithdrawDeadline" ],
+        "dataset" : {
+          "type" : "connectedDataset",
+          "label" : "AcademicSession",
+          "connectionName" : "SFDC_LOCAL",
+          "sourceObjectName" : "AcademicSession"
+        },
+        "sampleDetails" : {
+          "type" : "TopN",
+          "sortBy" : [ ]
+        }
+      }
+    },
+    "LOAD_DATASET6" : {
+      "action" : "load",
+      "sources" : [ ],
+      "parameters" : {
+        "fields" : [ "Id", "Name", "CourseOfferingId", "StartTime", "EndTime", "IsMonday", "IsTuesday", "IsWednesday", "IsThursday", "IsSaturday", "IsSunday", "IsFriday" ],
+        "dataset" : {
+          "type" : "connectedDataset",
+          "label" : "CourseOfferingSchedule",
+          "connectionName" : "SFDC_LOCAL",
+          "sourceObjectName" : "CourseOfferingSchedule"
+        },
+        "sampleDetails" : {
+          "type" : "TopN",
+          "sortBy" : [ ]
+        }
+      }
+    },
+    "LOAD_DATASET7" : {
+      "action" : "load",
+      "sources" : [ ],
+      "parameters" : {
+        "fields" : [ "Id", "Name", "CreatedById", "LearningProgramId", "ProviderId", "IsActive" ],
+        "dataset" : {
+          "type" : "connectedDataset",
+          "label" : "LearningProgramPlan",
+          "connectionName" : "SFDC_LOCAL",
+          "sourceObjectName" : "LearningProgramPlan"
+        },
+        "sampleDetails" : {
+          "type" : "TopN",
+          "sortBy" : [ ]
+        }
+      }
+    },
+    "LOAD_DATASET8" : {
+      "action" : "load",
+      "sources" : [ ],
+      "parameters" : {
+        "fields" : [ "ParticipantContactId", "Id", "Name", "AcademicTermEnrollmentId", "CourseOfferingId", "ParticipantAffiliation", "ParticipationStatus" ],
+        "dataset" : {
+          "type" : "connectedDataset",
+          "label" : "CourseOfferingParticipant",
+          "connectionName" : "SFDC_LOCAL",
+          "sourceObjectName" : "CourseOfferingParticipant"
+        },
+        "sampleDetails" : {
+          "type" : "TopN",
+          "sortBy" : [ ]
+        }
+      }
+    },
+    "LOAD_DATASET9" : {
+      "action" : "load",
+      "sources" : [ ],
+      "parameters" : {
+        "fields" : [ "Id", "Name", "LearningId", "ProviderId", "IsActive" ],
+        "dataset" : {
+          "type" : "connectedDataset",
+          "label" : "LearningProgram",
+          "connectionName" : "SFDC_LOCAL",
+          "sourceObjectName" : "LearningProgram"
+        },
+        "sampleDetails" : {
+          "type" : "TopN",
+          "sortBy" : [ ]
+        }
+      }
+    },
+    "LOAD_DATASET11" : {
+      "action" : "load",
+      "sources" : [ ],
+      "parameters" : {
+        "fields" : [ "EndDate", "StartDate", "Id", "Name", "AcademicYearId", "IsActive" ],
+        "dataset" : {
+          "type" : "connectedDataset",
+          "label" : "AcademicTerm",
+          "connectionName" : "SFDC_LOCAL",
+          "sourceObjectName" : "AcademicTerm"
+        },
+        "sampleDetails" : {
+          "type" : "TopN",
+          "sortBy" : [ ]
+        }
+      }
+    },
+    "LOAD_DATASET12" : {
+      "action" : "load",
+      "sources" : [ ],
+      "parameters" : {
+        "fields" : [ "Id", "Name", "ProviderId", "IsActive" ],
+        "dataset" : {
+          "type" : "connectedDataset",
+          "label" : "LearningCourse",
+          "connectionName" : "SFDC_LOCAL",
+          "sourceObjectName" : "LearningCourse"
+        },
+        "sampleDetails" : {
+          "type" : "TopN",
+          "sortBy" : [ ]
+        }
+      }
+    },
+    "LOAD_DATASET14" : {
+      "action" : "load",
+      "sources" : [ ],
+      "parameters" : {
+        "fields" : [ "Id", "Name", "CourseOfferingParticipantId", "ParticipantResultStatus" ],
+        "dataset" : {
+          "type" : "connectedDataset",
+          "label" : "CourseOfferingPtcpResult",
+          "connectionName" : "SFDC_LOCAL",
+          "sourceObjectName" : "CourseOfferingPtcpResult"
+        },
+        "sampleDetails" : {
+          "type" : "TopN",
+          "sortBy" : [ ]
+        }
+      }
+    },
+    "LOAD_DATASET15" : {
+      "action" : "load",
+      "sources" : [ ],
+      "parameters" : {
+        "fields" : [ "Id", "Name", "Year" ],
+        "dataset" : {
+          "type" : "connectedDataset",
+          "label" : "AcademicYear",
+          "connectionName" : "SFDC_LOCAL",
+          "sourceObjectName" : "AcademicYear"
+        },
+        "sampleDetails" : {
+          "type" : "TopN",
+          "sortBy" : [ ]
+        }
+      }
+    },
+    "LOAD_DATASET16" : {
+      "action" : "load",
+      "sources" : [ ],
+      "parameters" : {
+        "fields" : [ "TermGradePointAverage", "Id", "Name" ],
+        "dataset" : {
+          "type" : "connectedDataset",
+          "label" : "AcademicTermEnrollment",
+          "connectionName" : "SFDC_LOCAL",
+          "sourceObjectName" : "AcademicTermEnrollment"
+        },
+        "sampleDetails" : {
+          "type" : "TopN",
+          "sortBy" : [ ]
+        }
+      }
+    },
+    "OUTPUT0" : {
+      "action" : "save",
+      "sources" : [ "FILTER3" ],
+      "parameters" : {
+        "fields" : [ ],
+        "dataset" : {
+          "type" : "analyticsDataset",
+          "label" : "Learning - Applications",
+          "name" : "Learning_Applications1",
+          "folderName" : "Education_Analytics1"
+        },
+        "measuresToCurrencies" : [ ]
+      }
+    },
+    "LOAD_DATASET18" : {
+      "action" : "load",
+      "sources" : [ ],
+      "parameters" : {
+        "fields" : [ "Id", "ApplicantDecision", "ApplicationDecision", "Name", "ApplicationId" ],
+        "dataset" : {
+          "type" : "connectedDataset",
+          "label" : "ApplicationDecision",
+          "connectionName" : "SFDC_LOCAL",
+          "sourceObjectName" : "ApplicationDecision"
+        },
+        "sampleDetails" : {
+          "type" : "TopN",
+          "sortBy" : [ ]
+        }
+      }
+    },
+    "JOIN0" : {
+      "action" : "join",
+      "sources" : [ "FILTER5", "LOAD_DATASET18" ],
+      "schema" : {
+        "fields" : [ ],
+        "slice" : {
+          "mode" : "DROP",
+          "ignoreMissingFields" : true,
+          "fields" : [ ]
+        }
+      },
+      "parameters" : {
+        "joinType" : "LOOKUP",
+        "leftKeys" : [ "Id" ],
+        "rightQualifier" : "ApplicationDecision",
+        "rightKeys" : [ "ApplicationId" ]
+      }
+    },
+    "FILTER0" : {
+      "action" : "filter",
+      "sources" : [ "JOIN13" ],
+      "parameters" : {
+        "filterExpressions" : [ {
+          "type" : "TEXT",
+          "field" : "RecordType.DeveloperName",
+          "operator" : "EQUAL",
+          "operands" : [ "College", "Department" ]
+        } ]
+      }
+    },
+    "LOAD_DATASET19" : {
+      "action" : "load",
+      "sources" : [ ],
+      "parameters" : {
+        "fields" : [ "Id", "Name", "StartDate", "EndDate", "LearningCourseId", "PrimaryFacultyId", "AcademicSessionId", "EnrollmentCapacity" ],
+        "dataset" : {
+          "type" : "connectedDataset",
+          "label" : "CourseOffering",
+          "connectionName" : "SFDC_LOCAL",
+          "sourceObjectName" : "CourseOffering"
+        },
+        "sampleDetails" : {
+          "type" : "TopN",
+          "sortBy" : [ ]
+        }
+      }
+    },
+    "JOIN5" : {
+      "action" : "join",
+      "sources" : [ "LOAD_DATASET9", "JOIN7" ],
+      "schema" : {
+        "fields" : [ ],
+        "slice" : {
+          "mode" : "DROP",
+          "ignoreMissingFields" : true,
+          "fields" : [ "LearningProgram.LearningProgramId" ]
+        }
+      },
+      "parameters" : {
+        "joinType" : "LEFT_OUTER",
+        "leftKeys" : [ "Id" ],
+        "rightQualifier" : "LearningProgram",
+        "rightKeys" : [ "LearningProgramId" ]
+      }
+    },
+    "JOIN7" : {
+      "action" : "join",
+      "sources" : [ "LOAD_DATASET2", "JOIN8" ],
+      "schema" : {
+        "fields" : [ ],
+        "slice" : {
+          "mode" : "DROP",
+          "ignoreMissingFields" : true,
+          "fields" : [ ]
+        }
+      },
+      "parameters" : {
+        "joinType" : "LEFT_OUTER",
+        "leftKeys" : [ "AcademicTermId" ],
+        "rightQualifier" : "AcademicTerm",
+        "rightKeys" : [ "Id" ]
+      }
+    },
+    "JOIN8" : {
+      "action" : "join",
+      "sources" : [ "LOAD_DATASET11", "LOAD_DATASET15" ],
+      "schema" : {
+        "fields" : [ ],
+        "slice" : {
+          "mode" : "DROP",
+          "ignoreMissingFields" : true,
+          "fields" : [ ]
+        }
+      },
+      "parameters" : {
+        "joinType" : "LEFT_OUTER",
+        "leftKeys" : [ "AcademicYearId" ],
+        "rightQualifier" : "AcademicYear",
+        "rightKeys" : [ "Id" ]
+      }
+    },
+    "JOIN10" : {
+      "action" : "join",
+      "sources" : [ "LOAD_DATASET19", "JOIN28" ],
+      "schema" : {
+        "fields" : [ ],
+        "slice" : {
+          "mode" : "DROP",
+          "ignoreMissingFields" : true,
+          "fields" : [ "Contact.Id", "Contact.ContactProfile.Id", "Contact.ContactProfile.ContactId", "Contact.ContactProfile.Race", "Contact.ContactProfile.PrimaryCitizenshipType" ]
+        }
+      },
+      "parameters" : {
+        "joinType" : "LEFT_OUTER",
+        "leftKeys" : [ "PrimaryFacultyId" ],
+        "rightQualifier" : "Contact",
+        "rightKeys" : [ "Id" ]
+      }
+    },
+    "JOIN12" : {
+      "action" : "join",
+      "sources" : [ "JOIN10", "JOIN34" ],
+      "schema" : {
+        "fields" : [ ],
+        "slice" : {
+          "mode" : "DROP",
+          "ignoreMissingFields" : true,
+          "fields" : [ ]
+        }
+      },
+      "parameters" : {
+        "joinType" : "LEFT_OUTER",
+        "leftKeys" : [ "LearningCourseId" ],
+        "rightQualifier" : "LearningCourse",
+        "rightKeys" : [ "Id" ]
+      }
+    },
+    "OUTPUT1" : {
+      "action" : "save",
+      "sources" : [ "FILTER3_110" ],
+      "parameters" : {
+        "fields" : [ ],
+        "dataset" : {
+          "type" : "analyticsDataset",
+          "label" : "Learning - CourseOffering",
+          "name" : "Learning_CourseOffering1",
+          "folderName" : "Education_Analytics1"
+        },
+        "measuresToCurrencies" : [ ]
+      }
+    },
+    "JOIN13" : {
+      "action" : "join",
+      "sources" : [ "LOAD_DATASET1", "LOAD_DATASET4" ],
+      "schema" : {
+        "fields" : [ ],
+        "slice" : {
+          "mode" : "DROP",
+          "ignoreMissingFields" : true,
+          "fields" : [ ]
+        }
+      },
+      "parameters" : {
+        "joinType" : "LEFT_OUTER",
+        "leftKeys" : [ "RecordTypeId" ],
+        "rightQualifier" : "RecordType",
+        "rightKeys" : [ "Id" ]
+      }
+    },
+    "LOAD_DATASET20" : {
+      "action" : "load",
+      "sources" : [ ],
+      "parameters" : {
+        "fields" : [ "ContactId", "Id", "Name", "CreatedDate", "AccountId", "Category", "Status", "ProgramTermApplnTimelineId", "AcademicTerm" ],
+        "dataset" : {
+          "type" : "connectedDataset",
+          "label" : "IndividualApplication",
+          "connectionName" : "SFDC_LOCAL",
+          "sourceObjectName" : "IndividualApplication"
+        },
+        "sampleDetails" : {
+          "type" : "TopN",
+          "sortBy" : [ ]
+        }
+      }
+    },
+    "JOIN16" : {
+      "action" : "join",
+      "sources" : [ "LOAD_DATASET5", "JOIN8" ],
+      "schema" : {
+        "fields" : [ ],
+        "slice" : {
+          "mode" : "DROP",
+          "ignoreMissingFields" : true,
+          "fields" : [ ]
+        }
+      },
+      "parameters" : {
+        "joinType" : "LEFT_OUTER",
+        "leftKeys" : [ "AcademicTermId" ],
+        "rightQualifier" : "AcademicTerm",
+        "rightKeys" : [ "Id" ]
+      }
+    },
+    "JOIN17" : {
+      "action" : "join",
+      "sources" : [ "JOIN45", "JOIN16" ],
+      "schema" : {
+        "fields" : [ ],
+        "slice" : {
+          "mode" : "DROP",
+          "ignoreMissingFields" : true,
+          "fields" : [ "AcademicSessionId", "AcademicSession.AcademicTermId", "AcademicSession.AcademicTerm.Id", "AcademicSession.AcademicTerm.AcademicYearId", "AcademicSession.AcademicTerm.AcademicYear.Id", "AcademicSession.AcademicTerm.AcademicYear.Name" ]
+        }
+      },
+      "parameters" : {
+        "joinType" : "LEFT_OUTER",
+        "leftKeys" : [ "AcademicSessionId" ],
+        "rightQualifier" : "AcademicSession",
+        "rightKeys" : [ "Id" ]
+      }
+    },
+    "JOIN18" : {
+      "action" : "join",
+      "sources" : [ "LOAD_DATASET8", "LOAD_DATASET16" ],
+      "schema" : {
+        "fields" : [ ],
+        "slice" : {
+          "mode" : "DROP",
+          "ignoreMissingFields" : true,
+          "fields" : [ ]
+        }
+      },
+      "parameters" : {
+        "joinType" : "LEFT_OUTER",
+        "leftKeys" : [ "AcademicTermEnrollmentId" ],
+        "rightQualifier" : "AcademicTermEnrollment",
+        "rightKeys" : [ "Id" ]
+      }
+    },
+    "OUTPUT2" : {
+      "action" : "save",
+      "sources" : [ "FILTER380" ],
+      "parameters" : {
+        "fields" : [ ],
+        "dataset" : {
+          "type" : "analyticsDataset",
+          "label" : "Learning - Learning Program",
+          "name" : "Learning_Learning_Program1",
+          "folderName" : "Education_Analytics1"
+        },
+        "measuresToCurrencies" : [ ]
+      }
+    },
+    "FORMULA0" : {
+      "action" : "formula",
+      "sources" : [ "JOIN29" ],
+      "parameters" : {
+        "expressionType" : "SQL",
+        "fields" : [ {
+          "type" : "TEXT",
+          "name" : "Academic_YearTerm",
+          "label" : "Academic Year/Term",
+          "formulaExpression" : "concat (\"ProgramTermApplicationTimeline.LearningProgram.AcademicTerm.AcademicYear.Year\" , ' : ' ,\"ProgramTermApplicationTimeline.LearningProgram.AcademicTerm.Name\")",
+          "precision" : 255,
+          "defaultValue" : ""
+        } ]
+      }
+    },
+    "FORMULA1" : {
+      "action" : "formula",
+      "sources" : [ "FORMULA0" ],
+      "parameters" : {
+        "expressionType" : "SQL",
+        "fields" : [ {
+          "type" : "TEXT",
+          "name" : "CreatedDate_formula",
+          "label" : "Created Date Formula",
+          "formulaExpression" : "CASE WHEN \"ProgramTermApplicationTimeline.LearningProgram.AcademicTerm.AcademicYear.Year\" is not null then concat(\"ProgramTermApplicationTimeline.LearningProgram.AcademicTerm.AcademicYear.Year\", '-', '1-1') else 'NA' end",
+          "precision" : 255,
+          "defaultValue" : ""
+        } ]
+      }
+    },
+    "TO_DATE1" : {
+      "action" : "typeCast",
+      "sources" : [ "FORMULA1" ],
+      "schema" : {
+        "fields" : [ ],
+        "slice" : {
+          "mode" : "DROP",
+          "ignoreMissingFields" : true,
+          "fields" : [ "CreatedDate_formula" ]
+        }
+      },
+      "parameters" : {
+        "fields" : [ {
+          "name" : "CreatedDate_formula",
+          "newProperties" : {
+            "label" : "Academic Year",
+            "name" : "Academic_Year",
+            "typeProperties" : {
+              "type" : "DATETIME",
+              "format" : "yyyy-M-d"
+            }
+          }
+        } ]
+      }
+    },
+    "FORMULA2" : {
+      "action" : "formula",
+      "sources" : [ "TO_DATE1" ],
+      "parameters" : {
+        "expressionType" : "SQL",
+        "fields" : [ {
+          "type" : "TEXT",
+          "name" : "Application_Pipeline",
+          "label" : "Overall Application Pipeline",
+          "formulaExpression" : "case \nwhen Status = 'In Review' then 'In Review'\nwhen Status = 'Ready For Decision' then 'Decision Ready'\n\nwhen Status = 'Application Decision' and contains(\"ApplicationDecision.ApplicationDecision\", 'Waitlist') then 'Waitlisted'\n\nwhen Status = 'Application Decision' and contains(\"ApplicationDecision.ApplicationDecision\", 'Admit') and contains(\"ApplicationDecision.ApplicantDecision\", 'Accept') then 'Accepted Admissions'\n\nwhen Status = 'Application Decision' and contains(\"ApplicationDecision.ApplicationDecision\", 'Admit') and contains(\"ApplicationDecision.ApplicantDecision\", 'Defer') then 'Deferred Admissions'\n\nwhen Status = 'Application Decision' and contains(\"ApplicationDecision.ApplicationDecision\", 'Admit') then 'Admitted'\n\nwhen Status = 'Application Decision' and contains(\"ApplicationDecision.ApplicationDecision\", 'Enroll') then 'Enrolled' \nelse 'NA' \n\nend\n",
+          "precision" : 255,
+          "defaultValue" : ""
+        } ]
+      }
+    },
+    "EDIT_ATTRIBUTES0" : {
+      "action" : "schema",
+      "sources" : [ "FORMULA2" ],
+      "parameters" : {
+        "fields" : [ {
+          "name" : "ProgramTermApplicationTimeline.Name",
+          "newProperties" : {
+            "label" : "Learning Program Name",
+            "name" : "LearningProgram.Name"
+          }
+        } ]
+      }
+    },
+    "EDIT_ATTRIBUTES1" : {
+      "action" : "schema",
+      "sources" : [ "EDIT_ATTRIBUTES0" ],
+      "parameters" : {
+        "fields" : [ {
+          "name" : "ProgramTermApplicationTimeline.Id",
+          "newProperties" : {
+            "label" : "Learning Program ID",
+            "name" : "LearningProgram.Id"
+          }
+        } ]
+      }
+    },
+    "EDIT_ATTRIBUTES2" : {
+      "action" : "schema",
+      "sources" : [ "EDIT_ATTRIBUTES1" ],
+      "parameters" : {
+        "fields" : [ {
+          "name" : "ProgramTermApplicationTimeline.ProviderId",
+          "newProperties" : {
+            "label" : "Account ID",
+            "name" : "LearningProgram.ProviderId"
+          }
+        } ]
+      }
+    },
+    "FORMULA15" : {
+      "action" : "formula",
+      "sources" : [ "EDIT_ATTRIBUTES2" ],
+      "parameters" : {
+        "expressionType" : "SQL",
+        "fields" : [ {
+          "type" : "TEXT",
+          "name" : "Academic_Year_Term",
+          "label" : "Academic Year/Term",
+          "formulaExpression" : "case when\n(( current_timestamp() > \"ProgramTermApplicationTimeline.LearningProgram.AcademicTerm.StartDate\")\nand  (current_timestamp() <\n \"ProgramTermApplicationTimeline.LearningProgram.AcademicTerm.EndDate\" ))\n  then \n  concat('Current Term', ' - ', Academic_YearTerm) else Academic_YearTerm end",
+          "precision" : 255,
+          "defaultValue" : ""
+        } ]
+      }
+    },
+    "DROP_FIELDS0" : {
+      "action" : "schema",
+      "sources" : [ "FORMULA15" ],
+      "parameters" : {
+        "fields" : [ ],
+        "slice" : {
+          "mode" : "DROP",
+          "ignoreMissingFields" : true,
+          "fields" : [ "Academic_YearTerm" ]
+        }
+      }
+    },
+    "REPLACE1" : {
+      "action" : "formula",
+      "sources" : [ "DROP_FIELDS0" ],
+      "schema" : {
+        "fields" : [ {
+          "name" : "ContactProfile.ContactProfile.PrimaryCitizenshipType_replace",
+          "newProperties" : {
+            "name" : "ContactProfile.ContactProfile.PrimaryCitizenshipType"
+          }
+        } ],
+        "slice" : {
+          "mode" : "DROP",
+          "ignoreMissingFields" : true,
+          "fields" : [ "ContactProfile.ContactProfile.PrimaryCitizenshipType" ]
+        }
+      },
+      "parameters" : {
+        "expressionType" : "SQL",
+        "fields" : [ {
+          "type" : "TEXT",
+          "name" : "ContactProfile.ContactProfile.PrimaryCitizenshipType_replace",
+          "label" : "Primary Citizenship Type",
+          "formulaExpression" : "coalesce(\"ContactProfile.ContactProfile.PrimaryCitizenshipType\", null, 'Not Available')",
+          "precision" : 255
+        } ]
+      }
+    },
+    "REPLACE2" : {
+      "action" : "formula",
+      "sources" : [ "REPLACE1" ],
+      "schema" : {
+        "fields" : [ {
+          "name" : "ContactProfile.Account.PersonGenderIdentity_replace",
+          "newProperties" : {
+            "name" : "ContactProfile.Account.PersonGenderIdentity"
+          }
+        } ],
+        "slice" : {
+          "mode" : "DROP",
+          "ignoreMissingFields" : true,
+          "fields" : [ "ContactProfile.Account.PersonGenderIdentity" ]
+        }
+      },
+      "parameters" : {
+        "expressionType" : "SQL",
+        "fields" : [ {
+          "type" : "TEXT",
+          "name" : "ContactProfile.Account.PersonGenderIdentity_replace",
+          "label" : "Gender Identity",
+          "formulaExpression" : "coalesce(\"ContactProfile.Account.PersonGenderIdentity\", null, 'Not Available')",
+          "precision" : 255
+        } ]
+      }
+    },
+    "FILTER3" : {
+      "action" : "filter",
+      "sources" : [ "REPLACE2" ],
+      "parameters" : {
+        "filterExpressions" : [ {
+          "type" : "TEXT",
+          "field" : "Academic_Year_Term",
+          "operator" : "IS_NOT_NULL",
+          "operands" : [ ]
+        } ]
+      }
+    },
+    "LOAD_DATASET21" : {
+      "action" : "load",
+      "sources" : [ ],
+      "parameters" : {
+        "fields" : [ "Id", "ContactId", "Race", "PrimaryCitizenshipType" ],
+        "dataset" : {
+          "type" : "connectedDataset",
+          "label" : "ContactProfile",
+          "connectionName" : "SFDC_LOCAL",
+          "sourceObjectName" : "ContactProfile"
+        },
+        "sampleDetails" : {
+          "type" : "TopN",
+          "sortBy" : [ ]
+        }
+      }
+    },
+    "JOIN28" : {
+      "action" : "join",
+      "sources" : [ "LOAD_DATASET0", "LOAD_DATASET21" ],
+      "schema" : {
+        "fields" : [ ],
+        "slice" : {
+          "mode" : "DROP",
+          "ignoreMissingFields" : true,
+          "fields" : [ ]
+        }
+      },
+      "parameters" : {
+        "joinType" : "LEFT_OUTER",
+        "leftKeys" : [ "Id" ],
+        "rightQualifier" : "ContactProfile",
+        "rightKeys" : [ "ContactId" ]
+      }
+    },
+    "JOIN29" : {
+      "action" : "join",
+      "sources" : [ "JOIN32", "FILTER4" ],
+      "schema" : {
+        "fields" : [ ],
+        "slice" : {
+          "mode" : "DROP",
+          "ignoreMissingFields" : true,
+          "fields" : [ "Name", "AcademicTerm", "ApplicationDecision.Id", "ApplicationDecision.ApplicationId", "Account.PersonGenderIdentity", "Account.Id", "Account.RecordTypeId", "Account.Industry", "Account.PersonContactId", "Account.RecordType.Id", "ProgramTermApplicationTimeline.LearningId", "ProgramTermApplicationTimeline.LearningProgram.AcademicTerm.AcademicYearId", "ProgramTermApplicationTimeline.LearningProgram.AcademicTerm.AcademicYear.Name", "ContactProfile.Id", "ContactProfile.IsPersonAccount", "ContactProfile.Account.Name", "ContactProfile.Account.PersonContactId" ]
+        }
+      },
+      "parameters" : {
+        "joinType" : "LEFT_OUTER",
+        "leftKeys" : [ "ContactId" ],
+        "rightQualifier" : "ContactProfile",
+        "rightKeys" : [ "Id" ]
+      }
+    },
+    "JOIN30" : {
+      "action" : "join",
+      "sources" : [ "JOIN28", "LOAD_DATASET1" ],
+      "schema" : {
+        "fields" : [ ],
+        "slice" : {
+          "mode" : "DROP",
+          "ignoreMissingFields" : true,
+          "fields" : [ "AccountId", "ContactProfile.Id", "ContactProfile.ContactId", "Account.Id", "Account.RecordTypeId", "Account.Industry" ]
+        }
+      },
+      "parameters" : {
+        "joinType" : "LEFT_OUTER",
+        "leftKeys" : [ "Id" ],
+        "rightQualifier" : "Account",
+        "rightKeys" : [ "PersonContactId" ]
+      }
+    },
+    "FILTER4" : {
+      "action" : "filter",
+      "sources" : [ "JOIN30" ],
+      "parameters" : {
+        "filterExpressions" : [ {
+          "type" : "TEXT",
+          "field" : "IsPersonAccount",
+          "operator" : "EQUAL",
+          "operands" : [ "true" ]
+        } ]
+      }
+    },
+    "FILTER5" : {
+      "action" : "filter",
+      "sources" : [ "LOAD_DATASET20" ],
+      "parameters" : {
+        "filterExpressions" : [ {
+          "type" : "TEXT",
+          "field" : "Status",
+          "operator" : "NOT",
+          "operands" : [ "Canceled", "Incomplete" ]
+        } ]
+      }
+    },
+    "JOIN31" : {
+      "action" : "join",
+      "sources" : [ "JOIN0", "FILTER0" ],
+      "schema" : {
+        "fields" : [ ],
+        "slice" : {
+          "mode" : "DROP",
+          "ignoreMissingFields" : true,
+          "fields" : [ ]
+        }
+      },
+      "parameters" : {
+        "joinType" : "LEFT_OUTER",
+        "leftKeys" : [ "AccountId" ],
+        "rightQualifier" : "Account",
+        "rightKeys" : [ "Id" ]
+      }
+    },
+    "JOIN32" : {
+      "action" : "join",
+      "sources" : [ "JOIN31", "JOIN5" ],
+      "schema" : {
+        "fields" : [ ],
+        "slice" : {
+          "mode" : "DROP",
+          "ignoreMissingFields" : true,
+          "fields" : [ "ProgramTermApplicationTimeline.LearningProgram.AcademicTermId", "ProgramTermApplicationTimeline.LearningProgram.AcademicTerm.Id", "ProgramTermApplicationTimeline.LearningProgram.AcademicTerm.AcademicYear.Id" ]
+        }
+      },
+      "parameters" : {
+        "joinType" : "LEFT_OUTER",
+        "leftKeys" : [ "ProgramTermApplnTimelineId" ],
+        "rightQualifier" : "ProgramTermApplicationTimeline",
+        "rightKeys" : [ "LearningProgram.Id" ]
+      }
+    },
+    "JOIN33" : {
+      "action" : "join",
+      "sources" : [ "JOIN38", "FILTER0" ],
+      "schema" : {
+        "fields" : [ ],
+        "slice" : {
+          "mode" : "DROP",
+          "ignoreMissingFields" : true,
+          "fields" : [ ]
+        }
+      },
+      "parameters" : {
+        "joinType" : "LEFT_OUTER",
+        "leftKeys" : [ "ProviderId" ],
+        "rightQualifier" : "Account",
+        "rightKeys" : [ "Id" ]
+      }
+    },
+    "JOIN34" : {
+      "action" : "join",
+      "sources" : [ "LOAD_DATASET12", "FILTER0" ],
+      "schema" : {
+        "fields" : [ ],
+        "slice" : {
+          "mode" : "DROP",
+          "ignoreMissingFields" : true,
+          "fields" : [ "Account.PersonGenderIdentity", "Account.Id", "Account.RecordTypeId", "Account.RecordType.Id", "Account.RecordType.DeveloperName" ]
+        }
+      },
+      "parameters" : {
+        "joinType" : "LEFT_OUTER",
+        "leftKeys" : [ "ProviderId" ],
+        "rightQualifier" : "Account",
+        "rightKeys" : [ "Id" ]
+      }
+    },
+    "JOIN38" : {
+      "action" : "join",
+      "sources" : [ "LOAD_DATASET9", "DROP_FIELDS1" ],
+      "schema" : {
+        "fields" : [ ],
+        "slice" : {
+          "mode" : "DROP",
+          "ignoreMissingFields" : true,
+          "fields" : [ "LearningId", "ProgramTermApplication.COUNT_Rows", "ProgramTermApplication.LearningProgramId" ]
+        }
+      },
+      "parameters" : {
+        "joinType" : "MULTI_VALUE_LOOKUP",
+        "leftKeys" : [ "Id" ],
+        "rightQualifier" : "ProgramTermApplication",
+        "rightKeys" : [ "LearningProgramId" ]
+      }
+    },
+    "JOIN39" : {
+      "action" : "join",
+      "sources" : [ "LOAD_DATASET3", "LOAD_DATASET7" ],
+      "schema" : {
+        "fields" : [ ],
+        "slice" : {
+          "mode" : "DROP",
+          "ignoreMissingFields" : true,
+          "fields" : [ "LearnerContactId", "StartDate", "LearningProgramPlan.Id", "LearningProgramPlan.CreatedById", "LearningProgramPlan.ActiveFromDate", "LearningProgramPlan.ActiveToDate" ]
+        }
+      },
+      "parameters" : {
+        "joinType" : "LEFT_OUTER",
+        "leftKeys" : [ "LearningProgramPlanId" ],
+        "rightQualifier" : "LearningProgramPlan",
+        "rightKeys" : [ "Id" ]
+      }
+    },
+    "EXTRACT3" : {
+      "action" : "extractGrains",
+      "sources" : [ "FORMULA11" ],
+      "parameters" : {
+        "grainExtractions" : [ ]
+      }
+    },
+    "AGGREGATE7" : {
+      "action" : "aggregate",
+      "sources" : [ "EXTRACT3" ],
+      "parameters" : {
+        "aggregations" : [ {
+          "action" : "COUNT",
+          "name" : "Learning_Programs_without_Enrollments",
+          "label" : "# Learning Programs without Enrollments"
+        }, {
+          "action" : "SUM",
+          "source" : "completedStatus",
+          "name" : "EnrolledStudents_100PtCompletion",
+          "label" : "# Enrolled Students with 100% Completion"
+        }, {
+          "action" : "SUM",
+          "source" : "NewEnrollments",
+          "name" : "New_Enrollments",
+          "label" : "New_Enrollments"
+        }, {
+          "action" : "SUM",
+          "source" : "NotStarted",
+          "name" : "EnrolledStudents_NotStarted",
+          "label" : "#Enrolled Students yet to start "
+        } ],
+        "groupings" : [ "LearningProgramPlan.LearningProgramId" ],
+        "pivots" : [ ],
+        "nodeType" : "STANDARD"
+      }
+    },
+    "JOIN40" : {
+      "action" : "join",
+      "sources" : [ "JOIN43", "AGGREGATE7" ],
+      "schema" : {
+        "fields" : [ ],
+        "slice" : {
+          "mode" : "DROP",
+          "ignoreMissingFields" : true,
+          "fields" : [ "ProgramTermApplication.AcademicTerm.Id", "Account.PersonGenderIdentity", "Account.RecordTypeId", "Account.Industry", "Account.RecordType.Id", "Account.RecordType.DeveloperName" ]
+        }
+      },
+      "parameters" : {
+        "joinType" : "LEFT_OUTER",
+        "leftKeys" : [ "Id" ],
+        "rightQualifier" : "LearnerProgram",
+        "rightKeys" : [ "LearningProgramPlan.LearningProgramId" ]
+      }
+    },
+    "FILL0" : {
+      "action" : "formula",
+      "sources" : [ "JOIN40" ],
+      "schema" : {
+        "fields" : [ {
+          "name" : "LearnerProgram.Learning_Programs_without_Enrollments_fill",
+          "newProperties" : {
+            "name" : "LearnerProgram.Learning_Programs_without_Enrollments"
+          }
+        } ],
+        "slice" : {
+          "mode" : "DROP",
+          "ignoreMissingFields" : true,
+          "fields" : [ "LearnerProgram.Learning_Programs_without_Enrollments" ]
+        }
+      },
+      "parameters" : {
+        "expressionType" : "SQL",
+        "fields" : [ {
+          "type" : "NUMBER",
+          "name" : "LearnerProgram.Learning_Programs_without_Enrollments_fill",
+          "label" : "LearnerProgram.Learning_Programs_without_Enrollments",
+          "formulaExpression" : "coalesce(\"LearnerProgram.Learning_Programs_without_Enrollments\", null, 0)",
+          "precision" : 18,
+          "scale" : 0
+        } ]
+      }
+    },
+    "FILL1" : {
+      "action" : "formula",
+      "sources" : [ "FILL0" ],
+      "schema" : {
+        "fields" : [ {
+          "name" : "LearningProgramPlan.Total_Inactive_Learning_Programs_fill",
+          "newProperties" : {
+            "name" : "LearningProgramPlan.Total_Inactive_Learning_Programs"
+          }
+        } ],
+        "slice" : {
+          "mode" : "DROP",
+          "ignoreMissingFields" : true,
+          "fields" : [ "LearningProgramPlan.Total_Inactive_Learning_Programs" ]
+        }
+      },
+      "parameters" : {
+        "expressionType" : "SQL",
+        "fields" : [ {
+          "type" : "NUMBER",
+          "name" : "LearningProgramPlan.Total_Inactive_Learning_Programs_fill",
+          "label" : "Total Inactive Learning Programs",
+          "formulaExpression" : "coalesce(\"LearningProgramPlan.Total_Inactive_Learning_Programs\", null, 0)",
+          "precision" : 18,
+          "scale" : 0
+        } ]
+      }
+    },
+    "FILL2" : {
+      "action" : "formula",
+      "sources" : [ "FILL1" ],
+      "schema" : {
+        "fields" : [ {
+          "name" : "LearnerProgram.EnrolledStudents_100PtCompletion_fill",
+          "newProperties" : {
+            "name" : "LearnerProgram.EnrolledStudents_100PtCompletion"
+          }
+        } ],
+        "slice" : {
+          "mode" : "DROP",
+          "ignoreMissingFields" : true,
+          "fields" : [ "LearnerProgram.EnrolledStudents_100PtCompletion" ]
+        }
+      },
+      "parameters" : {
+        "expressionType" : "SQL",
+        "fields" : [ {
+          "type" : "NUMBER",
+          "name" : "LearnerProgram.EnrolledStudents_100PtCompletion_fill",
+          "label" : "# Enrolled Students with 100% Completion",
+          "formulaExpression" : "coalesce(\"LearnerProgram.EnrolledStudents_100PtCompletion\", null, 0)",
+          "precision" : 18,
+          "scale" : 0
+        } ]
+      }
+    },
+    "FILL4" : {
+      "action" : "formula",
+      "sources" : [ "FILL2" ],
+      "schema" : {
+        "fields" : [ {
+          "name" : "LearnerProgram.EnrolledStudents_NotStarted_fill",
+          "newProperties" : {
+            "name" : "LearnerProgram.EnrolledStudents_NotStarted"
+          }
+        } ],
+        "slice" : {
+          "mode" : "DROP",
+          "ignoreMissingFields" : true,
+          "fields" : [ "LearnerProgram.EnrolledStudents_NotStarted" ]
+        }
+      },
+      "parameters" : {
+        "expressionType" : "SQL",
+        "fields" : [ {
+          "type" : "NUMBER",
+          "name" : "LearnerProgram.EnrolledStudents_NotStarted_fill",
+          "label" : "#Enrolled Students yet to start ",
+          "formulaExpression" : "coalesce(\"LearnerProgram.EnrolledStudents_NotStarted\", null, 0)",
+          "precision" : 18,
+          "scale" : 0
+        } ]
+      }
+    },
+    "FILL5" : {
+      "action" : "formula",
+      "sources" : [ "FILL4" ],
+      "schema" : {
+        "fields" : [ {
+          "name" : "LearnerProgram.New_Enrollments_fill",
+          "newProperties" : {
+            "name" : "LearnerProgram.New_Enrollments"
+          }
+        } ],
+        "slice" : {
+          "mode" : "DROP",
+          "ignoreMissingFields" : true,
+          "fields" : [ "LearnerProgram.New_Enrollments" ]
+        }
+      },
+      "parameters" : {
+        "expressionType" : "SQL",
+        "fields" : [ {
+          "type" : "NUMBER",
+          "name" : "LearnerProgram.New_Enrollments_fill",
+          "label" : "New_Enrollments",
+          "formulaExpression" : "coalesce(\"LearnerProgram.New_Enrollments\", null, 0)",
+          "precision" : 18,
+          "scale" : 0
+        } ]
+      }
+    },
+    "JOIN42" : {
+      "action" : "join",
+      "sources" : [ "LOAD_DATASET14", "LOAD_DATASET8" ],
+      "schema" : {
+        "fields" : [ ],
+        "slice" : {
+          "mode" : "DROP",
+          "ignoreMissingFields" : true,
+          "fields" : [ "CourseOfferingParticipantId", "CourseOfferingParticipant.Name", "CourseOfferingParticipant.Id", "CourseOfferingParticipant.AcademicTermEnrollmentId", "CourseOfferingParticipant.ParticipantAffiliation", "CourseOfferingParticipant.ParticipationStatus" ]
+        }
+      },
+      "parameters" : {
+        "joinType" : "LEFT_OUTER",
+        "leftKeys" : [ "CourseOfferingParticipantId" ],
+        "rightQualifier" : "CourseOfferingParticipant",
+        "rightKeys" : [ "Id" ]
+      }
+    },
+    "EXTRACT7" : {
+      "action" : "extractGrains",
+      "sources" : [ "FORMULA8" ],
+      "parameters" : {
+        "grainExtractions" : [ ]
+      }
+    },
+    "AGGREGATE15" : {
+      "action" : "aggregate",
+      "sources" : [ "EXTRACT7" ],
+      "parameters" : {
+        "aggregations" : [ {
+          "action" : "COUNT",
+          "name" : "Total_Inactive_Learning_Programs",
+          "label" : "Total Inactive Learning Programs"
+        } ],
+        "groupings" : [ "LearningProgramId" ],
+        "pivots" : [ ],
+        "nodeType" : "STANDARD"
+      }
+    },
+    "JOIN43" : {
+      "action" : "join",
+      "sources" : [ "JOIN33", "AGGREGATE15" ],
+      "schema" : {
+        "fields" : [ ],
+        "slice" : {
+          "mode" : "DROP",
+          "ignoreMissingFields" : true,
+          "fields" : [ ]
+        }
+      },
+      "parameters" : {
+        "joinType" : "LEFT_OUTER",
+        "leftKeys" : [ "Id" ],
+        "rightQualifier" : "LearningProgramPlan",
+        "rightKeys" : [ "LearningProgramId" ]
+      }
+    },
+    "JOIN44" : {
+      "action" : "join",
+      "sources" : [ "JOIN17", "JOIN42" ],
+      "schema" : {
+        "fields" : [ ],
+        "slice" : {
+          "mode" : "DROP",
+          "ignoreMissingFields" : true,
+          "fields" : [ "Contact.AccountId", "ActiveCourses.Id", "CourseOfferingParticipantResult.CourseOfferingParticipant.CourseOfferingId" ]
+        }
+      },
+      "parameters" : {
+        "joinType" : "MULTI_VALUE_LOOKUP",
+        "leftKeys" : [ "Id" ],
+        "rightQualifier" : "CourseOfferingParticipantResult",
+        "rightKeys" : [ "CourseOfferingParticipant.CourseOfferingId" ]
+      }
+    },
+    "FORMULA0_100" : {
+      "action" : "formula",
+      "sources" : [ "JOIN7" ],
+      "parameters" : {
+        "expressionType" : "SQL",
+        "fields" : [ {
+          "type" : "TEXT",
+          "name" : "Academic_YearTerm",
+          "label" : "Academic Year/Term",
+          "formulaExpression" : "concat (\"AcademicTerm.AcademicYear.Year\" , ' : ' , \"AcademicTerm.Name\")",
+          "precision" : 255,
+          "defaultValue" : ""
+        } ]
+      }
+    },
+    "FORMULA16" : {
+      "action" : "formula",
+      "sources" : [ "FORMULA0_100" ],
+      "parameters" : {
+        "expressionType" : "SQL",
+        "fields" : [ {
+          "type" : "TEXT",
+          "name" : "Academic_Year_Term",
+          "label" : "Academic Year/Term",
+          "formulaExpression" : "case when\n( current_timestamp() > \"AcademicTerm.StartDate\"\nand  current_timestamp() <\n \"AcademicTerm.EndDate\" )\n  then \n  concat('Current Term', ' - ', Academic_YearTerm ) else Academic_YearTerm end",
+          "precision" : 255,
+          "defaultValue" : ""
+        } ]
+      }
+    },
+    "DROP_FIELDS1" : {
+      "action" : "schema",
+      "sources" : [ "FORMULA16" ],
+      "parameters" : {
+        "fields" : [ ],
+        "slice" : {
+          "mode" : "DROP",
+          "ignoreMissingFields" : true,
+          "fields" : [ "Academic_YearTerm" ]
+        }
+      }
+    },
+    "JOIN45" : {
+      "action" : "join",
+      "sources" : [ "JOIN47", "AGGREGATE25" ],
+      "schema" : {
+        "fields" : [ ],
+        "slice" : {
+          "mode" : "DROP",
+          "ignoreMissingFields" : true,
+          "fields" : [ ]
+        }
+      },
+      "parameters" : {
+        "joinType" : "LEFT_OUTER",
+        "leftKeys" : [ "Id" ],
+        "rightQualifier" : "CourseOfferingParticipant",
+        "rightKeys" : [ "CourseOfferingId" ]
+      }
+    },
+    "FORMULA3" : {
+      "action" : "formula",
+      "sources" : [ "JOIN18" ],
+      "parameters" : {
+        "expressionType" : "SQL",
+        "fields" : [ {
+          "type" : "NUMBER",
+          "name" : "Waitlisted_Students",
+          "label" : "Waitlisted Students",
+          "formulaExpression" : "case when ParticipationStatus = 'Waitlisted' then 1 else 0 end",
+          "precision" : 10,
+          "scale" : 0,
+          "defaultValue" : ""
+        } ]
+      }
+    },
+    "FORMULA4" : {
+      "action" : "formula",
+      "sources" : [ "FORMULA6" ],
+      "parameters" : {
+        "expressionType" : "SQL",
+        "fields" : [ {
+          "type" : "NUMBER",
+          "name" : "Total_EnrolledStudents",
+          "label" : "Total Number of Enrolled Students",
+          "formulaExpression" : "case when ( ParticipationStatus = 'Completed' or ParticipationStatus = 'Enrolled' or ParticipationStatus = 'Failed' ) and (ParticipantAffiliation = 'Student' or ParticipantAffiliation is null)\n then 1 else 0 end",
+          "precision" : 10,
+          "scale" : 0,
+          "defaultValue" : ""
+        } ]
+      }
+    },
+    "FORMULA5" : {
+      "action" : "formula",
+      "sources" : [ "FORMULA4" ],
+      "parameters" : {
+        "expressionType" : "SQL",
+        "fields" : [ {
+          "type" : "NUMBER",
+          "name" : "Course_Enrollments",
+          "label" : "#  Course Enrollments ",
+          "formulaExpression" : "case when Id is not null then 1 else 0 end",
+          "precision" : 10,
+          "scale" : 0,
+          "defaultValue" : ""
+        } ]
+      }
+    },
+    "FORMULA6" : {
+      "action" : "formula",
+      "sources" : [ "FORMULA3" ],
+      "parameters" : {
+        "expressionType" : "SQL",
+        "fields" : [ {
+          "type" : "NUMBER",
+          "name" : "Total_Withdrawals",
+          "label" : "# Total Withdrawals",
+          "formulaExpression" : "case when ParticipationStatus = 'Withdrew' then 1 else 0 end",
+          "precision" : 10,
+          "scale" : 0,
+          "defaultValue" : ""
+        } ]
+      }
+    },
+    "EXTRACT12" : {
+      "action" : "extractGrains",
+      "sources" : [ "FORMULA5" ],
+      "parameters" : {
+        "grainExtractions" : [ ]
+      }
+    },
+    "AGGREGATE25" : {
+      "action" : "aggregate",
+      "sources" : [ "EXTRACT12" ],
+      "parameters" : {
+        "aggregations" : [ {
+          "action" : "SUM",
+          "source" : "Waitlisted_Students",
+          "name" : "SUM_Waitlisted_Students",
+          "label" : "Sum of Waitlisted Students"
+        }, {
+          "action" : "SUM",
+          "source" : "Course_Enrollments",
+          "name" : "CourseEnrollments",
+          "label" : "#  Course Enrollments "
+        }, {
+          "action" : "SUM",
+          "source" : "Total_Withdrawals",
+          "name" : "TotalWithdrawals",
+          "label" : "# Total Withdrawals"
+        }, {
+          "action" : "SUM",
+          "source" : "AcademicTermEnrollment.TermGradePointAverage",
+          "name" : "AcademicTermEnrollment_TermGradePointAverage",
+          "label" : "Term Grade Point Average"
+        }, {
+          "action" : "SUM",
+          "source" : "Total_EnrolledStudents",
+          "name" : "TotalEnrolledStudents",
+          "label" : "Total Number of Enrolled Students"
+        } ],
+        "groupings" : [ "CourseOfferingId" ],
+        "pivots" : [ ],
+        "nodeType" : "STANDARD"
+      }
+    },
+    "FORMULA8" : {
+      "action" : "formula",
+      "sources" : [ "LOAD_DATASET7" ],
+      "parameters" : {
+        "expressionType" : "SQL",
+        "fields" : [ {
+          "type" : "NUMBER",
+          "name" : "InactiveProgramPlans",
+          "label" : "Inactive Program Plans",
+          "formulaExpression" : "case when IsActive = false then 1 else 0 end",
+          "precision" : 10,
+          "scale" : 0,
+          "defaultValue" : ""
+        } ]
+      }
+    },
+    "FORMULA9" : {
+      "action" : "formula",
+      "sources" : [ "JOIN39" ],
+      "parameters" : {
+        "expressionType" : "SQL",
+        "fields" : [ {
+          "type" : "NUMBER",
+          "name" : "NewEnrollments",
+          "label" : "NewEnrollments",
+          "formulaExpression" : "case when (Status = 'Paused' or Status = 'Abandoned') then 0 else 1 end",
+          "precision" : 10,
+          "scale" : 0,
+          "defaultValue" : ""
+        } ]
+      }
+    },
+    "FORMULA10" : {
+      "action" : "formula",
+      "sources" : [ "FORMULA9" ],
+      "parameters" : {
+        "expressionType" : "SQL",
+        "fields" : [ {
+          "type" : "NUMBER",
+          "name" : "NotStarted",
+          "label" : "NotStarted",
+          "formulaExpression" : "case when Status = 'Not Started' then 1 else 0 end",
+          "precision" : 10,
+          "scale" : 0,
+          "defaultValue" : ""
+        } ]
+      }
+    },
+    "FORMULA11" : {
+      "action" : "formula",
+      "sources" : [ "FORMULA10" ],
+      "parameters" : {
+        "expressionType" : "SQL",
+        "fields" : [ {
+          "type" : "NUMBER",
+          "name" : "completedStatus",
+          "label" : "completedStatus",
+          "formulaExpression" : "case when Status = 'Completed' then 1 else 0 end",
+          "precision" : 10,
+          "scale" : 0,
+          "defaultValue" : ""
+        } ]
+      }
+    },
+    "JOIN46" : {
+      "action" : "join",
+      "sources" : [ "LOAD_DATASET8", "FILTER4" ],
+      "schema" : {
+        "fields" : [ ],
+        "slice" : {
+          "mode" : "DROP",
+          "ignoreMissingFields" : true,
+          "fields" : [ "ParticipantContactId", "Name", "AcademicTermEnrollmentId", "ParticipantAffiliation", "ContactProfiles.Id", "ContactProfiles.IsPersonAccount", "ContactProfiles.Account.Name", "ContactProfiles.Account.PersonContactId" ]
+        }
+      },
+      "parameters" : {
+        "joinType" : "LEFT_OUTER",
+        "leftKeys" : [ "ParticipantContactId" ],
+        "rightQualifier" : "ContactProfiles",
+        "rightKeys" : [ "Id" ]
+      }
+    },
+    "JOIN47" : {
+      "action" : "join",
+      "sources" : [ "JOIN48", "REPLACE4" ],
+      "schema" : {
+        "fields" : [ ],
+        "slice" : {
+          "mode" : "DROP",
+          "ignoreMissingFields" : true,
+          "fields" : [ ]
+        }
+      },
+      "parameters" : {
+        "joinType" : "MULTI_VALUE_LOOKUP",
+        "leftKeys" : [ "Id" ],
+        "rightQualifier" : "CourseOfferingPartcpnt",
+        "rightKeys" : [ "CourseOfferingId" ]
+      }
+    },
+    "EXTRACT13" : {
+      "action" : "extractGrains",
+      "sources" : [ "FORMULA12" ],
+      "parameters" : {
+        "grainExtractions" : [ ]
+      }
+    },
+    "AGGREGATE27" : {
+      "action" : "aggregate",
+      "sources" : [ "EXTRACT13" ],
+      "parameters" : {
+        "aggregations" : [ {
+          "action" : "SUM",
+          "source" : "ActiveLearningCourse",
+          "name" : "Active_Learning_Course",
+          "label" : "# Active Learning Course"
+        } ],
+        "groupings" : [ "Id" ],
+        "pivots" : [ ],
+        "nodeType" : "STANDARD"
+      }
+    },
+    "JOIN48" : {
+      "action" : "join",
+      "sources" : [ "JOIN12", "AGGREGATE27" ],
+      "schema" : {
+        "fields" : [ ],
+        "slice" : {
+          "mode" : "DROP",
+          "ignoreMissingFields" : true,
+          "fields" : [ ]
+        }
+      },
+      "parameters" : {
+        "joinType" : "LEFT_OUTER",
+        "leftKeys" : [ "LearningCourseId" ],
+        "rightQualifier" : "ActiveCourses",
+        "rightKeys" : [ "Id" ]
+      }
+    },
+    "FORMULA12" : {
+      "action" : "formula",
+      "sources" : [ "LOAD_DATASET12" ],
+      "parameters" : {
+        "expressionType" : "SQL",
+        "fields" : [ {
+          "type" : "NUMBER",
+          "name" : "ActiveLearningCourse",
+          "label" : "Active Learning Course",
+          "formulaExpression" : "case when Id is not null and IsActive = 'true' then 1 else 0 end",
+          "precision" : 10,
+          "scale" : 0,
+          "defaultValue" : ""
+        } ]
+      }
+    },
+    "JOIN49" : {
+      "action" : "join",
+      "sources" : [ "JOIN44", "EDIT_ATTRIBUTES3" ],
+      "schema" : {
+        "fields" : [ ],
+        "slice" : {
+          "mode" : "DROP",
+          "ignoreMissingFields" : true,
+          "fields" : [ "CourseOfferingPartcpnt.CourseOfferingId", "CourseOfferingSchedule.Id", "CourseOfferingSchedule.Name", "CourseOfferingSchedule.CourseOfferingId" ]
+        }
+      },
+      "parameters" : {
+        "joinType" : "MULTI_VALUE_LOOKUP",
+        "leftKeys" : [ "Id" ],
+        "rightQualifier" : "CourseOfferingSchedule",
+        "rightKeys" : [ "CourseOfferingId" ]
+      }
+    },
+    "FORMULA0_110" : {
+      "action" : "formula",
+      "sources" : [ "JOIN49" ],
+      "parameters" : {
+        "expressionType" : "SQL",
+        "fields" : [ {
+          "type" : "TEXT",
+          "name" : "Academic_YearTerm",
+          "label" : "Academic Year/Term",
+          "formulaExpression" : "concat (\"AcademicSession.AcademicTerm.AcademicYear.Year\" , ' : ' ,\"AcademicSession.AcademicTerm.Name\")",
+          "precision" : 255,
+          "defaultValue" : ""
+        } ]
+      }
+    },
+    "FORMULA1_110" : {
+      "action" : "formula",
+      "sources" : [ "FORMULA0_110" ],
+      "parameters" : {
+        "expressionType" : "SQL",
+        "fields" : [ {
+          "type" : "TEXT",
+          "name" : "CreatedDate_formula",
+          "label" : "Created Date Formula",
+          "formulaExpression" : "CASE WHEN \"AcademicSession.AcademicTerm.AcademicYear.Year\" is not null then concat(\"AcademicSession.AcademicTerm.AcademicYear.Year\", '-', '1-1') else 'NA' end",
+          "precision" : 255,
+          "defaultValue" : ""
+        } ]
+      }
+    },
+    "TO_DATE1_110" : {
+      "action" : "typeCast",
+      "sources" : [ "FORMULA1_110" ],
+      "parameters" : {
+        "fields" : [ {
+          "name" : "CreatedDate_formula",
+          "newProperties" : {
+            "label" : "Academic Year",
+            "name" : "Academic_Year",
+            "typeProperties" : {
+              "type" : "DATETIME",
+              "format" : "yyyy-M-d"
+            }
+          }
+        } ]
+      }
+    },
+    "FILL680" : {
+      "action" : "formula",
+      "sources" : [ "FORMULA17" ],
+      "schema" : {
+        "fields" : [ {
+          "name" : "ActiveCourses.Active_Learning_Course_fill",
+          "newProperties" : {
+            "name" : "ActiveCourses.Active_Learning_Course"
+          }
+        } ],
+        "slice" : {
+          "mode" : "DROP",
+          "ignoreMissingFields" : true,
+          "fields" : [ "ActiveCourses.Active_Learning_Course" ]
+        }
+      },
+      "parameters" : {
+        "expressionType" : "SQL",
+        "fields" : [ {
+          "type" : "NUMBER",
+          "name" : "ActiveCourses.Active_Learning_Course_fill",
+          "label" : "# Active Learning Course",
+          "formulaExpression" : "coalesce(\"ActiveCourses.Active_Learning_Course\", null, 0)",
+          "precision" : 18,
+          "scale" : 0
+        } ]
+      }
+    },
+    "FILL780" : {
+      "action" : "formula",
+      "sources" : [ "FILL680" ],
+      "schema" : {
+        "fields" : [ {
+          "name" : "CourseOfferingParticipant.SUM_Waitlisted_Students_fill",
+          "newProperties" : {
+            "name" : "CourseOfferingParticipant.SUM_Waitlisted_Students"
+          }
+        } ],
+        "slice" : {
+          "mode" : "DROP",
+          "ignoreMissingFields" : true,
+          "fields" : [ "CourseOfferingParticipant.SUM_Waitlisted_Students" ]
+        }
+      },
+      "parameters" : {
+        "expressionType" : "SQL",
+        "fields" : [ {
+          "type" : "NUMBER",
+          "name" : "CourseOfferingParticipant.SUM_Waitlisted_Students_fill",
+          "label" : "Sum of Waitlisted Students",
+          "formulaExpression" : "coalesce(\"CourseOfferingParticipant.SUM_Waitlisted_Students\", null, 0)",
+          "precision" : 18,
+          "scale" : 0
+        } ]
+      }
+    },
+    "FILL880" : {
+      "action" : "formula",
+      "sources" : [ "FILL780" ],
+      "schema" : {
+        "fields" : [ {
+          "name" : "CourseOfferingParticipant.CourseEnrollments_fill",
+          "newProperties" : {
+            "name" : "CourseOfferingParticipant.CourseEnrollments"
+          }
+        } ],
+        "slice" : {
+          "mode" : "DROP",
+          "ignoreMissingFields" : true,
+          "fields" : [ "CourseOfferingParticipant.CourseEnrollments" ]
+        }
+      },
+      "parameters" : {
+        "expressionType" : "SQL",
+        "fields" : [ {
+          "type" : "NUMBER",
+          "name" : "CourseOfferingParticipant.CourseEnrollments_fill",
+          "label" : "#  Course Enrollments ",
+          "formulaExpression" : "coalesce(\"CourseOfferingParticipant.CourseEnrollments\", null, 0)",
+          "precision" : 18,
+          "scale" : 0
+        } ]
+      }
+    },
+    "FILL980" : {
+      "action" : "formula",
+      "sources" : [ "FILL880" ],
+      "schema" : {
+        "fields" : [ {
+          "name" : "CourseOfferingParticipant.TotalWithdrawals_fill",
+          "newProperties" : {
+            "name" : "CourseOfferingParticipant.TotalWithdrawals"
+          }
+        } ],
+        "slice" : {
+          "mode" : "DROP",
+          "ignoreMissingFields" : true,
+          "fields" : [ "CourseOfferingParticipant.TotalWithdrawals" ]
+        }
+      },
+      "parameters" : {
+        "expressionType" : "SQL",
+        "fields" : [ {
+          "type" : "NUMBER",
+          "name" : "CourseOfferingParticipant.TotalWithdrawals_fill",
+          "label" : "# Total Withdrawals",
+          "formulaExpression" : "coalesce(\"CourseOfferingParticipant.TotalWithdrawals\", null, 0)",
+          "precision" : 18,
+          "scale" : 0
+        } ]
+      }
+    },
+    "FILL1080" : {
+      "action" : "formula",
+      "sources" : [ "FILL980" ],
+      "schema" : {
+        "fields" : [ {
+          "name" : "CourseOfferingParticipant.TotalEnrolledStudents_fill",
+          "newProperties" : {
+            "name" : "CourseOfferingParticipant.TotalEnrolledStudents"
+          }
+        } ],
+        "slice" : {
+          "mode" : "DROP",
+          "ignoreMissingFields" : true,
+          "fields" : [ "CourseOfferingParticipant.TotalEnrolledStudents" ]
+        }
+      },
+      "parameters" : {
+        "expressionType" : "SQL",
+        "fields" : [ {
+          "type" : "NUMBER",
+          "name" : "CourseOfferingParticipant.TotalEnrolledStudents_fill",
+          "label" : "Total Number of Enrolled Students",
+          "formulaExpression" : "coalesce(\"CourseOfferingParticipant.TotalEnrolledStudents\", null, 0)",
+          "precision" : 18,
+          "scale" : 0
+        } ]
+      }
+    },
+    "FORMULA17" : {
+      "action" : "formula",
+      "sources" : [ "TO_DATE1_110" ],
+      "parameters" : {
+        "expressionType" : "SQL",
+        "fields" : [ {
+          "type" : "TEXT",
+          "name" : "Academic_Year_Term",
+          "label" : "Academic Year/Term",
+          "formulaExpression" : "case when\n( current_timestamp() > \"AcademicSession.AcademicTerm.StartDate\"\nand  current_timestamp() <\n\"AcademicSession.AcademicTerm.EndDate\" )\n  then \n  concat('Current Term' , ' - ', Academic_YearTerm ) else Academic_YearTerm end",
+          "precision" : 255,
+          "defaultValue" : ""
+        } ]
+      }
+    },
+    "DROP_FIELDS2" : {
+      "action" : "schema",
+      "sources" : [ "FILL1080" ],
+      "parameters" : {
+        "fields" : [ ],
+        "slice" : {
+          "mode" : "DROP",
+          "ignoreMissingFields" : true,
+          "fields" : [ "Academic_YearTerm", "CreatedDate_formula" ]
+        }
+      }
+    },
+    "FORMULA18" : {
+      "action" : "formula",
+      "sources" : [ "LOAD_DATASET6" ],
+      "parameters" : {
+        "expressionType" : "SQL",
+        "fields" : [ {
+          "type" : "TEXT",
+          "name" : "StartTime_formula",
+          "label" : "Start Time Formula",
+          "formulaExpression" : "substr(StartTime, 0, 2)",
+          "precision" : 255,
+          "defaultValue" : ""
+        } ]
+      }
+    },
+    "TO_MEASURE0" : {
+      "action" : "typeCast",
+      "sources" : [ "FORMULA18" ],
+      "parameters" : {
+        "fields" : [ {
+          "name" : "StartTime_formula",
+          "newProperties" : {
+            "label" : "Start Time Formula To Number",
+            "name" : "StartTime_formula_to_measure",
+            "typeProperties" : {
+              "type" : "NUMBER",
+              "scale" : 2,
+              "precision" : 18
+            }
+          }
+        } ]
+      }
+    },
+    "FORMULA19" : {
+      "action" : "formula",
+      "sources" : [ "TO_MEASURE0" ],
+      "parameters" : {
+        "expressionType" : "SQL",
+        "fields" : [ {
+          "type" : "TEXT",
+          "name" : "Start_Time",
+          "label" : "Start Time",
+          "formulaExpression" : "case \n\twhen (StartTime_formula_to_measure = 0 or  StartTime_formula_to_measure > 0)  \n    and StartTime_formula_to_measure < 12 then concat(StartTime_formula, ' AM') else\n\t concat(StartTime_formula, ' PM')\nend",
+          "precision" : 255,
+          "defaultValue" : ""
+        } ]
+      }
+    },
+    "REPLACE0" : {
+      "action" : "formula",
+      "sources" : [ "DROP_FIELDS3" ],
+      "schema" : {
+        "fields" : [ {
+          "name" : "Id_formula_replace",
+          "newProperties" : {
+            "name" : "Start_Time"
+          }
+        } ],
+        "slice" : {
+          "mode" : "DROP",
+          "ignoreMissingFields" : true,
+          "fields" : [ "Start_Time" ]
+        }
+      },
+      "parameters" : {
+        "expressionType" : "SQL",
+        "fields" : [ {
+          "type" : "TEXT",
+          "name" : "Id_formula_replace",
+          "label" : "Course Offering Schedule ID Formula",
+          "formulaExpression" : "replace(Start_Time, '00 AM', '12 AM')",
+          "precision" : 255
+        } ]
+      }
+    },
+    "DROP_FIELDS3" : {
+      "action" : "schema",
+      "sources" : [ "FORMULA19" ],
+      "parameters" : {
+        "fields" : [ ],
+        "slice" : {
+          "mode" : "DROP",
+          "ignoreMissingFields" : true,
+          "fields" : [ "StartTime_formula_to_measure", "StartTime_formula", "StartTime" ]
+        }
+      }
+    },
+    "EDIT_ATTRIBUTES3" : {
+      "action" : "schema",
+      "sources" : [ "REPLACE0" ],
+      "parameters" : {
+        "fields" : [ {
+          "name" : "Start_Time",
+          "newProperties" : {
+            "label" : "Start Time",
+            "name" : "Start_Time"
+          }
+        } ]
+      }
+    },
+    "FILTER380" : {
+      "action" : "filter",
+      "sources" : [ "FILL5" ],
+      "parameters" : {
+        "filterExpressions" : [ {
+          "type" : "MULTIVALUE",
+          "field" : "ProgramTermApplication.Academic_Year_Term",
+          "operator" : "IS_NOT_NULL",
+          "operands" : [ ]
+        } ]
+      }
+    },
+    "FILTER3_110" : {
+      "action" : "filter",
+      "sources" : [ "DROP_FIELDS2" ],
+      "parameters" : {
+        "filterExpressions" : [ {
+          "type" : "TEXT",
+          "field" : "Academic_Year_Term",
+          "operator" : "IS_NOT_NULL",
+          "operands" : [ ]
+        } ]
+      }
+    },
+    "REPLACE3" : {
+      "action" : "formula",
+      "sources" : [ "JOIN46" ],
+      "schema" : {
+        "fields" : [ {
+          "name" : "ContactProfiles.ContactProfile.PrimaryCitizenshipType_replace",
+          "newProperties" : {
+            "name" : "ContactProfiles.ContactProfile.PrimaryCitizenshipType"
+          }
+        } ],
+        "slice" : {
+          "mode" : "DROP",
+          "ignoreMissingFields" : true,
+          "fields" : [ "ContactProfiles.ContactProfile.PrimaryCitizenshipType" ]
+        }
+      },
+      "parameters" : {
+        "expressionType" : "SQL",
+        "fields" : [ {
+          "type" : "TEXT",
+          "name" : "ContactProfiles.ContactProfile.PrimaryCitizenshipType_replace",
+          "label" : "Primary Citizenship Type",
+          "formulaExpression" : "coalesce(\"ContactProfiles.ContactProfile.PrimaryCitizenshipType\", null, 'Not Available')",
+          "precision" : 255
+        } ]
+      }
+    },
+    "REPLACE4" : {
+      "action" : "formula",
+      "sources" : [ "REPLACE3" ],
+      "schema" : {
+        "fields" : [ {
+          "name" : "ContactProfiles.Account.PersonGenderIdentity_replace",
+          "newProperties" : {
+            "name" : "ContactProfiles.Account.PersonGenderIdentity"
+          }
+        } ],
+        "slice" : {
+          "mode" : "DROP",
+          "ignoreMissingFields" : true,
+          "fields" : [ "ContactProfiles.Account.PersonGenderIdentity" ]
+        }
+      },
+      "parameters" : {
+        "expressionType" : "SQL",
+        "fields" : [ {
+          "type" : "TEXT",
+          "name" : "ContactProfiles.Account.PersonGenderIdentity_replace",
+          "label" : "Gender Identity",
+          "formulaExpression" : "coalesce(\"ContactProfiles.Account.PersonGenderIdentity\", null, 'Not Available')",
+          "precision" : 255
+        } ]
+      }
+    }
+  },
+  "ui" : {
+    "nodes" : {
+      "LOAD_DATASET0" : {
+        "label" : "Contact",
+        "type" : "LOAD_DATASET",
+        "top" : 1791.8,
+        "left" : 112.19999999999999,
+        "parameters" : {
+          "sampleSize" : 2000
+        }
+      },
+      "LOAD_DATASET1" : {
+        "label" : "Account",
+        "type" : "LOAD_DATASET",
+        "top" : 392.2,
+        "left" : 112,
+        "parameters" : {
+          "sampleSize" : 2000
+        }
+      },
+      "LOAD_DATASET2" : {
+        "label" : "Input : ProgramTermApplnTimeline",
+        "type" : "LOAD_DATASET",
+        "top" : 672.1,
+        "left" : 112.1,
+        "parameters" : {
+          "sampleSize" : 2000
+        }
+      },
+      "LOAD_DATASET3" : {
+        "label" : "Input : LearnerProgram",
+        "type" : "LOAD_DATASET",
+        "top" : 1371.9,
+        "left" : 112.30000000000001,
+        "parameters" : {
+          "sampleSize" : 2000
+        }
+      },
+      "LOAD_DATASET4" : {
+        "label" : "Input : RecordType",
+        "type" : "LOAD_DATASET",
+        "top" : 532,
+        "left" : 111.9,
+        "parameters" : {
+          "sampleSize" : 2000
+        }
+      },
+      "LOAD_DATASET5" : {
+        "label" : "AcademicSession",
+        "type" : "LOAD_DATASET",
+        "top" : 2492.2,
+        "left" : 112.19999999999999,
+        "parameters" : {
+          "sampleSize" : 2000
+        }
+      },
+      "LOAD_DATASET6" : {
+        "label" : "CourseOfferingSchedule",
+        "type" : "LOAD_DATASET",
+        "top" : 2772,
+        "left" : 112,
+        "parameters" : {
+          "sampleSize" : 2000
+        }
+      },
+      "LOAD_DATASET7" : {
+        "label" : "LearningProgramPlan",
+        "type" : "LOAD_DATASET",
+        "top" : 1511.9,
+        "left" : 112.19999999999999,
+        "parameters" : {
+          "sampleSize" : 2000
+        }
+      },
+      "LOAD_DATASET8" : {
+        "label" : "CourseOfferingParticipant",
+        "type" : "LOAD_DATASET",
+        "top" : 2211.8,
+        "left" : 112.19999999999999,
+        "parameters" : {
+          "sampleSize" : 2000
+        }
+      },
+      "LOAD_DATASET9" : {
+        "label" : "Input : LearningProgram",
+        "description" : "",
+        "type" : "LOAD_DATASET",
+        "top" : 1232,
+        "left" : 112.30000000000001,
+        "parameters" : {
+          "sampleSize" : 2000
+        }
+      },
+      "LOAD_DATASET11" : {
+        "label" : "AcademicTerm",
+        "type" : "LOAD_DATASET",
+        "top" : 812,
+        "left" : 112,
+        "parameters" : {
+          "sampleSize" : 2000
+        }
+      },
+      "LOAD_DATASET12" : {
+        "label" : "LearningCourse",
+        "type" : "LOAD_DATASET",
+        "top" : 2071.8,
+        "left" : 112.19999999999999,
+        "parameters" : {
+          "sampleSize" : 2000
+        }
+      },
+      "LOAD_DATASET14" : {
+        "label" : "Input : CourseOfferingPtcpResult",
+        "type" : "LOAD_DATASET",
+        "top" : 2632.2,
+        "left" : 112.19999999999999,
+        "parameters" : {
+          "sampleSize" : 2000
+        }
+      },
+      "LOAD_DATASET15" : {
+        "label" : "Input : AcademicYear",
+        "type" : "LOAD_DATASET",
+        "top" : 952,
+        "left" : 112,
+        "parameters" : {
+          "sampleSize" : 2000
+        }
+      },
+      "LOAD_DATASET16" : {
+        "label" : "input : AcademicTermEnrollment",
+        "type" : "LOAD_DATASET",
+        "top" : 2351.8,
+        "left" : 112.19999999999999,
+        "parameters" : {
+          "sampleSize" : 2000
+        }
+      },
+      "OUTPUT0" : {
+        "label" : "Output : Applications",
+        "type" : "OUTPUT",
+        "top" : 112.19999999999999,
+        "left" : 1511.9
+      },
+      "LOAD_DATASET18" : {
+        "label" : "ApplicationDecision",
+        "type" : "LOAD_DATASET",
+        "top" : 252,
+        "left" : 112.1,
+        "parameters" : {
+          "sampleSize" : 2000
+        }
+      },
+      "JOIN0" : {
+        "label" : "Join: Individual Applications onto Application Decision",
+        "type" : "JOIN",
+        "top" : 112.19999999999999,
+        "left" : 391.3
+      },
+      "FILTER0" : {
+        "label" : "Filter : Accounts with College or Department (Providers))",
+        "type" : "FILTER",
+        "top" : 392,
+        "left" : 532
+      },
+      "LOAD_DATASET19" : {
+        "label" : "CourseOffering",
+        "description" : "",
+        "type" : "LOAD_DATASET",
+        "top" : 1651.8,
+        "left" : 112.19999999999999,
+        "parameters" : {
+          "sampleSize" : 2000
+        }
+      },
+      "JOIN5" : {
+        "label" : "Join: Learning Programs onto ProgramTermApplnTimeline",
+        "type" : "JOIN",
+        "top" : 672.3,
+        "left" : 532.2
+      },
+      "JOIN7" : {
+        "label" : "Join : Program Term Applications Timeline on Academic Term",
+        "type" : "JOIN",
+        "top" : 672.1,
+        "left" : 252.10000000000002
+      },
+      "JOIN8" : {
+        "label" : "Join : Academic Year onto Academic Term",
+        "description" : "",
+        "type" : "JOIN",
+        "top" : 812.1,
+        "left" : 252.10000000000002
+      },
+      "JOIN10" : {
+        "label" : "Join : Course Offering onto Contact",
+        "description" : "",
+        "type" : "JOIN",
+        "top" : 1651.8,
+        "left" : 672.2
+      },
+      "JOIN12" : {
+        "label" : "Join : Course Offering onto Learning Course",
+        "description" : "",
+        "type" : "JOIN",
+        "top" : 1651.8,
+        "left" : 1092.2
+      },
+      "OUTPUT1" : {
+        "label" : "Output : Course Offerings & Faculty",
+        "description" : "",
+        "type" : "OUTPUT",
+        "top" : 1652.1,
+        "left" : 2352
+      },
+      "JOIN13" : {
+        "label" : "Join : Accounts with Record Types",
+        "type" : "JOIN",
+        "top" : 392,
+        "left" : 392
+      },
+      "LOAD_DATASET20" : {
+        "label" : "IndividualApplication",
+        "type" : "LOAD_DATASET",
+        "top" : 112,
+        "left" : 112,
+        "parameters" : {
+          "sampleSize" : 2000
+        }
+      },
+      "JOIN16" : {
+        "label" : "Join : Academic Session onto Academic Terms",
+        "type" : "JOIN",
+        "top" : 2492.6,
+        "left" : 392.2
+      },
+      "JOIN17" : {
+        "label" : "Join : Course Offering onto Academic Session",
+        "type" : "JOIN",
+        "top" : 1652,
+        "left" : 1652
+      },
+      "JOIN18" : {
+        "label" : "Join : Course Offering Participant onto Academic Term Enrollment",
+        "type" : "JOIN",
+        "top" : 2351.8,
+        "left" : 392.2
+      },
+      "OUTPUT2" : {
+        "label" : "Output : Learning Programs",
+        "type" : "OUTPUT",
+        "top" : 1232,
+        "left" : 1512.6
+      },
+      "TRANSFORM0" : {
+        "label" : "Edit and Derive Attributes",
+        "type" : "TRANSFORM",
+        "top" : 112.19999999999999,
+        "left" : 1231.9,
+        "graph" : {
+          "FORMULA0" : {
+            "parameters" : {
+              "type" : "BASE_FORMULA_UI"
+            },
+            "label" : "Concatenate Academic Year and Academic Term"
+          },
+          "FORMULA1" : {
+            "parameters" : {
+              "type" : "BASE_FORMULA_UI"
+            },
+            "label" : "Convert Academic Year Text field  in  YYYY-M-D format"
+          },
+          "TO_DATE1" : {
+            "label" : "To Date"
+          },
+          "FORMULA2" : {
+            "parameters" : {
+              "type" : "BASE_FORMULA_UI"
+            },
+            "label" : "Derive Application Pipeline field"
+          },
+          "EDIT_ATTRIBUTES0" : {
+            "label" : "Edit Attributes"
+          },
+          "EDIT_ATTRIBUTES1" : {
+            "label" : "Edit Attributes"
+          },
+          "EDIT_ATTRIBUTES2" : {
+            "label" : "Edit Attributes"
+          },
+          "FORMULA15" : {
+            "parameters" : {
+              "type" : "BASE_FORMULA_UI"
+            },
+            "label" : "Concatenate 'Current' Text with Academic Year/Text Field"
+          },
+          "DROP_FIELDS0" : {
+            "label" : "Drop Columns"
+          },
+          "REPLACE1" : {
+            "parameters" : {
+              "type" : "REPLACE_UI"
+            },
+            "label" : "Replace"
+          },
+          "REPLACE2" : {
+            "parameters" : {
+              "type" : "REPLACE_UI"
+            },
+            "label" : "Replace"
+          }
+        },
+        "connectors" : [ {
+          "source" : "FORMULA1",
+          "target" : "TO_DATE1"
+        }, {
+          "source" : "FORMULA0",
+          "target" : "FORMULA1"
+        }, {
+          "source" : "TO_DATE1",
+          "target" : "FORMULA2"
+        }, {
+          "source" : "FORMULA2",
+          "target" : "EDIT_ATTRIBUTES0"
+        }, {
+          "source" : "EDIT_ATTRIBUTES0",
+          "target" : "EDIT_ATTRIBUTES1"
+        }, {
+          "source" : "EDIT_ATTRIBUTES1",
+          "target" : "EDIT_ATTRIBUTES2"
+        }, {
+          "source" : "EDIT_ATTRIBUTES2",
+          "target" : "FORMULA15"
+        }, {
+          "source" : "FORMULA15",
+          "target" : "DROP_FIELDS0"
+        }, {
+          "source" : "DROP_FIELDS0",
+          "target" : "REPLACE1"
+        }, {
+          "source" : "REPLACE1",
+          "target" : "REPLACE2"
+        } ]
+      },
+      "FILTER3" : {
+        "label" : "Filter : Academic Year and Term is not Null",
+        "type" : "FILTER",
+        "top" : 112.19999999999999,
+        "left" : 1371.9
+      },
+      "LOAD_DATASET21" : {
+        "label" : "ContactProfile",
+        "type" : "LOAD_DATASET",
+        "top" : 1931.8,
+        "left" : 112.19999999999999,
+        "parameters" : {
+          "sampleSize" : 2000
+        }
+      },
+      "JOIN28" : {
+        "label" : "Join : Contact onto ContactProfile",
+        "type" : "JOIN",
+        "top" : 1791.8,
+        "left" : 252.2
+      },
+      "JOIN29" : {
+        "label" : "Join : Individual Applications onto ContactProfiles",
+        "type" : "JOIN",
+        "top" : 112.19999999999999,
+        "left" : 1091.9
+      },
+      "JOIN30" : {
+        "label" : "Join : Contact Profile onto Accounts",
+        "type" : "JOIN",
+        "top" : 1791.8,
+        "left" : 812.2
+      },
+      "FILTER4" : {
+        "label" : "Filter : Contact Profiles with  Person Accounts",
+        "type" : "FILTER",
+        "top" : 1791.8,
+        "left" : 952.2
+      },
+      "FILTER5" : {
+        "label" : "Filter : Exclude Applications with 'Canceled' Status",
+        "type" : "FILTER",
+        "top" : 112,
+        "left" : 252
+      },
+      "JOIN31" : {
+        "label" : "Join: Individual Applications onto Accounts",
+        "type" : "JOIN",
+        "top" : 112,
+        "left" : 532
+      },
+      "JOIN32" : {
+        "label" : "Join: Individual Applications onto Program Term Applicaitions",
+        "type" : "JOIN",
+        "top" : 112,
+        "left" : 672
+      },
+      "JOIN33" : {
+        "label" : "Join : Learning Program onto Accounts (Providers))",
+        "type" : "JOIN",
+        "top" : 1231.8,
+        "left" : 672.3
+      },
+      "JOIN34" : {
+        "label" : "Join : Learning Course onto Accounts",
+        "type" : "JOIN",
+        "top" : 1932,
+        "left" : 392
+      },
+      "JOIN38" : {
+        "label" : "Join : Learning Program onto ProgramTermApplication",
+        "type" : "JOIN",
+        "top" : 1231.9,
+        "left" : 392.3
+      },
+      "JOIN39" : {
+        "label" : "Join : Learner Program onto Learning Program Plan",
+        "description" : "",
+        "type" : "JOIN",
+        "top" : 1371.9,
+        "left" : 252.3
+      },
+      "AGGREGATE6" : {
+        "label" : "Aggregate learner Program with Learning Program",
+        "type" : "AGGREGATE",
+        "top" : 1371.8,
+        "left" : 812.3,
+        "graph" : {
+          "EXTRACT3" : null,
+          "AGGREGATE7" : null
+        },
+        "connectors" : [ {
+          "source" : "EXTRACT3",
+          "target" : "AGGREGATE7"
+        } ]
+      },
+      "JOIN40" : {
+        "label" : "Join : Learning Program onto Learner Program",
+        "type" : "JOIN",
+        "top" : 1231.8,
+        "left" : 952.3
+      },
+      "TRANSFORM0_110" : {
+        "label" : "Fill Nulls with 0",
+        "description" : "",
+        "type" : "TRANSFORM",
+        "top" : 1231.8,
+        "left" : 1232.2,
+        "graph" : {
+          "FILL0" : {
+            "parameters" : {
+              "type" : "FILL_UI"
+            },
+            "label" : "Fill"
+          },
+          "FILL1" : {
+            "parameters" : {
+              "type" : "FILL_UI"
+            },
+            "label" : "Fill"
+          },
+          "FILL2" : {
+            "parameters" : {
+              "type" : "FILL_UI"
+            },
+            "label" : "Fill"
+          },
+          "FILL4" : {
+            "parameters" : {
+              "type" : "FILL_UI"
+            },
+            "label" : "Fill"
+          },
+          "FILL5" : {
+            "parameters" : {
+              "type" : "FILL_UI"
+            },
+            "label" : "Fill"
+          }
+        },
+        "connectors" : [ {
+          "source" : "FILL0",
+          "target" : "FILL1"
+        }, {
+          "source" : "FILL1",
+          "target" : "FILL2"
+        }, {
+          "source" : "FILL2",
+          "target" : "FILL4"
+        }, {
+          "source" : "FILL4",
+          "target" : "FILL5"
+        } ]
+      },
+      "JOIN42" : {
+        "label" : "Join : CourseOfferingPrtcpntResults onto CourseOffering Participants",
+        "description" : "",
+        "type" : "JOIN",
+        "top" : 2632.6,
+        "left" : 252.2
+      },
+      "AGGREGATE14" : {
+        "label" : "Aggregate Inactive Learning Program Plans",
+        "type" : "AGGREGATE",
+        "top" : 1511.9,
+        "left" : 392.2,
+        "graph" : {
+          "EXTRACT7" : null,
+          "AGGREGATE15" : null
+        },
+        "connectors" : [ {
+          "source" : "EXTRACT7",
+          "target" : "AGGREGATE15"
+        } ]
+      },
+      "JOIN43" : {
+        "label" : "Join Learning Program with Inactive Learning Program Plans",
+        "type" : "JOIN",
+        "top" : 1231.8,
+        "left" : 812.3
+      },
+      "JOIN44" : {
+        "label" : "Join : Course Offering onto course offering participant pass results",
+        "description" : "",
+        "type" : "JOIN",
+        "top" : 1651.8,
+        "left" : 1792.2
+      },
+      "TRANSFORM0_100" : {
+        "label" : "Edit and Derive Attributes",
+        "type" : "TRANSFORM",
+        "top" : 951.7,
+        "left" : 392.1,
+        "graph" : {
+          "FORMULA0_100" : {
+            "parameters" : {
+              "type" : "BASE_FORMULA_UI"
+            },
+            "label" : "Concatenate Academic Year and Academic Term"
+          },
+          "FORMULA16" : {
+            "parameters" : {
+              "type" : "BASE_FORMULA_UI"
+            },
+            "label" : "Concatenate 'Current' Text with Academic Year/Text Field"
+          },
+          "DROP_FIELDS1" : {
+            "label" : "Drop Columns"
+          }
+        },
+        "connectors" : [ {
+          "source" : "FORMULA0_100",
+          "target" : "FORMULA16"
+        }, {
+          "source" : "FORMULA16",
+          "target" : "DROP_FIELDS1"
+        } ]
+      },
+      "JOIN45" : {
+        "label" : "Join : Course Offering onto Course Offering Participants with students",
+        "type" : "JOIN",
+        "top" : 1652,
+        "left" : 1512
+      },
+      "TRANSFORM3" : {
+        "label" : "Edit and Derive Attributes",
+        "type" : "TRANSFORM",
+        "top" : 2351.8,
+        "left" : 532.2,
+        "graph" : {
+          "FORMULA3" : {
+            "parameters" : {
+              "type" : "BASE_FORMULA_UI"
+            },
+            "label" : "Waitlisted Flag"
+          },
+          "FORMULA4" : {
+            "parameters" : {
+              "type" : "BASE_FORMULA_UI"
+            },
+            "label" : "New Enrolments Flag"
+          },
+          "FORMULA5" : {
+            "parameters" : {
+              "type" : "BASE_FORMULA_UI"
+            },
+            "label" : "Course Enrollments Flag"
+          },
+          "FORMULA6" : {
+            "parameters" : {
+              "type" : "BASE_FORMULA_UI"
+            },
+            "label" : "Withdrew Flag"
+          }
+        },
+        "connectors" : [ {
+          "source" : "FORMULA4",
+          "target" : "FORMULA5"
+        }, {
+          "source" : "FORMULA3",
+          "target" : "FORMULA6"
+        }, {
+          "source" : "FORMULA6",
+          "target" : "FORMULA4"
+        } ]
+      },
+      "AGGREGATE24" : {
+        "label" : "Aggregate CourseOffering Participants with CourseOffering",
+        "type" : "AGGREGATE",
+        "top" : 2351.8,
+        "left" : 672.2,
+        "graph" : {
+          "EXTRACT12" : null,
+          "AGGREGATE25" : null
+        },
+        "connectors" : [ {
+          "source" : "EXTRACT12",
+          "target" : "AGGREGATE25"
+        } ]
+      },
+      "TRANSFORM4" : {
+        "label" : "Edit and Derive Attributes",
+        "type" : "TRANSFORM",
+        "top" : 1511.9,
+        "left" : 252.2,
+        "graph" : {
+          "FORMULA8" : {
+            "parameters" : {
+              "type" : "BASE_FORMULA_UI"
+            },
+            "label" : "Inactive Learning Programs"
+          }
+        },
+        "connectors" : [ ]
+      },
+      "TRANSFORM5" : {
+        "label" : "Edit and Derive Attributes",
+        "type" : "TRANSFORM",
+        "top" : 1371.9,
+        "left" : 532.3,
+        "graph" : {
+          "FORMULA9" : {
+            "parameters" : {
+              "type" : "BASE_FORMULA_UI"
+            },
+            "label" : "Derive New Enrolments Flag"
+          },
+          "FORMULA10" : {
+            "parameters" : {
+              "type" : "BASE_FORMULA_UI"
+            },
+            "label" : "Derive Not Started Flag"
+          },
+          "FORMULA11" : {
+            "parameters" : {
+              "type" : "BASE_FORMULA_UI"
+            },
+            "label" : "Derive Completed Flag"
+          }
+        },
+        "connectors" : [ {
+          "source" : "FORMULA9",
+          "target" : "FORMULA10"
+        }, {
+          "source" : "FORMULA10",
+          "target" : "FORMULA11"
+        } ]
+      },
+      "JOIN46" : {
+        "label" : "Join CourseOfferingParticipants with Contact and Profiles",
+        "description" : "",
+        "type" : "JOIN",
+        "top" : 2212.2,
+        "left" : 952.2
+      },
+      "JOIN47" : {
+        "label" : "Join CourseOffering with ContactProfiles",
+        "type" : "JOIN",
+        "top" : 1652,
+        "left" : 1372
+      },
+      "AGGREGATE26" : {
+        "label" : "Aggregate Learning Courses with Courses Offering",
+        "type" : "AGGREGATE",
+        "top" : 2072.2,
+        "left" : 532,
+        "graph" : {
+          "EXTRACT13" : null,
+          "AGGREGATE27" : null
+        },
+        "connectors" : [ {
+          "source" : "EXTRACT13",
+          "target" : "AGGREGATE27"
+        } ]
+      },
+      "JOIN48" : {
+        "label" : "Join : Course Offering with Active Learning Courses",
+        "type" : "JOIN",
+        "top" : 1651.9,
+        "left" : 1232
+      },
+      "TRANSFORM6" : {
+        "label" : "Edit and Derive Attributes",
+        "type" : "TRANSFORM",
+        "top" : 2072,
+        "left" : 392,
+        "graph" : {
+          "FORMULA12" : {
+            "parameters" : {
+              "type" : "BASE_FORMULA_UI"
+            },
+            "label" : "Active Learning Course Flag"
+          }
+        },
+        "connectors" : [ ]
+      },
+      "JOIN49" : {
+        "label" : "Join :  CourseOffering onto CourseOfferingSchedule",
+        "type" : "JOIN",
+        "top" : 1651.9,
+        "left" : 1932
+      },
+      "TRANSFORM0120" : {
+        "label" : "Edit and Derive Attributes",
+        "type" : "TRANSFORM",
+        "top" : 1652.1,
+        "left" : 2072,
+        "graph" : {
+          "FORMULA0_110" : {
+            "parameters" : {
+              "type" : "BASE_FORMULA_UI"
+            },
+            "label" : "Concatenate Academic Year and Academic Term"
+          },
+          "FORMULA1_110" : {
+            "parameters" : {
+              "type" : "BASE_FORMULA_UI"
+            },
+            "label" : "Convert Academic Year Text field in YYYY-M-D format"
+          },
+          "TO_DATE1_110" : {
+            "label" : "To Date"
+          },
+          "FILL680" : {
+            "parameters" : {
+              "type" : "FILL_UI"
+            },
+            "label" : "Fill"
+          },
+          "FILL780" : {
+            "parameters" : {
+              "type" : "FILL_UI"
+            },
+            "label" : "Fill"
+          },
+          "FILL880" : {
+            "parameters" : {
+              "type" : "FILL_UI"
+            },
+            "label" : "Fill"
+          },
+          "FILL980" : {
+            "parameters" : {
+              "type" : "FILL_UI"
+            },
+            "label" : "Fill"
+          },
+          "FILL1080" : {
+            "parameters" : {
+              "type" : "FILL_UI"
+            },
+            "label" : "Fill"
+          },
+          "FORMULA17" : {
+            "parameters" : {
+              "type" : "BASE_FORMULA_UI"
+            },
+            "label" : "Concatenate 'Current' Text with Academic Year/Text Field"
+          },
+          "DROP_FIELDS2" : {
+            "label" : "Drop Columns"
+          }
+        },
+        "connectors" : [ {
+          "source" : "FORMULA1_110",
+          "target" : "TO_DATE1_110"
+        }, {
+          "source" : "FORMULA0_110",
+          "target" : "FORMULA1_110"
+        }, {
+          "source" : "FILL680",
+          "target" : "FILL780"
+        }, {
+          "source" : "FILL780",
+          "target" : "FILL880"
+        }, {
+          "source" : "FILL880",
+          "target" : "FILL980"
+        }, {
+          "source" : "FILL980",
+          "target" : "FILL1080"
+        }, {
+          "source" : "FORMULA17",
+          "target" : "FILL680"
+        }, {
+          "source" : "TO_DATE1_110",
+          "target" : "FORMULA17"
+        }, {
+          "source" : "FILL1080",
+          "target" : "DROP_FIELDS2"
+        } ]
+      },
+      "TRANSFORM7" : {
+        "label" : "Derive Start Time",
+        "description" : "",
+        "type" : "TRANSFORM",
+        "top" : 2772.2,
+        "left" : 252,
+        "graph" : {
+          "FORMULA18" : {
+            "parameters" : {
+              "type" : "BASE_FORMULA_UI"
+            },
+            "label" : "Fetch 'Hours' from Timestamp"
+          },
+          "TO_MEASURE0" : {
+            "label" : "To Number"
+          },
+          "FORMULA19" : {
+            "parameters" : {
+              "type" : "BASE_FORMULA_UI"
+            },
+            "label" : "Derive Start Time"
+          },
+          "REPLACE0" : {
+            "parameters" : {
+              "type" : "REPLACE_UI"
+            },
+            "label" : "Replace"
+          },
+          "DROP_FIELDS3" : {
+            "label" : "Drop Columns"
+          },
+          "EDIT_ATTRIBUTES3" : {
+            "label" : "Edit Attributes"
+          }
+        },
+        "connectors" : [ {
+          "source" : "FORMULA18",
+          "target" : "TO_MEASURE0"
+        }, {
+          "source" : "TO_MEASURE0",
+          "target" : "FORMULA19"
+        }, {
+          "source" : "DROP_FIELDS3",
+          "target" : "REPLACE0"
+        }, {
+          "source" : "FORMULA19",
+          "target" : "DROP_FIELDS3"
+        }, {
+          "source" : "REPLACE0",
+          "target" : "EDIT_ATTRIBUTES3"
+        } ]
+      },
+      "FILTER380" : {
+        "label" : "Filter : Academic Year and Term is not Null",
+        "type" : "FILTER",
+        "top" : 1231.8,
+        "left" : 1372.1
+      },
+      "FILTER3_110" : {
+        "label" : "Filter : Academic Year and Term is not Null",
+        "type" : "FILTER",
+        "top" : 1652.4,
+        "left" : 2212.1
+      },
+      "TRANSFORM8" : {
+        "label" : "Replace Nulls with Not Available",
+        "description" : "",
+        "type" : "TRANSFORM",
+        "top" : 2212,
+        "left" : 1092,
+        "graph" : {
+          "REPLACE3" : {
+            "parameters" : {
+              "type" : "REPLACE_UI"
+            },
+            "label" : "Replace"
+          },
+          "REPLACE4" : {
+            "parameters" : {
+              "type" : "REPLACE_UI"
+            },
+            "label" : "Replace"
+          }
+        },
+        "connectors" : [ {
+          "source" : "REPLACE3",
+          "target" : "REPLACE4"
+        } ]
+      },
+      "TRANSFORM121" : {
+        "label" : "Dummy Transform Node",
+        "type" : "TRANSFORM",
+        "top" : 392,
+        "left" : 252,
+        "graph" : { },
+        "connectors" : [ ]
+      }
+    },
+    "connectors" : [ {
+      "source" : "LOAD_DATASET8",
+      "target" : "JOIN46"
+    }, {
+      "source" : "JOIN17",
+      "target" : "JOIN44"
+    }, {
+      "source" : "JOIN47",
+      "target" : "JOIN45"
+    }, {
+      "source" : "JOIN10",
+      "target" : "JOIN12"
+    }, {
+      "source" : "LOAD_DATASET8",
+      "target" : "JOIN18"
+    }, {
+      "source" : "LOAD_DATASET9",
+      "target" : "JOIN5"
+    }, {
+      "source" : "LOAD_DATASET11",
+      "target" : "JOIN8"
+    }, {
+      "source" : "JOIN32",
+      "target" : "JOIN29"
+    }, {
+      "source" : "FILTER5",
+      "target" : "JOIN0"
+    }, {
+      "source" : "LOAD_DATASET18",
+      "target" : "JOIN0"
+    }, {
+      "source" : "FILTER3",
+      "target" : "OUTPUT0"
+    }, {
+      "source" : "LOAD_DATASET2",
+      "target" : "JOIN7"
+    }, {
+      "source" : "LOAD_DATASET19",
+      "target" : "JOIN10"
+    }, {
+      "source" : "JOIN34",
+      "target" : "JOIN12"
+    }, {
+      "source" : "TRANSFORM121",
+      "target" : "JOIN13"
+    }, {
+      "source" : "LOAD_DATASET4",
+      "target" : "JOIN13"
+    }, {
+      "source" : "JOIN13",
+      "target" : "FILTER0"
+    }, {
+      "source" : "JOIN8",
+      "target" : "JOIN7"
+    }, {
+      "source" : "JOIN7",
+      "target" : "JOIN5"
+    }, {
+      "source" : "LOAD_DATASET5",
+      "target" : "JOIN16"
+    }, {
+      "source" : "JOIN8",
+      "target" : "JOIN16"
+    }, {
+      "source" : "JOIN45",
+      "target" : "JOIN17"
+    }, {
+      "source" : "JOIN16",
+      "target" : "JOIN17"
+    }, {
+      "source" : "LOAD_DATASET16",
+      "target" : "JOIN18"
+    }, {
+      "source" : "JOIN29",
+      "target" : "TRANSFORM0"
+    }, {
+      "source" : "TRANSFORM0",
+      "target" : "FILTER3"
+    }, {
+      "source" : "LOAD_DATASET0",
+      "target" : "JOIN28"
+    }, {
+      "source" : "LOAD_DATASET21",
+      "target" : "JOIN28"
+    }, {
+      "source" : "JOIN28",
+      "target" : "JOIN30"
+    }, {
+      "source" : "LOAD_DATASET1",
+      "target" : "JOIN30"
+    }, {
+      "source" : "JOIN28",
+      "target" : "JOIN10"
+    }, {
+      "source" : "JOIN30",
+      "target" : "FILTER4"
+    }, {
+      "source" : "LOAD_DATASET20",
+      "target" : "FILTER5"
+    }, {
+      "source" : "JOIN0",
+      "target" : "JOIN31"
+    }, {
+      "source" : "FILTER0",
+      "target" : "JOIN31"
+    }, {
+      "source" : "JOIN31",
+      "target" : "JOIN32"
+    }, {
+      "source" : "JOIN5",
+      "target" : "JOIN32"
+    }, {
+      "source" : "LOAD_DATASET15",
+      "target" : "JOIN8"
+    }, {
+      "source" : "JOIN38",
+      "target" : "JOIN33"
+    }, {
+      "source" : "FILTER0",
+      "target" : "JOIN33"
+    }, {
+      "source" : "LOAD_DATASET12",
+      "target" : "JOIN34"
+    }, {
+      "source" : "FILTER0",
+      "target" : "JOIN34"
+    }, {
+      "source" : "LOAD_DATASET9",
+      "target" : "JOIN38"
+    }, {
+      "source" : "LOAD_DATASET3",
+      "target" : "JOIN39"
+    }, {
+      "source" : "LOAD_DATASET7",
+      "target" : "JOIN39"
+    }, {
+      "source" : "TRANSFORM5",
+      "target" : "AGGREGATE6"
+    }, {
+      "source" : "JOIN43",
+      "target" : "JOIN40"
+    }, {
+      "source" : "AGGREGATE6",
+      "target" : "JOIN40"
+    }, {
+      "source" : "LOAD_DATASET14",
+      "target" : "JOIN42"
+    }, {
+      "source" : "LOAD_DATASET8",
+      "target" : "JOIN42"
+    }, {
+      "source" : "JOIN33",
+      "target" : "JOIN43"
+    }, {
+      "source" : "AGGREGATE14",
+      "target" : "JOIN43"
+    }, {
+      "source" : "TRANSFORM0_100",
+      "target" : "JOIN38"
+    }, {
+      "source" : "JOIN42",
+      "target" : "JOIN44"
+    }, {
+      "source" : "JOIN18",
+      "target" : "TRANSFORM3"
+    }, {
+      "source" : "TRANSFORM3",
+      "target" : "AGGREGATE24"
+    }, {
+      "source" : "AGGREGATE24",
+      "target" : "JOIN45"
+    }, {
+      "source" : "TRANSFORM4",
+      "target" : "AGGREGATE14"
+    }, {
+      "source" : "LOAD_DATASET7",
+      "target" : "TRANSFORM4"
+    }, {
+      "source" : "JOIN39",
+      "target" : "TRANSFORM5"
+    }, {
+      "source" : "JOIN40",
+      "target" : "TRANSFORM0_110"
+    }, {
+      "source" : "FILTER4",
+      "target" : "JOIN29"
+    }, {
+      "source" : "FILTER4",
+      "target" : "JOIN46"
+    }, {
+      "source" : "JOIN48",
+      "target" : "JOIN47"
+    }, {
+      "source" : "TRANSFORM8",
+      "target" : "JOIN47"
+    }, {
+      "source" : "TRANSFORM6",
+      "target" : "AGGREGATE26"
+    }, {
+      "source" : "JOIN12",
+      "target" : "JOIN48"
+    }, {
+      "source" : "AGGREGATE26",
+      "target" : "JOIN48"
+    }, {
+      "source" : "LOAD_DATASET12",
+      "target" : "TRANSFORM6"
+    }, {
+      "source" : "JOIN44",
+      "target" : "JOIN49"
+    }, {
+      "source" : "TRANSFORM7",
+      "target" : "JOIN49"
+    }, {
+      "source" : "JOIN7",
+      "target" : "TRANSFORM0_100"
+    }, {
+      "source" : "JOIN49",
+      "target" : "TRANSFORM0120"
+    }, {
+      "source" : "LOAD_DATASET6",
+      "target" : "TRANSFORM7"
+    }, {
+      "source" : "TRANSFORM0_110",
+      "target" : "FILTER380"
+    }, {
+      "source" : "FILTER380",
+      "target" : "OUTPUT2"
+    }, {
+      "source" : "TRANSFORM0120",
+      "target" : "FILTER3_110"
+    }, {
+      "source" : "FILTER3_110",
+      "target" : "OUTPUT1"
+    }, {
+      "source" : "JOIN46",
+      "target" : "TRANSFORM8"
+    }, {
+      "source" : "LOAD_DATASET1",
+      "target" : "TRANSFORM121"
+    } ],
+    "hiddenColumns" : [ ]
+  },
+  "runMode" : "full"
+}

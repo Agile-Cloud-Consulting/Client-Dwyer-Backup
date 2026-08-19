@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PermissionSetGroup xmlns="http://soap.sforce.com/2006/04/metadata">
+    <hasActivationRequired>false</hasActivationRequired>
+    <label>Talent_Recruitment_Management_Specialist</label>
+    <permissionSets>force__OmniStudioUser</permissionSets>
+    <permissionSets>force__TlntRcrtMgmtSpecialistAccess</permissionSets>
+    <status>Failed</status>
+</PermissionSetGroup>

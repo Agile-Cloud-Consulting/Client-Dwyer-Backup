@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Handoff_Tasks_Created__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Set by the &quot;Opportunity - On Edit - Apply Warm Handoff Action Plan&quot; flow after it creates the Formal Warm Handoff Action Plan, so a re-save of MOU Signed never duplicates the checklist.</description>
+    <label>Handoff Tasks Created</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <type>Checkbox</type>
+</CustomField>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StandardValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sorted>false</sorted>
+    <standardValue>
+        <fullName>Co-requisite</fullName>
+        <default>false</default>
+        <label>Co-requisite</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Prerequisite</fullName>
+        <default>false</default>
+        <label>Prerequisite</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Recommended</fullName>
+        <default>false</default>
+        <label>Recommended</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Linked Course</fullName>
+        <default>false</default>
+        <label>Linked Course</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Prerequisite or Co-requisite</fullName>
+        <default>false</default>
+        <label>Prerequisite or Co-requisite</label>
+    </standardValue>
+</StandardValueSet>

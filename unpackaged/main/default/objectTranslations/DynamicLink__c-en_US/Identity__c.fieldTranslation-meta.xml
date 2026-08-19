@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- The unique identifier API name for the dynamic link should include &apos;DYN_LINK&apos;. For example: SAMPLE_DYN_LINK. --></help>
+        <label><!-- Identity --></label>
+        <name>Identity__c</name>
+    </CustomFieldTranslation>

@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionCalls>
+        <description>Calls an action that sends an email to the flow user when there is an error updating the action plan status. To personalize the email, use a text template for the email body.</description>
+        <name>Send_Email</name>
+        <label>Send Error Email</label>
+        <locationX>842</locationX>
+        <locationY>755</locationY>
+        <actionName>emailSimple</actionName>
+        <actionType>emailSimple</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>emailSubject</name>
+            <value>
+                <stringValue>We could not update the action plan status</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailBody</name>
+            <value>
+                <stringValue>We could not update the action plan status of the document checklist item.</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>recipientId</name>
+            <value>
+                <elementReference>$User.Email</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>emailSimple</nameSegment>
+    </actionCalls>
+    <apiVersion>60.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <decisions>
+        <description>Determines whether the number of action plan items returned by GetActionPlanItems is zero.</description>
+        <name>AreAllActionPlanItemsComplete</name>
+        <label>Are All Action Plan Items Complete?</label>
+        <locationX>314</locationX>
+        <locationY>539</locationY>
+        <defaultConnector>
+            <targetReference>UpdateActionPlanStatusInProgress</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>AllActionPlanItemsComplete</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>GetActionPlanItems</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>UpdateActionPlanStatusCompleted</targetReference>
+            </connector>
+            <label>Yes</label>
+        </rules>
+    </decisions>
+    <description>Updates the action plan status of a document checklist item.</description>
+    <environments>Default</environments>
+    <interviewLabel>EDU Cloud: Update Action Plan Status of Document Checklist Item {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>EDU Cloud: Update Action Plan Status of Document Checklist Item</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordLookups>
+        <description>Gets the action plan item record with an Item ID that matches the document checklist Item ID. Stores the result in the Action Plan Item from GetActionPlanItem record variable.</description>
+        <name>GetActionPlanItem</name>
+        <label>Get Action Plan Item</label>
+        <locationX>314</locationX>
+        <locationY>323</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>GetActionPlanItems</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>ItemId</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>ActionPlanItem</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <description>Gets action plan item records with an Action Plan ID matching the Action Plan ID of the record in Action Plan Item from GetActionPlanItem, and Item State not equal to Completed or Deleted.</description>
+        <name>GetActionPlanItems</name>
+        <label>Get Action Plan Items</label>
+        <locationX>314</locationX>
+        <locationY>431</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>AreAllActionPlanItemsComplete</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>ActionPlanId</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>GetActionPlanItem.ActionPlan.Id</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>ItemState</field>
+            <operator>NotEqualTo</operator>
+            <value>
+                <stringValue>Completed</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>ItemState</field>
+            <operator>NotEqualTo</operator>
+            <value>
+                <stringValue>Deleted</stringValue>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>ActionPlanItem</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordUpdates>
+        <description>Updates the action plan record with an ID that matches the Action Plan ID of the record in Action Plan Item from GetActionPlanItem, setting the status to Completed.</description>
+        <name>UpdateActionPlanStatusCompleted</name>
+        <label>Update Action Plan Status</label>
+        <locationX>50</locationX>
+        <locationY>647</locationY>
+        <faultConnector>
+            <isGoTo>true</isGoTo>
+            <targetReference>Send_Email</targetReference>
+        </faultConnector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>GetActionPlanItem.ActionPlan.Id</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>ActionPlanState</field>
+            <value>
+                <stringValue>Completed</stringValue>
+            </value>
+        </inputAssignments>
+        <object>ActionPlan</object>
+    </recordUpdates>
+    <recordUpdates>
+        <description>Updates the action plan record with an ID that matches the Action Plan ID of the record in Action Plan Item from GetActionPlanItem, setting the status to In Progress.</description>
+        <name>UpdateActionPlanStatusInProgress</name>
+        <label>Update Action Plan Status</label>
+        <locationX>578</locationX>
+        <locationY>647</locationY>
+        <faultConnector>
+            <targetReference>Send_Email</targetReference>
+        </faultConnector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>GetActionPlanItem.ActionPlan.Id</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>ActionPlanState</field>
+            <value>
+                <stringValue>In Progress</stringValue>
+            </value>
+        </inputAssignments>
+        <object>ActionPlan</object>
+    </recordUpdates>
+    <start>
+        <locationX>188</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>GetActionPlanItem</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Status</field>
+            <operator>IsChanged</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </filters>
+        <object>DocumentChecklistItem</object>
+        <recordTriggerType>Update</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+</Flow>

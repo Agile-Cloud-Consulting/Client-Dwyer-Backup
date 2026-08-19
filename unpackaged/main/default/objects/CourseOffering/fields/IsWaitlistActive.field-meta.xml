@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>IsWaitlistActive</fullName>
+    <inlineHelpText>Indicates whether the Course Offering has an active waitlist (true) or not (false).</inlineHelpText>
+</CustomField>

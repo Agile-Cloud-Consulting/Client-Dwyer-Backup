@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WaveXmd xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <dataset xsi:nil="true" />
+    <dimensions>
+        <conditionalFormatting>
+            <formattingBins>
+                <bin xsi:nil="true" />
+                <formatValue>#C5DBF7</formatValue>
+                <label xsi:nil="true" />
+                <sortIndex>0</sortIndex>
+            </formattingBins>
+            <formattingBins>
+                <bin xsi:nil="true" />
+                <formatValue>#1674D9</formatValue>
+                <label xsi:nil="true" />
+                <sortIndex>1</sortIndex>
+            </formattingBins>
+            <property>chartColor</property>
+            <referenceField>avg_Opportunity_Age</referenceField>
+            <sortIndex xsi:nil="true" />
+            <type>gradient</type>
+        </conditionalFormatting>
+        <field>Sales_Rep_Breakdown.ALL</field>
+        <isDerived>false</isDerived>
+        <sortIndex>0</sortIndex>
+    </dimensions>
+    <dimensions>
+        <field>Account_Breakdown.Account.Name</field>
+        <isDerived>false</isDerived>
+        <linkTemplateEnabled>true</linkTemplateEnabled>
+        <recordDisplayFields>
+            <recordDisplayField>Account.Name</recordDisplayField>
+            <sortIndex>0</sortIndex>
+        </recordDisplayFields>
+        <recordIdField>AccountId</recordIdField>
+        <salesforceActionsEnabled>true</salesforceActionsEnabled>
+        <sortIndex>1</sortIndex>
+    </dimensions>
+    <dimensions>
+        <conditionalFormatting>
+            <formattingBins>
+                <bin xsi:nil="true" />
+                <formatValue>#C5DBF7</formatValue>
+                <label xsi:nil="true" />
+                <sortIndex>0</sortIndex>
+            </formattingBins>
+            <formattingBins>
+                <bin xsi:nil="true" />
+                <formatValue>#1674D9</formatValue>
+                <label xsi:nil="true" />
+                <sortIndex>1</sortIndex>
+            </formattingBins>
+            <property>chartColor</property>
+            <referenceField>avg_Opportunity_Age</referenceField>
+            <sortIndex xsi:nil="true" />
+            <type>gradient</type>
+        </conditionalFormatting>
+        <field>Account_Breakdown.ALL</field>
+        <isDerived>false</isDerived>
+        <sortIndex>2</sortIndex>
+    </dimensions>
+    <dimensions>
+        <defaultAction>openSfdcRecord</defaultAction>
+        <field>Top_Open_Opportunities_1.Name</field>
+        <isDerived>false</isDerived>
+        <sortIndex>3</sortIndex>
+    </dimensions>
+    <measures>
+        <conditionalFormatting>
+            <formattingBins>
+                <bin xsi:nil="true" />
+                <formatValue>#C5DBF7</formatValue>
+                <label xsi:nil="true" />
+                <sortIndex>0</sortIndex>
+            </formattingBins>
+            <formattingBins>
+                <bin xsi:nil="true" />
+                <formatValue>#1674D9</formatValue>
+                <label xsi:nil="true" />
+                <sortIndex>1</sortIndex>
+            </formattingBins>
+            <property>chartColor</property>
+            <referenceField>avg_Opportunity_Age</referenceField>
+            <sortIndex xsi:nil="true" />
+            <type>gradient</type>
+        </conditionalFormatting>
+        <field>Sales_Rep_Breakdown.avg_Opportunity_Age</field>
+        <isDerived>false</isDerived>
+        <sortIndex>0</sortIndex>
+    </measures>
+    <measures>
+        <conditionalFormatting>
+            <formattingBins>
+                <bin xsi:nil="true" />
+                <formatValue>#C5DBF7</formatValue>
+                <label xsi:nil="true" />
+                <sortIndex>0</sortIndex>
+            </formattingBins>
+            <formattingBins>
+                <bin xsi:nil="true" />
+                <formatValue>#1674D9</formatValue>
+                <label xsi:nil="true" />
+                <sortIndex>1</sortIndex>
+            </formattingBins>
+            <property>chartColor</property>
+            <referenceField>avg_Opportunity_Age</referenceField>
+            <sortIndex xsi:nil="true" />
+            <type>gradient</type>
+        </conditionalFormatting>
+        <field>Account_Breakdown.avg_Opportunity_Age</field>
+        <isDerived>false</isDerived>
+        <sortIndex>1</sortIndex>
+    </measures>
+    <measures>
+        <field>Percent_change_vs_prev_30_days.PercChangeVsPrev30Days</field>
+        <formatCustomFormat>[&quot;#,###.##%&quot;,100]</formatCustomFormat>
+        <isDerived>false</isDerived>
+        <sortIndex>2</sortIndex>
+    </measures>
+    <type>Asset</type>
+    <waveVisualization>Opportunity_Avg_Days_in_Sales_Cycle</waveVisualization>
+</WaveXmd>

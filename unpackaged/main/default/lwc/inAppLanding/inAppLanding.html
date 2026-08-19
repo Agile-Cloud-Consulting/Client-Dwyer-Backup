@@ -1,0 +1,105 @@
+<template>
+    <lightning-card footer="" title="">
+        <h1 class="slds-text-heading_medium">{welcome_text}</h1>
+        <div class="c-container">
+            <lightning-layout>
+                <lightning-layout-item flexibility="auto" padding="around-small">
+                    <!-- p class="c-description">{description}</p -->
+
+                    <c-in-app-landing-child
+                        heading="Get Started with Education Cloud" 
+                        primary-text-present={pass_true}
+                        primary-text="To get started, click the Setup Gear in the top right corner, and select Setup. In the Quick Find box, search for and select &lt;strong&gt;Set Up Education Cloud&lt;/strong&gt;. Ensure the Education Cloud setting is turned on."
+                        link-in-new-tab={pass_true}
+                        url="/lightning/setup/EducationCloudSettings/home"
+                        inside-link-present={pass_true}
+                        inside-link="https://help.salesforce.com/s/articleView?id=sfdo.EC_Sharing_Considerations_for_Applications.htm&type=5"
+                        inside-link-before-text="To use the Education Portal, be sure to "
+                        inside-link-text="update external sharing settings"
+                        inside-link-after-text=" and publish the included community by going to Setup > Digital Experiences > All Sites > look for TrialOrgPortal > Builder > Publish."
+                        link-reference="standard__webPage">
+                    </c-in-app-landing-child>
+
+                    <c-in-app-landing-child
+                        heading="Recruitment & Admissions" 
+                        cloud-detail="Use this application to power your entire Recruitment and Admissions lifecycle. Recruit and manage prospective students, provide a personalized applicant experience, review applications, and communicate decisions — all with actionable insights for recruiters, admissions staff, and leadership." 
+                        link-in-new-tab={pass_true}
+                        url="/lightning/app/standard__RecruitmentAndAdmissions/page/home"
+                        inside-link-present={pass_true}
+                        inside-link="https://help.salesforce.com/s/articleView?id=sf.os_activating_omniscripts.htm&type=5"
+                        inside-link-before-text="To use the Individual Application Record Page, "
+                        inside-link-text="activate"
+                        inside-link-after-text=" these &lt;strong&gt;OmniStudio FlexCards&lt;/strong&gt;: ClonedEDUAdmissionsApplicationItemsContainer, ClonedEDUAdmissionsEducationSection, ClonedEDUAdmissionsFamilySection, ClonedEDUAdmissionsFilesSection, ClonedEDUAdmissionsProfileSections, ClonedEDUAdmissionsRecommenderRecommendationWrapper and ClonedEDUAdmissionsTestResultsSection."
+                        inside-link-second-present={pass_true}
+                        inside-link-second="https://help.salesforce.com/s/articleView?id=sf.os_activating_omniscripts.htm&type=5"
+                        inside-link-second-before-text="To use the Education Portal functions, "
+                        inside-link-second-text="activate"
+                        inside-link-second-after-text=" these &lt;strong&gt;OmniStudio OmniScripts&lt;/strong&gt;: ClonedCollegeSectionWrapper, ClonedFamilySectionWrapper, ClonedNewFileSectionWrapper, ClonedNewSecondaryEducationSectionWrapper, ClonedNewTestResultSectionWrapper, ClonedProfileWrapper, and ClonedRequestRecommender."
+                        link-reference="standard__webPage">
+                    </c-in-app-landing-child>
+
+                    <c-in-app-landing-child
+                        heading="Student Success" 
+                        cloud-detail="Use this application to build deeper connections with students. Gain a 360 degree view of your students, retain and support them at scale with alerts and care plans, and streamline meetings with appointment scheduling." 
+                        link-in-new-tab={pass_true}
+                        url="/lightning/app/standard__StudentSuccess/page/home"
+                        link-reference="standard__webPage">
+                    </c-in-app-landing-child>
+
+                    <c-in-app-landing-child
+                        heading="Academic Operations" 
+                        cloud-detail="Use this application to manage curriculum and build robust learning catalogs. Organize courses into learning programs using the Learning Program Creation Wizard, and build pathways for your learners with the Learning Program Plan Builder." 
+                        link-in-new-tab={pass_true}
+                        url="/lightning/app/standard__AcademicOperations/page/home"
+                        link-reference="standard__webPage">
+                    </c-in-app-landing-child>
+
+                    <c-in-app-landing-child
+                        heading="Advancement & Alumni Relations" 
+                        cloud-detail="Use this application to build relationships with your alumni and donors by identifying prospects, qualifying their interest, cultivating activities, soliciting their involvement, and stewarding their involvement for a lifetime. Empower advancement teams to enter single and recurring gifts, record pledges, and reconcile transactions. Plus, deepen engagement by enabling alumni to create online profiles and engage in your online community." 
+                        link-in-new-tab={pass_true}
+                        url="/lightning/app/standard__Alumni/page/home"
+                        link-reference="standard__webPage">
+                    </c-in-app-landing-child>
+
+                    <!-- <c-in-app-landing-child
+                        heading="Hands-on Activities" 
+                        cloud-detail="Learn how to configure and use features in Education Cloud with these hands-on activities. Explore Identity Verification, Interaction Summaries, Timeline, and Salesforce Scheduler." 
+                        link-in-new-tab={pass_true}
+                        url="https://salesforce.quip.com/EnJrAe6ncuAs"
+                        link-reference="standard__webPage">
+                    </c-in-app-landing-child> -->
+
+                    <c-in-app-landing-child
+                        heading="Mentoring" 
+                        cloud-detail="Use the application to match mentors with mentees to create high impact relationships between your constituents." 
+                        link-in-new-tab={pass_true}
+                        url="/lightning/app/standard__Mentoring/page/home"
+                        link-reference="standard__webPage">
+                    </c-in-app-landing-child>
+
+                    <c-in-app-landing-child
+                        heading="Turn On Education Analytics and Update Analytics Dashboard" 
+                        cloud-detail="To get started, click the Setup Gear in the top right corner, and select Setup. In the Quick Find box, search for and select Set Up Education Cloud. Turn on Student Success App; Turn On Education Analytics; and Update Analytics Dashboard." 
+                        link-in-new-tab={pass_true}
+                        url="/lightning/setup/EducationAnalytics/home"
+                        link-reference="standard__webPage"
+                        heading-footer={pass_true}
+                        extra-text-present={pass_true}
+                        extra-text="Get insights from the Dashboards by enabling Education Analytics and updating the Dashboard:"
+                        primary-text-present={pass_true}
+                        primary-text="&lt;strong&gt;*&lt;/strong&gt; From Setup, in the Quick Find box, search for &lt;strong&gt;Education Cloud&lt;/strong&gt;, and then select &lt;strong&gt;Configure Analytics&lt;/strong&gt;. Turn on &lt;strong&gt;Education Analytics&lt;/strong&gt;.&lt;br&gt;"
+                        secondary-text-present={pass_true}
+                        secondary-text="&lt;strong&gt;*&lt;/strong&gt; From the App Launcher, search for and then select &lt;strong&gt;Data Manager&lt;/strong&gt;. From the &lt;strong&gt;Connections&lt;/strong&gt; tab, select &lt;strong&gt;SFDC_LOCAL&lt;/strong&gt;, click the dropdown and then select &lt;strong&gt;'Run Now'&lt;/strong&gt;. Use the Jobs Monitor tab to see the status of your sync. Wait for all jobs to complete.&lt;br&gt;"
+                        tertiary-text-present={pass_true}
+                        tertiary-text="&lt;strong&gt;*&lt;/strong&gt; From the &lt;strong&gt;Recipes&lt;/strong&gt; tab, run the recipes for &lt;strong&gt;Education_Analytics Education Analytics&lt;/strong&gt; and &lt;strong&gt;Education_Analytics Education Analytics User&lt;/strong&gt;. Use the Jobs Monitor tab to view the status of your recipes, wait for the run recipes to complete."
+                        ></c-in-app-landing-child>
+                    
+                </lightning-layout-item>
+            </lightning-layout>
+
+            <!-- <div class="c-footer">Note: Actionable Segmentation is currently not available in this learning org.</div> -->
+
+        </div>
+    </lightning-card>
+</template>

@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>60.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <assignments>
+        <description>Adds the ID of the current program enrollment record to the ProgramEnrollmentIds collection.</description>
+        <name>AddProgramEnrollmentIdToCollection</name>
+        <label>Add Program Enrollment ID to Collection</label>
+        <locationX>506</locationX>
+        <locationY>708</locationY>
+        <assignmentItems>
+            <assignToReference>ProgramEnrollmentIds</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>IterateOverProgramEnrollments.Id</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>IterateOverProgramEnrollments</targetReference>
+        </connector>
+    </assignments>
+    <decisions>
+        <description>Determines whether the constituent role record with a role type of Mentee exists.</description>
+        <name>DoesMenteeConstituentRoleExist</name>
+        <label>Does Mentee Constituent Role Exist?</label>
+        <locationX>550</locationX>
+        <locationY>384</locationY>
+        <defaultConnectorLabel>No (Default)</defaultConnectorLabel>
+        <rules>
+            <name>MenteeConstituentRoleExists</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>GetExistingMenteeConstituentRole</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>GetProgramEnrollmentsForMentee</targetReference>
+            </connector>
+            <label>Yes</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>Determines whether the program enrollment record associated with the benefit assignment record is active.</description>
+        <name>IsMenteeProgramEnrollmentActive</name>
+        <label>Is Mentee Program Enrollment Active?</label>
+        <locationX>638</locationX>
+        <locationY>1116</locationY>
+        <defaultConnector>
+            <targetReference>IterateOverBenefitAssignments</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>No (Default)</defaultConnectorLabel>
+        <rules>
+            <name>ProgramEnrollmentIsActive</name>
+            <conditionLogic>1 AND (2 OR 3)</conditionLogic>
+            <conditions>
+                <leftValueReference>IterateOverBenefitAssignments.Benefit.BenefitType.Category</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Mentoring</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>IterateOverBenefitAssignments.ProgramEnrollment.EndDate</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>IterateOverProgramEnrollments.EndDate</leftValueReference>
+                <operator>GreaterThan</operator>
+                <rightValue>
+                    <elementReference>$Flow.CurrentDate</elementReference>
+                </rightValue>
+            </conditions>
+            <label>Yes</label>
+        </rules>
+    </decisions>
+    <environments>Default</environments>
+    <interviewLabel>Mentoring: Deactivate Constituent Role for Mentees {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Mentoring: Deactivate Constituent Role for Mentees</label>
+    <loops>
+        <description>Repeats actions in a loop for each benefit assignment record from GetMenteeBenefitAssignments.</description>
+        <name>IterateOverBenefitAssignments</name>
+        <label>Iterate Over Benefit Assignments</label>
+        <locationX>418</locationX>
+        <locationY>1008</locationY>
+        <collectionReference>GetMenteeBenefitAssignments</collectionReference>
+        <iterationOrder>Asc</iterationOrder>
+        <nextValueConnector>
+            <targetReference>IsMenteeProgramEnrollmentActive</targetReference>
+        </nextValueConnector>
+        <noMoreValuesConnector>
+            <targetReference>UpdateMenteeConstituentRole</targetReference>
+        </noMoreValuesConnector>
+    </loops>
+    <loops>
+        <description>Repeats actions in a loop for each program enrollment record from GetProgramEnrollmentsForMentee.</description>
+        <name>IterateOverProgramEnrollments</name>
+        <label>Iterate Over Program Enrollments</label>
+        <locationX>418</locationX>
+        <locationY>600</locationY>
+        <collectionReference>GetProgramEnrollmentsForMentee</collectionReference>
+        <iterationOrder>Asc</iterationOrder>
+        <nextValueConnector>
+            <targetReference>AddProgramEnrollmentIdToCollection</targetReference>
+        </nextValueConnector>
+        <noMoreValuesConnector>
+            <targetReference>GetMenteeBenefitAssignments</targetReference>
+        </noMoreValuesConnector>
+    </loops>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordLookups>
+        <description>Gets the constituent role record for the contact on the associated benefit provider record with the role type as Mentee. Stores the result in the Constituent Role from GetExistingMenteeConstituentRole variable.</description>
+        <name>GetExistingMenteeConstituentRole</name>
+        <label>Get Existing Mentee Constituent Role</label>
+        <locationX>550</locationX>
+        <locationY>276</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>DoesMenteeConstituentRoleExist</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>PersonId</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.ContactId</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>RoleType</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Mentee</stringValue>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>ConstituentRole</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <description>Gets the benefit assignment records associated with the program enrollment records.</description>
+        <name>GetMenteeBenefitAssignments</name>
+        <label>Get Mentee Benefit Assignments</label>
+        <locationX>418</locationX>
+        <locationY>900</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>IterateOverBenefitAssignments</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>ProgramEnrollmentId</field>
+            <operator>In</operator>
+            <value>
+                <elementReference>ProgramEnrollmentIds</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>false</getFirstRecordOnly>
+        <object>BenefitAssignment</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <description>Gets the program enrollments for the mentee.</description>
+        <name>GetProgramEnrollmentsForMentee</name>
+        <label>Get Program Enrollments for Mentee</label>
+        <locationX>418</locationX>
+        <locationY>492</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>IterateOverProgramEnrollments</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>ContactId</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.ContactId</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>false</getFirstRecordOnly>
+        <object>ProgramEnrollment</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordUpdates>
+        <description>Updates the status of the constituent role record associated with the contact on the program enrollment record to Former.</description>
+        <name>UpdateMenteeConstituentRole</name>
+        <label>Update Mentee Constituent Role</label>
+        <locationX>418</locationX>
+        <locationY>1500</locationY>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>GetExistingMenteeConstituentRole.Id</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>EffectiveEndDate</field>
+            <value>
+                <elementReference>$Flow.CurrentDate</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Status</field>
+            <value>
+                <stringValue>Former</stringValue>
+            </value>
+        </inputAssignments>
+        <object>ConstituentRole</object>
+    </recordUpdates>
+    <sourceTemplate>mentoring__DeactvMenteeCstnRoleRec</sourceTemplate>
+    <start>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>ContactId</field>
+            <operator>IsNull</operator>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </filters>
+        <filters>
+            <field>EndDate</field>
+            <operator>IsNull</operator>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </filters>
+        <object>ProgramEnrollment</object>
+        <recordTriggerType>Update</recordTriggerType>
+        <scheduledPaths>
+            <name>DeactivateMenteeConstituentRole</name>
+            <connector>
+                <targetReference>GetExistingMenteeConstituentRole</targetReference>
+            </connector>
+            <label>Deactivate Mentee Constituent Role</label>
+            <offsetNumber>1</offsetNumber>
+            <offsetUnit>Minutes</offsetUnit>
+            <recordField>EndDate</recordField>
+            <timeSource>RecordField</timeSource>
+        </scheduledPaths>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+    <variables>
+        <description>Stores the IDs of the program enrollment records associated with the program enrollment contact.</description>
+        <name>ProgramEnrollmentIds</name>
+        <dataType>String</dataType>
+        <isCollection>true</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+</Flow>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Created_via_Flow__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>To avoid duplicates being created. Used in flow &quot;Account Account recip&quot;</description>
+    <label>Created via Flow</label>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

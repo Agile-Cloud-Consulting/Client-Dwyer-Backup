@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StandardValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sorted>false</sorted>
+    <standardValue>
+        <fullName>Accepted as high school equivalent</fullName>
+        <default>false</default>
+        <label>Accepted as high school equivalent</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Advanced</fullName>
+        <default>false</default>
+        <label>Advanced</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Advanced Placement</fullName>
+        <default>false</default>
+        <label>Advanced Placement</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Basic</fullName>
+        <default>false</default>
+        <label>Basic</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Career and Technical Education</fullName>
+        <default>false</default>
+        <label>Career and Technical Education</label>
+    </standardValue>
+    <standardValue>
+        <fullName>College-level</fullName>
+        <default>false</default>
+        <label>College-level</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Core Subject</fullName>
+        <default>false</default>
+        <label>Core Subject</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Dual Credit</fullName>
+        <default>false</default>
+        <label>Dual Credit</label>
+    </standardValue>
+    <standardValue>
+        <fullName>English Language Learner</fullName>
+        <default>false</default>
+        <label>English Language Learner</label>
+    </standardValue>
+    <standardValue>
+        <fullName>General</fullName>
+        <default>false</default>
+        <label>General</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Gifted and Talented</fullName>
+        <default>false</default>
+        <label>Gifted and Talented</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Graduation Credit</fullName>
+        <default>false</default>
+        <label>Graduation Credit</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Honors</fullName>
+        <default>false</default>
+        <label>Honors</label>
+    </standardValue>
+    <standardValue>
+        <fullName>International Baccalaureate</fullName>
+        <default>false</default>
+        <label>International Baccalaureate</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Other</fullName>
+        <default>false</default>
+        <label>Other</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Remedial</fullName>
+        <default>false</default>
+        <label>Remedial</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Students with disabilities</fullName>
+        <default>false</default>
+        <label>Students with disabilities</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Untracked</fullName>
+        <default>false</default>
+        <label>Untracked</label>
+    </standardValue>
+</StandardValueSet>

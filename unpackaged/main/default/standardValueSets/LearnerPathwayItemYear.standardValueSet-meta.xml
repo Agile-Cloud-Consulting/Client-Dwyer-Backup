@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StandardValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sorted>false</sorted>
+    <standardValue>
+        <fullName>Year 1</fullName>
+        <default>false</default>
+        <label>Year 1</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Year 2</fullName>
+        <default>false</default>
+        <label>Year 2</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Year 3</fullName>
+        <default>false</default>
+        <label>Year 3</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Year 4</fullName>
+        <default>false</default>
+        <label>Year 4</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Year 5</fullName>
+        <default>false</default>
+        <label>Year 5</label>
+    </standardValue>
+</StandardValueSet>

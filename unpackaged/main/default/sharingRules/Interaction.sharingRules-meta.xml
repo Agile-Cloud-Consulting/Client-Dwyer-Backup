@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SharingRules xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sharingOwnerRules>
+        <fullName>Partners_Team_Mutual_Visibility</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>Interaction OWD is Private (not master-detail to Account, so sharing does not follow Account automatically). Grants mutual visibility across the whole Partners branch (Partner Engagement + Partner Success and all subordinate roles) for bi-weekly partner meeting records, per DWDECI-38 / the DWDECI-18 role-hierarchy model. Scholar-facing roles are not included and stay locked out by the Private OWD.</description>
+        <label>Partners Team Mutual Visibility</label>
+        <sharedTo>
+            <roleAndSubordinates>Partners</roleAndSubordinates>
+        </sharedTo>
+        <sharedFrom>
+            <roleAndSubordinates>Partners</roleAndSubordinates>
+        </sharedFrom>
+    </sharingOwnerRules>
+</SharingRules>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Queue xmlns="http://soap.sforce.com/2006/04/metadata">
+    <doesIncludeBosses>true</doesIncludeBosses>
+    <doesSendEmailToMembers>true</doesSendEmailToMembers>
+    <name>Application Reviewer</name>
+    <queueMembers>
+        
+    </queueMembers>
+    <queueSobject>
+        <sobjectType>ApplicationReview</sobjectType>
+    </queueSobject>
+</Queue>

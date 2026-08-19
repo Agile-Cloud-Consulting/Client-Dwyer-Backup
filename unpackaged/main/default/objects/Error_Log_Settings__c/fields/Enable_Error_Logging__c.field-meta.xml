@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Enable_Error_Logging__c</fullName>
+    <defaultValue>true</defaultValue>
+    <description>Master on/off switch for error logging. When unchecked, no error log events are published.</description>
+    <inlineHelpText>Uncheck to disable all error logging.</inlineHelpText>
+    <label>Enable Error Logging</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

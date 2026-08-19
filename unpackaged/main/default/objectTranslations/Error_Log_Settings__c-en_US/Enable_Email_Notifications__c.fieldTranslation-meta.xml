@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- Check to enable email notifications on errors. --></help>
+        <label><!-- Enable Email Notifications --></label>
+        <name>Enable_Email_Notifications__c</name>
+    </CustomFieldTranslation>

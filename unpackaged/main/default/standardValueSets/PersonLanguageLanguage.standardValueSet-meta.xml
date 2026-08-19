@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StandardValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sorted>false</sorted>
+    <standardValue>
+        <fullName>English</fullName>
+        <default>false</default>
+        <label>English</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Hindi</fullName>
+        <default>false</default>
+        <label>Hindi</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Mandarin</fullName>
+        <default>false</default>
+        <label>Mandarin</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Spanish</fullName>
+        <default>false</default>
+        <label>Spanish</label>
+    </standardValue>
+</StandardValueSet>

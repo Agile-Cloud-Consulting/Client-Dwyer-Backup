@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- Enter a user-friendly error message to display on screen flow error screens. --></help>
+        <label><!-- User Facing Error Message --></label>
+        <name>User_Facing_Error_Message__c</name>
+    </CustomFieldTranslation>

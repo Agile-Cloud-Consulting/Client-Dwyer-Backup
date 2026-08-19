@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StandardValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sorted>false</sorted>
+    <standardValue>
+        <fullName>First Time</fullName>
+        <default>false</default>
+        <label>First Time</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Continuing</fullName>
+        <default>false</default>
+        <label>Continuing</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Re-admit</fullName>
+        <default>false</default>
+        <label>Re-admit</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Transfer in</fullName>
+        <default>false</default>
+        <label>Transfer in</label>
+    </standardValue>
+</StandardValueSet>

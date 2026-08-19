@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<QuickAction xmlns="http://soap.sforce.com/2006/04/metadata">
+    <height>510</height>
+    <icon>pi__addToNurtureListIcon</icon>
+    <label>Add to Nurture List</label>
+    <optionsCreateFeedItem>false</optionsCreateFeedItem>
+    <page>pi__AddContactToList</page>
+    <type>VisualforcePage</type>
+    <width>-100</width>
+</QuickAction>

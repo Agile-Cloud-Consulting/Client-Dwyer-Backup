@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ResultDueDate</fullName>
+    <inlineHelpText>The last date to submit the result of a Course Offering, such as grades.</inlineHelpText>
+    <trackHistory>false</trackHistory>
+</CustomField>

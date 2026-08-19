@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>All_Regulatory_Codes</fullName>
+    <columns>Name</columns>
+    <columns>RegulatoryAuthority</columns>
+    <columns>EffectiveFrom</columns>
+    <columns>EffectiveTo</columns>
+    <filterScope>Mine</filterScope>
+    <label>All Regulatory Codes</label>
+</ListView>

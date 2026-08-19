@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Sensitive_Details__c</fullName>
+    <description>Confidential narrative for a Sensitive activity (e.g. donation amounts, specific negotiations). Capped at 255 chars: the Activity (Task/Event) object does not support Long Text Area fields, only Text/TextArea. FLS = no access on every profile, including System Administrator; visibility is granted only via the DWD_Sensitive_Activity_Details permission set. Written through the system-context &quot;Task - Autolaunched - Commit Sensitive Detail&quot; subflow so an unauthorized enterer never gains read access.</description>
+    <label>Sensitive Details</label>
+    <required>false</required>
+    <type>TextArea</type>
+</CustomField>

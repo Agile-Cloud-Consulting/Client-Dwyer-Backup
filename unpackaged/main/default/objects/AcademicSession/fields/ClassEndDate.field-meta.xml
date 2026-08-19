@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ClassEndDate</fullName>
+    <inlineHelpText>The date when classes end for the Academic Session.</inlineHelpText>
+    <trackHistory>false</trackHistory>
+</CustomField>

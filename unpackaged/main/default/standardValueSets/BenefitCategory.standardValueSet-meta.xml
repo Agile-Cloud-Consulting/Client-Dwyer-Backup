@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StandardValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sorted>false</sorted>
+    <standardValue>
+        <fullName>Session</fullName>
+        <default>false</default>
+        <label>Session</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Goods</fullName>
+        <default>false</default>
+        <label>Goods</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Monetary</fullName>
+        <default>false</default>
+        <label>Monetary</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Advising</fullName>
+        <default>false</default>
+        <label>Advising</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Mentoring</fullName>
+        <default>false</default>
+        <label>Mentoring</label>
+    </standardValue>
+</StandardValueSet>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customSettingsType>Hierarchy</customSettingsType>
+    <description>Per-automation kill switches. Add a Disable_[AutomationName]__c checkbox field for each specific automation (flow, batch, class) that needs an independent kill switch.</description>
+    <enableFeeds>false</enableFeeds>
+    <label>Automation Kill Switch</label>
+    <visibility>Public</visibility>
+</CustomObject>

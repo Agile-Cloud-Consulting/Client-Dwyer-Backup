@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>AgeInDays</fullName>
+    <inlineHelpText>The age in days for which the request is pending.</inlineHelpText>
+    <trackHistory>false</trackHistory>
+</CustomField>

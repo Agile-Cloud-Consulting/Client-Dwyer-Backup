@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DigitalExperienceConfig xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label>ESW_AEA_Channel_for_Portal_1761734353521</label>
+    <site>
+        <urlPathPrefix>ESWAEAChannelforPortal1761734353521</urlPathPrefix>
+    </site>
+    <space>site/ESW_AEA_Channel_for_Portal_17617343535211</space>
+</DigitalExperienceConfig>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ReviewType</fullName>
+    <inlineHelpText>Specifies  review type of the Course Credit Transfer Application based on the submitted information.</inlineHelpText>
+    <trackHistory>false</trackHistory>
+</CustomField>

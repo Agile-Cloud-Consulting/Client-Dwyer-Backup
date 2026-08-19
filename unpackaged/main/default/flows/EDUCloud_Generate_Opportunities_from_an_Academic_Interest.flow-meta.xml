@@ -1,0 +1,1062 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionCalls>
+        <description>Send an email to ErrorEmailAddress if there is an error when updating the Academic Interest.</description>
+        <name>Email_Error_for_Academic_Interest_Update</name>
+        <label>Email Error for Academic Interest Update</label>
+        <locationX>1898</locationX>
+        <locationY>2411</locationY>
+        <actionName>emailSimple</actionName>
+        <actionType>emailSimple</actionType>
+        <connector>
+            <isGoTo>true</isGoTo>
+            <targetReference>Which_Academic_Interest_Association</targetReference>
+        </connector>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>emailSubject</name>
+            <value>
+                <stringValue>We were unable to update the Academic Interest with the associated Opportunity Id.</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailBody</name>
+            <value>
+                <stringValue>We were unable to update the Academic Interest with the associated Opportunity Id.</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>relatedRecordId</name>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>recipientId</name>
+            <value>
+                <elementReference>ErrorEmailAddress</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>emailSimple</nameSegment>
+        <offset>0</offset>
+    </actionCalls>
+    <actionCalls>
+        <description>Send an email to ErrorEmailAddress if there is an error when retrieving the Academic Interests.</description>
+        <name>Email_Error_for_Get_Academic_Interests</name>
+        <label>Email Error for Get Academic Interests</label>
+        <locationX>3218</locationX>
+        <locationY>1355</locationY>
+        <actionName>emailSimple</actionName>
+        <actionType>emailSimple</actionType>
+        <connector>
+            <isGoTo>true</isGoTo>
+            <targetReference>Create_New_Opportunity</targetReference>
+        </connector>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>emailSubject</name>
+            <value>
+                <stringValue>We could not retrieve existing Academic Interests</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailBody</name>
+            <value>
+                <stringValue>We could not retrieve existing Academic Interests to processes the Opportunity creation. A new Opportunity was created as a default action.</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>relatedRecordId</name>
+            <value>
+                <elementReference>$Record.AccountId</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>recipientId</name>
+            <value>
+                <elementReference>ErrorEmailAddress</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>emailSimple</nameSegment>
+        <offset>0</offset>
+    </actionCalls>
+    <actionCalls>
+        <description>Send an error that a new Opportunity failed to create.</description>
+        <name>Email_Error_for_New_Opportunity</name>
+        <label>Email Error for New Opportunity</label>
+        <locationX>2954</locationX>
+        <locationY>1979</locationY>
+        <actionName>emailSimple</actionName>
+        <actionType>emailSimple</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>emailSubject</name>
+            <value>
+                <stringValue>We were not able to create an Opportunity for the Academic Interest.</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailBody</name>
+            <value>
+                <stringValue>We were not able to create a new Opportunity from an Academic Interest.</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>relatedRecordId</name>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>recipientId</name>
+            <value>
+                <elementReference>ErrorEmailAddress</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>emailSimple</nameSegment>
+        <offset>0</offset>
+    </actionCalls>
+    <actionCalls>
+        <description>Send an email to ErrorEmailAddress if there is an error when updating the Opportunity with a new Amount value.</description>
+        <name>Email_Error_for_Opportunity_Amount_Update</name>
+        <label>Email Error for Opportunity Amount Update</label>
+        <locationX>2162</locationX>
+        <locationY>2303</locationY>
+        <actionName>emailSimple</actionName>
+        <actionType>emailSimple</actionType>
+        <connector>
+            <isGoTo>true</isGoTo>
+            <targetReference>Update_Academic_Interest</targetReference>
+        </connector>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>emailSubject</name>
+            <value>
+                <stringValue>We could not update the Opportunity amount</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailBody</name>
+            <value>
+                <stringValue>There was an error updating the Opportunity with the recalculated amount.</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>relatedRecordId</name>
+            <value>
+                <elementReference>newOpportunityId</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>recipientId</name>
+            <value>
+                <elementReference>ErrorEmailAddress</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>emailSimple</nameSegment>
+        <offset>0</offset>
+    </actionCalls>
+    <actionCalls>
+        <description>Send an email to ErrorEmailAddress if there is an error when retrieving the Price Book.</description>
+        <name>Email_Error_for_Price_Book</name>
+        <label>Email Error for Price Book</label>
+        <locationX>3746</locationX>
+        <locationY>539</locationY>
+        <actionName>emailSimple</actionName>
+        <actionType>emailSimple</actionType>
+        <connector>
+            <isGoTo>true</isGoTo>
+            <targetReference>Should_Group_Opportunities</targetReference>
+        </connector>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>emailSubject</name>
+            <value>
+                <stringValue>We were unable to find the Price Book.</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailBody</name>
+            <value>
+                <stringValue>We were unable to identify the Price Book for calculating the Opportunity amount.</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>relatedRecordId</name>
+            <value>
+                <elementReference>$Record.LearningProgram.Id</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>recipientId</name>
+            <value>
+                <elementReference>ErrorEmailAddress</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>emailSimple</nameSegment>
+        <offset>0</offset>
+    </actionCalls>
+    <actionCalls>
+        <description>Send an email to ErrorEmailAddress if there is an error when retrieving the Price Book entry.</description>
+        <name>Email_Error_for_Price_Book_Entry</name>
+        <label>Email Error for Price Book Entry</label>
+        <locationX>3284</locationX>
+        <locationY>755</locationY>
+        <actionName>emailSimple</actionName>
+        <actionType>emailSimple</actionType>
+        <connector>
+            <isGoTo>true</isGoTo>
+            <targetReference>Should_Group_Opportunities</targetReference>
+        </connector>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>emailSubject</name>
+            <value>
+                <stringValue>We were unable to locate the Price Book Entry</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailBody</name>
+            <value>
+                <stringValue>We were unable to identify the Price Book Entry for the Learning Program.</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>relatedRecordId</name>
+            <value>
+                <elementReference>$Record.LearningProgram.Id</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>recipientId</name>
+            <value>
+                <elementReference>ErrorEmailAddress</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>emailSimple</nameSegment>
+        <offset>0</offset>
+    </actionCalls>
+    <actionCalls>
+        <description>Send an email to ErrorEmailAddress if there is an error when setting the Opportunity Id on the Contact Request record.</description>
+        <name>Error_Email_for_Contact_Request_Update</name>
+        <label>Error Email for Contact Request Update</label>
+        <locationX>314</locationX>
+        <locationY>2627</locationY>
+        <actionName>emailSimple</actionName>
+        <actionType>emailSimple</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>emailAddresses</name>
+            <value>
+                <elementReference>ErrorEmailAddress</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailSubject</name>
+            <value>
+                <stringValue>We were unable to update a Contact Request</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailBody</name>
+            <value>
+                <stringValue>We were unable to set the Opportunity Id on the Contact Request record that is related to the new or edited Academic Interest.</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>relatedRecordId</name>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>emailSimple</nameSegment>
+        <offset>0</offset>
+    </actionCalls>
+    <actionCalls>
+        <description>Send an email to ErrorEmailAddress if there is an error when setting the Opportunity Id on the Individual Application record.</description>
+        <name>Error_Email_for_Updating_Individual_Application</name>
+        <label>Error Email for Updating Individual Application</label>
+        <locationX>1370</locationX>
+        <locationY>2627</locationY>
+        <actionName>emailSimple</actionName>
+        <actionType>emailSimple</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>emailAddresses</name>
+            <value>
+                <elementReference>ErrorEmailAddress</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailSubject</name>
+            <value>
+                <stringValue>Error updating Individual Application</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailBody</name>
+            <value>
+                <stringValue>There was an error updating the Individual Application record in the Generate Opportunities from an Academic Interest flow.</stringValue>
+            </value>
+        </inputParameters>
+        <nameSegment>emailSimple</nameSegment>
+        <offset>0</offset>
+    </actionCalls>
+    <actionCalls>
+        <description>Send an email to ErrorEmailAddress if there is an error when setting the Opportunity Id on the Educational Info Request record.</description>
+        <name>Error_Email_for_Updating_Related_EIR</name>
+        <label>Error Email for Updating Related EIR</label>
+        <locationX>842</locationX>
+        <locationY>2627</locationY>
+        <actionName>emailSimple</actionName>
+        <actionType>emailSimple</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>emailAddresses</name>
+            <value>
+                <elementReference>ErrorEmailAddress</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailSubject</name>
+            <value>
+                <stringValue>We were unable to update an Educational Info Request</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailBody</name>
+            <value>
+                <stringValue>We were unable to set the Opportunity Id on the Educational Info Request record that is related to the new or edited Academic Interest.</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>relatedRecordId</name>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>emailSimple</nameSegment>
+        <offset>0</offset>
+    </actionCalls>
+    <apiVersion>62.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <assignments>
+        <description>Get one Grouped Academic Interest from the filtered list to use as a reference for the grouped Opportunity Id and amount in other variables and formulas.</description>
+        <name>Set_Existing_Grouped_Academic_Interest</name>
+        <label>Set Existing Grouped Academic Interest</label>
+        <locationX>2250</locationX>
+        <locationY>1571</locationY>
+        <assignmentItems>
+            <assignToReference>existingGroupedAcademicInterest</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Loop_Filtered_Academic_Interests</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Loop_Filtered_Academic_Interests</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <description>Set the New Amount variable with the identified Price Book Entry unit price.</description>
+        <name>Set_New_Amount</name>
+        <label>Set New Amount</label>
+        <locationX>2844</locationX>
+        <locationY>863</locationY>
+        <assignmentItems>
+            <assignToReference>newAmount</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Get_Price_Book_Entry_for_Learning_Program.UnitPrice</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Should_Group_Opportunities</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <description>Set the New Amount variable to the larger of 0, the existing grouped Opportunity amount, or the new Price Book amount for the current Academic Interest&#39;s Learning Program.</description>
+        <name>Set_New_Amount_For_Grouped_Opportunity</name>
+        <label>Set New Amount for Grouped Opportunity</label>
+        <locationX>1634</locationX>
+        <locationY>1871</locationY>
+        <assignmentItems>
+            <assignToReference>newAmount</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>LargerAmountFormula</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Set_New_Opportunity_Id_From_Grouped_Opportunity</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <description>Update the New Opportunity Id variable to be the existing grouped Opportunity Id.</description>
+        <name>Set_New_Opportunity_Id_From_Grouped_Opportunity</name>
+        <label>Set New Opportunity Id From Grouped Opportunity</label>
+        <locationX>1634</locationX>
+        <locationY>1979</locationY>
+        <assignmentItems>
+            <assignToReference>newOpportunityId</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>existingGroupedAcademicInterest.OpportunityId</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Has_Grouped_Opportunity_Amount_Changed</targetReference>
+        </connector>
+    </assignments>
+    <collectionProcessors>
+        <description>Filter the Academic Interests to those where the related Learning Program uses grouped Opportunities.</description>
+        <name>Filter_Academic_Interests_By_Grouped</name>
+        <elementSubtype>FilterCollectionProcessor</elementSubtype>
+        <label>Filter Academic Interests By Grouped</label>
+        <locationX>2162</locationX>
+        <locationY>1355</locationY>
+        <assignNextValueToReference>currentItem_Filter_Academic_Interests_By_Grouped</assignNextValueToReference>
+        <collectionProcessorType>FilterCollectionProcessor</collectionProcessorType>
+        <collectionReference>Get_All_Academic_Interests</collectionReference>
+        <conditionLogic>formula_evaluates_to_true</conditionLogic>
+        <connector>
+            <targetReference>Loop_Filtered_Academic_Interests</targetReference>
+        </connector>
+        <formula>IF({!currentItem_Filter_Academic_Interests_By_Grouped.LearningProgram.DoesGroupOpportunities}, true, false)</formula>
+    </collectionProcessors>
+    <constants>
+        <description>The default name used for a new Opportunity.</description>
+        <name>DefaultOpportunityName</name>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>Recruitment and Admissions</stringValue>
+        </value>
+    </constants>
+    <constants>
+        <description>The email address of the user who should receive email error notifications.</description>
+        <name>ErrorEmailAddress</name>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>abavihalli@salesforce.com</stringValue>
+        </value>
+    </constants>
+    <decisions>
+        <description>If a grouped Opportunity already exists, then use that for the new Academic Interest. Otherwise, create a new Opportunity.</description>
+        <name>Does_Grouped_Opportunity_Exist</name>
+        <label>Grouped Opportunity Exists?</label>
+        <locationX>2162</locationX>
+        <locationY>1763</locationY>
+        <defaultConnector>
+            <targetReference>Create_New_Opportunity</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>No, Create Opportunity</defaultConnectorLabel>
+        <rules>
+            <name>Yes_Grouped_Opportunity_Exists</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>existingGroupedAcademicInterest.Id</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Set_New_Amount_For_Grouped_Opportunity</targetReference>
+            </connector>
+            <label>Yes, Grouped Exists</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>Determines if the existing grouped Opportunity amount has changed (to be larger) in order to update the record.</description>
+        <name>Has_Grouped_Opportunity_Amount_Changed</name>
+        <label>Grouped Opportunity Amount Changed?</label>
+        <locationX>1634</locationX>
+        <locationY>2087</locationY>
+        <defaultConnector>
+            <isGoTo>true</isGoTo>
+            <targetReference>Update_Academic_Interest</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>No Change</defaultConnectorLabel>
+        <rules>
+            <name>Yes_Update_Opportunity_Amount</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>newAmount</leftValueReference>
+                <operator>GreaterThan</operator>
+                <rightValue>
+                    <elementReference>existingGroupedAcademicInterest.Opportunity.Amount</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Grouped_Opportunity_Amount</targetReference>
+            </connector>
+            <label>Yes, Update Opportunity Amount</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>Determines if the Learning Program associated with this Academic Interest has Create Opportunity Record selected.</description>
+        <name>IsCreateOpportunityRecordSelected</name>
+        <label>Create Opportunity Record Selected?</label>
+        <locationX>3416</locationX>
+        <locationY>323</locationY>
+        <defaultConnectorLabel>No</defaultConnectorLabel>
+        <rules>
+            <name>HasCreateOpportunitySelected</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.LearningProgram.DoesCreateOpportunityRecord</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Get_Standard_Price_Book</targetReference>
+            </connector>
+            <label>Yes</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>Determine if the Learning Program uses the 1:1 (ungrouped) or 1:many (grouped) model for Opportunities.</description>
+        <name>Should_Group_Opportunities</name>
+        <label>Group Opportunities?</label>
+        <locationX>2822</locationX>
+        <locationY>1139</locationY>
+        <defaultConnector>
+            <isGoTo>true</isGoTo>
+            <targetReference>Create_New_Opportunity</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>No, Individual Opportunities</defaultConnectorLabel>
+        <rules>
+            <name>Yes_Grouped_Opportunities</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.LearningProgram.DoesGroupOpportunities</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Get_All_Academic_Interests</targetReference>
+            </connector>
+            <label>Yes, Grouped Opportunities</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>Determines if a Price Book Entry was found so that the New Amount can be determined and set.</description>
+        <name>Was_Price_Book_Entry_Found</name>
+        <label>Was Price Book Entry Found?</label>
+        <locationX>2976</locationX>
+        <locationY>755</locationY>
+        <defaultConnector>
+            <targetReference>Should_Group_Opportunities</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>No, Default to Zero</defaultConnectorLabel>
+        <rules>
+            <name>Yes_Update_New_Amount</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Get_Price_Book_Entry_for_Learning_Program.Id</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Set_New_Amount</targetReference>
+            </connector>
+            <label>Yes, Update New Amount</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>Determines if a Price Book record was found.</description>
+        <name>Was_Price_Book_Found</name>
+        <label>Was Price Book Found?</label>
+        <locationX>2822</locationX>
+        <locationY>539</locationY>
+        <defaultConnector>
+            <targetReference>Get_Price_Book_Entry_for_Learning_Program</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Yes, Continue</defaultConnectorLabel>
+        <rules>
+            <name>No_Price_Book_Not_Found</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Get_Standard_Price_Book.Id</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Should_Group_Opportunities</targetReference>
+            </connector>
+            <label>No, Default to Zero</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>Determines the associated record for the Academic Interest, so that the original source record can be updated with the Opportunity Id. There should only be one, but if there is more then prioritize in the order listed (earliest stage to later stage).</description>
+        <name>Which_Academic_Interest_Association</name>
+        <label>Which Academic Interest Association?</label>
+        <locationX>842</locationX>
+        <locationY>2411</locationY>
+        <defaultConnectorLabel>None, End</defaultConnectorLabel>
+        <rules>
+            <name>Associated_Contact_Request</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.ContactRequestId</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Related_Contact_Request_With_Opportunity</targetReference>
+            </connector>
+            <label>Contact Request</label>
+        </rules>
+        <rules>
+            <name>Associated_Educational_Info_Request</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.EducationalInfoRequestId</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Related_EIR_With_Opportunity</targetReference>
+            </connector>
+            <label>Educational Info Request</label>
+        </rules>
+        <rules>
+            <name>Associated_Individual_Application</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.IndividualApplicationId</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Individual_Applications2</targetReference>
+            </connector>
+            <label>Individual Application</label>
+        </rules>
+    </decisions>
+    <environments>Default</environments>
+    <formulas>
+        <description>Gets the larger of the New Amount or the existing Academic Interest grouped Opportunity&#39;s Amount, defaulting to 0 if there is no value.</description>
+        <name>LargerAmountFormula</name>
+        <dataType>Currency</dataType>
+        <expression>MAX(
+IF(NOT(ISNULL({!newAmount})), {!newAmount}, 0), 
+IF(NOT(ISNULL({!existingGroupedAcademicInterest.Opportunity.Amount})), {!existingGroupedAcademicInterest.Opportunity.Amount}, 0))</expression>
+        <scale>2</scale>
+    </formulas>
+    <formulas>
+        <description>Calculates the new Close Date for Opportunities as the Academic Term&#39;s End Date if it is possible; otherwise, defaults to a year from today.</description>
+        <name>NewCloseDateFormula</name>
+        <dataType>Date</dataType>
+        <expression>IF(NOT(ISNULL({!$Record.AcademicTerm.EndDate})), {!$Record.AcademicTerm.EndDate}, ADDMONTHS(NOW(),12))</expression>
+    </formulas>
+    <interviewLabel>EDU Cloud: Generate Opportunities from an Academic Interest {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>EDU Cloud: Generate Opportunities from an Academic Interest</label>
+    <loops>
+        <description>Loop through the filtered Grouped Academic Interests in order to set the single record variable. There should only be one result.</description>
+        <name>Loop_Filtered_Academic_Interests</name>
+        <label>Loop Filtered Academic Interests</label>
+        <locationX>2162</locationX>
+        <locationY>1463</locationY>
+        <collectionReference>Filter_Academic_Interests_By_Grouped</collectionReference>
+        <iterationOrder>Asc</iterationOrder>
+        <nextValueConnector>
+            <targetReference>Set_Existing_Grouped_Academic_Interest</targetReference>
+        </nextValueConnector>
+        <noMoreValuesConnector>
+            <targetReference>Does_Grouped_Opportunity_Exist</targetReference>
+        </noMoreValuesConnector>
+    </loops>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordCreates>
+        <description>Create a new Opportunity record using the calculated values. The Name and Stage Name will use values from constants. The flow will end if this fails.</description>
+        <name>Create_New_Opportunity</name>
+        <label>Create New Opportunity</label>
+        <locationX>2690</locationX>
+        <locationY>1871</locationY>
+        <assignRecordIdToReference>newOpportunityId</assignRecordIdToReference>
+        <connector>
+            <isGoTo>true</isGoTo>
+            <targetReference>Update_Academic_Interest</targetReference>
+        </connector>
+        <faultConnector>
+            <targetReference>Email_Error_for_New_Opportunity</targetReference>
+        </faultConnector>
+        <inputAssignments>
+            <field>AccountId</field>
+            <value>
+                <elementReference>$Record.AccountId</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Amount</field>
+            <value>
+                <elementReference>newAmount</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>CloseDate</field>
+            <value>
+                <elementReference>NewCloseDateFormula</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Name</field>
+            <value>
+                <elementReference>DefaultOpportunityName</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>StageName</field>
+            <value>
+                <elementReference>newOpportunityStage</elementReference>
+            </value>
+        </inputAssignments>
+        <object>Opportunity</object>
+    </recordCreates>
+    <recordLookups>
+        <description>Get all Academic Interests in order to check for an existing grouped Opportunity.</description>
+        <name>Get_All_Academic_Interests</name>
+        <label>Get All Academic Interests</label>
+        <locationX>2162</locationX>
+        <locationY>1247</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Filter_Academic_Interests_By_Grouped</targetReference>
+        </connector>
+        <faultConnector>
+            <targetReference>Email_Error_for_Get_Academic_Interests</targetReference>
+        </faultConnector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>AccountId</field>
+            <operator>IsNull</operator>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </filters>
+        <filters>
+            <field>AccountId</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.AccountId</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>OpportunityId</field>
+            <operator>NotEqualTo</operator>
+            <value>
+                <stringValue></stringValue>
+            </value>
+        </filters>
+        <getFirstRecordOnly>false</getFirstRecordOnly>
+        <object>AcademicInterest</object>
+        <queriedFields>Id</queriedFields>
+        <queriedFields>OpportunityId</queriedFields>
+        <queriedFields>LearningProgramId</queriedFields>
+        <sortField>CreatedDate</sortField>
+        <sortOrder>Desc</sortOrder>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <description>Get the first matching Price Book Entry for the Learning Program, using the identified Price Book.</description>
+        <name>Get_Price_Book_Entry_for_Learning_Program</name>
+        <label>Get Price Book Entry for Learning Program</label>
+        <locationX>2976</locationX>
+        <locationY>647</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Was_Price_Book_Entry_Found</targetReference>
+        </connector>
+        <faultConnector>
+            <targetReference>Email_Error_for_Price_Book_Entry</targetReference>
+        </faultConnector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Product2Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.LearningProgram.Product2Id</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>IsActive</field>
+            <operator>EqualTo</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Pricebook2Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>Get_Standard_Price_Book.Id</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>PricebookEntry</object>
+        <queriedFields>Id</queriedFields>
+        <queriedFields>UnitPrice</queriedFields>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <description>Gets the active Standard Price Book as an example for obtaining the Opportunity amount. Update this for your Price Book model.</description>
+        <name>Get_Standard_Price_Book</name>
+        <label>Get Standard Price Book</label>
+        <locationX>2822</locationX>
+        <locationY>431</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Was_Price_Book_Found</targetReference>
+        </connector>
+        <faultConnector>
+            <targetReference>Email_Error_for_Price_Book</targetReference>
+        </faultConnector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>IsStandard</field>
+            <operator>EqualTo</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </filters>
+        <filters>
+            <field>IsActive</field>
+            <operator>EqualTo</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Pricebook2</object>
+        <queriedFields>Id</queriedFields>
+        <queriedFields>Name</queriedFields>
+        <sortField>CreatedDate</sortField>
+        <sortOrder>Desc</sortOrder>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordUpdates>
+        <description>Update the new Academic Interest with the identified Opportunity Id.</description>
+        <name>Update_Academic_Interest</name>
+        <label>Update Academic Interest</label>
+        <locationX>842</locationX>
+        <locationY>2303</locationY>
+        <connector>
+            <targetReference>Which_Academic_Interest_Association</targetReference>
+        </connector>
+        <faultConnector>
+            <targetReference>Email_Error_for_Academic_Interest_Update</targetReference>
+        </faultConnector>
+        <inputAssignments>
+            <field>OpportunityId</field>
+            <value>
+                <elementReference>newOpportunityId</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <description>Updates the grouped Opportunity for the new, larger amount.</description>
+        <name>Update_Grouped_Opportunity_Amount</name>
+        <label>Update Grouped Opportunity Amount</label>
+        <locationX>842</locationX>
+        <locationY>2195</locationY>
+        <connector>
+            <targetReference>Update_Academic_Interest</targetReference>
+        </connector>
+        <faultConnector>
+            <targetReference>Email_Error_for_Opportunity_Amount_Update</targetReference>
+        </faultConnector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>existingGroupedAcademicInterest.Id</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Amount</field>
+            <value>
+                <elementReference>newAmount</elementReference>
+            </value>
+        </inputAssignments>
+        <object>Opportunity</object>
+    </recordUpdates>
+    <recordUpdates>
+        <description>Get the Individual Application record that created this Academic Interest as indicated by the related lookup value. At least one matching record should always exist.</description>
+        <name>Update_Individual_Applications2</name>
+        <label>Update Individual Applications</label>
+        <locationX>1106</locationX>
+        <locationY>2519</locationY>
+        <faultConnector>
+            <targetReference>Error_Email_for_Updating_Individual_Application</targetReference>
+        </faultConnector>
+        <inputAssignments>
+            <field>OpportunityId</field>
+            <value>
+                <elementReference>newOpportunityId</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record.IndividualApplication</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <description>Get the Contact Request record that created this Academic Interest as indicated by the related lookup value. At least one matching record should always exist.</description>
+        <name>Update_Related_Contact_Request_With_Opportunity</name>
+        <label>Update Related Contact Request With Opportunity</label>
+        <locationX>50</locationX>
+        <locationY>2519</locationY>
+        <faultConnector>
+            <targetReference>Error_Email_for_Contact_Request_Update</targetReference>
+        </faultConnector>
+        <inputAssignments>
+            <field>WhatId</field>
+            <value>
+                <elementReference>newOpportunityId</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record.ContactRequest</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <description>Get the Educational Info Request (RFI) record that created this Academic Interest as indicated by the related lookup value. At least one matching record should always exist.</description>
+        <name>Update_Related_EIR_With_Opportunity</name>
+        <label>Update Related EIR With Opportunity</label>
+        <locationX>578</locationX>
+        <locationY>2519</locationY>
+        <faultConnector>
+            <targetReference>Error_Email_for_Updating_Related_EIR</targetReference>
+        </faultConnector>
+        <inputAssignments>
+            <field>OpportunityId</field>
+            <value>
+                <elementReference>newOpportunityId</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record.EducationalInfoRequest</inputReference>
+    </recordUpdates>
+    <sourceTemplate>eduadmissions__GenOppyFrmAcadInt</sourceTemplate>
+    <start>
+        <locationX>3290</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>IsCreateOpportunityRecordSelected</targetReference>
+        </connector>
+        <filterLogic>1 AND 2 AND (3 OR 4)</filterLogic>
+        <filters>
+            <field>OpportunityId</field>
+            <operator>IsNull</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </filters>
+        <filters>
+            <field>LearningProgramId</field>
+            <operator>IsNull</operator>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </filters>
+        <filters>
+            <field>AccountId</field>
+            <operator>IsNull</operator>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </filters>
+        <filters>
+            <field>ContactId</field>
+            <operator>IsNull</operator>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </filters>
+        <object>AcademicInterest</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+    <variables>
+        <description>The current record in the collection Filter Academic Interests By Grouped.</description>
+        <name>currentItem_Filter_Academic_Interests_By_Grouped</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <objectType>AcademicInterest</objectType>
+    </variables>
+    <variables>
+        <description>An Academic Interest that is associated with a Grouped Opportunity Learning Program and can be used as a reference.</description>
+        <name>existingGroupedAcademicInterest</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <objectType>AcademicInterest</objectType>
+    </variables>
+    <variables>
+        <description>The New Amount that is to be used for the Opportunity.</description>
+        <name>newAmount</name>
+        <dataType>Currency</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <scale>2</scale>
+        <value>
+            <numberValue>0.0</numberValue>
+        </value>
+    </variables>
+    <variables>
+        <description>The Id of the Opportunity record used for the new Academic Interest.</description>
+        <name>newOpportunityId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <value>
+            <stringValue></stringValue>
+        </value>
+    </variables>
+    <variables>
+        <description>The default Opportunity Stage to be used for new Opportunities.</description>
+        <name>newOpportunityStage</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <value>
+            <stringValue>Prospecting</stringValue>
+        </value>
+    </variables>
+</Flow>

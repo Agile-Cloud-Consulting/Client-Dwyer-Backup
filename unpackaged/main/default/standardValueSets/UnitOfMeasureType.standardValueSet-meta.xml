@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StandardValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sorted>false</sorted>
+    <standardValue>
+        <fullName>Period</fullName>
+        <default>true</default>
+        <label>Period</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Not Applicable</fullName>
+        <default>false</default>
+        <label>Not Applicable</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Number of Sessions</fullName>
+        <default>false</default>
+        <label>Number of Sessions</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Number of Hours</fullName>
+        <default>false</default>
+        <label>Number of Hours</label>
+    </standardValue>
+</StandardValueSet>

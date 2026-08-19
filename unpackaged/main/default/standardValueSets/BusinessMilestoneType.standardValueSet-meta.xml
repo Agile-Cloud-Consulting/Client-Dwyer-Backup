@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StandardValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sorted>false</sorted>
+    <standardValue>
+        <fullName>Award</fullName>
+        <default>false</default>
+        <label>Award</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Bankruptcy</fullName>
+        <default>false</default>
+        <label>Bankruptcy</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Expansion</fullName>
+        <default>false</default>
+        <label>Expansion</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Executive Change</fullName>
+        <default>false</default>
+        <label>Executive Change</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Incorporation</fullName>
+        <default>false</default>
+        <label>Incorporation</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Market Listing</fullName>
+        <default>false</default>
+        <label>Market Listing</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Merger &amp; Acquisition</fullName>
+        <default>false</default>
+        <label>Merger &amp; Acquisition</label>
+    </standardValue>
+    <standardValue>
+        <fullName>New Funding</fullName>
+        <default>false</default>
+        <label>New Funding</label>
+    </standardValue>
+    <standardValue>
+        <fullName>New Partnership</fullName>
+        <default>false</default>
+        <label>New Partnership</label>
+    </standardValue>
+    <standardValue>
+        <fullName>New Product Launch</fullName>
+        <default>false</default>
+        <label>New Product Launch</label>
+    </standardValue>
+</StandardValueSet>

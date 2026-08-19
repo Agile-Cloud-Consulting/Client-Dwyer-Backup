@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StandardValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sorted>false</sorted>
+    <standardValue>
+        <fullName>Unpaid</fullName>
+        <default>true</default>
+        <label>Unpaid</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Paid</fullName>
+        <default>false</default>
+        <label>Paid</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Failed</fullName>
+        <default>false</default>
+        <label>Failed</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Fully Refunded</fullName>
+        <default>false</default>
+        <label>Fully Refunded</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Written-Off</fullName>
+        <default>false</default>
+        <label>Written-Off</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Canceled</fullName>
+        <default>false</default>
+        <label>Canceled</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Pending</fullName>
+        <default>false</default>
+        <label>Pending</label>
+    </standardValue>
+</StandardValueSet>

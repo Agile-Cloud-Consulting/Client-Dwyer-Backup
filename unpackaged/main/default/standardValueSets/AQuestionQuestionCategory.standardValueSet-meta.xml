@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StandardValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sorted>false</sorted>
+    <standardValue>
+        <fullName>Demographic</fullName>
+        <default>false</default>
+        <label>Demographic</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Financial</fullName>
+        <default>false</default>
+        <label>Financial</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Wellness</fullName>
+        <default>false</default>
+        <label>Wellness</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Admissions</fullName>
+        <default>false</default>
+        <label>Admissions</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Intake</fullName>
+        <default>false</default>
+        <label>Intake</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Career &amp; Interest</fullName>
+        <default>false</default>
+        <label>Career &amp; Interest</label>
+    </standardValue>
+</StandardValueSet>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Agenda__c</fullName>
+    <description>Rich text agenda for the upcoming bi-weekly meeting. Multiple team members can contribute agenda items here before the meeting occurs.</description>
+    <label>Agenda</label>
+    <length>32768</length>
+    <trackHistory>false</trackHistory>
+    <type>Html</type>
+    <visibleLines>10</visibleLines>
+</CustomField>

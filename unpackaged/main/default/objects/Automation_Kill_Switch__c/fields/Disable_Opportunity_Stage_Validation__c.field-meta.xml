@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Disable_Opportunity_Stage_Validation__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Disables Opportunity stage validation logic.</description>
+    <inlineHelpText>Check to disable Opportunity stage validation logic.</inlineHelpText>
+    <label>Disable Opportunity Stage Validation</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>All_LearnerProfiles</fullName>
+    <columns>Name</columns>
+    <columns>Contact</columns>
+    <columns>AcademicTermEnrollment</columns>
+    <columns>ContactProfile</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>AcademicStanding</field>
+        <operation>equals</operation>
+        <value>Academic Probation</value>
+    </filters>
+    <filters>
+        <field>StudyYearClassification</field>
+        <operation>equals</operation>
+        <value>Sophomore</value>
+    </filters>
+    <filters>
+        <field>PrimaryAdvisorName</field>
+        <operation>contains</operation>
+        <value>Anjali</value>
+    </filters>
+    <filters>
+        <field>IsFirstGenerationStudent</field>
+        <operation>equals</operation>
+        <value>1</value>
+    </filters>
+    <label>All Learner Profiles</label>
+</ListView>

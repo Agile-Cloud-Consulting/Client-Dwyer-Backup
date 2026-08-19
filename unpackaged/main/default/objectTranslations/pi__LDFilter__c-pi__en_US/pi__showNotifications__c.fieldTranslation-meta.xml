@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- boolean to determine whether notifications should be shown on the desktop version --></help>
+        <label><!-- Show Notifications --></label>
+        <name>pi__showNotifications__c</name>
+    </CustomFieldTranslation>

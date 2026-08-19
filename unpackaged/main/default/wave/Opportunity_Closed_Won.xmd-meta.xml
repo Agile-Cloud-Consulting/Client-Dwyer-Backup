@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WaveXmd xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <dataset xsi:nil="true" />
+    <dimensions>
+        <conditionalFormatting>
+            <formattingBins>
+                <bin xsi:nil="true" />
+                <formatValue>#C5DBF7</formatValue>
+                <label xsi:nil="true" />
+                <sortIndex>0</sortIndex>
+            </formattingBins>
+            <formattingBins>
+                <bin xsi:nil="true" />
+                <formatValue>#1674D9</formatValue>
+                <label xsi:nil="true" />
+                <sortIndex>1</sortIndex>
+            </formattingBins>
+            <property>chartColor</property>
+            <referenceField>sum_Amount</referenceField>
+            <sortIndex xsi:nil="true" />
+            <type>gradient</type>
+        </conditionalFormatting>
+        <field>Sales_Rep_Breakdown.ALL</field>
+        <isDerived>false</isDerived>
+        <sortIndex>0</sortIndex>
+    </dimensions>
+    <dimensions>
+        <conditionalFormatting>
+            <formattingBins>
+                <bin xsi:nil="true" />
+                <formatValue>rgb(197, 219, 247)</formatValue>
+                <label xsi:nil="true" />
+                <sortIndex>0</sortIndex>
+            </formattingBins>
+            <formattingBins>
+                <bin xsi:nil="true" />
+                <formatValue>#1674D9</formatValue>
+                <label xsi:nil="true" />
+                <sortIndex>1</sortIndex>
+            </formattingBins>
+            <property>chartColor</property>
+            <referenceField>sum_Amount</referenceField>
+            <sortIndex xsi:nil="true" />
+            <type>gradient</type>
+        </conditionalFormatting>
+        <field>Account_Breakdown.ALL</field>
+        <isDerived>false</isDerived>
+        <sortIndex>1</sortIndex>
+    </dimensions>
+    <measures>
+        <conditionalFormatting>
+            <formattingBins>
+                <bin xsi:nil="true" />
+                <formatValue>#C5DBF7</formatValue>
+                <label xsi:nil="true" />
+                <sortIndex>0</sortIndex>
+            </formattingBins>
+            <formattingBins>
+                <bin xsi:nil="true" />
+                <formatValue>#1674D9</formatValue>
+                <label xsi:nil="true" />
+                <sortIndex>1</sortIndex>
+            </formattingBins>
+            <property>chartColor</property>
+            <referenceField>sum_Amount</referenceField>
+            <sortIndex xsi:nil="true" />
+            <type>gradient</type>
+        </conditionalFormatting>
+        <field>Sales_Rep_Breakdown.sum_Amount</field>
+        <isDerived>false</isDerived>
+        <sortIndex>0</sortIndex>
+    </measures>
+    <measures>
+        <field>Closed_Won.sum_Amount</field>
+        <formatCustomFormat>[&quot;$#,###.00&quot;,1]</formatCustomFormat>
+        <isDerived>false</isDerived>
+        <sortIndex>1</sortIndex>
+    </measures>
+    <measures>
+        <conditionalFormatting>
+            <formattingBins>
+                <bin xsi:nil="true" />
+                <formatValue>rgb(197, 219, 247)</formatValue>
+                <label xsi:nil="true" />
+                <sortIndex>0</sortIndex>
+            </formattingBins>
+            <formattingBins>
+                <bin xsi:nil="true" />
+                <formatValue>#1674D9</formatValue>
+                <label xsi:nil="true" />
+                <sortIndex>1</sortIndex>
+            </formattingBins>
+            <property>chartColor</property>
+            <referenceField>sum_Amount</referenceField>
+            <sortIndex xsi:nil="true" />
+            <type>gradient</type>
+        </conditionalFormatting>
+        <field>Account_Breakdown.sum_Amount</field>
+        <isDerived>false</isDerived>
+        <sortIndex>2</sortIndex>
+    </measures>
+    <measures>
+        <field>Closed_Won_Weekly.B</field>
+        <formatCustomFormat>[&quot;$#,###.00&quot;,1]</formatCustomFormat>
+        <isDerived>false</isDerived>
+        <sortIndex>3</sortIndex>
+    </measures>
+    <measures>
+        <field>Percent_change_vs_prev_30_days.PercChangeVsPrev30Days</field>
+        <formatCustomFormat>[&quot;#,###.##%&quot;,100]</formatCustomFormat>
+        <isDerived>false</isDerived>
+        <sortIndex>4</sortIndex>
+    </measures>
+    <type>Asset</type>
+    <waveVisualization>Opportunity_Closed_Won</waveVisualization>
+</WaveXmd>

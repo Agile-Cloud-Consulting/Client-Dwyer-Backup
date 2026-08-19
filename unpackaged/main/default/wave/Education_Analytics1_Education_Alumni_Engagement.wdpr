@@ -1,0 +1,1434 @@
+{
+  "version" : "60.0",
+  "nodes" : {
+    "LOAD_DATASET0" : {
+      "action" : "load",
+      "sources" : [ ],
+      "parameters" : {
+        "fields" : [ "Id", "Name", "PersonId", "RoleType", "Status" ],
+        "dataset" : {
+          "type" : "connectedDataset",
+          "label" : "ConstituentRole",
+          "connectionName" : "SFDC_LOCAL",
+          "sourceObjectName" : "ConstituentRole"
+        },
+        "sampleDetails" : {
+          "type" : "TopN",
+          "sortBy" : [ ]
+        }
+      }
+    },
+    "FILTER0" : {
+      "action" : "filter",
+      "sources" : [ "LOAD_DATASET0" ],
+      "parameters" : {
+        "filterExpressions" : [ {
+          "type" : "TEXT",
+          "field" : "RoleType",
+          "operator" : "EQUAL",
+          "operands" : [ "Alumni" ]
+        }, {
+          "type" : "TEXT",
+          "field" : "Status",
+          "operator" : "EQUAL",
+          "operands" : [ "Active" ]
+        } ]
+      }
+    },
+    "LOAD_DATASET1" : {
+      "action" : "load",
+      "sources" : [ ],
+      "parameters" : {
+        "fields" : [ "Id", "Name", "Title" ],
+        "dataset" : {
+          "type" : "connectedDataset",
+          "label" : "Contact",
+          "connectionName" : "SFDC_LOCAL",
+          "sourceObjectName" : "Contact"
+        },
+        "sampleDetails" : {
+          "type" : "TopN",
+          "sortBy" : [ ]
+        }
+      }
+    },
+    "JOIN0" : {
+      "action" : "join",
+      "sources" : [ "LOAD_DATASET1", "FILTER0" ],
+      "schema" : {
+        "fields" : [ ],
+        "slice" : {
+          "mode" : "DROP",
+          "ignoreMissingFields" : true,
+          "fields" : [ ]
+        }
+      },
+      "parameters" : {
+        "joinType" : "MULTI_VALUE_LOOKUP",
+        "leftKeys" : [ "Id" ],
+        "rightQualifier" : "ConstituentRole",
+        "rightKeys" : [ "PersonId" ]
+      }
+    },
+    "FILTER1" : {
+      "action" : "filter",
+      "sources" : [ "JOIN0" ],
+      "parameters" : {
+        "filterExpressions" : [ {
+          "type" : "TEXT",
+          "field" : "ConstituentRole.PersonId",
+          "operator" : "IS_NOT_NULL",
+          "operands" : [ ]
+        } ]
+      }
+    },
+    "LOAD_DATASET2" : {
+      "action" : "load",
+      "sources" : [ ],
+      "parameters" : {
+        "fields" : [ "Id", "CaseNumber", "ContactId", "SuppliedName", "Type", "Status", "IsClosed", "ClosedDate", "CreatedDate" ],
+        "dataset" : {
+          "type" : "connectedDataset",
+          "label" : "Case",
+          "connectionName" : "SFDC_LOCAL",
+          "sourceObjectName" : "Case"
+        },
+        "sampleDetails" : {
+          "type" : "TopN",
+          "sortBy" : [ ]
+        }
+      }
+    },
+    "FILTER2" : {
+      "action" : "filter",
+      "sources" : [ "LOAD_DATASET2" ],
+      "parameters" : {
+        "filterExpressions" : [ {
+          "type" : "TEXT",
+          "field" : "IsClosed",
+          "operator" : "EQUAL",
+          "operands" : [ "false" ]
+        } ]
+      }
+    },
+    "JOIN1" : {
+      "action" : "join",
+      "sources" : [ "FILTER2", "JOIN8" ],
+      "schema" : {
+        "fields" : [ ],
+        "slice" : {
+          "mode" : "DROP",
+          "ignoreMissingFields" : true,
+          "fields" : [ "Contact.ConstituentRole.PersonId", "Contact.Department", "Contact.Id" ]
+        }
+      },
+      "parameters" : {
+        "joinType" : "INNER",
+        "leftKeys" : [ "ContactId" ],
+        "rightQualifier" : "Contact",
+        "rightKeys" : [ "Id" ]
+      }
+    },
+    "LOAD_DATASET3" : {
+      "action" : "load",
+      "sources" : [ ],
+      "parameters" : {
+        "fields" : [ "Id", "Name", "CreatedDate", "ParentId", "Subject", "EffectiveDate", "IsActive", "RecordAlertCategoryId" ],
+        "dataset" : {
+          "type" : "connectedDataset",
+          "label" : "RecordAlert",
+          "connectionName" : "SFDC_LOCAL",
+          "sourceObjectName" : "RecordAlert"
+        },
+        "sampleDetails" : {
+          "type" : "TopN",
+          "sortBy" : [ ]
+        }
+      }
+    },
+    "FILTER3" : {
+      "action" : "filter",
+      "sources" : [ "LOAD_DATASET3" ],
+      "parameters" : {
+        "filterExpressions" : [ {
+          "type" : "TEXT",
+          "field" : "IsActive",
+          "operator" : "EQUAL",
+          "operands" : [ "true" ]
+        } ]
+      }
+    },
+    "JOIN2" : {
+      "action" : "join",
+      "sources" : [ "FILTER3", "JOIN1" ],
+      "schema" : {
+        "fields" : [ ],
+        "slice" : {
+          "mode" : "DROP",
+          "ignoreMissingFields" : true,
+          "fields" : [ "Case.Contact.Department", "Case.Id", "Case.Priority", "Case.Subject" ]
+        }
+      },
+      "parameters" : {
+        "joinType" : "INNER",
+        "leftKeys" : [ "ParentId" ],
+        "rightQualifier" : "Case",
+        "rightKeys" : [ "Id" ]
+      }
+    },
+    "LOAD_DATASET4" : {
+      "action" : "load",
+      "sources" : [ ],
+      "parameters" : {
+        "fields" : [ "Id", "DeveloperName", "MasterLabel" ],
+        "dataset" : {
+          "type" : "connectedDataset",
+          "label" : "RecordAlertCategory",
+          "connectionName" : "SFDC_LOCAL",
+          "sourceObjectName" : "RecordAlertCategory"
+        },
+        "sampleDetails" : {
+          "type" : "TopN",
+          "sortBy" : [ ]
+        }
+      }
+    },
+    "JOIN3" : {
+      "action" : "join",
+      "sources" : [ "JOIN2", "LOAD_DATASET4" ],
+      "schema" : {
+        "fields" : [ ],
+        "slice" : {
+          "mode" : "DROP",
+          "ignoreMissingFields" : true,
+          "fields" : [ "RecordAlertCategory.Id" ]
+        }
+      },
+      "parameters" : {
+        "joinType" : "LEFT_OUTER",
+        "leftKeys" : [ "RecordAlertCategoryId" ],
+        "rightQualifier" : "RecordAlertCategory",
+        "rightKeys" : [ "Id" ]
+      }
+    },
+    "LOAD_DATASET5" : {
+      "action" : "load",
+      "sources" : [ ],
+      "parameters" : {
+        "fields" : [ "Id", "Name", "CreatedDate", "LearnerContactId", "Status", "StartDate", "EndDate", "LearningProgramPlanId" ],
+        "dataset" : {
+          "type" : "connectedDataset",
+          "label" : "LearnerProgram",
+          "connectionName" : "SFDC_LOCAL",
+          "sourceObjectName" : "LearnerProgram"
+        },
+        "sampleDetails" : {
+          "type" : "TopN",
+          "sortBy" : [ ]
+        }
+      }
+    },
+    "JOIN4" : {
+      "action" : "join",
+      "sources" : [ "FILTER4", "FILTER1" ],
+      "schema" : {
+        "fields" : [ ],
+        "slice" : {
+          "mode" : "DROP",
+          "ignoreMissingFields" : true,
+          "fields" : [ "Contact.Id", "Contact.Department", "Contact.ConstituentRole.PersonId" ]
+        }
+      },
+      "parameters" : {
+        "joinType" : "INNER",
+        "leftKeys" : [ "LearnerContactId" ],
+        "rightQualifier" : "Contact",
+        "rightKeys" : [ "Id" ]
+      }
+    },
+    "FILTER4" : {
+      "action" : "filter",
+      "sources" : [ "LOAD_DATASET5" ],
+      "parameters" : {
+        "filterExpressions" : [ {
+          "type" : "TEXT",
+          "field" : "Status",
+          "operator" : "EQUAL",
+          "operands" : [ "Active", "Completed" ]
+        } ]
+      }
+    },
+    "LOAD_DATASET6" : {
+      "action" : "load",
+      "sources" : [ ],
+      "parameters" : {
+        "fields" : [ "Id", "Name", "LearningProgramId", "IsActive" ],
+        "dataset" : {
+          "type" : "connectedDataset",
+          "label" : "LearningProgramPlan",
+          "connectionName" : "SFDC_LOCAL",
+          "sourceObjectName" : "LearningProgramPlan"
+        },
+        "sampleDetails" : {
+          "type" : "TopN",
+          "sortBy" : [ ]
+        }
+      }
+    },
+    "LOAD_DATASET7" : {
+      "action" : "load",
+      "sources" : [ ],
+      "parameters" : {
+        "fields" : [ "Id", "Name", "LearningId" ],
+        "dataset" : {
+          "type" : "connectedDataset",
+          "label" : "LearningProgram",
+          "connectionName" : "SFDC_LOCAL",
+          "sourceObjectName" : "LearningProgram"
+        },
+        "sampleDetails" : {
+          "type" : "TopN",
+          "sortBy" : [ ]
+        }
+      }
+    },
+    "LOAD_DATASET8" : {
+      "action" : "load",
+      "sources" : [ ],
+      "parameters" : {
+        "fields" : [ "Id", "Name", "IsActive" ],
+        "dataset" : {
+          "type" : "connectedDataset",
+          "label" : "Learning",
+          "connectionName" : "SFDC_LOCAL",
+          "sourceObjectName" : "Learning"
+        },
+        "sampleDetails" : {
+          "type" : "TopN",
+          "sortBy" : [ ]
+        }
+      }
+    },
+    "JOIN5" : {
+      "action" : "join",
+      "sources" : [ "LOAD_DATASET7", "LOAD_DATASET8" ],
+      "schema" : {
+        "fields" : [ ],
+        "slice" : {
+          "mode" : "DROP",
+          "ignoreMissingFields" : true,
+          "fields" : [ "Learning.Id" ]
+        }
+      },
+      "parameters" : {
+        "joinType" : "LEFT_OUTER",
+        "leftKeys" : [ "LearningId" ],
+        "rightQualifier" : "Learning",
+        "rightKeys" : [ "Id" ]
+      }
+    },
+    "JOIN6" : {
+      "action" : "join",
+      "sources" : [ "LOAD_DATASET6", "JOIN5" ],
+      "schema" : {
+        "fields" : [ ],
+        "slice" : {
+          "mode" : "DROP",
+          "ignoreMissingFields" : true,
+          "fields" : [ "LearningProgram.Id" ]
+        }
+      },
+      "parameters" : {
+        "joinType" : "LEFT_OUTER",
+        "leftKeys" : [ "LearningProgramId" ],
+        "rightQualifier" : "LearningProgram",
+        "rightKeys" : [ "Id" ]
+      }
+    },
+    "JOIN7" : {
+      "action" : "join",
+      "sources" : [ "JOIN4", "JOIN6" ],
+      "schema" : {
+        "fields" : [ ],
+        "slice" : {
+          "mode" : "DROP",
+          "ignoreMissingFields" : true,
+          "fields" : [ "LearningProgramPlan.Id" ]
+        }
+      },
+      "parameters" : {
+        "joinType" : "INNER",
+        "leftKeys" : [ "LearningProgramPlanId" ],
+        "rightQualifier" : "LearningProgramPlan",
+        "rightKeys" : [ "Id" ]
+      }
+    },
+    "JOIN8" : {
+      "action" : "join",
+      "sources" : [ "FILTER1", "JOIN7" ],
+      "schema" : {
+        "fields" : [ ],
+        "slice" : {
+          "mode" : "DROP",
+          "ignoreMissingFields" : true,
+          "fields" : [ "LearnerProgram.Contact.AccountId", "LearnerProgram.Contact.ConstituentRole.Id", "LearnerProgram.Contact.ConstituentRole.Name", "LearnerProgram.Contact.ConstituentRole.PersonId", "LearnerProgram.Contact.ConstituentRole.RoleType", "LearnerProgram.Contact.ConstituentRole.Status", "LearnerProgram.Contact.Name", "LearnerProgram.Contact.Title", "LearnerProgram.CreatedDate", "LearnerProgram.Description", "LearnerProgram.EndDate", "LearnerProgram.Id", "LearnerProgram.LearnerAccountId", "LearnerProgram.LearnerContactId", "LearnerProgram.LearningProgramPlan.IsActive", "LearnerProgram.LearningProgramPlan.LearningProgram.Learning.IsActive", "LearnerProgram.LearningProgramPlan.LearningProgram.Learning.Name", "LearnerProgram.LearningProgramPlan.LearningProgram.Learning.ProviderId", "LearnerProgram.LearningProgramPlan.LearningProgram.LearningId", "LearnerProgram.LearningProgramPlan.LearningProgramId", "LearnerProgram.LearningProgramPlan.Name", "LearnerProgram.LearningProgramPlan.ProviderId", "LearnerProgram.LearningProgramPlanId", "LearnerProgram.Name", "LearnerProgram.StartDate", "LearnerProgram.Status" ]
+        }
+      },
+      "parameters" : {
+        "joinType" : "MULTI_VALUE_LOOKUP",
+        "leftKeys" : [ "Id" ],
+        "rightQualifier" : "LearnerProgram",
+        "rightKeys" : [ "LearnerContactId" ]
+      }
+    },
+    "LOAD_DATASET9" : {
+      "action" : "load",
+      "sources" : [ ],
+      "parameters" : {
+        "fields" : [ "Id", "Name", "LearningId", "LearningAchievementId" ],
+        "dataset" : {
+          "type" : "connectedDataset",
+          "label" : "LearningOutcomeItem",
+          "connectionName" : "SFDC_LOCAL",
+          "sourceObjectName" : "LearningOutcomeItem"
+        },
+        "sampleDetails" : {
+          "type" : "TopN",
+          "sortBy" : [ ]
+        }
+      }
+    },
+    "LOAD_DATASET10" : {
+      "action" : "load",
+      "sources" : [ ],
+      "parameters" : {
+        "fields" : [ "Id", "Name", "FieldOfStudy" ],
+        "dataset" : {
+          "type" : "connectedDataset",
+          "label" : "LearningAchievement",
+          "connectionName" : "SFDC_LOCAL",
+          "sourceObjectName" : "LearningAchievement"
+        },
+        "sampleDetails" : {
+          "type" : "TopN",
+          "sortBy" : [ ]
+        }
+      }
+    },
+    "JOIN9" : {
+      "action" : "join",
+      "sources" : [ "LOAD_DATASET8", "JOIN7" ],
+      "schema" : {
+        "fields" : [ ],
+        "slice" : {
+          "mode" : "DROP",
+          "ignoreMissingFields" : true,
+          "fields" : [ "LearnerProgram.Id", "LearnerProgram.Name", "LearnerProgram.CreatedDate", "LearnerProgram.LearnerAccountId", "LearnerProgram.Description", "LearnerProgram.Status", "LearnerProgram.StartDate", "LearnerProgram.EndDate", "LearnerProgram.LearningProgramPlanId", "LearnerProgram.Contact.AccountId", "LearnerProgram.Contact.Name", "LearnerProgram.Contact.Title", "LearnerProgram.Contact.ConstituentRole.PersonId", "LearnerProgram.Contact.ConstituentRole.Id", "LearnerProgram.Contact.ConstituentRole.Name", "LearnerProgram.Contact.ConstituentRole.RoleType", "LearnerProgram.Contact.ConstituentRole.Status", "LearnerProgram.LearningProgramPlan.Name", "LearnerProgram.LearningProgramPlan.LearningProgramId", "LearnerProgram.LearningProgramPlan.ProviderId", "LearnerProgram.LearningProgramPlan.IsActive", "LearnerProgram.LearningProgramPlan.LearningProgram.LearningId", "LearnerProgram.LearningProgramPlan.LearningProgram.Learning.Name", "LearnerProgram.LearningProgramPlan.LearningProgram.Learning.ProviderId", "LearnerProgram.LearningProgramPlan.LearningProgram.Learning.IsActive" ]
+        }
+      },
+      "parameters" : {
+        "joinType" : "MULTI_VALUE_LOOKUP",
+        "leftKeys" : [ "Id" ],
+        "rightQualifier" : "LearnerProgram",
+        "rightKeys" : [ "LearningProgramPlan.LearningProgram.LearningId" ]
+      }
+    },
+    "JOIN10" : {
+      "action" : "join",
+      "sources" : [ "LOAD_DATASET9", "FILTER5" ],
+      "schema" : {
+        "fields" : [ ],
+        "slice" : {
+          "mode" : "DROP",
+          "ignoreMissingFields" : true,
+          "fields" : [ "Learning.Id", "Learning.IsActive" ]
+        }
+      },
+      "parameters" : {
+        "joinType" : "INNER",
+        "leftKeys" : [ "LearningId" ],
+        "rightQualifier" : "Learning",
+        "rightKeys" : [ "Id" ]
+      }
+    },
+    "FILTER5" : {
+      "action" : "filter",
+      "sources" : [ "JOIN9" ],
+      "parameters" : {
+        "filterExpressions" : [ {
+          "type" : "MULTIVALUE",
+          "field" : "LearnerProgram.LearnerContactId",
+          "operator" : "IS_NOT_NULL",
+          "operands" : [ ]
+        } ]
+      }
+    },
+    "JOIN11" : {
+      "action" : "join",
+      "sources" : [ "LOAD_DATASET10", "JOIN10" ],
+      "schema" : {
+        "fields" : [ ],
+        "slice" : {
+          "mode" : "DROP",
+          "ignoreMissingFields" : true,
+          "fields" : [ "LearningOutcomeItem.Learning.ProviderId", "LearningOutcomeItem.LearningAchievementId" ]
+        }
+      },
+      "parameters" : {
+        "joinType" : "MULTI_VALUE_LOOKUP",
+        "leftKeys" : [ "Id" ],
+        "rightQualifier" : "LearningOutcomeItem",
+        "rightKeys" : [ "LearningAchievementId" ]
+      }
+    },
+    "LOAD_DATASET12" : {
+      "action" : "load",
+      "sources" : [ ],
+      "parameters" : {
+        "fields" : [ "Id", "Name", "ContactId", "Status", "StartDate", "IsActive", "EducationLevel", "EndDate" ],
+        "dataset" : {
+          "type" : "connectedDataset",
+          "label" : "PersonEducation",
+          "connectionName" : "SFDC_LOCAL",
+          "sourceObjectName" : "PersonEducation"
+        },
+        "sampleDetails" : {
+          "type" : "TopN",
+          "sortBy" : [ ]
+        }
+      }
+    },
+    "LOAD_DATASET13" : {
+      "action" : "load",
+      "sources" : [ ],
+      "parameters" : {
+        "fields" : [ "Id", "Name", "RelatedPersonId", "Position", "StartDate", "EndDate", "Occupation" ],
+        "dataset" : {
+          "type" : "connectedDataset",
+          "label" : "PersonEmployment",
+          "connectionName" : "SFDC_LOCAL",
+          "sourceObjectName" : "PersonEmployment"
+        },
+        "sampleDetails" : {
+          "type" : "TopN",
+          "sortBy" : [ ]
+        }
+      }
+    },
+    "JOIN13" : {
+      "action" : "join",
+      "sources" : [ "LOAD_DATASET12", "JOIN8" ],
+      "schema" : {
+        "fields" : [ ],
+        "slice" : {
+          "mode" : "DROP",
+          "ignoreMissingFields" : true,
+          "fields" : [ "Contact.Id", "Contact.Department", "Contact.ConstituentRole.PersonId", "Contact.ConstituentRole.Id", "Contact.ConstituentRole.Name" ]
+        }
+      },
+      "parameters" : {
+        "joinType" : "INNER",
+        "leftKeys" : [ "ContactId" ],
+        "rightQualifier" : "Contact",
+        "rightKeys" : [ "Id" ]
+      }
+    },
+    "JOIN14" : {
+      "action" : "join",
+      "sources" : [ "LOAD_DATASET13", "JOIN8" ],
+      "schema" : {
+        "fields" : [ ],
+        "slice" : {
+          "mode" : "DROP",
+          "ignoreMissingFields" : true,
+          "fields" : [ "Contact.ConstituentRole.Id", "Contact.ConstituentRole.Name", "Contact.ConstituentRole.PersonId", "Contact.Department", "Contact.Id" ]
+        }
+      },
+      "parameters" : {
+        "joinType" : "INNER",
+        "leftKeys" : [ "RelatedPersonId" ],
+        "rightQualifier" : "Contact",
+        "rightKeys" : [ "Id" ]
+      }
+    },
+    "LOAD_DATASET14" : {
+      "action" : "load",
+      "sources" : [ ],
+      "parameters" : {
+        "fields" : [ "ContactId", "Id", "Name" ],
+        "dataset" : {
+          "type" : "connectedDataset",
+          "label" : "User",
+          "connectionName" : "SFDC_LOCAL",
+          "sourceObjectName" : "User"
+        },
+        "sampleDetails" : {
+          "type" : "TopN",
+          "sortBy" : [ ]
+        }
+      }
+    },
+    "FILTER7" : {
+      "action" : "filter",
+      "sources" : [ "LOAD_DATASET14" ],
+      "parameters" : {
+        "filterExpressions" : [ {
+          "type" : "TEXT",
+          "field" : "ContactId",
+          "operator" : "IS_NOT_NULL",
+          "operands" : [ ]
+        } ]
+      }
+    },
+    "JOIN15" : {
+      "action" : "join",
+      "sources" : [ "JOIN8", "FILTER7" ],
+      "schema" : {
+        "fields" : [ ],
+        "slice" : {
+          "mode" : "DROP",
+          "ignoreMissingFields" : true,
+          "fields" : [ "User.ContactId" ]
+        }
+      },
+      "parameters" : {
+        "joinType" : "LOOKUP",
+        "leftKeys" : [ "Id" ],
+        "rightQualifier" : "User",
+        "rightKeys" : [ "ContactId" ]
+      }
+    },
+    "FILTER8" : {
+      "action" : "filter",
+      "sources" : [ "JOIN11" ],
+      "parameters" : {
+        "filterExpressions" : [ {
+          "type" : "MULTIVALUE",
+          "field" : "LearningOutcomeItem.Learning.LearnerProgram.LearnerContactId",
+          "operator" : "IS_NOT_NULL",
+          "operands" : [ ]
+        } ]
+      }
+    },
+    "OUTPUT0" : {
+      "action" : "save",
+      "sources" : [ "JOIN15" ],
+      "parameters" : {
+        "fields" : [ ],
+        "dataset" : {
+          "type" : "analyticsDataset",
+          "label" : "Alumni - Contact Master",
+          "name" : "Alumni_Contact_Master1",
+          "folderName" : "Education_Analytics1"
+        },
+        "measuresToCurrencies" : [ ]
+      }
+    },
+    "OUTPUT1" : {
+      "action" : "save",
+      "sources" : [ "REPLACE0" ],
+      "parameters" : {
+        "fields" : [ ],
+        "dataset" : {
+          "type" : "analyticsDataset",
+          "label" : "Alumni - Case Master",
+          "name" : "Alumni_Case_Master1",
+          "folderName" : "Education_Analytics1"
+        },
+        "measuresToCurrencies" : [ ]
+      }
+    },
+    "OUTPUT2" : {
+      "action" : "save",
+      "sources" : [ "REPLACE1" ],
+      "parameters" : {
+        "fields" : [ ],
+        "dataset" : {
+          "type" : "analyticsDataset",
+          "label" : "Alumni - Record Alert Master",
+          "name" : "Alumni_RecordAlert_Master1",
+          "folderName" : "Education_Analytics1"
+        },
+        "measuresToCurrencies" : [ ]
+      }
+    },
+    "OUTPUT3" : {
+      "action" : "save",
+      "sources" : [ "REPLACE4" ],
+      "parameters" : {
+        "fields" : [ ],
+        "dataset" : {
+          "type" : "analyticsDataset",
+          "label" : "Alumni - Person Education Master",
+          "name" : "Alumni_PersonEducation_Master1",
+          "folderName" : "Education_Analytics1"
+        },
+        "measuresToCurrencies" : [ ]
+      }
+    },
+    "OUTPUT4" : {
+      "action" : "save",
+      "sources" : [ "REPLACE3" ],
+      "parameters" : {
+        "fields" : [ ],
+        "dataset" : {
+          "type" : "analyticsDataset",
+          "label" : "Alumni - Person Employment Master",
+          "name" : "Alumni_PersonEmployment_Master1",
+          "folderName" : "Education_Analytics1"
+        },
+        "measuresToCurrencies" : [ ]
+      }
+    },
+    "OUTPUT5" : {
+      "action" : "save",
+      "sources" : [ "REPLACE2" ],
+      "parameters" : {
+        "fields" : [ ],
+        "dataset" : {
+          "type" : "analyticsDataset",
+          "label" : "Alumni - Learning Achievement Master",
+          "name" : "Alumni_LearningAchievement_Master1",
+          "folderName" : "Education_Analytics1"
+        },
+        "measuresToCurrencies" : [ ]
+      }
+    },
+    "OUTPUT6" : {
+      "action" : "save",
+      "sources" : [ "JOIN7" ],
+      "parameters" : {
+        "fields" : [ ],
+        "dataset" : {
+          "type" : "analyticsDataset",
+          "label" : "Alumni - Learner Program Master",
+          "name" : "Alumni_LearnerProgram_Master1",
+          "folderName" : "Education_Analytics1"
+        },
+        "measuresToCurrencies" : [ ]
+      }
+    },
+    "REPLACE0" : {
+      "action" : "formula",
+      "sources" : [ "JOIN1" ],
+      "schema" : {
+        "fields" : [ {
+          "name" : "Type_replace",
+          "newProperties" : {
+            "name" : "Type"
+          }
+        } ],
+        "slice" : {
+          "mode" : "DROP",
+          "ignoreMissingFields" : true,
+          "fields" : [ "Type" ]
+        }
+      },
+      "parameters" : {
+        "expressionType" : "SQL",
+        "fields" : [ {
+          "type" : "TEXT",
+          "name" : "Type_replace",
+          "label" : "Case Type",
+          "formulaExpression" : "coalesce(Type, null, 'NA')",
+          "precision" : 255
+        } ]
+      }
+    },
+    "REPLACE1" : {
+      "action" : "formula",
+      "sources" : [ "JOIN3" ],
+      "schema" : {
+        "fields" : [ {
+          "name" : "RecordAlertCategory.MasterLabel_replace",
+          "newProperties" : {
+            "name" : "RecordAlertCategory.MasterLabel"
+          }
+        } ],
+        "slice" : {
+          "mode" : "DROP",
+          "ignoreMissingFields" : true,
+          "fields" : [ "RecordAlertCategory.MasterLabel" ]
+        }
+      },
+      "parameters" : {
+        "expressionType" : "SQL",
+        "fields" : [ {
+          "type" : "TEXT",
+          "name" : "RecordAlertCategory.MasterLabel_replace",
+          "label" : "Label",
+          "formulaExpression" : "coalesce(\"RecordAlertCategory.MasterLabel\", null, 'NA')",
+          "precision" : 255
+        } ]
+      }
+    },
+    "REPLACE2" : {
+      "action" : "formula",
+      "sources" : [ "FILTER8" ],
+      "schema" : {
+        "fields" : [ {
+          "name" : "FieldOfStudy_replace",
+          "newProperties" : {
+            "name" : "FieldOfStudy"
+          }
+        } ],
+        "slice" : {
+          "mode" : "DROP",
+          "ignoreMissingFields" : true,
+          "fields" : [ "FieldOfStudy" ]
+        }
+      },
+      "parameters" : {
+        "expressionType" : "SQL",
+        "fields" : [ {
+          "type" : "TEXT",
+          "name" : "FieldOfStudy_replace",
+          "label" : "Field of Study",
+          "formulaExpression" : "coalesce(FieldOfStudy, null, 'NA')",
+          "precision" : 255
+        } ]
+      }
+    },
+    "REPLACE3" : {
+      "action" : "formula",
+      "sources" : [ "JOIN14" ],
+      "schema" : {
+        "fields" : [ {
+          "name" : "Occupation_replace",
+          "newProperties" : {
+            "name" : "Occupation"
+          }
+        } ],
+        "slice" : {
+          "mode" : "DROP",
+          "ignoreMissingFields" : true,
+          "fields" : [ "Occupation" ]
+        }
+      },
+      "parameters" : {
+        "expressionType" : "SQL",
+        "fields" : [ {
+          "type" : "TEXT",
+          "name" : "Occupation_replace",
+          "label" : "Occupation",
+          "formulaExpression" : "coalesce(Occupation, null, 'NA')",
+          "precision" : 255
+        } ]
+      }
+    },
+    "REPLACE4" : {
+      "action" : "formula",
+      "sources" : [ "JOIN13" ],
+      "schema" : {
+        "fields" : [ {
+          "name" : "EducationLevel_replace",
+          "newProperties" : {
+            "name" : "EducationLevel"
+          }
+        } ],
+        "slice" : {
+          "mode" : "DROP",
+          "ignoreMissingFields" : true,
+          "fields" : [ "EducationLevel" ]
+        }
+      },
+      "parameters" : {
+        "expressionType" : "SQL",
+        "fields" : [ {
+          "type" : "TEXT",
+          "name" : "EducationLevel_replace",
+          "label" : "Education Level",
+          "formulaExpression" : "coalesce(EducationLevel, null, 'NA')",
+          "precision" : 255
+        } ]
+      }
+    }
+  },
+  "ui" : {
+    "nodes" : {
+      "LOAD_DATASET0" : {
+        "label" : "Input: Constituent Role",
+        "description" : "",
+        "type" : "LOAD_DATASET",
+        "top" : 112,
+        "left" : 112.1,
+        "parameters" : {
+          "sampleSize" : 2000
+        }
+      },
+      "FILTER0" : {
+        "label" : "Filter: Active Alumni Constituent Roles",
+        "description" : "",
+        "type" : "FILTER",
+        "top" : 112,
+        "left" : 252
+      },
+      "LOAD_DATASET1" : {
+        "label" : "Input: Contact",
+        "description" : "",
+        "type" : "LOAD_DATASET",
+        "top" : 252.10000000000002,
+        "left" : 112,
+        "parameters" : {
+          "sampleSize" : 2000
+        }
+      },
+      "JOIN0" : {
+        "label" : "MV Lookup: Alumni Constituent Roles onto Contact",
+        "description" : "",
+        "type" : "JOIN",
+        "top" : 251.8,
+        "left" : 252.10000000000002
+      },
+      "FILTER1" : {
+        "label" : "Filter: Contacts of Constituent Role Type as Alumni",
+        "description" : "",
+        "type" : "FILTER",
+        "top" : 252.2,
+        "left" : 392.1
+      },
+      "LOAD_DATASET2" : {
+        "label" : "Input: Case",
+        "description" : "",
+        "type" : "LOAD_DATASET",
+        "top" : 392.2,
+        "left" : 112,
+        "parameters" : {
+          "sampleSize" : 2000
+        }
+      },
+      "FILTER2" : {
+        "label" : "Filter: Open Cases",
+        "description" : "",
+        "type" : "FILTER",
+        "top" : 392.1,
+        "left" : 252.10000000000002
+      },
+      "JOIN1" : {
+        "label" : "Join: Alumni Type Contacts onto Case",
+        "description" : "",
+        "type" : "JOIN",
+        "top" : 392.2,
+        "left" : 1091.6
+      },
+      "LOAD_DATASET3" : {
+        "label" : "Input: Record Alert",
+        "description" : "",
+        "type" : "LOAD_DATASET",
+        "top" : 532.3,
+        "left" : 112,
+        "parameters" : {
+          "sampleSize" : 2000
+        }
+      },
+      "FILTER3" : {
+        "label" : "Filter: Open Alerts",
+        "description" : "",
+        "type" : "FILTER",
+        "top" : 532,
+        "left" : 252.10000000000002
+      },
+      "JOIN2" : {
+        "label" : "Join: Open Alumni Cases onto Record Alert",
+        "description" : "",
+        "type" : "JOIN",
+        "top" : 532.1,
+        "left" : 1231.6
+      },
+      "LOAD_DATASET4" : {
+        "label" : "Input: Record Alert Category",
+        "description" : "",
+        "type" : "LOAD_DATASET",
+        "top" : 672.3,
+        "left" : 112,
+        "parameters" : {
+          "sampleSize" : 2000
+        }
+      },
+      "JOIN3" : {
+        "label" : "Join: Record Alert Category onto Record Alert",
+        "description" : "",
+        "type" : "JOIN",
+        "top" : 532.2,
+        "left" : 1370.5
+      },
+      "LOAD_DATASET5" : {
+        "label" : "Input: Learner Program",
+        "description" : "",
+        "type" : "LOAD_DATASET",
+        "top" : 1232,
+        "left" : 112.1,
+        "parameters" : {
+          "sampleSize" : 2000
+        }
+      },
+      "JOIN4" : {
+        "label" : "Join: Alumni Type Contacts onto Learner Program",
+        "description" : "",
+        "type" : "JOIN",
+        "top" : 1232,
+        "left" : 670.9
+      },
+      "FILTER4" : {
+        "label" : "Filter: Active or Completed Learner Programs",
+        "description" : "",
+        "type" : "FILTER",
+        "top" : 1232,
+        "left" : 252.10000000000002
+      },
+      "LOAD_DATASET6" : {
+        "label" : "Input: Learning Program Plan",
+        "description" : "",
+        "type" : "LOAD_DATASET",
+        "top" : 1092.1,
+        "left" : 112.1,
+        "parameters" : {
+          "sampleSize" : 2000
+        }
+      },
+      "LOAD_DATASET7" : {
+        "label" : "Input: Learning Program",
+        "description" : "",
+        "type" : "LOAD_DATASET",
+        "top" : 951.9,
+        "left" : 112.19999999999999,
+        "parameters" : {
+          "sampleSize" : 2000
+        }
+      },
+      "LOAD_DATASET8" : {
+        "label" : "Input: Learning",
+        "description" : "",
+        "type" : "LOAD_DATASET",
+        "top" : 812,
+        "left" : 112.19999999999999,
+        "parameters" : {
+          "sampleSize" : 2000
+        }
+      },
+      "JOIN5" : {
+        "label" : "Join: Learning onto Learning Program",
+        "description" : "",
+        "type" : "JOIN",
+        "top" : 951.9,
+        "left" : 391.7
+      },
+      "JOIN6" : {
+        "label" : "Join: Learning Program onto Learning Program Plan",
+        "description" : "",
+        "type" : "JOIN",
+        "top" : 1092,
+        "left" : 532.5
+      },
+      "JOIN7" : {
+        "label" : "Join: Learning Program Plan onto Learner Program",
+        "description" : "",
+        "type" : "JOIN",
+        "top" : 1232.1,
+        "left" : 812
+      },
+      "JOIN8" : {
+        "label" : "MV Lookup: Learner Program onto Alumni Type Contacts",
+        "description" : "",
+        "type" : "JOIN",
+        "top" : 251.7,
+        "left" : 813.3
+      },
+      "LOAD_DATASET9" : {
+        "label" : "Input: Learning Outcome Item",
+        "description" : "",
+        "type" : "LOAD_DATASET",
+        "top" : 1372,
+        "left" : 112,
+        "parameters" : {
+          "sampleSize" : 2000
+        }
+      },
+      "LOAD_DATASET10" : {
+        "label" : "Input: Learning Achievement",
+        "description" : "",
+        "type" : "LOAD_DATASET",
+        "top" : 1512,
+        "left" : 112,
+        "parameters" : {
+          "sampleSize" : 2000
+        }
+      },
+      "JOIN9" : {
+        "label" : "MV Lookup: Learner Program onto Learning",
+        "description" : "",
+        "type" : "JOIN",
+        "top" : 812.5,
+        "left" : 1091.8
+      },
+      "JOIN10" : {
+        "label" : "Join: Learning onto Learning Outcome Item",
+        "description" : "",
+        "type" : "JOIN",
+        "top" : 1372.1,
+        "left" : 1232.1
+      },
+      "FILTER5" : {
+        "label" : "Filter: Learnings with Alumni Type Contacts",
+        "description" : "",
+        "type" : "FILTER",
+        "top" : 812.3,
+        "left" : 1231.1
+      },
+      "JOIN11" : {
+        "label" : "MV Lookup: Learning Outcome Item onto Learning Achievement",
+        "description" : "",
+        "type" : "JOIN",
+        "top" : 1512.2,
+        "left" : 1232.8
+      },
+      "LOAD_DATASET12" : {
+        "label" : "Input: Person Education",
+        "description" : "",
+        "type" : "LOAD_DATASET",
+        "top" : 1792.1,
+        "left" : 112.19999999999999,
+        "parameters" : {
+          "sampleSize" : 2000
+        }
+      },
+      "LOAD_DATASET13" : {
+        "label" : "Input: Person Employment",
+        "description" : "",
+        "type" : "LOAD_DATASET",
+        "top" : 1652.1,
+        "left" : 112.30000000000001,
+        "parameters" : {
+          "sampleSize" : 2000
+        }
+      },
+      "JOIN13" : {
+        "label" : "Join: Alumni Type Contacts onto Person Education",
+        "description" : "",
+        "type" : "JOIN",
+        "top" : 1792.1,
+        "left" : 1232.3
+      },
+      "JOIN14" : {
+        "label" : "Join: Alumni Type Contacts onto Person Education",
+        "description" : "",
+        "type" : "JOIN",
+        "top" : 1652.3,
+        "left" : 1232.1
+      },
+      "LOAD_DATASET14" : {
+        "label" : "Input: User",
+        "description" : "",
+        "type" : "LOAD_DATASET",
+        "top" : 111.9,
+        "left" : 1091.8,
+        "parameters" : {
+          "sampleSize" : 2000
+        }
+      },
+      "FILTER7" : {
+        "label" : "Filter: User with Conatcts",
+        "description" : "",
+        "type" : "FILTER",
+        "top" : 112.1,
+        "left" : 1370.6
+      },
+      "JOIN15" : {
+        "label" : "SV Lookup: User onto Alumni Type Contact",
+        "description" : "",
+        "type" : "JOIN",
+        "top" : 252,
+        "left" : 1371.5
+      },
+      "FILTER8" : {
+        "label" : "Filter: Learning Achievements with Alumni Type Contacts",
+        "description" : "",
+        "type" : "FILTER",
+        "top" : 1512.2,
+        "left" : 1372.3
+      },
+      "OUTPUT0" : {
+        "label" : "Output: Alumni - Contact Master",
+        "description" : "",
+        "type" : "OUTPUT",
+        "top" : 251.8,
+        "left" : 1652.2
+      },
+      "OUTPUT1" : {
+        "label" : "Output: Alumni - Case Master",
+        "description" : "",
+        "type" : "OUTPUT",
+        "top" : 392.4,
+        "left" : 1651.1
+      },
+      "OUTPUT2" : {
+        "label" : "Output: Alumni - Record Alert Master",
+        "description" : "",
+        "type" : "OUTPUT",
+        "top" : 532.2,
+        "left" : 1653
+      },
+      "OUTPUT3" : {
+        "label" : "Output: Alumni - Person Education Master",
+        "description" : "",
+        "type" : "OUTPUT",
+        "top" : 1792.1,
+        "left" : 1652.1
+      },
+      "OUTPUT4" : {
+        "label" : "Output: Alumni - Person Employment Master",
+        "description" : "",
+        "type" : "OUTPUT",
+        "top" : 1651.9,
+        "left" : 1652
+      },
+      "OUTPUT5" : {
+        "label" : "Output: Alumni - Learning Achievement Master",
+        "description" : "",
+        "type" : "OUTPUT",
+        "top" : 1512,
+        "left" : 1652
+      },
+      "OUTPUT6" : {
+        "label" : "Output: Alumni - Learner Program Master",
+        "description" : "",
+        "type" : "OUTPUT",
+        "top" : 1232.3,
+        "left" : 1651.8
+      },
+      "TRANSFORM0" : {
+        "label" : "Transform: Set Case Type Default Value",
+        "description" : "",
+        "type" : "TRANSFORM",
+        "top" : 392,
+        "left" : 1511.8,
+        "graph" : {
+          "REPLACE0" : {
+            "parameters" : {
+              "type" : "REPLACE_UI"
+            },
+            "label" : "Replace"
+          }
+        },
+        "connectors" : [ ]
+      },
+      "TRANSFORM1" : {
+        "label" : "Transform: Set Alert Category Default Value",
+        "description" : "",
+        "type" : "TRANSFORM",
+        "top" : 532,
+        "left" : 1512,
+        "graph" : {
+          "REPLACE1" : {
+            "parameters" : {
+              "type" : "REPLACE_UI"
+            },
+            "label" : "Replace"
+          }
+        },
+        "connectors" : [ ]
+      },
+      "TRANSFORM2" : {
+        "label" : "Transform: Set Field of Study Default Value",
+        "description" : "",
+        "type" : "TRANSFORM",
+        "top" : 1512,
+        "left" : 1512.3,
+        "graph" : {
+          "REPLACE2" : {
+            "parameters" : {
+              "type" : "REPLACE_UI"
+            },
+            "label" : "Replace"
+          }
+        },
+        "connectors" : [ ]
+      },
+      "TRANSFORM3" : {
+        "label" : "Transform: Set Occupation Default Value",
+        "description" : "",
+        "type" : "TRANSFORM",
+        "top" : 1652.1,
+        "left" : 1512,
+        "graph" : {
+          "REPLACE3" : {
+            "parameters" : {
+              "type" : "REPLACE_UI"
+            },
+            "label" : "Replace"
+          }
+        },
+        "connectors" : [ ]
+      },
+      "TRANSFORM4" : {
+        "label" : "Transform: Set Education Level Default Value",
+        "description" : "",
+        "type" : "TRANSFORM",
+        "top" : 1792,
+        "left" : 1512.1,
+        "graph" : {
+          "REPLACE4" : {
+            "parameters" : {
+              "type" : "REPLACE_UI"
+            },
+            "label" : "Replace"
+          }
+        },
+        "connectors" : [ ]
+      }
+    },
+    "connectors" : [ {
+      "source" : "LOAD_DATASET10",
+      "target" : "JOIN11"
+    }, {
+      "source" : "JOIN8",
+      "target" : "JOIN15"
+    }, {
+      "source" : "LOAD_DATASET6",
+      "target" : "JOIN6"
+    }, {
+      "source" : "LOAD_DATASET0",
+      "target" : "FILTER0"
+    }, {
+      "source" : "LOAD_DATASET1",
+      "target" : "JOIN0"
+    }, {
+      "source" : "FILTER0",
+      "target" : "JOIN0"
+    }, {
+      "source" : "JOIN0",
+      "target" : "FILTER1"
+    }, {
+      "source" : "LOAD_DATASET2",
+      "target" : "FILTER2"
+    }, {
+      "source" : "FILTER2",
+      "target" : "JOIN1"
+    }, {
+      "source" : "JOIN8",
+      "target" : "JOIN1"
+    }, {
+      "source" : "LOAD_DATASET3",
+      "target" : "FILTER3"
+    }, {
+      "source" : "FILTER3",
+      "target" : "JOIN2"
+    }, {
+      "source" : "JOIN1",
+      "target" : "JOIN2"
+    }, {
+      "source" : "JOIN2",
+      "target" : "JOIN3"
+    }, {
+      "source" : "LOAD_DATASET4",
+      "target" : "JOIN3"
+    }, {
+      "source" : "FILTER4",
+      "target" : "JOIN4"
+    }, {
+      "source" : "FILTER1",
+      "target" : "JOIN4"
+    }, {
+      "source" : "LOAD_DATASET5",
+      "target" : "FILTER4"
+    }, {
+      "source" : "LOAD_DATASET7",
+      "target" : "JOIN5"
+    }, {
+      "source" : "JOIN5",
+      "target" : "JOIN6"
+    }, {
+      "source" : "JOIN4",
+      "target" : "JOIN7"
+    }, {
+      "source" : "JOIN6",
+      "target" : "JOIN7"
+    }, {
+      "source" : "LOAD_DATASET8",
+      "target" : "JOIN5"
+    }, {
+      "source" : "FILTER1",
+      "target" : "JOIN8"
+    }, {
+      "source" : "JOIN7",
+      "target" : "JOIN8"
+    }, {
+      "source" : "LOAD_DATASET8",
+      "target" : "JOIN9"
+    }, {
+      "source" : "JOIN7",
+      "target" : "JOIN9"
+    }, {
+      "source" : "LOAD_DATASET9",
+      "target" : "JOIN10"
+    }, {
+      "source" : "FILTER5",
+      "target" : "JOIN10"
+    }, {
+      "source" : "JOIN9",
+      "target" : "FILTER5"
+    }, {
+      "source" : "JOIN10",
+      "target" : "JOIN11"
+    }, {
+      "source" : "LOAD_DATASET12",
+      "target" : "JOIN13"
+    }, {
+      "source" : "JOIN8",
+      "target" : "JOIN13"
+    }, {
+      "source" : "LOAD_DATASET13",
+      "target" : "JOIN14"
+    }, {
+      "source" : "JOIN8",
+      "target" : "JOIN14"
+    }, {
+      "source" : "LOAD_DATASET14",
+      "target" : "FILTER7"
+    }, {
+      "source" : "FILTER7",
+      "target" : "JOIN15"
+    }, {
+      "source" : "JOIN11",
+      "target" : "FILTER8"
+    }, {
+      "source" : "JOIN15",
+      "target" : "OUTPUT0"
+    }, {
+      "source" : "TRANSFORM0",
+      "target" : "OUTPUT1"
+    }, {
+      "source" : "TRANSFORM1",
+      "target" : "OUTPUT2"
+    }, {
+      "source" : "TRANSFORM4",
+      "target" : "OUTPUT3"
+    }, {
+      "source" : "TRANSFORM3",
+      "target" : "OUTPUT4"
+    }, {
+      "source" : "TRANSFORM2",
+      "target" : "OUTPUT5"
+    }, {
+      "source" : "JOIN7",
+      "target" : "OUTPUT6"
+    }, {
+      "source" : "JOIN1",
+      "target" : "TRANSFORM0"
+    }, {
+      "source" : "JOIN3",
+      "target" : "TRANSFORM1"
+    }, {
+      "source" : "FILTER8",
+      "target" : "TRANSFORM2"
+    }, {
+      "source" : "JOIN14",
+      "target" : "TRANSFORM3"
+    }, {
+      "source" : "JOIN13",
+      "target" : "TRANSFORM4"
+    } ],
+    "hiddenColumns" : [ ]
+  },
+  "runMode" : "full"
+}

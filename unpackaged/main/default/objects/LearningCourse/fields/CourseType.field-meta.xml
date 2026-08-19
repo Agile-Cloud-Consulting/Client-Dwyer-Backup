@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CourseType</fullName>
+    <inlineHelpText>Specifies the type of the learning course. For example, Lab, Lecture, Exam, and Practice are possible course types.</inlineHelpText>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+</CustomField>

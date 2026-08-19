@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Scholar_Employment_Notes__c</fullName>
+    <description>Bi-weekly partner meeting agenda item: how many licensed scholars go on to be employed as a CNA; discussion of how to keep licensed scholar placement at or above 90%.</description>
+    <label>Scholar Employment Notes</label>
+    <length>32768</length>
+    <trackHistory>false</trackHistory>
+    <type>LongTextArea</type>
+    <visibleLines>5</visibleLines>
+</CustomField>

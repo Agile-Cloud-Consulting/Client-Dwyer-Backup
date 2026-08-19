@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StandardValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sorted>false</sorted>
+    <standardValue>
+        <fullName>Accept</fullName>
+        <default>false</default>
+        <label>Accept</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Defer</fullName>
+        <default>false</default>
+        <label>Defer</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Decline</fullName>
+        <default>false</default>
+        <label>Decline</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Withdraw</fullName>
+        <default>false</default>
+        <label>Withdraw</label>
+    </standardValue>
+</StandardValueSet>

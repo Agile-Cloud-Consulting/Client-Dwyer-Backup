@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Portal_originated</fullName>
+    <active>true</active>
+    <label>Portal originated</label>
+    <picklistValues>
+        <picklist>Category</picklist>
+        <values>
+            <fullName>Conceptual</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Interpersonal</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Technical</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+</RecordType>

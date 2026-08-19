@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Disable_Opportunity__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Disables all validation rules on Opportunity that check this setting.</description>
+    <inlineHelpText>Check to bypass Opportunity validation rules.</inlineHelpText>
+    <label>Disable Opportunity</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

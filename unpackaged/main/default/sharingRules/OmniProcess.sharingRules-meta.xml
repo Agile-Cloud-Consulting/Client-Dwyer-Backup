@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SharingRules xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sharingCriteriaRules>
+        <fullName>IntakeAssessmentSharingRule</fullName>
+        <accessLevel>Read</accessLevel>
+        <label>IntakeAssessmentSharingRule</label>
+        <sharedTo>
+            <allCustomerPortalUsers></allCustomerPortalUsers>
+        </sharedTo>
+        <criteriaItems>
+            <field>DesignerCustomizationType</field>
+            <operation>equals</operation>
+            <value>Discovery Framework</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Type</field>
+            <operation>equals</operation>
+            <value>ProgramAssessment</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>true</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>Pulsecheck</fullName>
+        <accessLevel>Read</accessLevel>
+        <label>Pulsecheck</label>
+        <sharedTo>
+            <allCustomerPortalUsers></allCustomerPortalUsers>
+        </sharedTo>
+        <criteriaItems>
+            <field>DesignerCustomizationType</field>
+            <operation>equals</operation>
+            <value>Discovery Framework</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>DiscoveryFrameworkUsageType</field>
+            <operation>equals</operation>
+            <value>Pulse Check</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>true</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+</SharingRules>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SharingRules xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sharingGuestRules>
+        <fullName>Share_All_EISP_Records_With_Guest</fullName>
+        <accessLevel>Read</accessLevel>
+        <label>Share All EISP Records With Guest</label>
+        <sharedTo>
+            <guestUser>TrialOrgPortal</guestUser>
+        </sharedTo>
+        <criteriaItems>
+            <field>CreatedById</field>
+            <operation>startsWith</operation>
+            <value>005</value>
+        </criteriaItems>
+        <includeHVUOwnedRecords>false</includeHVUOwnedRecords>
+    </sharingGuestRules>
+</SharingRules>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ReplicateResponsesFromId</fullName>
+    <inlineHelpText>Select the disclosure from where the responses are taken. The disclosure information is dependent on the disclosure type, definition, and a valid assessment context on the disclosure.</inlineHelpText>
+    <trackHistory>false</trackHistory>
+    <type>Lookup</type>
+</CustomField>
