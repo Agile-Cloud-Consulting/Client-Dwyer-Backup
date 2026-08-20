@@ -4,6 +4,8 @@
     <columns>ACCOUNT.NAME</columns>
     <columns>Partner_Type__c</columns>
     <columns>Partner_Subtype__c</columns>
+    <columns>Partner_Status__c</columns>
+    <columns>Partner_Contact_Status__pc</columns>
     <filterScope>Everything</filterScope>
     <label>Org_Account_Hierarchy</label>
 </ListView>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SharingRules xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sharingOwnerRules>
+        <fullName>Partners_Team_Mutual_Visibility</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>RecordAlert (relabeled Business Incident) OWD is already Private. Grants mutual visibility across the whole Partners branch (Partner Engagement + Partner Success and all subordinate roles) for facility incident records, per DWDECI-40 / the DWDECI-18 role-hierarchy model. Scholar-facing roles are not included and stay locked out by the Private OWD. Mirrors the identical rule built for Interaction in DWDECI-38.</description>
+        <label>Partners Team Mutual Visibility</label>
+        <sharedTo>
+            <roleAndSubordinates>Partners</roleAndSubordinates>
+        </sharedTo>
+        <sharedFrom>
+            <roleAndSubordinates>Partners</roleAndSubordinates>
+        </sharedFrom>
+    </sharingOwnerRules>
+</SharingRules>

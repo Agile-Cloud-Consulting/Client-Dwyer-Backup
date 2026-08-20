@@ -6704,6 +6704,9 @@
         <layout>PricebookEntry-Price Book Entry</layout>
     </layoutAssignments>
     <layoutAssignments>
+        <layout>RecordAlertCategory-Record Alert Category Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>SurveyQuestion-Survey Question Layout</layout>
     </layoutAssignments>
     <layoutAssignments>

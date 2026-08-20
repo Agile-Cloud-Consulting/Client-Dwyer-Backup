@@ -6768,6 +6768,17 @@
         <layout>OmniScriptView-OmniScript Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
+        <layout>PersonAccount-Person Account Layout</layout>
+        <recordType>PersonAccount.Contact</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>PersonAccount-Person Account Layout</layout>
+        <recordType>PersonAccount.Scholar</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>RecordAlertCategory-Record Alert Category Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>SurveyQuestion-Survey Question Layout</layout>
     </layoutAssignments>
     <layoutAssignments>

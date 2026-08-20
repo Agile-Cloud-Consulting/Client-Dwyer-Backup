@@ -2,49 +2,29 @@
 <StandardValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
     <sorted>false</sorted>
     <standardValue>
-        <fullName>Analyst</fullName>
+        <fullName>Non-Profit / 501(c)(3)</fullName>
         <default>false</default>
-        <label>Analyst</label>
+        <label>Non-Profit / 501(c)(3)</label>
     </standardValue>
     <standardValue>
-        <fullName>Competitor</fullName>
+        <fullName>Local Business / Corporate</fullName>
         <default>false</default>
-        <label>Competitor</label>
+        <label>Local Business / Corporate</label>
     </standardValue>
     <standardValue>
-        <fullName>Customer</fullName>
+        <fullName>Educational Institution</fullName>
         <default>false</default>
-        <label>Customer</label>
+        <label>Educational Institution</label>
     </standardValue>
     <standardValue>
-        <fullName>Integrator</fullName>
+        <fullName>Community Group / Association</fullName>
         <default>false</default>
-        <label>Integrator</label>
+        <label>Community Group / Association</label>
     </standardValue>
     <standardValue>
-        <fullName>Investor</fullName>
+        <fullName>Government / Public Sector</fullName>
         <default>false</default>
-        <label>Investor</label>
-    </standardValue>
-    <standardValue>
-        <fullName>Partner</fullName>
-        <default>false</default>
-        <label>Partner</label>
-    </standardValue>
-    <standardValue>
-        <fullName>Press</fullName>
-        <default>false</default>
-        <label>Press</label>
-    </standardValue>
-    <standardValue>
-        <fullName>Prospect</fullName>
-        <default>false</default>
-        <label>Prospect</label>
-    </standardValue>
-    <standardValue>
-        <fullName>Reseller</fullName>
-        <default>false</default>
-        <label>Reseller</label>
+        <label>Government / Public Sector</label>
     </standardValue>
     <standardValue>
         <fullName>Other</fullName>

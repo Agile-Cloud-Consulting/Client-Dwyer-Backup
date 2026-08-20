@@ -6,15 +6,11 @@
     <picklistValues>
         <picklist>AccountSource</picklist>
         <values>
-            <fullName>Advertisement</fullName>
+            <fullName>JotForm Inbound</fullName>
             <default>false</default>
         </values>
         <values>
-            <fullName>Employee Referral</fullName>
-            <default>false</default>
-        </values>
-        <values>
-            <fullName>External Referral</fullName>
+            <fullName>Manual Research</fullName>
             <default>false</default>
         </values>
         <values>
@@ -22,31 +18,7 @@
             <default>false</default>
         </values>
         <values>
-            <fullName>Partner</fullName>
-            <default>false</default>
-        </values>
-        <values>
-            <fullName>Public Relations</fullName>
-            <default>false</default>
-        </values>
-        <values>
-            <fullName>Seminar - Internal</fullName>
-            <default>false</default>
-        </values>
-        <values>
-            <fullName>Seminar - Partner</fullName>
-            <default>false</default>
-        </values>
-        <values>
-            <fullName>Trade Show</fullName>
-            <default>false</default>
-        </values>
-        <values>
-            <fullName>Web</fullName>
-            <default>false</default>
-        </values>
-        <values>
-            <fullName>Word of mouth</fullName>
+            <fullName>Referral</fullName>
             <default>false</default>
         </values>
     </picklistValues>
@@ -243,6 +215,29 @@
         </values>
     </picklistValues>
     <picklistValues>
+        <picklist>Partner_Status__c</picklist>
+        <values>
+            <fullName>Active</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>In Pipeline</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Offboarded</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Onboarding</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Renewal%2FExpansion Review</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
         <picklist>Partner_Subtype__c</picklist>
         <values>
             <fullName>Child Care</fullName>
@@ -389,43 +384,27 @@
     <picklistValues>
         <picklist>Type</picklist>
         <values>
-            <fullName>Analyst</fullName>
+            <fullName>Community Group %2F Association</fullName>
             <default>false</default>
         </values>
         <values>
-            <fullName>Competitor</fullName>
+            <fullName>Educational Institution</fullName>
             <default>false</default>
         </values>
         <values>
-            <fullName>Customer</fullName>
+            <fullName>Government %2F Public Sector</fullName>
             <default>false</default>
         </values>
         <values>
-            <fullName>Integrator</fullName>
+            <fullName>Local Business %2F Corporate</fullName>
             <default>false</default>
         </values>
         <values>
-            <fullName>Investor</fullName>
+            <fullName>Non-Profit %2F 501%28c%29%283%29</fullName>
             <default>false</default>
         </values>
         <values>
             <fullName>Other</fullName>
-            <default>false</default>
-        </values>
-        <values>
-            <fullName>Partner</fullName>
-            <default>false</default>
-        </values>
-        <values>
-            <fullName>Press</fullName>
-            <default>false</default>
-        </values>
-        <values>
-            <fullName>Prospect</fullName>
-            <default>false</default>
-        </values>
-        <values>
-            <fullName>Reseller</fullName>
             <default>false</default>
         </values>
     </picklistValues>
