@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>All_IndividualApplicationTasks</fullName>
+    <columns>Name</columns>
+    <columns>IndividualApplication</columns>
+    <columns>PreliminaryApplicationRef</columns>
+    <columns>Status</columns>
+    <columns>DueDate</columns>
+    <columns>IsRequired</columns>
+    <columns>ApplicationReview</columns>
+    <columns>CreatedDate</columns>
+    <filterScope>Everything</filterScope>
+    <label>All Individual Application Tasks</label>
+</ListView>

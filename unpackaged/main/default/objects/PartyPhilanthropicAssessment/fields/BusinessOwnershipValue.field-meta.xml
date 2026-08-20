@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>BusinessOwnershipValue</fullName>
+    <inlineHelpText>The value of private businesses owned by the party.</inlineHelpText>
+    <trackHistory>false</trackHistory>
+</CustomField>

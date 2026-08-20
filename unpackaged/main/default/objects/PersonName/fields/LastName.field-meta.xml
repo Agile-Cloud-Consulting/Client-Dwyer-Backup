@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>LastName</fullName>
+    <inlineHelpText>If your name has a middle name, enter your middle name and last name here together. For instance, if your name is Keerthana Anil Kumar, enter Keerthana as the first name and Anil Kumar as the last name.</inlineHelpText>
+    <trackHistory>false</trackHistory>
+</CustomField>

@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StandardValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sorted>false</sorted>
+    <standardValue>
+        <fullName>Abitur</fullName>
+        <default>false</default>
+        <label>Abitur</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Apolytirion</fullName>
+        <default>false</default>
+        <label>Apolytirion</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Baccalauréat (BAC)</fullName>
+        <default>false</default>
+        <label>Baccalauréat (BAC)</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Cambridge Internation Education Pre-University (CIE Pre-U)</fullName>
+        <default>false</default>
+        <label>Cambridge Internation Education Pre-University (CIE Pre-U)</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Caribbean Advanced Proficiency Exam II (CAPE)</fullName>
+        <default>false</default>
+        <label>Caribbean Advanced Proficiency Exam II (CAPE)</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Center Shiken or Kyotsu Tests</fullName>
+        <default>false</default>
+        <label>Center Shiken or Kyotsu Tests</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Chinese National Entrance Examination (Gao Kao) or Joint Entrance Examination (JEE)</fullName>
+        <default>false</default>
+        <label>Chinese National Entrance Examination (Gao Kao) or Joint Entrance Examination (JEE)</label>
+    </standardValue>
+    <standardValue>
+        <fullName>College Scholastic Ability Test (CSAT)</fullName>
+        <default>false</default>
+        <label>College Scholastic Ability Test (CSAT)</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Concurso Nacional de Acesso ao Ensino Superior (CNA)</fullName>
+        <default>false</default>
+        <label>Concurso Nacional de Acesso ao Ensino Superior (CNA)</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Emerites Standardized Test (EmSAT)</fullName>
+        <default>false</default>
+        <label>Emerites Standardized Test (EmSAT)</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Ethiopian School Leaving Certificate Exams (ESLCE) or Ethiopian Higher Education Entrance</fullName>
+        <default>false</default>
+        <label>Ethiopian School Leaving Certificate Exams (ESLCE) or Ethiopian Higher Education Entrance</label>
+    </standardValue>
+    <standardValue>
+        <fullName>European Baccalaureate</fullName>
+        <default>false</default>
+        <label>European Baccalaureate</label>
+    </standardValue>
+    <standardValue>
+        <fullName>GCE-Advanced Level Examinations (GCE-A Levels)</fullName>
+        <default>false</default>
+        <label>GCE-Advanced Level Examinations (GCE-A Levels)</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Higher / Level 6</fullName>
+        <default>false</default>
+        <label>Higher / Level 6</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Higher Secondary Certificate (HSC)</fullName>
+        <default>false</default>
+        <label>Higher Secondary Certificate (HSC)</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Higher Secondary Education Board Examination (HSEBE) or School Leaving Certificate (SLC)</fullName>
+        <default>false</default>
+        <label>Higher Secondary Education Board Examination (HSEBE) or School Leaving Certificate (SLC)</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Higher Secondary School Certificate (HSSC)</fullName>
+        <default>false</default>
+        <label>Higher Secondary School Certificate (HSSC)</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Indian Certificate of Secondary Education - Class X (ICSE)</fullName>
+        <default>false</default>
+        <label>Indian Certificate of Secondary Education - Class X (ICSE)</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Indian School Certificate - Class XII (ISC)</fullName>
+        <default>false</default>
+        <label>Indian School Certificate - Class XII (ISC)</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Irish Leaving Certificate</fullName>
+        <default>false</default>
+        <label>Irish Leaving Certificate</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Kenya Certificate of Secondary Education (KCSE)</fullName>
+        <default>false</default>
+        <label>Kenya Certificate of Secondary Education (KCSE)</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Matriculation and Secondary Education Certificate (MATSEC)</fullName>
+        <default>false</default>
+        <label>Matriculation and Secondary Education Certificate (MATSEC)</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Matura (Maturita)</fullName>
+        <default>false</default>
+        <label>Matura (Maturita)</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Prueba de Selección Universitaria (PSU)</fullName>
+        <default>false</default>
+        <label>Prueba de Selección Universitaria (PSU)</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Sijil Tinggi Persekolahan Malaysia (STPM)</fullName>
+        <default>false</default>
+        <label>Sijil Tinggi Persekolahan Malaysia (STPM)</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Te&#39;udat Bagrut</fullName>
+        <default>false</default>
+        <label>Te&#39;udat Bagrut</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Tertiary Entrance Rank (TER) or Universities Admission Index (UAI)</fullName>
+        <default>false</default>
+        <label>Tertiary Entrance Rank (TER) or Universities Admission Index (UAI)</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Thanaweya Amma</fullName>
+        <default>false</default>
+        <label>Thanaweya Amma</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Western African Senior School Certificate Examination (WASSCE)</fullName>
+        <default>false</default>
+        <label>Western African Senior School Certificate Examination (WASSCE)</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Other</fullName>
+        <default>false</default>
+        <label>Other</label>
+    </standardValue>
+</StandardValueSet>

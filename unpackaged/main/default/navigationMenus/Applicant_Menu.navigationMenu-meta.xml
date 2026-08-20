@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<NavigationMenu xmlns="http://soap.sforce.com/2006/04/metadata">
+    <container>TrialOrgPortal</container>
+    <containerType>Network</containerType>
+    <label>Applicant Menu</label>
+    <navigationMenuItem>
+        <label>Inquiries</label>
+        <position>1</position>
+        <publiclyAvailable>false</publiclyAvailable>
+        <target>EducationalInfoRequest</target>
+        <type>SalesforceObject</type>
+    </navigationMenuItem>
+    <navigationMenuItem>
+        <label>Applications</label>
+        <position>2</position>
+        <publiclyAvailable>false</publiclyAvailable>
+        <target>PreliminaryApplicationRef</target>
+        <type>SalesforceObject</type>
+    </navigationMenuItem>
+    <navigationMenuItem>
+        <label>Appointments</label>
+        <position>3</position>
+        <publiclyAvailable>false</publiclyAvailable>
+        <target>ServiceAppointment</target>
+        <type>SalesforceObject</type>
+    </navigationMenuItem>
+    <navigationMenuItem>
+        <label>Success Team</label>
+        <position>4</position>
+        <publiclyAvailable>false</publiclyAvailable>
+        <target>/success-team</target>
+        <type>InternalLink</type>
+    </navigationMenuItem>
+    <navigationMenuItem>
+        <label>Learning Programs</label>
+        <position>5</position>
+        <publiclyAvailable>false</publiclyAvailable>
+        <target>LearningProgramPlan</target>
+        <type>SalesforceObject</type>
+    </navigationMenuItem>
+</NavigationMenu>

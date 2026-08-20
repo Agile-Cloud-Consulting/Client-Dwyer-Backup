@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ScreenTemplateName</fullName>
+    <inlineHelpText>Select a template that creates a gift batch of gift entries with fields that best represent your requirements. Selecting the default template includes all the gift entry fields.</inlineHelpText>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+</CustomField>

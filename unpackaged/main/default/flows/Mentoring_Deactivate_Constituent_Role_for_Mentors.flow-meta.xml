@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>60.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <assignments>
+        <description>Sets ActiveProviderOfferingCount to the number of  active product offerings.</description>
+        <name>SetActiveProviderOfferingCount</name>
+        <label>Set Active Provider Offering Count</label>
+        <locationX>182</locationX>
+        <locationY>755</locationY>
+        <assignmentItems>
+            <assignToReference>ActiveProviderOfferingCount</assignToReference>
+            <operator>AssignCount</operator>
+            <value>
+                <elementReference>FilterActiveProviderOfferings</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>HaveActiveProviderOfferings</targetReference>
+        </connector>
+    </assignments>
+    <collectionProcessors>
+        <description>Filters all the active product offerings in the collection.</description>
+        <name>FilterActiveProviderOfferings</name>
+        <elementSubtype>FilterCollectionProcessor</elementSubtype>
+        <label>Filter Active Provider Offerings</label>
+        <locationX>182</locationX>
+        <locationY>647</locationY>
+        <assignNextValueToReference>currentItem_FilterActiveProviderOfferings</assignNextValueToReference>
+        <collectionProcessorType>FilterCollectionProcessor</collectionProcessorType>
+        <collectionReference>GetProviderOfferingsforContact</collectionReference>
+        <conditionLogic>formula_evaluates_to_true</conditionLogic>
+        <connector>
+            <targetReference>SetActiveProviderOfferingCount</targetReference>
+        </connector>
+        <formula>AND(ISPICKVAL({!currentItem_FilterActiveProviderOfferings.Benefit.BenefitType.Category}, &#39;Mentoring&#39;), NOT(ISBLANK({!currentItem_FilterActiveProviderOfferings.ContactId})),
+ISPICKVAL({!currentItem_FilterActiveProviderOfferings.Status}, &#39;Active&#39;),{!$Record.Id} &lt;&gt; {!currentItem_FilterActiveProviderOfferings.Id})</formula>
+    </collectionProcessors>
+    <decisions>
+        <description>Determines whether the constituent role record with a role type of Mentor exists.</description>
+        <name>DoesMentorConstituentRoleExist</name>
+        <label>Does Mentor Constituent Role Exist?</label>
+        <locationX>380</locationX>
+        <locationY>431</locationY>
+        <defaultConnectorLabel>No (Default)</defaultConnectorLabel>
+        <rules>
+            <name>MentorConstituentRoleExists</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>GetMentorConstituentRole</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>GetProviderOfferingsforContact</targetReference>
+            </connector>
+            <label>Yes</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>Determines whether ActiveProviderOfferingCount is null.</description>
+        <name>HaveActiveProviderOfferings</name>
+        <label>Have Active Provider Offerings?</label>
+        <locationX>182</locationX>
+        <locationY>863</locationY>
+        <defaultConnectorLabel>Yes (Default)</defaultConnectorLabel>
+        <rules>
+            <name>NoActiveProviderOfferings</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>ActiveProviderOfferingCount</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <numberValue>0.0</numberValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>DeactivateConstituentRole</targetReference>
+            </connector>
+            <label>No</label>
+        </rules>
+    </decisions>
+    <environments>Default</environments>
+    <interviewLabel>Mentoring: Deactivate Constituent Role for Mentors {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Mentoring: Deactivate Constituent Role for Mentors</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordLookups>
+        <description>Gets the constituent role record for the contact on the associated provider offering record with the role type as Mentor. Stores the result in the Constituent Role from GetMentorConstituentRole variable.</description>
+        <name>GetMentorConstituentRole</name>
+        <label>Get Mentor Constituent Role</label>
+        <locationX>380</locationX>
+        <locationY>323</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>DoesMentorConstituentRoleExist</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>PersonId</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.ContactId</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>RoleType</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Mentor</stringValue>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>ConstituentRole</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <description>Gets the provider offering records associated with the contact on the provider offering record.</description>
+        <name>GetProviderOfferingsforContact</name>
+        <label>Get Provider Offerings for Contact</label>
+        <locationX>182</locationX>
+        <locationY>539</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>FilterActiveProviderOfferings</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>ContactId</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.ContactId</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>false</getFirstRecordOnly>
+        <object>ProviderOffering</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordUpdates>
+        <description>Updates the constituent role record with an ID that matches the ConstituentRoleID, and sets the Effective End Date field to the current date and the status to Former.</description>
+        <name>DeactivateConstituentRole</name>
+        <label>Deactivate Constituent Role</label>
+        <locationX>50</locationX>
+        <locationY>971</locationY>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>GetMentorConstituentRole.Id</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>EffectiveEndDate</field>
+            <value>
+                <elementReference>$Flow.CurrentDate</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Status</field>
+            <value>
+                <stringValue>Former</stringValue>
+            </value>
+        </inputAssignments>
+        <object>ConstituentRole</object>
+    </recordUpdates>
+    <sourceTemplate>mentoring__DeactvMentorCstnRoleRec</sourceTemplate>
+    <start>
+        <locationX>254</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>GetMentorConstituentRole</targetReference>
+        </connector>
+        <filterFormula>AND(NOT(ISBLANK({!$Record.ContactId})), NOT(ISPICKVAL({!$Record.Status}, &#39;Active&#39;)), ISCHANGED({!$Record.Status}),ISPICKVAL({!$Record.Benefit.BenefitType.Category}, &#39;Mentoring&#39;))</filterFormula>
+        <object>ProviderOffering</object>
+        <recordTriggerType>Update</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Draft</status>
+    <variables>
+        <description>Stores the number of product offerings that are active.</description>
+        <name>ActiveProviderOfferingCount</name>
+        <dataType>Number</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <scale>0</scale>
+        <value>
+            <numberValue>0.0</numberValue>
+        </value>
+    </variables>
+    <variables>
+        <name>currentItem_FilterActiveProviderOfferings</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <objectType>ProviderOffering</objectType>
+    </variables>
+</Flow>

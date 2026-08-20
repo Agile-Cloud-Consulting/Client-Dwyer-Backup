@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StandardValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sorted>false</sorted>
+    <standardValue>
+        <fullName>Baby</fullName>
+        <default>false</default>
+        <label>Baby</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Birth</fullName>
+        <default>false</default>
+        <label>Birth</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Domestic Partnership</fullName>
+        <default>false</default>
+        <label>Domestic Partnership</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Enrolled</fullName>
+        <default>false</default>
+        <label>Enrolled</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Graduation</fullName>
+        <default>false</default>
+        <label>Graduation</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Home</fullName>
+        <default>false</default>
+        <label>Home</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Job</fullName>
+        <default>false</default>
+        <label>Job</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Marriage</fullName>
+        <default>false</default>
+        <label>Marriage</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Relocation</fullName>
+        <default>false</default>
+        <label>Relocation</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Retirement</fullName>
+        <default>false</default>
+        <label>Retirement</label>
+    </standardValue>
+</StandardValueSet>

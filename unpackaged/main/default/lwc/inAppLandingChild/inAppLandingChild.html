@@ -1,0 +1,69 @@
+<template>
+    <div class="c-description">
+        <lightning-layout-item flexibility="auto">
+            <div class="custom-box">
+                <div>
+                    <lightning-icon icon-name="utility:send" alternative-text={heading} size="x-small" title="x-small size"></lightning-icon>
+
+                    <a class="c-heading" onclick={handleClick}>{heading}</a>
+
+                    <template if:true={headingFooter}>
+                        <div class="slds-text-body_small c-no-record">
+                            * This step is mandatory if you have received a new org.
+                        </div>
+                    </template>
+
+                    <template if:true={noRecord}>
+                        <div class="slds-text-body_small c-no-record">
+                            (There are NO records to navigate to - Clickable link will NOT work)
+                        </div>
+                    </template>
+                </div>
+
+                <p class="slds-text-body_regular c-feature-desc">{cloudDetail}</p>
+
+                <template if:true={extraTextPresent}>
+                    <div class="slds-text-body_regular c-feature-desc-second"> 
+                    
+                        <lightning-formatted-rich-text value={extraText}></lightning-formatted-rich-text>
+                    </div>
+                </template>
+
+                <template if:true={primaryTextPresent}>
+                    <div class="slds-text-body_regular c-feature-desc-second">     
+                        <lightning-formatted-rich-text value={primaryText}></lightning-formatted-rich-text>
+                    </div>
+                </template>
+
+                <template if:true={secondaryTextPresent}>
+                    <div class="slds-text-body_regular c-feature-desc-second"> 
+                        <lightning-formatted-rich-text value={secondaryText}></lightning-formatted-rich-text>
+                    </div>
+                </template>
+
+                <template if:true={tertiaryTextPresent}>
+                    <div class="slds-text-body_regular c-feature-desc-second"> 
+                        <lightning-formatted-rich-text value={tertiaryText}></lightning-formatted-rich-text>
+                    </div>
+                </template>
+
+                <template if:true={insideLinkPresent}>
+                    <div class="slds-text-body_regular c-feature-desc-second">
+                        <lightning-formatted-rich-text value={insideLinkBeforeText}></lightning-formatted-rich-text>
+                    	<lightning-formatted-url value={insideLink} label={insideLinkText} target="_blank"></lightning-formatted-url>
+                        <lightning-formatted-rich-text value={insideLinkAfterText}></lightning-formatted-rich-text>
+                    </div>
+                </template>
+
+                <template if:true={insideLinkSecondPresent}>
+                    <div class="slds-text-body_regular c-feature-desc-second">
+                        <lightning-formatted-rich-text value={insideLinkSecondBeforeText}></lightning-formatted-rich-text>
+                    	<lightning-formatted-url value={insideLinkSecond} label={insideLinkSecondText} target="_blank"></lightning-formatted-url>
+                        <lightning-formatted-rich-text value={insideLinkSecondAfterText}></lightning-formatted-rich-text>
+                    </div>
+                </template>
+
+            </div>
+        </lightning-layout-item>
+    </div>
+</template>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>AssignmentQueueName</fullName>
+    <inlineHelpText>Specify the developer name of the queue to which you want to assign ownership of the action plan records generated from the Action Plan Template Assignment.</inlineHelpText>
+    <trackHistory>false</trackHistory>
+</CustomField>

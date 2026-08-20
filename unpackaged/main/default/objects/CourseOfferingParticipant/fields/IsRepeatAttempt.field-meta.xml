@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>IsRepeatAttempt</fullName>
+    <inlineHelpText>Indicates whether the participant has previously taken the course (true) or not (false).</inlineHelpText>
+    <trackHistory>false</trackHistory>
+</CustomField>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>TransactionInterval</fullName>
+    <inlineHelpText>The interval of running the gift commitment schedule. The transaction period and interval define how the schedule is run. For example, if the transaction period is monthly and transaction interval is 3, the schedule is run after every three months.</inlineHelpText>
+    <trackHistory>false</trackHistory>
+</CustomField>

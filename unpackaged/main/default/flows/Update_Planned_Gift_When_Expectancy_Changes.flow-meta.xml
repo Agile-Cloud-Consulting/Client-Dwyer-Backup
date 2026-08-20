@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>65.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <environments>Default</environments>
+    <interviewLabel>Update Planned Gift When Expectancy Changes {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Update Planned Gift When Expectancy Changes</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <sourceTemplate>plndgiving__UpdtPlnGftExpectancyChg</sourceTemplate>
+    <start>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>UpdatePlannedGiftValues</targetReference>
+        </connector>
+        <filterFormula>AND(NOT(ISNULL({!$Record.Expectancy})),OR(ISNEW(),ISCHANGED({!$Record.Expectancy})))</filterFormula>
+        <object>PlannedGift</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+    <subflows>
+        <description>Calls a flow that updates the deferred future value, future value, and present value of the planned gift record that triggered the flow.</description>
+        <name>UpdatePlannedGiftValues</name>
+        <label>Update Planned Gift Values</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <flowName>plndgiving__UpdatePlannedGiftValues</flowName>
+        <inputAssignments>
+            <name>plannedGiftId</name>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </subflows>
+</Flow>

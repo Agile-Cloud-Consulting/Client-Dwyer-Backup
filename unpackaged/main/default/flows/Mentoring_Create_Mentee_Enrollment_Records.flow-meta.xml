@@ -1,0 +1,376 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionCalls>
+        <description>Sends an email containing an error message to the flow user when the creation of a benefit assignment record fails.</description>
+        <name>SendEmailBenefitAssignmentCreationError</name>
+        <label>Send Email</label>
+        <locationX>710</locationX>
+        <locationY>1163</locationY>
+        <actionName>emailSimple</actionName>
+        <actionType>emailSimple</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>emailAddresses</name>
+            <value>
+                <elementReference>$User.Email</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailSubject</name>
+            <value>
+                <stringValue>Error: Benefit assignment not created</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailBody</name>
+            <value>
+                <elementReference>$Flow.FaultMessage</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>emailSimple</nameSegment>
+    </actionCalls>
+    <actionCalls>
+        <description>Sends an email containing an error message to the flow user when the creation of a constituent role record fails.</description>
+        <name>SendEmailConstituentRoleCreationError</name>
+        <label>Send Email</label>
+        <locationX>446</locationX>
+        <locationY>1487</locationY>
+        <actionName>emailSimple</actionName>
+        <actionType>emailSimple</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>emailAddresses</name>
+            <value>
+                <elementReference>$User.Email</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailSubject</name>
+            <value>
+                <stringValue>Error: Constituent role not created</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailBody</name>
+            <value>
+                <elementReference>$Flow.FaultMessage</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>emailSimple</nameSegment>
+    </actionCalls>
+    <apiVersion>60.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <assignments>
+        <description>Adds the ID of the current record to the MentoringBenefitTypeIds collection.</description>
+        <name>AdIdToCollection</name>
+        <label>Add ID to Collection</label>
+        <locationX>600</locationX>
+        <locationY>647</locationY>
+        <assignmentItems>
+            <assignToReference>MentoringBenefitTypeIds</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>IterateThroughBenefitTypes.Id</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>IterateThroughBenefitTypes</targetReference>
+        </connector>
+    </assignments>
+    <decisions>
+        <description>Determines whether Constituent Role from GetConstituentRole contains a record.</description>
+        <name>DoesMenteeConstituentRoleExist</name>
+        <label>Does Mentee Constituent Role Exist?</label>
+        <locationX>50</locationX>
+        <locationY>1271</locationY>
+        <defaultConnector>
+            <targetReference>CreateConstituentRole</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Mentee Constituent Role Does Not Exist</defaultConnectorLabel>
+        <rules>
+            <name>HaveConstitutentRole</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>GetConstituentRole</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <label>Mentee Constituent Role Exists</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>Determines whether Benefit from GetBenefi contains a record.</description>
+        <name>DoesMentoringProgramBenefitExist</name>
+        <label>Does Mentoring Program Benefit Exist?</label>
+        <locationX>512</locationX>
+        <locationY>947</locationY>
+        <defaultConnectorLabel>Mentoring Program Benefit Does Not Exist</defaultConnectorLabel>
+        <rules>
+            <name>HaveBenefit</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>GetBenefit</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>CreateBenefitAssignment</targetReference>
+            </connector>
+            <label>Mentoring Program Benefit Exists</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>Determines whether benefit type records with the category of Mentoring exist.</description>
+        <name>DoMentoringBenefitTypesExist</name>
+        <label>Do Mentoring Benefit Types Exist?</label>
+        <locationX>875</locationX>
+        <locationY>431</locationY>
+        <defaultConnectorLabel>Mentoring Benefits Do Not Exist</defaultConnectorLabel>
+        <rules>
+            <name>HaveMentoringBenefits</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>GetMentoringBenefitTypes</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>IterateThroughBenefitTypes</targetReference>
+            </connector>
+            <label>Mentoring Benefits Exist</label>
+        </rules>
+    </decisions>
+    <environments>Default</environments>
+    <interviewLabel>Mentoring: Create Mentee Enrollment Records {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Mentoring: Create Mentee Enrollment Records</label>
+    <loops>
+        <description>Repeats actions in a loop for each record in  Benefit Types from GetMentoringBenefitTypes.</description>
+        <name>IterateThroughBenefitTypes</name>
+        <label>Iterate Through Benefit Types</label>
+        <locationX>512</locationX>
+        <locationY>539</locationY>
+        <collectionReference>GetMentoringBenefitTypes</collectionReference>
+        <iterationOrder>Asc</iterationOrder>
+        <nextValueConnector>
+            <targetReference>AdIdToCollection</targetReference>
+        </nextValueConnector>
+        <noMoreValuesConnector>
+            <targetReference>GetBenefit</targetReference>
+        </noMoreValuesConnector>
+    </loops>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordCreates>
+        <description>Creates a benefit assignment record, setting BenefitId to the benefit ID of Benefit from GetBenefit, the ProgramEnrollmentId and the ParentRecordId to the program enrollment ID of the record that triggered the flow, status to Active, and StartDateTime to the date and time that the flow runs.</description>
+        <name>CreateBenefitAssignment</name>
+        <label>Create Benefit Assignment</label>
+        <locationX>50</locationX>
+        <locationY>1055</locationY>
+        <connector>
+            <targetReference>GetConstituentRole</targetReference>
+        </connector>
+        <faultConnector>
+            <targetReference>SendEmailBenefitAssignmentCreationError</targetReference>
+        </faultConnector>
+        <inputAssignments>
+            <field>BenefitId</field>
+            <value>
+                <elementReference>GetBenefit.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>ParentRecordId</field>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>ProgramEnrollmentId</field>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>StartDateTime</field>
+            <value>
+                <elementReference>$Flow.CurrentDateTime</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Status</field>
+            <value>
+                <stringValue>Active</stringValue>
+            </value>
+        </inputAssignments>
+        <object>BenefitAssignment</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordCreates>
+    <recordCreates>
+        <description>Creates a constituent role record, setting PersonId to the contact ID of the record that triggered the flow, EffectiveStartDate to the date that the flow runs, RoleType to Mentee, and Status to Active.</description>
+        <name>CreateConstituentRole</name>
+        <label>Create Constituent Role</label>
+        <locationX>182</locationX>
+        <locationY>1379</locationY>
+        <faultConnector>
+            <targetReference>SendEmailConstituentRoleCreationError</targetReference>
+        </faultConnector>
+        <inputAssignments>
+            <field>EffectiveStartDate</field>
+            <value>
+                <elementReference>$Flow.CurrentDate</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>PersonId</field>
+            <value>
+                <elementReference>$Record.ContactId</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>RoleType</field>
+            <value>
+                <stringValue>Mentee</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Status</field>
+            <value>
+                <stringValue>Active</stringValue>
+            </value>
+        </inputAssignments>
+        <object>ConstituentRole</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordCreates>
+    <recordLookups>
+        <description>Gets the benefit record with a ProgramId that matches the program ID of the record that triggered the flow and a BenefitTypeId that&#39;s in the MentoringBenefitTypeIds collection. Stores the result in the Benefit from GetBenefit record variable.</description>
+        <name>GetBenefit</name>
+        <label>Get Benefit</label>
+        <locationX>512</locationX>
+        <locationY>839</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>DoesMentoringProgramBenefitExist</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>ProgramId</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.ProgramId</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>BenefitTypeId</field>
+            <operator>In</operator>
+            <value>
+                <elementReference>MentoringBenefitTypeIds</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Benefit</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <description>Gets the non-former constituent role record with a person ID that matches the contact ID of the record that triggered the flow and a role type of Mentee. Stores the result in the Constituent Role from GetConstituentRole record variable.</description>
+        <name>GetConstituentRole</name>
+        <label>Get Constituent Role</label>
+        <locationX>50</locationX>
+        <locationY>1163</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>DoesMenteeConstituentRoleExist</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>PersonId</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.ContactId</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>RoleType</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Mentee</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Status</field>
+            <operator>NotEqualTo</operator>
+            <value>
+                <stringValue>Former</stringValue>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>ConstituentRole</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <description>Gets all benefit type records with a Category of Mentoring. Stores the results in the Benefit Types from GetMentoringBenefitTypes record collection.</description>
+        <name>GetMentoringBenefitTypes</name>
+        <label>Get Mentoring Benefit Types</label>
+        <locationX>875</locationX>
+        <locationY>323</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>DoMentoringBenefitTypesExist</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Category</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Mentoring</stringValue>
+            </value>
+        </filters>
+        <getFirstRecordOnly>false</getFirstRecordOnly>
+        <object>BenefitType</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <sourceTemplate>mentoring__CreateMenteeEnrollmentRec</sourceTemplate>
+    <start>
+        <locationX>749</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>GetMentoringBenefitTypes</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>ContactId</field>
+            <operator>IsNull</operator>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </filters>
+        <object>ProgramEnrollment</object>
+        <recordTriggerType>Create</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+    <variables>
+        <description>Stores the IDs of benefit type records with a category of Mentoring.</description>
+        <name>MentoringBenefitTypeIds</name>
+        <dataType>String</dataType>
+        <isCollection>true</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+</Flow>

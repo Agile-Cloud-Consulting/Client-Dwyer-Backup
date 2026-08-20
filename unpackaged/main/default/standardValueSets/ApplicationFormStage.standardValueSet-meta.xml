@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StandardValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sorted>false</sorted>
+    <standardValue>
+        <fullName>Initiated</fullName>
+        <default>false</default>
+        <label>Initiated</label>
+    </standardValue>
+    <standardValue>
+        <fullName>In Progress</fullName>
+        <default>false</default>
+        <label>In Progress</label>
+    </standardValue>
+    <standardValue>
+        <fullName>On Hold</fullName>
+        <default>false</default>
+        <label>On Hold</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Rejected</fullName>
+        <default>false</default>
+        <label>Rejected</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Approved</fullName>
+        <default>false</default>
+        <label>Approved</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Intake</fullName>
+        <default>false</default>
+        <label>Intake</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Submitted</fullName>
+        <default>false</default>
+        <label>Submitted</label>
+    </standardValue>
+    <standardValue>
+        <fullName>In Review</fullName>
+        <default>false</default>
+        <label>In Review</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Decision</fullName>
+        <default>false</default>
+        <label>Decision</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Closing</fullName>
+        <default>false</default>
+        <label>Closing</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Book to Core</fullName>
+        <default>false</default>
+        <label>Book to Core</label>
+    </standardValue>
+</StandardValueSet>

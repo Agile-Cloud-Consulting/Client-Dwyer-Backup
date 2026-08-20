@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>All_CourseOfferingParticipantResults</fullName>
+    <columns>Name</columns>
+    <columns>NumericGrade</columns>
+    <columns>ParticipantResultStatus</columns>
+    <columns>UnitsEarned</columns>
+    <columns>LastModifiedDate</columns>
+    <columns>CreatedDate</columns>
+    <columns>CourseOfferingParticipant</columns>
+    <filterScope>Everything</filterScope>
+    <label>All Course Offering Participant Results</label>
+</ListView>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StandardValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sorted>false</sorted>
+    <standardValue>
+        <fullName>Deal Execution</fullName>
+        <default>false</default>
+        <label>Deal Execution</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Meet and Greet</fullName>
+        <default>false</default>
+        <label>Meet and Greet</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Quarterly Check-In</fullName>
+        <default>false</default>
+        <label>Quarterly Check-In</label>
+    </standardValue>
+</StandardValueSet>

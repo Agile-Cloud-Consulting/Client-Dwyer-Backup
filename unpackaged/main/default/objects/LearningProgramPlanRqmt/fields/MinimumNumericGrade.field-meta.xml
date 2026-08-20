@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>MinimumNumericGrade</fullName>
+    <inlineHelpText>The Minimum Numeric Grade that is required to meet the Learning Program Plan Requirement. This is applicable to Learner Program and Course Offering Participant Result.</inlineHelpText>
+    <trackHistory>false</trackHistory>
+</CustomField>

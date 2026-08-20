@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WaveXmd xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <dataset xsi:nil="true"/>
+    <dimensions>
+        <defaultAction>openSfdcRecord</defaultAction>
+        <field>Opportunity_Details_1.Opp.Name</field>
+        <isDerived>false</isDerived>
+        <sortIndex>0</sortIndex>
+    </dimensions>
+    <measures>
+        <field>pipeline_change.sum_percent</field>
+        <isDerived>false</isDerived>
+        <sortIndex>0</sortIndex>
+    </measures>
+    <type>Asset</type>
+    <waveVisualization>Opportunity_Pipeline_Trending</waveVisualization>
+</WaveXmd>

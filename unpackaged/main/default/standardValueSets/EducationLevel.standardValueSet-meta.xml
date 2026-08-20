@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StandardValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sorted>false</sorted>
+    <standardValue>
+        <fullName>High School Diploma</fullName>
+        <default>false</default>
+        <label>High School Diploma</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Some College No Degree</fullName>
+        <default>false</default>
+        <label>Some College No Degree</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Associate&#39;s Degree</fullName>
+        <default>false</default>
+        <label>Associate&#39;s Degree</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Bachelor&#39;s Degree</fullName>
+        <default>false</default>
+        <label>Bachelor&#39;s Degree</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Master&#39;s Degree</fullName>
+        <default>false</default>
+        <label>Master&#39;s Degree</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Doctorate Degree</fullName>
+        <default>false</default>
+        <label>Doctorate Degree</label>
+    </standardValue>
+    <standardValue>
+        <fullName>No Formal Education</fullName>
+        <default>false</default>
+        <label>No Formal Education</label>
+    </standardValue>
+</StandardValueSet>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ActionPlanTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionPlanTemplateItem>
+        <actionPlanTemplateItemValue>
+            <itemEntityType>Task</itemEntityType>
+            <name>Subject</name>
+            <valueLiteral>Academic Hold Resolution: Meet with Advisor &amp; Create Recovery Plan</valueLiteral>
+        </actionPlanTemplateItemValue>
+        <actionPlanTemplateItemValue>
+            <itemEntityType>Task</itemEntityType>
+            <name>Priority</name>
+            <valueLiteral>High</valueLiteral>
+        </actionPlanTemplateItemValue>
+        <actionPlanTemplateItemValue>
+            <itemEntityType>Task</itemEntityType>
+            <name>ActivityDate</name>
+            <valueFormula>StartDate + 10</valueFormula>
+        </actionPlanTemplateItemValue>
+        <actionPlanTemplateItemValue>
+            <itemEntityType>Task</itemEntityType>
+            <name>Description</name>
+            <valueLiteral>Students must proactively engage with their academic advisor to understand the specific reason for their academic hold and collaboratively develop an Academic Recovery Plan. Failure to complete this task may prevent future course registration and may lead to further academic repercussions.</valueLiteral>
+        </actionPlanTemplateItemValue>
+        <actionPlanTemplateItemValue>
+            <itemEntityType>Task</itemEntityType>
+            <name>IsReminderSet</name>
+            <valueLiteral>true</valueLiteral>
+        </actionPlanTemplateItemValue>
+        <actionPlanTemplateItemValue>
+            <itemEntityType>Task</itemEntityType>
+            <name>ReminderDateTime</name>
+            <valueFormula>StartDate + 10 - 0 + 09:00:00.000</valueFormula>
+        </actionPlanTemplateItemValue>
+        <actionPlanTemplateItemValue>
+            <itemEntityType>Task</itemEntityType>
+            <name>OwnerId</name>
+            <valueFormula>TaskAssignmentTargetObjects.RegulatoryCodeViolation.ResponseContextId</valueFormula>
+        </actionPlanTemplateItemValue>
+        <isRequired>false</isRequired>
+        <itemEntityType>Task</itemEntityType>
+        <name>Academic Hold Resolution: Meet with Advisor &amp; Create Recovery Plan</name>
+        <uniqueName>Academic_Hold_Resolution_Meet_with_Advisor_733497de_482d_11f0_a437_7f5fb5fa647a</uniqueName>
+    </actionPlanTemplateItem>
+    <description>This action plan outlines the essential steps for students with an academic hold, combining the critical initial meeting with their academic advisor and the subsequent development of a personalized remedial strategy to resolve the hold.</description>
+    <isAdHocItemCreationEnabled>false</isAdHocItemCreationEnabled>
+    <name>Advisor Meeting &amp; Remedial Strategy</name>
+    <status>Final</status>
+    <targetEntityType>RegulatoryCodeViolation</targetEntityType>
+    <uniqueName>Advisor_Meeting_Remedial_Strategy_49545672_482c_11f0_96eb_af29115396a7</uniqueName>
+</ActionPlanTemplate>

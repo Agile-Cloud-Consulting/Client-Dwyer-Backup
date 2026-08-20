@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WaveXmd xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <dataset xsi:nil="true" />
+    <dimensions>
+        <conditionalFormatting>
+            <formattingBins>
+                <bin xsi:nil="true" />
+                <formatValue>#C5DBF7</formatValue>
+                <label xsi:nil="true" />
+                <sortIndex>0</sortIndex>
+            </formattingBins>
+            <formattingBins>
+                <bin xsi:nil="true" />
+                <formatValue>#1674D9</formatValue>
+                <label xsi:nil="true" />
+                <sortIndex>1</sortIndex>
+            </formattingBins>
+            <property>chartColor</property>
+            <referenceField>Win_Rate</referenceField>
+            <sortIndex xsi:nil="true" />
+            <type>gradient</type>
+        </conditionalFormatting>
+        <field>Clone_of_Sales_Rep_B_1.ALL</field>
+        <isDerived>false</isDerived>
+        <sortIndex>0</sortIndex>
+    </dimensions>
+    <dimensions>
+        <field>Clone_of_Account_Bre_1.Account.Name</field>
+        <isDerived>false</isDerived>
+        <linkTemplateEnabled>true</linkTemplateEnabled>
+        <recordDisplayFields>
+            <recordDisplayField>Account.Name</recordDisplayField>
+            <sortIndex>0</sortIndex>
+        </recordDisplayFields>
+        <recordIdField>AccountId</recordIdField>
+        <salesforceActionsEnabled>true</salesforceActionsEnabled>
+        <sortIndex>1</sortIndex>
+    </dimensions>
+    <dimensions>
+        <conditionalFormatting>
+            <formattingBins>
+                <bin xsi:nil="true" />
+                <formatValue>#C5DBF7</formatValue>
+                <label xsi:nil="true" />
+                <sortIndex>0</sortIndex>
+            </formattingBins>
+            <formattingBins>
+                <bin xsi:nil="true" />
+                <formatValue>#1674D9</formatValue>
+                <label xsi:nil="true" />
+                <sortIndex>1</sortIndex>
+            </formattingBins>
+            <property>chartColor</property>
+            <referenceField>Win_Rate</referenceField>
+            <sortIndex xsi:nil="true" />
+            <type>gradient</type>
+        </conditionalFormatting>
+        <field>Clone_of_Account_Bre_1.ALL</field>
+        <isDerived>false</isDerived>
+        <sortIndex>2</sortIndex>
+    </dimensions>
+    <dimensions>
+        <defaultAction>openActionsMenu</defaultAction>
+        <field>Hover_Closed_Won_Clo_1.Account.Name</field>
+        <isDerived>false</isDerived>
+        <linkTemplateEnabled>true</linkTemplateEnabled>
+        <recordDisplayFields>
+            <recordDisplayField>Account.Name</recordDisplayField>
+            <sortIndex>0</sortIndex>
+        </recordDisplayFields>
+        <recordIdField>AccountId</recordIdField>
+        <salesforceActionsEnabled>false</salesforceActionsEnabled>
+        <sortIndex>3</sortIndex>
+    </dimensions>
+    <measures>
+        <field>Owner_Name_1.Win_Rate</field>
+        <formatCustomFormat>[&quot;#,###%&quot;,100]</formatCustomFormat>
+        <formatDecimalSeparator>.</formatDecimalSeparator>
+        <formatThousandsSeparator>,</formatThousandsSeparator>
+        <isDerived>false</isDerived>
+        <sortIndex>0</sortIndex>
+    </measures>
+    <measures>
+        <field>Owner_Name_1.Closed_Won</field>
+        <formatCustomFormat>[&quot;$#,###&quot;,1]</formatCustomFormat>
+        <isDerived>false</isDerived>
+        <sortIndex>1</sortIndex>
+    </measures>
+    <measures>
+        <field>Owner_Name_1.Closed_Total</field>
+        <formatCustomFormat>[&quot;$#,###&quot;,1]</formatCustomFormat>
+        <isDerived>false</isDerived>
+        <sortIndex>2</sortIndex>
+    </measures>
+    <measures>
+        <field>Clone_of_Sales_Rep_B_1.Closed_Total</field>
+        <formatCustomFormat>[&quot;$#,###&quot;,1]</formatCustomFormat>
+        <isDerived>false</isDerived>
+        <sortIndex>3</sortIndex>
+    </measures>
+    <measures>
+        <field>Clone_of_Sales_Rep_B_1.Closed_Won</field>
+        <formatCustomFormat>[&quot;$#,###&quot;,1]</formatCustomFormat>
+        <isDerived>false</isDerived>
+        <sortIndex>4</sortIndex>
+    </measures>
+    <measures>
+        <conditionalFormatting>
+            <formattingBins>
+                <bin xsi:nil="true" />
+                <formatValue>#C5DBF7</formatValue>
+                <label xsi:nil="true" />
+                <sortIndex>0</sortIndex>
+            </formattingBins>
+            <formattingBins>
+                <bin xsi:nil="true" />
+                <formatValue>#1674D9</formatValue>
+                <label xsi:nil="true" />
+                <sortIndex>1</sortIndex>
+            </formattingBins>
+            <property>chartColor</property>
+            <referenceField>Win_Rate</referenceField>
+            <sortIndex xsi:nil="true" />
+            <type>gradient</type>
+        </conditionalFormatting>
+        <field>Clone_of_Sales_Rep_B_1.Win_Rate</field>
+        <formatCustomFormat>[&quot;#,###%&quot;,100]</formatCustomFormat>
+        <formatDecimalSeparator>.</formatDecimalSeparator>
+        <formatThousandsSeparator>,</formatThousandsSeparator>
+        <isDerived>false</isDerived>
+        <sortIndex>5</sortIndex>
+    </measures>
+    <measures>
+        <field>Win_Rate.Win_Rate</field>
+        <formatCustomFormat>[&quot;#,###%&quot;,100]</formatCustomFormat>
+        <formatDecimalSeparator>.</formatDecimalSeparator>
+        <formatThousandsSeparator>,</formatThousandsSeparator>
+        <isDerived>false</isDerived>
+        <sortIndex>6</sortIndex>
+    </measures>
+    <measures>
+        <conditionalFormatting>
+            <formattingBins>
+                <bin xsi:nil="true" />
+                <formatValue>#C5DBF7</formatValue>
+                <label xsi:nil="true" />
+                <sortIndex>0</sortIndex>
+            </formattingBins>
+            <formattingBins>
+                <bin xsi:nil="true" />
+                <formatValue>#1674D9</formatValue>
+                <label xsi:nil="true" />
+                <sortIndex>1</sortIndex>
+            </formattingBins>
+            <property>chartColor</property>
+            <referenceField>Win_Rate</referenceField>
+            <sortIndex xsi:nil="true" />
+            <type>gradient</type>
+        </conditionalFormatting>
+        <field>Clone_of_Account_Bre_1.Win_Rate</field>
+        <formatCustomFormat>[&quot;#,###%&quot;,100]</formatCustomFormat>
+        <formatDecimalSeparator>.</formatDecimalSeparator>
+        <formatThousandsSeparator>,</formatThousandsSeparator>
+        <isDerived>false</isDerived>
+        <sortIndex>7</sortIndex>
+    </measures>
+    <measures>
+        <field>Hover_Sales_Rep_Brea_1.Closed_Total</field>
+        <formatCustomFormat>[&quot;$#,###.00&quot;,1]</formatCustomFormat>
+        <isDerived>false</isDerived>
+        <sortIndex>8</sortIndex>
+    </measures>
+    <measures>
+        <field>Hover_Sales_Rep_Brea_1.Closed_Won</field>
+        <formatCustomFormat>[&quot;$#,###.00&quot;,1]</formatCustomFormat>
+        <isDerived>false</isDerived>
+        <sortIndex>9</sortIndex>
+    </measures>
+    <measures>
+        <field>Hover_Closed_Won_Clo_1.Closed_Total</field>
+        <formatCustomFormat>[&quot;$#,###.00&quot;,1]</formatCustomFormat>
+        <isDerived>false</isDerived>
+        <sortIndex>10</sortIndex>
+    </measures>
+    <measures>
+        <field>Hover_Closed_Won_Clo_1.Closed_Won</field>
+        <formatCustomFormat>[&quot;$#,###.00&quot;,1]</formatCustomFormat>
+        <isDerived>false</isDerived>
+        <sortIndex>11</sortIndex>
+    </measures>
+    <measures>
+        <field>Win_Rate_Percent_Change.Percent_Change</field>
+        <formatCustomFormat>[&quot;#,###.##%&quot;,100]</formatCustomFormat>
+        <isDerived>false</isDerived>
+        <sortIndex>12</sortIndex>
+    </measures>
+    <type>Asset</type>
+    <waveVisualization>Opportunity_Win_Rate</waveVisualization>
+</WaveXmd>

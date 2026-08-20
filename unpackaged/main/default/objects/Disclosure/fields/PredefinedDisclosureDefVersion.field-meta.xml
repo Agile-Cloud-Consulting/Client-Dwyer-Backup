@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>PredefinedDisclosureDefVersion</fullName>
+    <inlineHelpText>Displays the predefined Disclosure Definition Version in Net Zero Cloud. If it’s not defined, it shows the custom disclosure definition version name defined by the user.</inlineHelpText>
+    <trackHistory>false</trackHistory>
+</CustomField>

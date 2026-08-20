@@ -1,0 +1,3254 @@
+{
+  "version" : "60.0",
+  "nodes" : {
+    "LOAD_DATASET1" : {
+      "action" : "load",
+      "sources" : [ ],
+      "parameters" : {
+        "fields" : [ "Id", "Name", "CreatedDate", "CaseId", "StartDate", "EndDate", "Status", "CarePlanTemplateId" ],
+        "dataset" : {
+          "type" : "connectedDataset",
+          "label" : "CarePlan",
+          "connectionName" : "SFDC_LOCAL",
+          "sourceObjectName" : "CarePlan"
+        },
+        "sampleDetails" : {
+          "type" : "TopN",
+          "sortBy" : [ ]
+        }
+      }
+    },
+    "LOAD_DATASET2" : {
+      "action" : "load",
+      "sources" : [ ],
+      "parameters" : {
+        "fields" : [ "Id", "CaseNumber", "ContactId", "AccountId", "ParentId", "RecordTypeId", "Status", "Subject", "IsClosed", "OwnerId" ],
+        "dataset" : {
+          "type" : "connectedDataset",
+          "label" : "Case",
+          "connectionName" : "SFDC_LOCAL",
+          "sourceObjectName" : "Case"
+        },
+        "sampleDetails" : {
+          "type" : "TopN",
+          "sortBy" : [ ]
+        }
+      }
+    },
+    "JOIN0" : {
+      "action" : "join",
+      "sources" : [ "LOAD_DATASET1", "FILTER1" ],
+      "schema" : {
+        "fields" : [ ],
+        "slice" : {
+          "mode" : "DROP",
+          "ignoreMissingFields" : true,
+          "fields" : [ ]
+        }
+      },
+      "parameters" : {
+        "joinType" : "INNER",
+        "leftKeys" : [ "CaseId" ],
+        "rightQualifier" : "Case",
+        "rightKeys" : [ "Id" ]
+      }
+    },
+    "LOAD_DATASET3" : {
+      "action" : "load",
+      "sources" : [ ],
+      "parameters" : {
+        "fields" : [ "Id", "Name", "RecordTypeId" ],
+        "dataset" : {
+          "type" : "connectedDataset",
+          "label" : "Account",
+          "connectionName" : "SFDC_LOCAL",
+          "sourceObjectName" : "Account"
+        },
+        "sampleDetails" : {
+          "type" : "TopN",
+          "sortBy" : [ ]
+        }
+      }
+    },
+    "JOIN1" : {
+      "action" : "join",
+      "sources" : [ "JOIN32", "LOAD_DATASET3" ],
+      "schema" : {
+        "fields" : [ ],
+        "slice" : {
+          "mode" : "DROP",
+          "ignoreMissingFields" : true,
+          "fields" : [ ]
+        }
+      },
+      "parameters" : {
+        "joinType" : "LEFT_OUTER",
+        "leftKeys" : [ "Case.AccountId" ],
+        "rightQualifier" : "Account",
+        "rightKeys" : [ "Id" ]
+      }
+    },
+    "LOAD_DATASET4" : {
+      "action" : "load",
+      "sources" : [ ],
+      "parameters" : {
+        "fields" : [ "Id", "Username", "Name" ],
+        "dataset" : {
+          "type" : "connectedDataset",
+          "label" : "User",
+          "connectionName" : "SFDC_LOCAL",
+          "sourceObjectName" : "User"
+        },
+        "sampleDetails" : {
+          "type" : "TopN",
+          "sortBy" : [ ]
+        }
+      }
+    },
+    "LOAD_DATASET5" : {
+      "action" : "load",
+      "sources" : [ ],
+      "parameters" : {
+        "fields" : [ "Id", "ParentId", "MemberId", "TeamTemplateMemberId", "TeamRoleId", "TeamTemplateId" ],
+        "dataset" : {
+          "type" : "connectedDataset",
+          "label" : "CaseTeamMember",
+          "connectionName" : "SFDC_LOCAL",
+          "sourceObjectName" : "CaseTeamMember"
+        },
+        "sampleDetails" : {
+          "type" : "TopN",
+          "sortBy" : [ ]
+        }
+      }
+    },
+    "JOIN3" : {
+      "action" : "join",
+      "sources" : [ "JOIN1", "LOAD_DATASET5" ],
+      "schema" : {
+        "fields" : [ ],
+        "slice" : {
+          "mode" : "DROP",
+          "ignoreMissingFields" : true,
+          "fields" : [ ]
+        }
+      },
+      "parameters" : {
+        "joinType" : "MULTI_VALUE_LOOKUP",
+        "leftKeys" : [ "Case.Id" ],
+        "rightQualifier" : "CTM",
+        "rightKeys" : [ "ParentId" ]
+      }
+    },
+    "LOAD_DATASET6" : {
+      "action" : "load",
+      "sources" : [ ],
+      "parameters" : {
+        "fields" : [ "Id", "Name", "DeveloperName", "IsActive" ],
+        "dataset" : {
+          "type" : "connectedDataset",
+          "label" : "RecordType",
+          "connectionName" : "SFDC_LOCAL",
+          "sourceObjectName" : "RecordType"
+        },
+        "sampleDetails" : {
+          "type" : "TopN",
+          "sortBy" : [ ]
+        }
+      }
+    },
+    "JOIN4" : {
+      "action" : "join",
+      "sources" : [ "JOIN3", "LOAD_DATASET6" ],
+      "schema" : {
+        "fields" : [ ],
+        "slice" : {
+          "mode" : "DROP",
+          "ignoreMissingFields" : true,
+          "fields" : [ ]
+        }
+      },
+      "parameters" : {
+        "joinType" : "LEFT_OUTER",
+        "leftKeys" : [ "Case.RecordTypeId" ],
+        "rightQualifier" : "RecordType",
+        "rightKeys" : [ "Id" ]
+      }
+    },
+    "FILTER1" : {
+      "action" : "filter",
+      "sources" : [ "JOIN48" ],
+      "parameters" : {
+        "filterExpressions" : [ {
+          "type" : "TEXT",
+          "field" : "IsClosed",
+          "operator" : "EQUAL",
+          "operands" : [ "false" ]
+        }, {
+          "type" : "TEXT",
+          "field" : "SuccessTeam.CaseRecordTypeId",
+          "operator" : "IS_NOT_NULL",
+          "operands" : [ ]
+        } ]
+      }
+    },
+    "EDIT_ATTRIBUTES0" : {
+      "action" : "schema",
+      "sources" : [ "JOIN37" ],
+      "parameters" : {
+        "fields" : [ {
+          "name" : "EndDate",
+          "newProperties" : {
+            "label" : "End Date",
+            "name" : "EndDate",
+            "typeProperties" : {
+              "type" : "DATETIME",
+              "format" : "MM/dd/yyyy"
+            }
+          }
+        } ]
+      }
+    },
+    "FORMULA0" : {
+      "action" : "formula",
+      "sources" : [ "FORMULA7" ],
+      "parameters" : {
+        "expressionType" : "SQL",
+        "fields" : [ {
+          "type" : "NUMBER",
+          "name" : "EndDate_formula",
+          "label" : "End Date Formula",
+          "formulaExpression" : "datediff(now(),EndDate)",
+          "precision" : 5,
+          "scale" : 0,
+          "defaultValue" : ""
+        } ]
+      }
+    },
+    "FORMULA2" : {
+      "action" : "formula",
+      "sources" : [ "FORMULA0" ],
+      "parameters" : {
+        "expressionType" : "SQL",
+        "fields" : [ {
+          "type" : "TEXT",
+          "name" : "EndDateDays_formula",
+          "label" : "End Date Days Formula",
+          "formulaExpression" : "concat(EndDate_formula, ' Days')",
+          "precision" : 255,
+          "defaultValue" : ""
+        } ]
+      }
+    },
+    "FORMULA4" : {
+      "action" : "formula",
+      "sources" : [ "FORMULA2" ],
+      "parameters" : {
+        "expressionType" : "SQL",
+        "fields" : [ {
+          "type" : "NUMBER",
+          "name" : "CarePlan_Tracking_formula",
+          "label" : "On-Time CarePlan Tracking",
+          "formulaExpression" : "case \n    when datediff(now() , \"EndDate\" ) <= 0\n    then 1\n    else\n   0\nend",
+          "precision" : 10,
+          "scale" : 0,
+          "defaultValue" : ""
+        } ]
+      }
+    },
+    "FORMULA5" : {
+      "action" : "formula",
+      "sources" : [ "FORMULA4" ],
+      "parameters" : {
+        "expressionType" : "SQL",
+        "fields" : [ {
+          "type" : "NUMBER",
+          "name" : "Due_CarePlan_Tracking_formula",
+          "label" : "Due CarePlan Tracking Formula",
+          "formulaExpression" : "case \n    when \"EndDate\" < now()\n    then 1\n    else\n    0\nend",
+          "precision" : 10,
+          "scale" : 0,
+          "defaultValue" : ""
+        } ]
+      }
+    },
+    "FORMULA6" : {
+      "action" : "formula",
+      "sources" : [ "FORMULA5" ],
+      "parameters" : {
+        "expressionType" : "SQL",
+        "fields" : [ {
+          "type" : "TEXT",
+          "name" : "CarePlan_Due_Date_formula",
+          "label" : "Due Date",
+          "formulaExpression" : "Case when datediff(EndDate, now()) =0 then 'Today' \n\nwhen datediff(EndDate,now()) = 1 then 'Tomorrow'\nwhen datediff( EndDate,now()) < 0 then 'OverDue' \nwhen datediff(EndDate,now()) <= 7 then 'This Week'\nwhen datediff(EndDate,now())  <= 14 then 'Next Week'\n\n\n\nelse 'Other'\nend",
+          "precision" : 255,
+          "defaultValue" : ""
+        } ]
+      }
+    },
+    "FORMULA7" : {
+      "action" : "formula",
+      "sources" : [ "EDIT_ATTRIBUTES0" ],
+      "parameters" : {
+        "expressionType" : "SQL",
+        "fields" : [ {
+          "type" : "TEXT",
+          "name" : "HasCaseTeamMember_formula",
+          "label" : "HasCaseTeamMember",
+          "formulaExpression" : "case \n\twhen \"CTM.ParentId\" = \"Case.Id\"\n\tthen 'true'\n\telse\n    'false'\nend",
+          "precision" : 255,
+          "defaultValue" : ""
+        } ]
+      }
+    },
+    "BUCKET0" : {
+      "action" : "bucket",
+      "sources" : [ "FORMULA6" ],
+      "parameters" : {
+        "fields" : [ {
+          "name" : "CarePlan_Due_Date_formula_bucket",
+          "label" : "Due Date",
+          "type" : "TEXT",
+          "bucketsSetup" : {
+            "isPassthroughEnabled" : true,
+            "sourceField" : {
+              "name" : "CarePlan_Due_Date_formula",
+              "type" : "TEXT"
+            },
+            "buckets" : [ {
+              "value" : "Overdue",
+              "sourceValues" : [ "OverDue" ]
+            }, {
+              "value" : "Due this week",
+              "sourceValues" : [ "This Week" ]
+            }, {
+              "value" : "Due Today or Tomorrow",
+              "sourceValues" : [ "Today", "Tomorrow " ]
+            } ]
+          }
+        } ]
+      }
+    },
+    "FORMULA18" : {
+      "action" : "formula",
+      "sources" : [ "BUCKET0" ],
+      "parameters" : {
+        "expressionType" : "SQL",
+        "fields" : [ {
+          "type" : "TEXT",
+          "name" : "CarePlan_Status_Tracking",
+          "label" : "CarePlan_Status_Tracking",
+          "formulaExpression" : "case \nwhen Status = 'Completed' AND \"CareplanHistory.CreatedDate\" > EndDate\nthen 'Completed after Due Date'\n when Status = 'Completed' AND \"CareplanHistory.CreatedDate\" <= EndDate \nthen 'Completed On time'\nwhen Status = 'Active' AND EndDate >= now() then 'On-Track'\nwhen Status = 'Active' AND EndDate < now() then 'Overdue'\nelse 'NA'\nEnd",
+          "precision" : 255,
+          "defaultValue" : ""
+        } ]
+      }
+    },
+    "OUTPUT0" : {
+      "action" : "save",
+      "sources" : [ "FORMULA18" ],
+      "parameters" : {
+        "fields" : [ ],
+        "dataset" : {
+          "type" : "analyticsDataset",
+          "label" : "CarePlan",
+          "name" : "CarePlan1",
+          "folderName" : "Education_Analytics1"
+        },
+        "measuresToCurrencies" : [ ]
+      }
+    },
+    "LOAD_DATASET7" : {
+      "action" : "load",
+      "sources" : [ ],
+      "parameters" : {
+        "fields" : [ "Id", "OwnerId", "Name", "ParentId", "WhatId", "Subject", "EffectiveDate", "ValidUntilDate", "Severity", "IsActive", "RecordAlertCategoryId", "CreatedDate" ],
+        "dataset" : {
+          "type" : "connectedDataset",
+          "label" : "RecordAlert",
+          "connectionName" : "SFDC_LOCAL",
+          "sourceObjectName" : "RecordAlert"
+        },
+        "sampleDetails" : {
+          "type" : "TopN",
+          "sortBy" : [ ]
+        }
+      }
+    },
+    "JOIN5" : {
+      "action" : "join",
+      "sources" : [ "LOAD_DATASET7", "FILTER1" ],
+      "schema" : {
+        "fields" : [ ],
+        "slice" : {
+          "mode" : "DROP",
+          "ignoreMissingFields" : true,
+          "fields" : [ ]
+        }
+      },
+      "parameters" : {
+        "joinType" : "INNER",
+        "leftKeys" : [ "ParentId" ],
+        "rightQualifier" : "Case",
+        "rightKeys" : [ "Id" ]
+      }
+    },
+    "JOIN6" : {
+      "action" : "join",
+      "sources" : [ "JOIN30", "LOAD_DATASET3" ],
+      "schema" : {
+        "fields" : [ ],
+        "slice" : {
+          "mode" : "DROP",
+          "ignoreMissingFields" : true,
+          "fields" : [ ]
+        }
+      },
+      "parameters" : {
+        "joinType" : "LEFT_OUTER",
+        "leftKeys" : [ "Case.AccountId" ],
+        "rightQualifier" : "Account",
+        "rightKeys" : [ "Id" ]
+      }
+    },
+    "JOIN7" : {
+      "action" : "join",
+      "sources" : [ "JOIN6", "LOAD_DATASET5" ],
+      "schema" : {
+        "fields" : [ ],
+        "slice" : {
+          "mode" : "DROP",
+          "ignoreMissingFields" : true,
+          "fields" : [ ]
+        }
+      },
+      "parameters" : {
+        "joinType" : "MULTI_VALUE_LOOKUP",
+        "leftKeys" : [ "Case.Id" ],
+        "rightQualifier" : "CTM",
+        "rightKeys" : [ "ParentId" ]
+      }
+    },
+    "EDIT_ATTRIBUTES1" : {
+      "action" : "schema",
+      "sources" : [ "JOIN36" ],
+      "parameters" : {
+        "fields" : [ {
+          "name" : "EffectiveDate",
+          "newProperties" : {
+            "label" : "Effective Start Date",
+            "name" : "EffectiveDate",
+            "typeProperties" : {
+              "type" : "DATETIME",
+              "format" : "yyyy-MM-dd"
+            }
+          }
+        } ]
+      }
+    },
+    "EDIT_ATTRIBUTES2" : {
+      "action" : "schema",
+      "sources" : [ "EDIT_ATTRIBUTES1" ],
+      "parameters" : {
+        "fields" : [ {
+          "name" : "ValidUntilDate",
+          "newProperties" : {
+            "label" : "Valid Until Date",
+            "name" : "ValidUntilDate",
+            "typeProperties" : {
+              "type" : "DATETIME",
+              "format" : "yyyy-MM-dd"
+            }
+          }
+        } ]
+      }
+    },
+    "REPLACE0" : {
+      "action" : "formula",
+      "sources" : [ "FORMULA8" ],
+      "schema" : {
+        "fields" : [ {
+          "name" : "RecordAlertCategory.DeveloperName_replace",
+          "newProperties" : {
+            "name" : "RecordAlertCategory.DeveloperName"
+          }
+        } ],
+        "slice" : {
+          "mode" : "DROP",
+          "ignoreMissingFields" : true,
+          "fields" : [ "RecordAlertCategory.DeveloperName" ]
+        }
+      },
+      "parameters" : {
+        "expressionType" : "SQL",
+        "fields" : [ {
+          "type" : "TEXT",
+          "name" : "RecordAlertCategory.DeveloperName_replace",
+          "label" : "Name",
+          "formulaExpression" : "coalesce(\"RecordAlertCategory.DeveloperName\", null, 'Others')",
+          "precision" : 255
+        } ]
+      }
+    },
+    "FORMULA8" : {
+      "action" : "formula",
+      "sources" : [ "EDIT_ATTRIBUTES2" ],
+      "parameters" : {
+        "expressionType" : "SQL",
+        "fields" : [ {
+          "type" : "TEXT",
+          "name" : "HasCaseTeamMember_formula",
+          "label" : "HasCaseTeamMember",
+          "formulaExpression" : "case \n\twhen \"CTM.ParentId\" = \"Case.Id\"\n\tthen 'true'\n\telse\n    'false'\nend",
+          "precision" : 255,
+          "defaultValue" : ""
+        } ]
+      }
+    },
+    "REPLACE1" : {
+      "action" : "formula",
+      "sources" : [ "REPLACE0" ],
+      "schema" : {
+        "fields" : [ {
+          "name" : "IsActive_replace",
+          "newProperties" : {
+            "name" : "IsActive"
+          }
+        } ],
+        "slice" : {
+          "mode" : "DROP",
+          "ignoreMissingFields" : true,
+          "fields" : [ "IsActive" ]
+        }
+      },
+      "parameters" : {
+        "expressionType" : "SQL",
+        "fields" : [ {
+          "type" : "TEXT",
+          "name" : "IsActive_replace",
+          "label" : "Active",
+          "formulaExpression" : "replace(IsActive, 'true', 'Active')",
+          "precision" : 255
+        } ]
+      }
+    },
+    "REPLACE2" : {
+      "action" : "formula",
+      "sources" : [ "REPLACE1" ],
+      "schema" : {
+        "fields" : [ {
+          "name" : "IsActive_replace",
+          "newProperties" : {
+            "name" : "IsActive"
+          }
+        } ],
+        "slice" : {
+          "mode" : "DROP",
+          "ignoreMissingFields" : true,
+          "fields" : [ "IsActive" ]
+        }
+      },
+      "parameters" : {
+        "expressionType" : "SQL",
+        "fields" : [ {
+          "type" : "TEXT",
+          "name" : "IsActive_replace",
+          "label" : "Active",
+          "formulaExpression" : "replace(IsActive, 'false', 'Inactive')",
+          "precision" : 255
+        } ]
+      }
+    },
+    "FORMULA9" : {
+      "action" : "formula",
+      "sources" : [ "REPLACE2" ],
+      "parameters" : {
+        "expressionType" : "SQL",
+        "fields" : [ {
+          "type" : "TEXT",
+          "name" : "WhatId_formula",
+          "label" : "What",
+          "formulaExpression" : "case \n\t\n\twhen startsWith(WhatId, '003')\n\tthen 'Person Account'\n\n\twhen startsWith(WhatId, '001')\n\tthen 'Account'\n\n\twhen startsWith(WhatId, '500')\n\tthen 'Case'\n\n\twhen startsWith(WhatId, '02i')\n\tthen 'Asset'\n\n\twhen startsWith(WhatId, '003')\n\tthen 'Contact'\n\n\twhen startsWith(WhatId, '800')\n\tthen 'Contract'\n\n\twhen startsWith(WhatId, '00Q')\n\tthen 'Lead'\n\n\twhen startsWith(WhatId, '006')\n\tthen 'Opportunity'\n\n\twhen startsWith(WhatId, '005')\n\tthen 'User'\n\n\twhen startsWith(WhatId, '0ty')\n\tthen 'Learning'\n\n\twhen startsWith(WhatId, '0u2')\n\tthen 'Learning Program'\n\n\twhen startsWith(WhatId, '0vY')\n\tthen 'Learning Course'\n\n\twhen startsWith(WhatId, '0u9')\n\tthen 'Learning Achievement'\n\n\twhen startsWith(WhatId, '0uF')\n\tthen 'Learning Program Plan'\n\n\twhen startsWith(WhatId, '0uG')\n\tthen 'Learning Program Plan Requirements'\n\n\twhen startsWith(WhatId, '0vu')\n\tthen 'Learner Program Requirement'\n\n\twhen startsWith(WhatId, '0x7')\n\tthen 'Learner Program Plan Progress'\n\n\twhen startsWith(WhatId, '0zJ')\n\tthen 'Course Equivalency'\n\n\twhen startsWith(WhatId, '0iT')\n\tthen 'Individual Application'\n\n\twhen startsWith(WhatId, '0vw')\n\tthen 'Application Decision'\n\n\twhen startsWith(WhatId, '0vx')\n\tthen 'Application Review'\n\n\twhen startsWith(WhatId, '0vc')\n\tthen 'Academic Session'\n\n\twhen startsWith(WhatId, '0vM')\n\tthen 'Academic Term'\n\n\twhen startsWith(WhatId, '0u7')\n\tthen 'Academic Year'\n\n\twhen startsWith(WhatId, '0x9')\n\tthen 'Academic Term Enrolment'\n\n\twhen startsWith(WhatId, '0xA')\n\tthen 'Course Offering Schedule'\n\n\twhen startsWith(WhatId, '0wZ')\n\tthen 'Course Offering Schedule Template'\n\n\twhen startsWith(WhatId, '0x6')\n\tthen 'Course Offering Participant'\n\n\twhen startsWith(WhatId, '0x8')\n\tthen 'Course Offering Participant Result'\n\n\twhen startsWith(WhatId, '10L')\n\tthen 'Program Term Application Timeline'\n\t\n\telse\n\t'Other'\nend",
+          "precision" : 255,
+          "defaultValue" : ""
+        } ]
+      }
+    },
+    "FORMULA13" : {
+      "action" : "formula",
+      "sources" : [ "FORMULA9" ],
+      "parameters" : {
+        "expressionType" : "SQL",
+        "fields" : [ {
+          "type" : "TEXT",
+          "name" : "Alert_Tracking",
+          "label" : "Alert Tracking",
+          "formulaExpression" : "case \nwhen \"RecordAlertHistory.NewValue\" = 'false' AND \"RecordAlertHistory.CreatedDate\" <= \"ValidUntilDate\"\nthen 'Completed on time'\nwhen \"RecordAlertHistory.NewValue\" = 'false' AND \"RecordAlertHistory.CreatedDate\" > \"ValidUntilDate\"\nthen 'Completed after due date'\nelse 'NA'\nend",
+          "precision" : 255,
+          "defaultValue" : ""
+        } ]
+      }
+    },
+    "FORMULA25" : {
+      "action" : "formula",
+      "sources" : [ "FORMULA13" ],
+      "parameters" : {
+        "expressionType" : "SQL",
+        "fields" : [ {
+          "type" : "NUMBER",
+          "name" : "Date_Diff",
+          "label" : "Date Diff",
+          "formulaExpression" : "case when IsActive = 'Active' AND \"RecordAlertHistory.RecordalertHistory.True_Date\" is not null then \ndatediff(now(),\"RecordAlertHistory.RecordalertHistory.True_Date\")\nwhen IsActive = 'Active' AND \"RecordAlertHistory.RecordalertHistory.True_Date\" is  null\nthen datediff(now(),CreatedDate)\nwhen IsActive = 'Inactive' AND \"RecordAlertHistory.RecordalertHistory.True_Date\" is not null then \ndatediff(\"RecordAlertHistory.CreatedDate\",\"RecordAlertHistory.RecordalertHistory.True_Date\")\nend",
+          "precision" : 10,
+          "scale" : 0,
+          "defaultValue" : ""
+        } ]
+      }
+    },
+    "OUTPUT1" : {
+      "action" : "save",
+      "sources" : [ "FORMULA25" ],
+      "parameters" : {
+        "fields" : [ ],
+        "dataset" : {
+          "type" : "analyticsDataset",
+          "label" : "RecordAlert",
+          "name" : "RecordAlert1",
+          "folderName" : "Education_Analytics1"
+        },
+        "measuresToCurrencies" : [ ]
+      }
+    },
+    "LOAD_DATASET8" : {
+      "action" : "load",
+      "sources" : [ ],
+      "parameters" : {
+        "fields" : [ "Id", "ParentId", "MemberId", "TeamTemplateMemberId", "TeamRoleId", "TeamTemplateId" ],
+        "dataset" : {
+          "type" : "connectedDataset",
+          "label" : "CaseTeamMember",
+          "connectionName" : "SFDC_LOCAL",
+          "sourceObjectName" : "CaseTeamMember"
+        },
+        "sampleDetails" : {
+          "type" : "TopN",
+          "sortBy" : [ ]
+        }
+      }
+    },
+    "EXTRACT0" : {
+      "action" : "extractGrains",
+      "sources" : [ "LOAD_DATASET8" ],
+      "parameters" : {
+        "grainExtractions" : [ ]
+      }
+    },
+    "AGGREGATE1" : {
+      "action" : "aggregate",
+      "sources" : [ "EXTRACT0" ],
+      "parameters" : {
+        "aggregations" : [ {
+          "action" : "COUNT",
+          "name" : "COUNT_Rows",
+          "label" : "Rows"
+        } ],
+        "groupings" : [ "MemberId", "TeamRoleId", "TeamTemplateId" ],
+        "pivots" : [ ],
+        "nodeType" : "STANDARD"
+      }
+    },
+    "JOIN8" : {
+      "action" : "join",
+      "sources" : [ "AGGREGATE1", "LOAD_DATASET8" ],
+      "schema" : {
+        "fields" : [ ],
+        "slice" : {
+          "mode" : "DROP",
+          "ignoreMissingFields" : true,
+          "fields" : [ ]
+        }
+      },
+      "parameters" : {
+        "joinType" : "MULTI_VALUE_LOOKUP",
+        "leftKeys" : [ "MemberId", "TeamTemplateId", "TeamRoleId" ],
+        "rightQualifier" : "UniqueCTM",
+        "rightKeys" : [ "MemberId", "TeamTemplateId", "TeamRoleId" ]
+      }
+    },
+    "LOAD_DATASET9" : {
+      "action" : "load",
+      "sources" : [ ],
+      "parameters" : {
+        "fields" : [ "Id", "Name", "Description" ],
+        "dataset" : {
+          "type" : "connectedDataset",
+          "label" : "CaseTeamTemplate",
+          "connectionName" : "SFDC_LOCAL",
+          "sourceObjectName" : "CaseTeamTemplate"
+        },
+        "sampleDetails" : {
+          "type" : "TopN",
+          "sortBy" : [ ]
+        }
+      }
+    },
+    "JOIN9" : {
+      "action" : "join",
+      "sources" : [ "JOIN8", "LOAD_DATASET9" ],
+      "schema" : {
+        "fields" : [ ],
+        "slice" : {
+          "mode" : "DROP",
+          "ignoreMissingFields" : true,
+          "fields" : [ ]
+        }
+      },
+      "parameters" : {
+        "joinType" : "LEFT_OUTER",
+        "leftKeys" : [ "TeamTemplateId" ],
+        "rightQualifier" : "CTT",
+        "rightKeys" : [ "Id" ]
+      }
+    },
+    "LOAD_DATASET10" : {
+      "action" : "load",
+      "sources" : [ ],
+      "parameters" : {
+        "fields" : [ "Id", "Name", "AccessLevel", "PreferencesVisibleInCSP" ],
+        "dataset" : {
+          "type" : "connectedDataset",
+          "label" : "CaseTeamRole",
+          "connectionName" : "SFDC_LOCAL",
+          "sourceObjectName" : "CaseTeamRole"
+        },
+        "sampleDetails" : {
+          "type" : "TopN",
+          "sortBy" : [ ]
+        }
+      }
+    },
+    "JOIN10" : {
+      "action" : "join",
+      "sources" : [ "JOIN9", "LOAD_DATASET10" ],
+      "schema" : {
+        "fields" : [ ],
+        "slice" : {
+          "mode" : "DROP",
+          "ignoreMissingFields" : true,
+          "fields" : [ ]
+        }
+      },
+      "parameters" : {
+        "joinType" : "LEFT_OUTER",
+        "leftKeys" : [ "TeamRoleId" ],
+        "rightQualifier" : "CTR",
+        "rightKeys" : [ "Id" ]
+      }
+    },
+    "LOAD_DATASET11" : {
+      "action" : "load",
+      "sources" : [ ],
+      "parameters" : {
+        "fields" : [ "Id", "OwnerId", "Name", "RelatedRecordId", "ResourceType", "IsActive" ],
+        "dataset" : {
+          "type" : "connectedDataset",
+          "label" : "ServiceResource",
+          "connectionName" : "SFDC_LOCAL",
+          "sourceObjectName" : "ServiceResource"
+        },
+        "sampleDetails" : {
+          "type" : "TopN",
+          "sortBy" : [ ]
+        }
+      }
+    },
+    "JOIN11" : {
+      "action" : "join",
+      "sources" : [ "JOIN10", "LOAD_DATASET11" ],
+      "schema" : {
+        "fields" : [ ],
+        "slice" : {
+          "mode" : "DROP",
+          "ignoreMissingFields" : true,
+          "fields" : [ ]
+        }
+      },
+      "parameters" : {
+        "joinType" : "LEFT_OUTER",
+        "leftKeys" : [ "MemberId" ],
+        "rightQualifier" : "ServiceRes",
+        "rightKeys" : [ "RelatedRecordId" ]
+      }
+    },
+    "JOIN12" : {
+      "action" : "join",
+      "sources" : [ "JOIN11", "LOAD_DATASET4" ],
+      "schema" : {
+        "fields" : [ ],
+        "slice" : {
+          "mode" : "DROP",
+          "ignoreMissingFields" : true,
+          "fields" : [ ]
+        }
+      },
+      "parameters" : {
+        "joinType" : "LEFT_OUTER",
+        "leftKeys" : [ "MemberId" ],
+        "rightQualifier" : "User",
+        "rightKeys" : [ "Id" ]
+      }
+    },
+    "FORMULA1" : {
+      "action" : "formula",
+      "sources" : [ "JOIN12" ],
+      "parameters" : {
+        "expressionType" : "SQL",
+        "fields" : [ {
+          "type" : "TEXT",
+          "name" : "ServiceRes_formula",
+          "label" : "ServiceRes Formula",
+          "formulaExpression" : "case \n\twhen \"ServiceRes.Name\" is NULL\n\tthen 'No'\n\telse\n\t'Yes'\nend",
+          "precision" : 255,
+          "defaultValue" : ""
+        } ]
+      }
+    },
+    "OUTPUT2" : {
+      "action" : "save",
+      "sources" : [ "FORMULA1" ],
+      "parameters" : {
+        "fields" : [ ],
+        "dataset" : {
+          "type" : "analyticsDataset",
+          "label" : "CaseTeamMember",
+          "name" : "CaseTeamMember1",
+          "folderName" : "Education_Analytics1"
+        },
+        "measuresToCurrencies" : [ ]
+      }
+    },
+    "LOAD_DATASET19" : {
+      "action" : "load",
+      "sources" : [ ],
+      "parameters" : {
+        "fields" : [ "Id", "OwnerId", "Name", "Year" ],
+        "dataset" : {
+          "type" : "connectedDataset",
+          "label" : "AcademicYear",
+          "connectionName" : "SFDC_LOCAL",
+          "sourceObjectName" : "AcademicYear"
+        },
+        "sampleDetails" : {
+          "type" : "TopN",
+          "sortBy" : [ ]
+        }
+      }
+    },
+    "LOAD_DATASET20" : {
+      "action" : "load",
+      "sources" : [ ],
+      "parameters" : {
+        "fields" : [ "Id", "OwnerId", "Name", "LearnerAccountId", "LearnerContactId", "AcademicTermId", "EnrollmentDate", "EnrollmentStatus", "ExitDate" ],
+        "dataset" : {
+          "type" : "connectedDataset",
+          "label" : "AcademicTermEnrollment",
+          "connectionName" : "SFDC_LOCAL",
+          "sourceObjectName" : "AcademicTermEnrollment"
+        },
+        "sampleDetails" : {
+          "type" : "TopN",
+          "sortBy" : [ ]
+        }
+      }
+    },
+    "LOAD_DATASET21" : {
+      "action" : "load",
+      "sources" : [ ],
+      "parameters" : {
+        "fields" : [ "Id", "OwnerId", "AcademicYearId", "Season", "IsActive", "StartDate", "EndDate", "Name" ],
+        "dataset" : {
+          "type" : "connectedDataset",
+          "label" : "AcademicTerm",
+          "connectionName" : "SFDC_LOCAL",
+          "sourceObjectName" : "AcademicTerm"
+        },
+        "sampleDetails" : {
+          "type" : "TopN",
+          "sortBy" : [ ]
+        }
+      }
+    },
+    "JOIN40" : {
+      "action" : "join",
+      "sources" : [ "LOAD_DATASET20", "LOAD_DATASET21" ],
+      "schema" : {
+        "fields" : [ ],
+        "slice" : {
+          "mode" : "DROP",
+          "ignoreMissingFields" : true,
+          "fields" : [ ]
+        }
+      },
+      "parameters" : {
+        "joinType" : "LEFT_OUTER",
+        "leftKeys" : [ "AcademicTermId" ],
+        "rightQualifier" : "AcademicTerm",
+        "rightKeys" : [ "Id" ]
+      }
+    },
+    "JOIN41" : {
+      "action" : "join",
+      "sources" : [ "JOIN40", "LOAD_DATASET19" ],
+      "schema" : {
+        "fields" : [ ],
+        "slice" : {
+          "mode" : "DROP",
+          "ignoreMissingFields" : true,
+          "fields" : [ ]
+        }
+      },
+      "parameters" : {
+        "joinType" : "LEFT_OUTER",
+        "leftKeys" : [ "AcademicTerm.AcademicYearId" ],
+        "rightQualifier" : "AcademicYear",
+        "rightKeys" : [ "Id" ]
+      }
+    },
+    "JOIN21" : {
+      "action" : "join",
+      "sources" : [ "JOIN41", "LOAD_DATASET3" ],
+      "schema" : {
+        "fields" : [ ],
+        "slice" : {
+          "mode" : "DROP",
+          "ignoreMissingFields" : true,
+          "fields" : [ ]
+        }
+      },
+      "parameters" : {
+        "joinType" : "LEFT_OUTER",
+        "leftKeys" : [ "LearnerAccountId" ],
+        "rightQualifier" : "Account",
+        "rightKeys" : [ "Id" ]
+      }
+    },
+    "FORMULA3" : {
+      "action" : "formula",
+      "sources" : [ "JOIN28" ],
+      "parameters" : {
+        "expressionType" : "SQL",
+        "fields" : [ {
+          "type" : "TEXT",
+          "name" : "HasSuccessTeam_formula",
+          "label" : "HasSuccessTeam",
+          "formulaExpression" : "case \n\twhen \"CTM.ParentId\" = \"Case.Id\"\n\tthen 'true'\n\telse\n    'false'\nend",
+          "precision" : 255,
+          "defaultValue" : ""
+        } ]
+      }
+    },
+    "TO_MEASURE0" : {
+      "action" : "typeCast",
+      "sources" : [ "FORMULA3" ],
+      "parameters" : {
+        "fields" : [ {
+          "name" : "AcademicYear.Year",
+          "newProperties" : {
+            "label" : "Academic Year To Number",
+            "name" : "AcademicYear.Year_to_measure",
+            "typeProperties" : {
+              "type" : "NUMBER",
+              "scale" : 0,
+              "precision" : 18
+            }
+          }
+        } ]
+      }
+    },
+    "FORMULA12" : {
+      "action" : "formula",
+      "sources" : [ "TO_MEASURE0" ],
+      "parameters" : {
+        "expressionType" : "SQL",
+        "fields" : [ {
+          "type" : "TEXT",
+          "name" : "Last_four_Year",
+          "label" : "Last four year ",
+          "formulaExpression" : "case \n    when year(now()) - \"AcademicYear.Year_to_measure\" >= 0 AND year(now()) - \"AcademicYear.Year_to_measure\" <=4\n    then 'Yes'\n    else\n    'No'\nend",
+          "precision" : 255,
+          "defaultValue" : ""
+        } ]
+      }
+    },
+    "FORMULA26" : {
+      "action" : "computeRelative",
+      "sources" : [ "FORMULA27" ],
+      "parameters" : {
+        "partitionBy" : [ "LearnerAccountId" ],
+        "orderBy" : [ {
+          "fieldName" : "Id",
+          "direction" : "ASC"
+        } ],
+        "expressionType" : "SQL",
+        "fields" : [ {
+          "type" : "NUMBER",
+          "name" : "Care_Plan_Availability",
+          "label" : "Care Plan Availability ",
+          "formulaExpression" : "sum(Care_Plan_Count)",
+          "precision" : 10,
+          "scale" : 0,
+          "defaultValue" : ""
+        } ]
+      }
+    },
+    "FORMULA27" : {
+      "action" : "formula",
+      "sources" : [ "FORMULA12" ],
+      "parameters" : {
+        "expressionType" : "SQL",
+        "fields" : [ {
+          "type" : "NUMBER",
+          "name" : "Care_Plan_Count",
+          "label" : "Care Plan Count",
+          "formulaExpression" : "case when  \"CarePlan.Id\" is not null then 1 end",
+          "precision" : 10,
+          "scale" : 0,
+          "defaultValue" : ""
+        } ]
+      }
+    },
+    "LOAD_DATASET22" : {
+      "action" : "load",
+      "sources" : [ ],
+      "parameters" : {
+        "fields" : [ "Id", "OwnerId", "Name", "ParentId", "WhatId", "Subject", "EffectiveDate", "ValidUntilDate", "Severity", "IsActive", "RecordAlertCategoryId" ],
+        "dataset" : {
+          "type" : "connectedDataset",
+          "label" : "RecordAlert",
+          "connectionName" : "SFDC_LOCAL",
+          "sourceObjectName" : "RecordAlert"
+        },
+        "sampleDetails" : {
+          "type" : "TopN",
+          "sortBy" : [ ]
+        }
+      }
+    },
+    "OUTPUT3" : {
+      "action" : "save",
+      "sources" : [ "FORMULA26" ],
+      "parameters" : {
+        "fields" : [ ],
+        "dataset" : {
+          "type" : "analyticsDataset",
+          "label" : "AcademicTermEnrollment",
+          "name" : "AcademicTermEnrollment1",
+          "folderName" : "Education_Analytics1"
+        },
+        "measuresToCurrencies" : [ ]
+      }
+    },
+    "LOAD_DATASET23" : {
+      "action" : "load",
+      "sources" : [ ],
+      "parameters" : {
+        "fields" : [ "Id", "ParentId", "MemberId", "TeamTemplateMemberId", "TeamRoleId", "TeamTemplateId" ],
+        "dataset" : {
+          "type" : "connectedDataset",
+          "label" : "CaseTeamMember",
+          "connectionName" : "SFDC_LOCAL",
+          "sourceObjectName" : "CaseTeamMember"
+        },
+        "sampleDetails" : {
+          "type" : "TopN",
+          "sortBy" : [ ]
+        }
+      }
+    },
+    "JOIN23" : {
+      "action" : "join",
+      "sources" : [ "JOIN21", "FILTER1" ],
+      "schema" : {
+        "fields" : [ ],
+        "slice" : {
+          "mode" : "DROP",
+          "ignoreMissingFields" : true,
+          "fields" : [ ]
+        }
+      },
+      "parameters" : {
+        "joinType" : "LEFT_OUTER",
+        "leftKeys" : [ "Account.Id" ],
+        "rightQualifier" : "Case",
+        "rightKeys" : [ "AccountId" ]
+      }
+    },
+    "JOIN24" : {
+      "action" : "join",
+      "sources" : [ "JOIN23", "LOAD_DATASET23" ],
+      "schema" : {
+        "fields" : [ ],
+        "slice" : {
+          "mode" : "DROP",
+          "ignoreMissingFields" : true,
+          "fields" : [ ]
+        }
+      },
+      "parameters" : {
+        "joinType" : "MULTI_VALUE_LOOKUP",
+        "leftKeys" : [ "Case.Id" ],
+        "rightQualifier" : "CTM",
+        "rightKeys" : [ "ParentId" ]
+      }
+    },
+    "JOIN26" : {
+      "action" : "join",
+      "sources" : [ "JOIN7", "LOAD_DATASET6" ],
+      "schema" : {
+        "fields" : [ ],
+        "slice" : {
+          "mode" : "DROP",
+          "ignoreMissingFields" : true,
+          "fields" : [ ]
+        }
+      },
+      "parameters" : {
+        "joinType" : "LEFT_OUTER",
+        "leftKeys" : [ "Case.RecordTypeId" ],
+        "rightQualifier" : "RecordType",
+        "rightKeys" : [ "Id" ]
+      }
+    },
+    "EXTRACT2" : {
+      "action" : "extractGrains",
+      "sources" : [ "FILTER10" ],
+      "parameters" : {
+        "grainExtractions" : [ ]
+      }
+    },
+    "AGGREGATE5" : {
+      "action" : "aggregate",
+      "sources" : [ "EXTRACT2" ],
+      "parameters" : {
+        "aggregations" : [ {
+          "action" : "UNIQUE",
+          "source" : "Id",
+          "name" : "UNIQUE_Id",
+          "label" : "Unique Record Alert ID"
+        } ],
+        "groupings" : [ "ParentId" ],
+        "pivots" : [ ],
+        "nodeType" : "STANDARD"
+      }
+    },
+    "JOIN27" : {
+      "action" : "join",
+      "sources" : [ "JOIN33", "AGGREGATE5" ],
+      "schema" : {
+        "fields" : [ ],
+        "slice" : {
+          "mode" : "DROP",
+          "ignoreMissingFields" : true,
+          "fields" : [ ]
+        }
+      },
+      "parameters" : {
+        "joinType" : "LEFT_OUTER",
+        "leftKeys" : [ "Case.Id" ],
+        "rightQualifier" : "AggRecordAlert",
+        "rightKeys" : [ "ParentId" ]
+      }
+    },
+    "LOAD_DATASET25" : {
+      "action" : "load",
+      "sources" : [ ],
+      "parameters" : {
+        "fields" : [ "ServiceTerritoryId", "Id", "CreatedDate", "AccountId", "Status" ],
+        "dataset" : {
+          "type" : "connectedDataset",
+          "label" : "ServiceAppointment",
+          "connectionName" : "SFDC_LOCAL",
+          "sourceObjectName" : "ServiceAppointment"
+        },
+        "sampleDetails" : {
+          "type" : "TopN",
+          "sortBy" : [ ]
+        }
+      }
+    },
+    "EXTRACT1" : {
+      "action" : "extractGrains",
+      "sources" : [ "FILTER7" ],
+      "parameters" : {
+        "grainExtractions" : [ ]
+      }
+    },
+    "AGGREGATE2" : {
+      "action" : "aggregate",
+      "sources" : [ "EXTRACT1" ],
+      "parameters" : {
+        "aggregations" : [ {
+          "action" : "COUNT",
+          "name" : "Total_Appointments",
+          "label" : "Total Cancelled Appointments"
+        } ],
+        "groupings" : [ "AccountId" ],
+        "pivots" : [ ],
+        "nodeType" : "STANDARD"
+      }
+    },
+    "FILTER7" : {
+      "action" : "filter",
+      "sources" : [ "LOAD_DATASET25" ],
+      "parameters" : {
+        "filterExpressions" : [ {
+          "type" : "TEXT",
+          "field" : "Status",
+          "operator" : "EQUAL",
+          "operands" : [ "Canceled" ]
+        } ]
+      }
+    },
+    "JOIN28" : {
+      "action" : "join",
+      "sources" : [ "JOIN27", "AGGREGATE2" ],
+      "schema" : {
+        "fields" : [ ],
+        "slice" : {
+          "mode" : "DROP",
+          "ignoreMissingFields" : true,
+          "fields" : [ ]
+        }
+      },
+      "parameters" : {
+        "joinType" : "LEFT_OUTER",
+        "leftKeys" : [ "Account.Id" ],
+        "rightQualifier" : "AggServiceAppointments",
+        "rightKeys" : [ "AccountId" ]
+      }
+    },
+    "JOIN30" : {
+      "action" : "join",
+      "sources" : [ "JOIN5", "JOIN41" ],
+      "schema" : {
+        "fields" : [ ],
+        "slice" : {
+          "mode" : "DROP",
+          "ignoreMissingFields" : true,
+          "fields" : [ ]
+        }
+      },
+      "parameters" : {
+        "joinType" : "MULTI_VALUE_LOOKUP",
+        "leftKeys" : [ "Case.AccountId" ],
+        "rightQualifier" : "Join_ATE",
+        "rightKeys" : [ "LearnerAccountId" ]
+      }
+    },
+    "LOAD_DATASET26" : {
+      "action" : "load",
+      "sources" : [ ],
+      "parameters" : {
+        "fields" : [ "Id", "DeveloperName" ],
+        "dataset" : {
+          "type" : "connectedDataset",
+          "label" : "RecordAlertCategory",
+          "connectionName" : "SFDC_LOCAL",
+          "sourceObjectName" : "RecordAlertCategory"
+        },
+        "sampleDetails" : {
+          "type" : "TopN",
+          "sortBy" : [ ]
+        }
+      }
+    },
+    "JOIN31" : {
+      "action" : "join",
+      "sources" : [ "JOIN26", "LOAD_DATASET26" ],
+      "schema" : {
+        "fields" : [ ],
+        "slice" : {
+          "mode" : "DROP",
+          "ignoreMissingFields" : true,
+          "fields" : [ ]
+        }
+      },
+      "parameters" : {
+        "joinType" : "LEFT_OUTER",
+        "leftKeys" : [ "RecordAlertCategoryId" ],
+        "rightQualifier" : "RecordAlertCategory",
+        "rightKeys" : [ "Id" ]
+      }
+    },
+    "JOIN32" : {
+      "action" : "join",
+      "sources" : [ "JOIN0", "JOIN41" ],
+      "schema" : {
+        "fields" : [ ],
+        "slice" : {
+          "mode" : "DROP",
+          "ignoreMissingFields" : true,
+          "fields" : [ ]
+        }
+      },
+      "parameters" : {
+        "joinType" : "MULTI_VALUE_LOOKUP",
+        "leftKeys" : [ "Case.AccountId" ],
+        "rightQualifier" : "Join_ATE",
+        "rightKeys" : [ "LearnerAccountId" ]
+      }
+    },
+    "LOAD_DATASET27" : {
+      "action" : "load",
+      "sources" : [ ],
+      "parameters" : {
+        "fields" : [ "Id", "Name", "CreatedDate", "CaseId", "StartDate", "EndDate", "Status", "CarePlanTemplateId" ],
+        "dataset" : {
+          "type" : "connectedDataset",
+          "label" : "CarePlan",
+          "connectionName" : "SFDC_LOCAL",
+          "sourceObjectName" : "CarePlan"
+        },
+        "sampleDetails" : {
+          "type" : "TopN",
+          "sortBy" : [ ]
+        }
+      }
+    },
+    "JOIN33" : {
+      "action" : "join",
+      "sources" : [ "JOIN24", "LOAD_DATASET27" ],
+      "schema" : {
+        "fields" : [ ],
+        "slice" : {
+          "mode" : "DROP",
+          "ignoreMissingFields" : true,
+          "fields" : [ ]
+        }
+      },
+      "parameters" : {
+        "joinType" : "MULTI_VALUE_LOOKUP",
+        "leftKeys" : [ "Case.Id" ],
+        "rightQualifier" : "CarePlan",
+        "rightKeys" : [ "CaseId" ]
+      }
+    },
+    "LOAD_DATASET28" : {
+      "action" : "load",
+      "sources" : [ ],
+      "parameters" : {
+        "fields" : [ "EngagementChannelTypeId", "Id", "OwnerId", "IsDeleted", "AppointmentNumber", "CreatedDate", "ParentRecordId", "AccountId", "WorkTypeId", "ArrivalWindowStartTime", "ArrivalWindowEndTime", "Status", "SchedStartTime", "SchedEndTime", "ActualDuration", "DurationType", "ServiceTerritoryId", "Subject", "StatusCategory", "ServiceNote", "AppointmentType", "CancellationReason" ],
+        "dataset" : {
+          "type" : "connectedDataset",
+          "label" : "ServiceAppointment",
+          "connectionName" : "SFDC_LOCAL",
+          "sourceObjectName" : "ServiceAppointment"
+        },
+        "sampleDetails" : {
+          "type" : "TopN",
+          "sortBy" : [ ]
+        }
+      }
+    },
+    "JOIN42" : {
+      "action" : "join",
+      "sources" : [ "LOAD_DATASET28", "JOIN35" ],
+      "schema" : {
+        "fields" : [ ],
+        "slice" : {
+          "mode" : "DROP",
+          "ignoreMissingFields" : true,
+          "fields" : [ "WorkType.Id", "WorkType.Name", "WorkType.WorkType.DurationInMinutes", "WorkType.WorkType.EstimatedDuration", "WorkType.WorkType.Name", "WorkType.WorkTypeGroup.Id", "WorkType.WorkTypeId" ]
+        }
+      },
+      "parameters" : {
+        "joinType" : "MULTI_VALUE_LOOKUP",
+        "leftKeys" : [ "WorkTypeId" ],
+        "rightQualifier" : "WorkType",
+        "rightKeys" : [ "WorkTypeId" ]
+      }
+    },
+    "LOAD_DATASET30" : {
+      "action" : "load",
+      "sources" : [ ],
+      "parameters" : {
+        "fields" : [ "Id", "Name", "DeveloperName" ],
+        "dataset" : {
+          "type" : "connectedDataset",
+          "label" : "RecordType",
+          "connectionName" : "SFDC_LOCAL",
+          "sourceObjectName" : "RecordType"
+        },
+        "sampleDetails" : {
+          "type" : "TopN",
+          "sortBy" : [ ]
+        }
+      }
+    },
+    "JOIN45" : {
+      "action" : "join",
+      "sources" : [ "FILTER1", "LOAD_DATASET30" ],
+      "schema" : {
+        "fields" : [ ],
+        "slice" : {
+          "mode" : "DROP",
+          "ignoreMissingFields" : true,
+          "fields" : [ "RecordType.Id" ]
+        }
+      },
+      "parameters" : {
+        "joinType" : "LEFT_OUTER",
+        "leftKeys" : [ "RecordTypeId" ],
+        "rightQualifier" : "RecordType",
+        "rightKeys" : [ "Id" ]
+      }
+    },
+    "JOIN46" : {
+      "action" : "join",
+      "sources" : [ "JOIN42", "JOIN45" ],
+      "schema" : {
+        "fields" : [ ],
+        "slice" : {
+          "mode" : "DROP",
+          "ignoreMissingFields" : true,
+          "fields" : [ ]
+        }
+      },
+      "parameters" : {
+        "joinType" : "LEFT_OUTER",
+        "leftKeys" : [ "ParentRecordId" ],
+        "rightQualifier" : "Case",
+        "rightKeys" : [ "Id" ]
+      }
+    },
+    "JOIN47" : {
+      "action" : "join",
+      "sources" : [ "JOIN41", "JOIN46" ],
+      "schema" : {
+        "fields" : [ ],
+        "slice" : {
+          "mode" : "DROP",
+          "ignoreMissingFields" : true,
+          "fields" : [ ]
+        }
+      },
+      "parameters" : {
+        "joinType" : "LEFT_OUTER",
+        "leftKeys" : [ "LearnerAccountId" ],
+        "rightQualifier" : "ServiceAppointment",
+        "rightKeys" : [ "AccountId" ]
+      }
+    },
+    "OUTPUT7" : {
+      "action" : "save",
+      "sources" : [ "JOIN52" ],
+      "parameters" : {
+        "fields" : [ ],
+        "dataset" : {
+          "type" : "analyticsDataset",
+          "label" : "Appointment",
+          "name" : "Appointment1",
+          "folderName" : "Education_Analytics1"
+        },
+        "measuresToCurrencies" : [ ]
+      }
+    },
+    "LOAD_DATASET31" : {
+      "action" : "load",
+      "sources" : [ ],
+      "parameters" : {
+        "fields" : [ "MemberId", "ParentId" ],
+        "dataset" : {
+          "type" : "connectedDataset",
+          "label" : "CaseTeamMember",
+          "connectionName" : "SFDC_LOCAL",
+          "sourceObjectName" : "CaseTeamMember"
+        },
+        "sampleDetails" : {
+          "type" : "TopN",
+          "sortBy" : [ ]
+        }
+      }
+    },
+    "LOAD_DATASET33" : {
+      "action" : "load",
+      "sources" : [ ],
+      "parameters" : {
+        "fields" : [ "Id", "Name", "ParentTopicId" ],
+        "dataset" : {
+          "type" : "connectedDataset",
+          "label" : "WorkTypeGroup",
+          "connectionName" : "SFDC_LOCAL",
+          "sourceObjectName" : "WorkTypeGroup"
+        },
+        "sampleDetails" : {
+          "type" : "TopN",
+          "sortBy" : [ ]
+        }
+      }
+    },
+    "LOAD_DATASET34" : {
+      "action" : "load",
+      "sources" : [ ],
+      "parameters" : {
+        "fields" : [ "Id", "Name", "WorkTypeId", "WorkTypeGroupId" ],
+        "dataset" : {
+          "type" : "connectedDataset",
+          "label" : "WorkTypeGroupMember",
+          "connectionName" : "SFDC_LOCAL",
+          "sourceObjectName" : "WorkTypeGroupMember"
+        },
+        "sampleDetails" : {
+          "type" : "TopN",
+          "sortBy" : [ ]
+        }
+      }
+    },
+    "JOIN34" : {
+      "action" : "join",
+      "sources" : [ "LOAD_DATASET33", "LOAD_DATASET33" ],
+      "schema" : {
+        "fields" : [ ],
+        "slice" : {
+          "mode" : "DROP",
+          "ignoreMissingFields" : true,
+          "fields" : [ "WorktypeGroup.Id", "WorktypeGroup.ParentTopicId" ]
+        }
+      },
+      "parameters" : {
+        "joinType" : "LEFT_OUTER",
+        "leftKeys" : [ "ParentTopicId" ],
+        "rightQualifier" : "WorktypeGroup",
+        "rightKeys" : [ "Id" ]
+      }
+    },
+    "JOIN35" : {
+      "action" : "join",
+      "sources" : [ "LOAD_DATASET34", "JOIN34" ],
+      "schema" : {
+        "fields" : [ ],
+        "slice" : {
+          "mode" : "DROP",
+          "ignoreMissingFields" : true,
+          "fields" : [ "Id", "Name", "WorkTypeGroup.Id", "WorkTypeGroup.ParentTopicId" ]
+        }
+      },
+      "parameters" : {
+        "joinType" : "LEFT_OUTER",
+        "leftKeys" : [ "WorkTypeGroupId" ],
+        "rightQualifier" : "WorkTypeGroup",
+        "rightKeys" : [ "Id" ]
+      }
+    },
+    "FORMULA10" : {
+      "action" : "formula",
+      "sources" : [ "JOIN47" ],
+      "parameters" : {
+        "expressionType" : "SQL",
+        "fields" : [ {
+          "type" : "MULTIVALUE",
+          "name" : "Work_type_group_Topic",
+          "label" : "Topic",
+          "formulaExpression" : "case \n    when \"ServiceAppointment.WorkType.WorkTypeGroup.WorktypeGroup.Name\" is not null\n    then \"ServiceAppointment.WorkType.WorkTypeGroup.WorktypeGroup.Name\"\n    \n    else\n   \"ServiceAppointment.WorkType.WorkTypeGroup.Name\"\nend"
+        } ]
+      }
+    },
+    "FORMULA11" : {
+      "action" : "formula",
+      "sources" : [ "FORMULA10" ],
+      "parameters" : {
+        "expressionType" : "SQL",
+        "fields" : [ {
+          "type" : "MULTIVALUE",
+          "name" : "Work_type_group_SubTopic",
+          "label" : "Subtopic",
+          "formulaExpression" : "case \n    when \"ServiceAppointment.WorkType.WorkTypeGroup.WorktypeGroup.Name\" is not null\n    then \"ServiceAppointment.WorkType.WorkTypeGroup.Name\"\n    \n    else\n  null\n  end"
+        } ]
+      }
+    },
+    "FORMULA24" : {
+      "action" : "formula",
+      "sources" : [ "FORMULA11" ],
+      "parameters" : {
+        "expressionType" : "SQL",
+        "fields" : [ {
+          "type" : "TEXT",
+          "name" : "Upcoming_Appointment",
+          "label" : "Upcoming Appointment",
+          "formulaExpression" : "case when \"ServiceAppointment.SchedStartTime\" > now()\nthen 'Yes'\nend",
+          "precision" : 255,
+          "defaultValue" : ""
+        } ]
+      }
+    },
+    "LOAD_DATASET35" : {
+      "action" : "load",
+      "sources" : [ ],
+      "parameters" : {
+        "fields" : [ "Id", "RecordAlertId", "CreatedDate", "Field", "OldValue", "NewValue" ],
+        "dataset" : {
+          "type" : "connectedDataset",
+          "label" : "RecordAlertHistory",
+          "connectionName" : "SFDC_LOCAL",
+          "sourceObjectName" : "RecordAlertHistory"
+        },
+        "sampleDetails" : {
+          "type" : "TopN",
+          "sortBy" : [ ]
+        }
+      }
+    },
+    "JOIN36" : {
+      "action" : "join",
+      "sources" : [ "JOIN31", "JOIN38" ],
+      "schema" : {
+        "fields" : [ ],
+        "slice" : {
+          "mode" : "DROP",
+          "ignoreMissingFields" : true,
+          "fields" : [ "RecordAlertHistory.RecordalertHistory.RecordAlertId" ]
+        }
+      },
+      "parameters" : {
+        "joinType" : "LEFT_OUTER",
+        "leftKeys" : [ "Id" ],
+        "rightQualifier" : "RecordAlertHistory",
+        "rightKeys" : [ "RecordalertHistory.RecordAlertId" ]
+      }
+    },
+    "FORMULA19" : {
+      "action" : "computeRelative",
+      "sources" : [ "FILTER3" ],
+      "parameters" : {
+        "partitionBy" : [ "RecordAlertId" ],
+        "orderBy" : [ {
+          "fieldName" : "CreatedDate",
+          "direction" : "ASC"
+        } ],
+        "expressionType" : "SQL",
+        "fields" : [ {
+          "type" : "NUMBER",
+          "name" : "Row",
+          "label" : "Row",
+          "formulaExpression" : "row_number()",
+          "precision" : 10,
+          "scale" : 0,
+          "defaultValue" : ""
+        } ]
+      }
+    },
+    "FORMULA20" : {
+      "action" : "computeRelative",
+      "sources" : [ "FORMULA19" ],
+      "parameters" : {
+        "partitionBy" : [ "RecordAlertId" ],
+        "orderBy" : [ {
+          "fieldName" : "CreatedDate",
+          "direction" : "ASC"
+        } ],
+        "expressionType" : "SQL",
+        "fields" : [ {
+          "type" : "DATETIME",
+          "name" : "True_Date",
+          "label" : "True_Date",
+          "formulaExpression" : "case \nwhen Row = 2 AND NewValue = true \nthen CreatedDate\nwhen Row = 2 AND NewValue = false\nthen lag(CreatedDate)\nend",
+          "format" : "dd/MM/yyyy HH:mm:ss",
+          "defaultValue" : ""
+        } ]
+      }
+    },
+    "DROP_FIELDS0" : {
+      "action" : "schema",
+      "sources" : [ "FORMULA20" ],
+      "parameters" : {
+        "fields" : [ ],
+        "slice" : {
+          "mode" : "SELECT",
+          "ignoreMissingFields" : true,
+          "fields" : [ "RecordAlertId", "True_Date" ]
+        }
+      }
+    },
+    "FILTER2" : {
+      "action" : "filter",
+      "sources" : [ "DROP_FIELDS0" ],
+      "parameters" : {
+        "filterExpressions" : [ {
+          "type" : "DATETIME",
+          "field" : "True_Date",
+          "operator" : "IS_NOT_NULL",
+          "operands" : [ ]
+        } ]
+      }
+    },
+    "FILTER3" : {
+      "action" : "filter",
+      "sources" : [ "LOAD_DATASET35" ],
+      "parameters" : {
+        "filterExpressions" : [ {
+          "type" : "TEXT",
+          "field" : "Field",
+          "operator" : "EQUAL",
+          "operands" : [ "IsActive", "created" ]
+        } ]
+      }
+    },
+    "LOAD_DATASET15" : {
+      "action" : "load",
+      "sources" : [ ],
+      "parameters" : {
+        "fields" : [ "Id", "CarePlanId", "CreatedDate", "NewValue", "Field" ],
+        "dataset" : {
+          "type" : "connectedDataset",
+          "label" : "CarePlanHistory",
+          "connectionName" : "SFDC_LOCAL",
+          "sourceObjectName" : "CarePlanHistory"
+        },
+        "sampleDetails" : {
+          "type" : "TopN",
+          "sortBy" : [ ]
+        }
+      }
+    },
+    "FILTER4" : {
+      "action" : "filter",
+      "sources" : [ "FORMULA23" ],
+      "parameters" : {
+        "filterExpressions" : [ {
+          "type" : "TEXT",
+          "field" : "Field",
+          "operator" : "EQUAL",
+          "operands" : [ "Status" ]
+        }, {
+          "type" : "TEXT",
+          "field" : "NewValue",
+          "operator" : "EQUAL",
+          "operands" : [ "Completed" ]
+        }, {
+          "type" : "NUMBER",
+          "field" : "Row",
+          "operator" : "EQUAL",
+          "operands" : [ "1" ]
+        } ]
+      }
+    },
+    "JOIN37" : {
+      "action" : "join",
+      "sources" : [ "JOIN4", "FILTER4" ],
+      "schema" : {
+        "fields" : [ ],
+        "slice" : {
+          "mode" : "DROP",
+          "ignoreMissingFields" : true,
+          "fields" : [ ]
+        }
+      },
+      "parameters" : {
+        "joinType" : "LEFT_OUTER",
+        "leftKeys" : [ "Id" ],
+        "rightQualifier" : "CareplanHistory",
+        "rightKeys" : [ "CarePlanId" ]
+      }
+    },
+    "FILTER5" : {
+      "action" : "filter",
+      "sources" : [ "FORMULA21" ],
+      "parameters" : {
+        "filterExpressions" : [ {
+          "type" : "TEXT",
+          "field" : "Field",
+          "operator" : "EQUAL",
+          "operands" : [ "IsActive" ]
+        }, {
+          "type" : "TEXT",
+          "field" : "NewValue",
+          "operator" : "EQUAL",
+          "operands" : [ "false" ]
+        }, {
+          "type" : "NUMBER",
+          "field" : "Row",
+          "operator" : "EQUAL",
+          "operands" : [ "1" ]
+        } ]
+      }
+    },
+    "JOIN38" : {
+      "action" : "join",
+      "sources" : [ "FILTER5", "FILTER2" ],
+      "schema" : {
+        "fields" : [ ],
+        "slice" : {
+          "mode" : "DROP",
+          "ignoreMissingFields" : true,
+          "fields" : [ "Id", "RecordAlertId", "Field", "OldValue", "Row" ]
+        }
+      },
+      "parameters" : {
+        "joinType" : "OUTER",
+        "leftKeys" : [ "RecordAlertId" ],
+        "rightQualifier" : "RecordalertHistory",
+        "rightKeys" : [ "RecordAlertId" ]
+      }
+    },
+    "FORMULA21" : {
+      "action" : "computeRelative",
+      "sources" : [ "FILTER9" ],
+      "parameters" : {
+        "partitionBy" : [ "RecordAlertId" ],
+        "orderBy" : [ {
+          "fieldName" : "CreatedDate",
+          "direction" : "DESC"
+        } ],
+        "expressionType" : "SQL",
+        "fields" : [ {
+          "type" : "NUMBER",
+          "name" : "Row",
+          "label" : "Row",
+          "formulaExpression" : "row_number()",
+          "precision" : 10,
+          "scale" : 0,
+          "defaultValue" : ""
+        } ]
+      }
+    },
+    "FORMULA23" : {
+      "action" : "computeRelative",
+      "sources" : [ "LOAD_DATASET15" ],
+      "parameters" : {
+        "partitionBy" : [ "CarePlanId" ],
+        "orderBy" : [ {
+          "fieldName" : "CreatedDate",
+          "direction" : "DESC"
+        } ],
+        "expressionType" : "SQL",
+        "fields" : [ {
+          "type" : "NUMBER",
+          "name" : "Row",
+          "label" : "Row",
+          "formulaExpression" : "row_number()",
+          "precision" : 10,
+          "scale" : 0,
+          "defaultValue" : ""
+        } ]
+      }
+    },
+    "LOAD_DATASET16_copy0" : {
+      "action" : "load",
+      "sources" : [ ],
+      "parameters" : {
+        "fields" : [ "Id", "Name", "CaseRecordTypeId", "IsActive" ],
+        "dataset" : {
+          "type" : "connectedDataset",
+          "label" : "SuccessTeam",
+          "connectionName" : "SFDC_LOCAL",
+          "sourceObjectName" : "SuccessTeam"
+        },
+        "sampleDetails" : {
+          "type" : "TopN",
+          "sortBy" : [ ]
+        }
+      }
+    },
+    "JOIN48" : {
+      "action" : "join",
+      "sources" : [ "LOAD_DATASET2", "FILTER8" ],
+      "schema" : {
+        "fields" : [ ],
+        "slice" : {
+          "mode" : "DROP",
+          "ignoreMissingFields" : true,
+          "fields" : [ ]
+        }
+      },
+      "parameters" : {
+        "joinType" : "LOOKUP",
+        "leftKeys" : [ "RecordTypeId" ],
+        "rightQualifier" : "SuccessTeam",
+        "rightKeys" : [ "CaseRecordTypeId" ]
+      }
+    },
+    "FILTER8" : {
+      "action" : "filter",
+      "sources" : [ "LOAD_DATASET16_copy0" ],
+      "parameters" : {
+        "filterExpressions" : [ {
+          "type" : "TEXT",
+          "field" : "IsActive",
+          "operator" : "EQUAL",
+          "operands" : [ "true" ]
+        } ]
+      }
+    },
+    "LOAD_DATASET36" : {
+      "action" : "load",
+      "sources" : [ ],
+      "parameters" : {
+        "fields" : [ "Id", "Name" ],
+        "dataset" : {
+          "type" : "connectedDataset",
+          "label" : "EngagementChannelType",
+          "connectionName" : "SFDC_LOCAL",
+          "sourceObjectName" : "EngagementChannelType"
+        },
+        "sampleDetails" : {
+          "type" : "TopN",
+          "sortBy" : [ ]
+        }
+      }
+    },
+    "JOIN49" : {
+      "action" : "join",
+      "sources" : [ "FORMULA24", "LOAD_DATASET36" ],
+      "schema" : {
+        "fields" : [ ],
+        "slice" : {
+          "mode" : "DROP",
+          "ignoreMissingFields" : true,
+          "fields" : [ ]
+        }
+      },
+      "parameters" : {
+        "joinType" : "LOOKUP",
+        "leftKeys" : [ "ServiceAppointment.EngagementChannelTypeId" ],
+        "rightQualifier" : "EngagementChannel",
+        "rightKeys" : [ "Id" ]
+      }
+    },
+    "JOIN50" : {
+      "action" : "join",
+      "sources" : [ "FILTER1", "LOAD_DATASET31" ],
+      "schema" : {
+        "fields" : [ ],
+        "slice" : {
+          "mode" : "DROP",
+          "ignoreMissingFields" : true,
+          "fields" : [ "CaseNumber", "ContactId", "ParentId", "RecordTypeId", "Status", "Subject", "IsClosed", "OwnerId", "SuccessTeam.Id", "SuccessTeam.Name", "SuccessTeam.CaseRecordTypeId", "SuccessTeam.IsActive", "CTM.ParentId" ]
+        }
+      },
+      "parameters" : {
+        "joinType" : "MULTI_VALUE_LOOKUP",
+        "leftKeys" : [ "Id" ],
+        "rightQualifier" : "CTM",
+        "rightKeys" : [ "ParentId" ]
+      }
+    },
+    "JOIN52" : {
+      "action" : "join",
+      "sources" : [ "JOIN49", "JOIN50" ],
+      "schema" : {
+        "fields" : [ ],
+        "slice" : {
+          "mode" : "DROP",
+          "ignoreMissingFields" : true,
+          "fields" : [ ]
+        }
+      },
+      "parameters" : {
+        "joinType" : "LEFT_OUTER",
+        "leftKeys" : [ "ServiceAppointment.AccountId" ],
+        "rightQualifier" : "CTM",
+        "rightKeys" : [ "AccountId" ]
+      }
+    },
+    "FILTER9" : {
+      "action" : "filter",
+      "sources" : [ "LOAD_DATASET35" ],
+      "parameters" : {
+        "filterExpressions" : [ {
+          "type" : "TEXT",
+          "field" : "Field",
+          "operator" : "EQUAL",
+          "operands" : [ "IsActive", "created" ]
+        } ]
+      }
+    },
+    "FILTER10" : {
+      "action" : "filter",
+      "sources" : [ "LOAD_DATASET22" ],
+      "parameters" : {
+        "filterExpressions" : [ {
+          "type" : "TEXT",
+          "field" : "IsActive",
+          "operator" : "EQUAL",
+          "operands" : [ "true" ]
+        } ]
+      }
+    }
+  },
+  "ui" : {
+    "nodes" : {
+      "LOAD_DATASET1" : {
+        "label" : "CarePlan",
+        "type" : "LOAD_DATASET",
+        "top" : 252,
+        "left" : 112.5,
+        "parameters" : {
+          "sampleSize" : 2000
+        }
+      },
+      "LOAD_DATASET2" : {
+        "label" : "Case",
+        "type" : "LOAD_DATASET",
+        "top" : 530.2,
+        "left" : 112,
+        "parameters" : {
+          "sampleSize" : 2000
+        }
+      },
+      "JOIN0" : {
+        "label" : "Join_Case_onto_CarePlan",
+        "description" : "",
+        "type" : "JOIN",
+        "top" : 250.2,
+        "left" : 392
+      },
+      "LOAD_DATASET3" : {
+        "label" : "Account",
+        "type" : "LOAD_DATASET",
+        "top" : 530.2,
+        "left" : 812,
+        "parameters" : {
+          "sampleSize" : 2000
+        }
+      },
+      "JOIN1" : {
+        "label" : "Join_Account_onto_CarePlan",
+        "description" : "",
+        "type" : "JOIN",
+        "top" : 250.2,
+        "left" : 812
+      },
+      "LOAD_DATASET4" : {
+        "label" : "User",
+        "type" : "LOAD_DATASET",
+        "top" : 1930.2,
+        "left" : 952,
+        "parameters" : {
+          "sampleSize" : 2000
+        }
+      },
+      "LOAD_DATASET5" : {
+        "label" : "CaseTeamMember",
+        "type" : "LOAD_DATASET",
+        "top" : 530.2,
+        "left" : 952,
+        "parameters" : {
+          "sampleSize" : 2000
+        }
+      },
+      "JOIN3" : {
+        "label" : "Join_CTM_onto_CarePlan",
+        "description" : "",
+        "type" : "JOIN",
+        "top" : 250.2,
+        "left" : 952
+      },
+      "LOAD_DATASET6" : {
+        "label" : "RecordType",
+        "type" : "LOAD_DATASET",
+        "top" : 530.2,
+        "left" : 1092,
+        "parameters" : {
+          "sampleSize" : 2000
+        }
+      },
+      "JOIN4" : {
+        "label" : "Join_RecordType_onto_CarePlan",
+        "description" : "",
+        "type" : "JOIN",
+        "top" : 250.2,
+        "left" : 1092
+      },
+      "FILTER1" : {
+        "label" : "Filter_Open_Cases",
+        "description" : "",
+        "type" : "FILTER",
+        "top" : 530.2,
+        "left" : 392
+      },
+      "TRANSFORM0" : {
+        "label" : "Transform_CarePlan",
+        "description" : "",
+        "type" : "TRANSFORM",
+        "top" : 250.2,
+        "left" : 1652,
+        "graph" : {
+          "EDIT_ATTRIBUTES0" : {
+            "label" : "Edit Attributes"
+          },
+          "FORMULA0" : {
+            "parameters" : {
+              "type" : "BASE_FORMULA_UI"
+            },
+            "label" : "Formula"
+          },
+          "FORMULA2" : {
+            "parameters" : {
+              "type" : "BASE_FORMULA_UI"
+            },
+            "label" : "Formula"
+          },
+          "FORMULA4" : {
+            "parameters" : {
+              "type" : "BASE_FORMULA_UI"
+            },
+            "label" : "Formula"
+          },
+          "FORMULA5" : {
+            "parameters" : {
+              "type" : "BASE_FORMULA_UI"
+            },
+            "label" : "Formula"
+          },
+          "FORMULA6" : {
+            "parameters" : {
+              "type" : "BASE_FORMULA_UI"
+            },
+            "label" : "Formula"
+          },
+          "FORMULA7" : {
+            "parameters" : {
+              "type" : "BASE_FORMULA_UI"
+            },
+            "label" : "Formula"
+          },
+          "BUCKET0" : {
+            "label" : "Bucket"
+          },
+          "FORMULA18" : {
+            "parameters" : {
+              "type" : "BASE_FORMULA_UI"
+            },
+            "label" : "Formula"
+          }
+        },
+        "connectors" : [ {
+          "source" : "FORMULA0",
+          "target" : "FORMULA2"
+        }, {
+          "source" : "FORMULA2",
+          "target" : "FORMULA4"
+        }, {
+          "source" : "FORMULA4",
+          "target" : "FORMULA5"
+        }, {
+          "source" : "FORMULA5",
+          "target" : "FORMULA6"
+        }, {
+          "source" : "FORMULA7",
+          "target" : "FORMULA0"
+        }, {
+          "source" : "EDIT_ATTRIBUTES0",
+          "target" : "FORMULA7"
+        }, {
+          "source" : "FORMULA6",
+          "target" : "BUCKET0"
+        }, {
+          "source" : "BUCKET0",
+          "target" : "FORMULA18"
+        } ]
+      },
+      "OUTPUT0" : {
+        "label" : "CarePlan",
+        "description" : "",
+        "type" : "OUTPUT",
+        "top" : 250.2,
+        "left" : 2352
+      },
+      "LOAD_DATASET7" : {
+        "label" : "RecordAlert",
+        "type" : "LOAD_DATASET",
+        "top" : 670.2,
+        "left" : 112,
+        "parameters" : {
+          "sampleSize" : 2000
+        }
+      },
+      "JOIN5" : {
+        "label" : "Join_Case_onto_RecordAlert",
+        "description" : "",
+        "type" : "JOIN",
+        "top" : 670.2,
+        "left" : 392
+      },
+      "JOIN6" : {
+        "label" : "Join_Account_onto_RecordAlert",
+        "description" : "",
+        "type" : "JOIN",
+        "top" : 670.2,
+        "left" : 812
+      },
+      "JOIN7" : {
+        "label" : "Join_CTM_onto_RecordAlert",
+        "description" : "",
+        "type" : "JOIN",
+        "top" : 670.2,
+        "left" : 952
+      },
+      "TRANSFORM1" : {
+        "label" : "Transform_RecordAlert",
+        "description" : "",
+        "type" : "TRANSFORM",
+        "top" : 670.2,
+        "left" : 2212,
+        "graph" : {
+          "EDIT_ATTRIBUTES1" : {
+            "label" : "Edit Attributes"
+          },
+          "EDIT_ATTRIBUTES2" : {
+            "label" : "Edit Attributes"
+          },
+          "REPLACE0" : {
+            "parameters" : {
+              "type" : "REPLACE_UI"
+            },
+            "label" : "Replace"
+          },
+          "FORMULA8" : {
+            "parameters" : {
+              "type" : "BASE_FORMULA_UI"
+            },
+            "label" : "Formula"
+          },
+          "REPLACE1" : {
+            "parameters" : {
+              "type" : "REPLACE_UI"
+            },
+            "label" : "Replace"
+          },
+          "REPLACE2" : {
+            "parameters" : {
+              "type" : "REPLACE_UI"
+            },
+            "label" : "Replace"
+          },
+          "FORMULA9" : {
+            "parameters" : {
+              "type" : "BASE_FORMULA_UI"
+            },
+            "label" : "Formula"
+          },
+          "FORMULA13" : {
+            "parameters" : {
+              "type" : "BASE_FORMULA_UI"
+            },
+            "label" : "Formula"
+          },
+          "FORMULA25" : {
+            "parameters" : {
+              "type" : "BASE_FORMULA_UI"
+            },
+            "label" : "Formula"
+          }
+        },
+        "connectors" : [ {
+          "source" : "EDIT_ATTRIBUTES1",
+          "target" : "EDIT_ATTRIBUTES2"
+        }, {
+          "source" : "FORMULA8",
+          "target" : "REPLACE0"
+        }, {
+          "source" : "EDIT_ATTRIBUTES2",
+          "target" : "FORMULA8"
+        }, {
+          "source" : "REPLACE0",
+          "target" : "REPLACE1"
+        }, {
+          "source" : "REPLACE1",
+          "target" : "REPLACE2"
+        }, {
+          "source" : "REPLACE2",
+          "target" : "FORMULA9"
+        }, {
+          "source" : "FORMULA9",
+          "target" : "FORMULA13"
+        }, {
+          "source" : "FORMULA13",
+          "target" : "FORMULA25"
+        } ]
+      },
+      "OUTPUT1" : {
+        "label" : "RecordAlert",
+        "description" : "",
+        "type" : "OUTPUT",
+        "top" : 670.2,
+        "left" : 2352
+      },
+      "LOAD_DATASET8" : {
+        "label" : "CaseTeamMember",
+        "type" : "LOAD_DATASET",
+        "top" : 1790.2,
+        "left" : 112,
+        "parameters" : {
+          "sampleSize" : 2000
+        }
+      },
+      "AGGREGATE0" : {
+        "label" : "Aggregate_UniqueCTM",
+        "description" : "",
+        "type" : "AGGREGATE",
+        "top" : 1930.2,
+        "left" : 392,
+        "graph" : {
+          "EXTRACT0" : null,
+          "AGGREGATE1" : null
+        },
+        "connectors" : [ {
+          "source" : "EXTRACT0",
+          "target" : "AGGREGATE1"
+        } ]
+      },
+      "JOIN8" : {
+        "label" : "Join_CTM_onto_UniqueCTM",
+        "description" : "",
+        "type" : "JOIN",
+        "top" : 1790.2,
+        "left" : 392
+      },
+      "LOAD_DATASET9" : {
+        "label" : "CaseTeamTemplate",
+        "type" : "LOAD_DATASET",
+        "top" : 1930.2,
+        "left" : 532,
+        "parameters" : {
+          "sampleSize" : 2000
+        }
+      },
+      "JOIN9" : {
+        "label" : "Join_CTT_onto_CTM",
+        "description" : "",
+        "type" : "JOIN",
+        "top" : 1790.2,
+        "left" : 532
+      },
+      "LOAD_DATASET10" : {
+        "label" : "CaseTeamRole",
+        "type" : "LOAD_DATASET",
+        "top" : 1930.2,
+        "left" : 672,
+        "parameters" : {
+          "sampleSize" : 2000
+        }
+      },
+      "JOIN10" : {
+        "label" : "Join_CTR_onto_CTM",
+        "description" : "",
+        "type" : "JOIN",
+        "top" : 1790.2,
+        "left" : 672
+      },
+      "LOAD_DATASET11" : {
+        "label" : "ServiceResource",
+        "type" : "LOAD_DATASET",
+        "top" : 1930.2,
+        "left" : 812,
+        "parameters" : {
+          "sampleSize" : 2000
+        }
+      },
+      "JOIN11" : {
+        "label" : "Join_ServiceResource_onto_CTM",
+        "description" : "",
+        "type" : "JOIN",
+        "top" : 1790.2,
+        "left" : 812
+      },
+      "JOIN12" : {
+        "label" : "Join_Users_onto_CTM",
+        "description" : "",
+        "type" : "JOIN",
+        "top" : 1790.2,
+        "left" : 952
+      },
+      "TRANSFORM2" : {
+        "label" : "Transform_CaseTeamMember",
+        "description" : "",
+        "type" : "TRANSFORM",
+        "top" : 1790.2,
+        "left" : 1652,
+        "graph" : {
+          "FORMULA1" : {
+            "parameters" : {
+              "type" : "BASE_FORMULA_UI"
+            },
+            "label" : "Formula"
+          }
+        },
+        "connectors" : [ ]
+      },
+      "OUTPUT2" : {
+        "label" : "CaseTeamMember",
+        "description" : "",
+        "type" : "OUTPUT",
+        "top" : 1790.2,
+        "left" : 1932
+      },
+      "LOAD_DATASET19" : {
+        "label" : "AcademicYear",
+        "type" : "LOAD_DATASET",
+        "top" : 1090.2,
+        "left" : 532,
+        "parameters" : {
+          "sampleSize" : 2000
+        }
+      },
+      "LOAD_DATASET20" : {
+        "label" : "AcademicTermEnrollment",
+        "type" : "LOAD_DATASET",
+        "top" : 810.2,
+        "left" : 112,
+        "parameters" : {
+          "sampleSize" : 2000
+        }
+      },
+      "LOAD_DATASET21" : {
+        "label" : "AcademicTerm",
+        "type" : "LOAD_DATASET",
+        "top" : 950.2,
+        "left" : 392,
+        "parameters" : {
+          "sampleSize" : 2000
+        }
+      },
+      "JOIN40" : {
+        "label" : "Join_AcademicTerm_onto_ATE",
+        "description" : "",
+        "type" : "JOIN",
+        "top" : 810.2,
+        "left" : 392
+      },
+      "JOIN41" : {
+        "label" : "Join_AcademicYear_onto_ATE",
+        "description" : "",
+        "type" : "JOIN",
+        "top" : 810.2,
+        "left" : 532
+      },
+      "JOIN21" : {
+        "label" : "Join_Account_onto_ATE",
+        "description" : "",
+        "type" : "JOIN",
+        "top" : 810.2,
+        "left" : 672
+      },
+      "TRANSFORM3" : {
+        "label" : "Transform_AcademicTermEnrollment",
+        "description" : "",
+        "type" : "TRANSFORM",
+        "top" : 812,
+        "left" : 1932,
+        "graph" : {
+          "FORMULA3" : {
+            "parameters" : {
+              "type" : "BASE_FORMULA_UI"
+            },
+            "label" : "Formula"
+          },
+          "TO_MEASURE0" : {
+            "label" : "To Number"
+          },
+          "FORMULA12" : {
+            "parameters" : {
+              "type" : "BASE_FORMULA_UI"
+            },
+            "label" : "Formula"
+          },
+          "FORMULA26" : {
+            "label" : "Formula"
+          },
+          "FORMULA27" : {
+            "parameters" : {
+              "type" : "BASE_FORMULA_UI"
+            },
+            "label" : "Formula"
+          }
+        },
+        "connectors" : [ {
+          "source" : "FORMULA3",
+          "target" : "TO_MEASURE0"
+        }, {
+          "source" : "TO_MEASURE0",
+          "target" : "FORMULA12"
+        }, {
+          "source" : "FORMULA27",
+          "target" : "FORMULA26"
+        }, {
+          "source" : "FORMULA12",
+          "target" : "FORMULA27"
+        } ]
+      },
+      "LOAD_DATASET22" : {
+        "label" : "RecordAlert",
+        "description" : "",
+        "type" : "LOAD_DATASET",
+        "top" : 952.2,
+        "left" : 1512,
+        "parameters" : {
+          "sampleSize" : 2000
+        }
+      },
+      "OUTPUT3" : {
+        "label" : "AcademicTermEnrollment",
+        "description" : "",
+        "type" : "OUTPUT",
+        "top" : 810.2,
+        "left" : 2072
+      },
+      "LOAD_DATASET23" : {
+        "label" : "CaseTeamMember",
+        "description" : "",
+        "type" : "LOAD_DATASET",
+        "top" : 950.2,
+        "left" : 952,
+        "parameters" : {
+          "sampleSize" : 2000
+        }
+      },
+      "JOIN23" : {
+        "label" : "Join_Case_onto_ATE",
+        "description" : "",
+        "type" : "JOIN",
+        "top" : 810.2,
+        "left" : 812
+      },
+      "JOIN24" : {
+        "label" : "Join_CTM_onto_ATE",
+        "description" : "",
+        "type" : "JOIN",
+        "top" : 810.2,
+        "left" : 952
+      },
+      "JOIN26" : {
+        "label" : "Join_RecordType_onto_RecordAlert",
+        "description" : "",
+        "type" : "JOIN",
+        "top" : 670.2,
+        "left" : 1092
+      },
+      "AGGREGATE4" : {
+        "label" : "Aggregate_RecordAlert_onto_Case",
+        "description" : "",
+        "type" : "AGGREGATE",
+        "top" : 1090.2,
+        "left" : 1372,
+        "graph" : {
+          "EXTRACT2" : null,
+          "AGGREGATE5" : null
+        },
+        "connectors" : [ {
+          "source" : "EXTRACT2",
+          "target" : "AGGREGATE5"
+        } ]
+      },
+      "JOIN27" : {
+        "label" : "Join_AggRecordAlert_onto_ATE",
+        "description" : "",
+        "type" : "JOIN",
+        "top" : 810.2,
+        "left" : 1372
+      },
+      "LOAD_DATASET25" : {
+        "label" : "ServiceAppointment",
+        "type" : "LOAD_DATASET",
+        "top" : 1090.2,
+        "left" : 1932,
+        "parameters" : {
+          "sampleSize" : 2000
+        }
+      },
+      "AGGREGATE3" : {
+        "label" : "Aggregate_ServiceAppointment",
+        "description" : "",
+        "type" : "AGGREGATE",
+        "top" : 1090.2,
+        "left" : 1652,
+        "graph" : {
+          "EXTRACT1" : null,
+          "AGGREGATE2" : null
+        },
+        "connectors" : [ {
+          "source" : "EXTRACT1",
+          "target" : "AGGREGATE2"
+        } ]
+      },
+      "FILTER7" : {
+        "label" : "Filter_CancelledServiceAppointment",
+        "description" : "",
+        "type" : "FILTER",
+        "top" : 1090.2,
+        "left" : 1792
+      },
+      "JOIN28" : {
+        "label" : "Join_AggServiceAppointments_onto_ATE",
+        "description" : "",
+        "type" : "JOIN",
+        "top" : 810.2,
+        "left" : 1652
+      },
+      "JOIN30" : {
+        "label" : "Join_ATE_onto_RecordAlert",
+        "description" : "",
+        "type" : "JOIN",
+        "top" : 670.2,
+        "left" : 532
+      },
+      "LOAD_DATASET26" : {
+        "label" : "RecordAlertCategory",
+        "type" : "LOAD_DATASET",
+        "top" : 530.2,
+        "left" : 1232,
+        "parameters" : {
+          "sampleSize" : 2000
+        }
+      },
+      "JOIN31" : {
+        "label" : "Join_RecordAlertCategory",
+        "description" : "",
+        "type" : "JOIN",
+        "top" : 670.2,
+        "left" : 1232
+      },
+      "JOIN32" : {
+        "label" : "Join_ATE_onto_CarePlan",
+        "description" : "",
+        "type" : "JOIN",
+        "top" : 250.2,
+        "left" : 532
+      },
+      "LOAD_DATASET27" : {
+        "label" : "CarePlan",
+        "description" : "",
+        "type" : "LOAD_DATASET",
+        "top" : 1090.2,
+        "left" : 1232,
+        "parameters" : {
+          "sampleSize" : 2000
+        }
+      },
+      "JOIN33" : {
+        "label" : "Join_Careplan_onto_ATE",
+        "description" : "",
+        "type" : "JOIN",
+        "top" : 810.2,
+        "left" : 1232
+      },
+      "LOAD_DATASET28" : {
+        "label" : "ServiceAppointment",
+        "type" : "LOAD_DATASET",
+        "top" : 1230.2,
+        "left" : 112,
+        "parameters" : {
+          "sampleSize" : 2000
+        }
+      },
+      "JOIN42" : {
+        "label" : "Join_WTGM_onto_ServiceApp",
+        "description" : "",
+        "type" : "JOIN",
+        "top" : 1230.2,
+        "left" : 532
+      },
+      "LOAD_DATASET30" : {
+        "label" : "RecordType",
+        "type" : "LOAD_DATASET",
+        "top" : 1650.2,
+        "left" : 952,
+        "parameters" : {
+          "sampleSize" : 2000
+        }
+      },
+      "JOIN45" : {
+        "label" : "Join_recordtype onto Case",
+        "description" : "",
+        "type" : "JOIN",
+        "top" : 1510.2,
+        "left" : 952
+      },
+      "JOIN46" : {
+        "label" : "Join_Case_onto_ServiceApp",
+        "description" : "",
+        "type" : "JOIN",
+        "top" : 1230.2,
+        "left" : 952
+      },
+      "JOIN47" : {
+        "label" : "Join_ServiceApp _onto_Academic",
+        "description" : "",
+        "type" : "JOIN",
+        "top" : 1230.2,
+        "left" : 1092
+      },
+      "OUTPUT7" : {
+        "label" : "Appointment",
+        "description" : "",
+        "type" : "OUTPUT",
+        "top" : 1230.2,
+        "left" : 2072
+      },
+      "LOAD_DATASET31" : {
+        "label" : "CaseTeamMember",
+        "type" : "LOAD_DATASET",
+        "top" : 1512.2,
+        "left" : 1232.3,
+        "parameters" : {
+          "sampleSize" : 2000
+        }
+      },
+      "LOAD_DATASET33" : {
+        "label" : "WorkTypeGroup",
+        "type" : "LOAD_DATASET",
+        "top" : 1510.2,
+        "left" : 112,
+        "parameters" : {
+          "sampleSize" : 2000
+        }
+      },
+      "LOAD_DATASET34" : {
+        "label" : "WorkTypeGroupMember",
+        "type" : "LOAD_DATASET",
+        "top" : 1372.1,
+        "left" : 251.89999999999998,
+        "parameters" : {
+          "sampleSize" : 2000
+        }
+      },
+      "JOIN34" : {
+        "label" : "Self_Join",
+        "description" : "",
+        "type" : "JOIN",
+        "top" : 1510.2,
+        "left" : 252
+      },
+      "JOIN35" : {
+        "label" : "Join_WTG_onto_WTGM",
+        "description" : "",
+        "type" : "JOIN",
+        "top" : 1370.2,
+        "left" : 392
+      },
+      "TRANSFORM4" : {
+        "label" : "Transform_Topic_SubTopic calculation",
+        "description" : "",
+        "type" : "TRANSFORM",
+        "top" : 1230.2,
+        "left" : 1232,
+        "graph" : {
+          "FORMULA10" : {
+            "parameters" : {
+              "type" : "BASE_FORMULA_UI"
+            },
+            "label" : "Formula"
+          },
+          "FORMULA11" : {
+            "parameters" : {
+              "type" : "BASE_FORMULA_UI"
+            },
+            "label" : "Formula"
+          },
+          "FORMULA24" : {
+            "parameters" : {
+              "type" : "BASE_FORMULA_UI"
+            },
+            "label" : "Formula"
+          }
+        },
+        "connectors" : [ {
+          "source" : "FORMULA10",
+          "target" : "FORMULA11"
+        }, {
+          "source" : "FORMULA11",
+          "target" : "FORMULA24"
+        } ]
+      },
+      "LOAD_DATASET35" : {
+        "label" : "RecordAlertHistory",
+        "type" : "LOAD_DATASET",
+        "top" : 530.2,
+        "left" : 1652,
+        "parameters" : {
+          "sampleSize" : 2000
+        }
+      },
+      "JOIN36" : {
+        "label" : "Join_Recordhistory_onto_Recordtype",
+        "description" : "",
+        "type" : "JOIN",
+        "top" : 670.2,
+        "left" : 2072
+      },
+      "TRANSFORM5" : {
+        "label" : "Transform_True_Date",
+        "description" : "",
+        "type" : "TRANSFORM",
+        "top" : 390.2,
+        "left" : 1932,
+        "graph" : {
+          "FORMULA19" : {
+            "label" : "Formula"
+          },
+          "FORMULA20" : {
+            "label" : "Formula"
+          },
+          "DROP_FIELDS0" : {
+            "label" : "Drop Columns"
+          }
+        },
+        "connectors" : [ {
+          "source" : "FORMULA19",
+          "target" : "FORMULA20"
+        }, {
+          "source" : "FORMULA20",
+          "target" : "DROP_FIELDS0"
+        } ]
+      },
+      "FILTER2" : {
+        "label" : "Filter_Null_value",
+        "description" : "",
+        "type" : "FILTER",
+        "top" : 390.2,
+        "left" : 2072
+      },
+      "FILTER3" : {
+        "label" : "Filter_Field_IsActive",
+        "description" : "",
+        "type" : "FILTER",
+        "top" : 390.2,
+        "left" : 1652
+      },
+      "LOAD_DATASET15" : {
+        "label" : "CarePlanHistory",
+        "type" : "LOAD_DATASET",
+        "top" : 390.2,
+        "left" : 1232,
+        "parameters" : {
+          "sampleSize" : 2000
+        }
+      },
+      "FILTER4" : {
+        "label" : "Filter_Status_Completed",
+        "description" : "",
+        "type" : "FILTER",
+        "top" : 390.2,
+        "left" : 1512
+      },
+      "JOIN37" : {
+        "label" : "Join_CareplanHistory_onto_CarePlan",
+        "description" : "",
+        "type" : "JOIN",
+        "top" : 250.2,
+        "left" : 1512
+      },
+      "FILTER5" : {
+        "label" : "Filter_IsActive_False",
+        "description" : "",
+        "type" : "FILTER",
+        "top" : 532,
+        "left" : 2072
+      },
+      "JOIN38" : {
+        "label" : "Join_Truedate_onto_falsedate",
+        "description" : "",
+        "type" : "JOIN",
+        "top" : 532,
+        "left" : 2212
+      },
+      "TRANSFORM6" : {
+        "label" : "Transform_Row_number",
+        "description" : "",
+        "type" : "TRANSFORM",
+        "top" : 532,
+        "left" : 1932,
+        "graph" : {
+          "FORMULA21" : {
+            "label" : "Formula"
+          }
+        },
+        "connectors" : [ ]
+      },
+      "TRANSFORM7" : {
+        "label" : "Transform_Row_number",
+        "description" : "",
+        "type" : "TRANSFORM",
+        "top" : 390.2,
+        "left" : 1372,
+        "graph" : {
+          "FORMULA23" : {
+            "label" : "Formula"
+          }
+        },
+        "connectors" : [ ]
+      },
+      "LOAD_DATASET16_copy0" : {
+        "label" : "SuccessTeam",
+        "type" : "LOAD_DATASET",
+        "top" : 392,
+        "left" : 112,
+        "parameters" : {
+          "sampleSize" : 2000
+        }
+      },
+      "JOIN48" : {
+        "label" : "Join_SuccessTeam_onto_case",
+        "description" : "",
+        "type" : "JOIN",
+        "top" : 530.2,
+        "left" : 252
+      },
+      "FILTER8" : {
+        "label" : "Filter_Isactive_True",
+        "description" : "",
+        "type" : "FILTER",
+        "top" : 390.2,
+        "left" : 252
+      },
+      "LOAD_DATASET36" : {
+        "label" : "EngagementChannelType",
+        "type" : "LOAD_DATASET",
+        "top" : 1370.2,
+        "left" : 1372,
+        "parameters" : {
+          "sampleSize" : 2000
+        }
+      },
+      "JOIN49" : {
+        "label" : "Join_Engagement_Channel_Onto_Appointment",
+        "description" : "",
+        "type" : "JOIN",
+        "top" : 1231.9,
+        "left" : 1372
+      },
+      "JOIN50" : {
+        "label" : "Join_Case_onto_CTM",
+        "description" : "",
+        "type" : "JOIN",
+        "top" : 1512,
+        "left" : 1512.3
+      },
+      "JOIN52" : {
+        "label" : "Join_CTM_onto_Appointment",
+        "description" : "",
+        "type" : "JOIN",
+        "top" : 1232.1,
+        "left" : 1792.1
+      },
+      "FILTER9" : {
+        "label" : "Filter 9",
+        "type" : "FILTER",
+        "top" : 532,
+        "left" : 1792
+      },
+      "FILTER10" : {
+        "label" : "Filter_RecordAlert",
+        "description" : "",
+        "type" : "FILTER",
+        "top" : 1092.2,
+        "left" : 1512
+      }
+    },
+    "connectors" : [ {
+      "source" : "FILTER1",
+      "target" : "JOIN50"
+    }, {
+      "source" : "FILTER1",
+      "target" : "JOIN45"
+    }, {
+      "source" : "LOAD_DATASET34",
+      "target" : "JOIN35"
+    }, {
+      "source" : "JOIN42",
+      "target" : "JOIN46"
+    }, {
+      "source" : "JOIN41",
+      "target" : "JOIN47"
+    }, {
+      "source" : "LOAD_DATASET7",
+      "target" : "JOIN5"
+    }, {
+      "source" : "LOAD_DATASET1",
+      "target" : "JOIN0"
+    }, {
+      "source" : "JOIN3",
+      "target" : "JOIN4"
+    }, {
+      "source" : "FILTER1",
+      "target" : "JOIN0"
+    }, {
+      "source" : "JOIN32",
+      "target" : "JOIN1"
+    }, {
+      "source" : "LOAD_DATASET3",
+      "target" : "JOIN1"
+    }, {
+      "source" : "JOIN1",
+      "target" : "JOIN3"
+    }, {
+      "source" : "LOAD_DATASET5",
+      "target" : "JOIN3"
+    }, {
+      "source" : "LOAD_DATASET6",
+      "target" : "JOIN4"
+    }, {
+      "source" : "JOIN48",
+      "target" : "FILTER1"
+    }, {
+      "source" : "JOIN37",
+      "target" : "TRANSFORM0"
+    }, {
+      "source" : "TRANSFORM0",
+      "target" : "OUTPUT0"
+    }, {
+      "source" : "FILTER1",
+      "target" : "JOIN5"
+    }, {
+      "source" : "JOIN30",
+      "target" : "JOIN6"
+    }, {
+      "source" : "LOAD_DATASET3",
+      "target" : "JOIN6"
+    }, {
+      "source" : "JOIN6",
+      "target" : "JOIN7"
+    }, {
+      "source" : "LOAD_DATASET5",
+      "target" : "JOIN7"
+    }, {
+      "source" : "TRANSFORM1",
+      "target" : "OUTPUT1"
+    }, {
+      "source" : "LOAD_DATASET8",
+      "target" : "AGGREGATE0"
+    }, {
+      "source" : "AGGREGATE0",
+      "target" : "JOIN8"
+    }, {
+      "source" : "LOAD_DATASET8",
+      "target" : "JOIN8"
+    }, {
+      "source" : "JOIN8",
+      "target" : "JOIN9"
+    }, {
+      "source" : "LOAD_DATASET9",
+      "target" : "JOIN9"
+    }, {
+      "source" : "JOIN9",
+      "target" : "JOIN10"
+    }, {
+      "source" : "LOAD_DATASET10",
+      "target" : "JOIN10"
+    }, {
+      "source" : "JOIN10",
+      "target" : "JOIN11"
+    }, {
+      "source" : "LOAD_DATASET11",
+      "target" : "JOIN11"
+    }, {
+      "source" : "JOIN11",
+      "target" : "JOIN12"
+    }, {
+      "source" : "LOAD_DATASET4",
+      "target" : "JOIN12"
+    }, {
+      "source" : "JOIN12",
+      "target" : "TRANSFORM2"
+    }, {
+      "source" : "TRANSFORM2",
+      "target" : "OUTPUT2"
+    }, {
+      "source" : "LOAD_DATASET20",
+      "target" : "JOIN40"
+    }, {
+      "source" : "JOIN40",
+      "target" : "JOIN41"
+    }, {
+      "source" : "LOAD_DATASET19",
+      "target" : "JOIN41"
+    }, {
+      "source" : "LOAD_DATASET21",
+      "target" : "JOIN40"
+    }, {
+      "source" : "JOIN41",
+      "target" : "JOIN21"
+    }, {
+      "source" : "LOAD_DATASET3",
+      "target" : "JOIN21"
+    }, {
+      "source" : "TRANSFORM3",
+      "target" : "OUTPUT3"
+    }, {
+      "source" : "JOIN21",
+      "target" : "JOIN23"
+    }, {
+      "source" : "JOIN23",
+      "target" : "JOIN24"
+    }, {
+      "source" : "LOAD_DATASET23",
+      "target" : "JOIN24"
+    }, {
+      "source" : "JOIN7",
+      "target" : "JOIN26"
+    }, {
+      "source" : "LOAD_DATASET6",
+      "target" : "JOIN26"
+    }, {
+      "source" : "FILTER10",
+      "target" : "AGGREGATE4"
+    }, {
+      "source" : "JOIN33",
+      "target" : "JOIN27"
+    }, {
+      "source" : "AGGREGATE4",
+      "target" : "JOIN27"
+    }, {
+      "source" : "FILTER7",
+      "target" : "AGGREGATE3"
+    }, {
+      "source" : "LOAD_DATASET25",
+      "target" : "FILTER7"
+    }, {
+      "source" : "JOIN27",
+      "target" : "JOIN28"
+    }, {
+      "source" : "AGGREGATE3",
+      "target" : "JOIN28"
+    }, {
+      "source" : "JOIN5",
+      "target" : "JOIN30"
+    }, {
+      "source" : "JOIN41",
+      "target" : "JOIN30"
+    }, {
+      "source" : "JOIN26",
+      "target" : "JOIN31"
+    }, {
+      "source" : "LOAD_DATASET26",
+      "target" : "JOIN31"
+    }, {
+      "source" : "JOIN0",
+      "target" : "JOIN32"
+    }, {
+      "source" : "JOIN41",
+      "target" : "JOIN32"
+    }, {
+      "source" : "JOIN24",
+      "target" : "JOIN33"
+    }, {
+      "source" : "LOAD_DATASET27",
+      "target" : "JOIN33"
+    }, {
+      "source" : "JOIN36",
+      "target" : "TRANSFORM1"
+    }, {
+      "source" : "LOAD_DATASET28",
+      "target" : "JOIN42"
+    }, {
+      "source" : "LOAD_DATASET30",
+      "target" : "JOIN45"
+    }, {
+      "source" : "JOIN46",
+      "target" : "JOIN47"
+    }, {
+      "source" : "JOIN52",
+      "target" : "OUTPUT7"
+    }, {
+      "source" : "LOAD_DATASET33",
+      "target" : "JOIN34"
+    }, {
+      "source" : "LOAD_DATASET33",
+      "target" : "JOIN34"
+    }, {
+      "source" : "JOIN34",
+      "target" : "JOIN35"
+    }, {
+      "source" : "JOIN47",
+      "target" : "TRANSFORM4"
+    }, {
+      "source" : "JOIN31",
+      "target" : "JOIN36"
+    }, {
+      "source" : "FILTER3",
+      "target" : "TRANSFORM5"
+    }, {
+      "source" : "TRANSFORM5",
+      "target" : "FILTER2"
+    }, {
+      "source" : "LOAD_DATASET35",
+      "target" : "FILTER3"
+    }, {
+      "source" : "TRANSFORM7",
+      "target" : "FILTER4"
+    }, {
+      "source" : "JOIN4",
+      "target" : "JOIN37"
+    }, {
+      "source" : "FILTER4",
+      "target" : "JOIN37"
+    }, {
+      "source" : "TRANSFORM6",
+      "target" : "FILTER5"
+    }, {
+      "source" : "FILTER5",
+      "target" : "JOIN38"
+    }, {
+      "source" : "FILTER2",
+      "target" : "JOIN38"
+    }, {
+      "source" : "JOIN38",
+      "target" : "JOIN36"
+    }, {
+      "source" : "FILTER9",
+      "target" : "TRANSFORM6"
+    }, {
+      "source" : "LOAD_DATASET15",
+      "target" : "TRANSFORM7"
+    }, {
+      "source" : "LOAD_DATASET2",
+      "target" : "JOIN48"
+    }, {
+      "source" : "FILTER8",
+      "target" : "JOIN48"
+    }, {
+      "source" : "LOAD_DATASET16_copy0",
+      "target" : "FILTER8"
+    }, {
+      "source" : "FILTER1",
+      "target" : "JOIN23"
+    }, {
+      "source" : "TRANSFORM4",
+      "target" : "JOIN49"
+    }, {
+      "source" : "LOAD_DATASET36",
+      "target" : "JOIN49"
+    }, {
+      "source" : "JOIN35",
+      "target" : "JOIN42"
+    }, {
+      "source" : "JOIN45",
+      "target" : "JOIN46"
+    }, {
+      "source" : "JOIN49",
+      "target" : "JOIN52"
+    }, {
+      "source" : "LOAD_DATASET35",
+      "target" : "FILTER9"
+    }, {
+      "source" : "LOAD_DATASET31",
+      "target" : "JOIN50"
+    }, {
+      "source" : "JOIN50",
+      "target" : "JOIN52"
+    }, {
+      "source" : "JOIN28",
+      "target" : "TRANSFORM3"
+    }, {
+      "source" : "LOAD_DATASET22",
+      "target" : "FILTER10"
+    } ],
+    "hiddenColumns" : [ {
+      "fieldName" : "Id",
+      "objectType" : "connectedDataset",
+      "objectName" : "SFDC_LOCAL$Account"
+    } ]
+  },
+  "runMode" : "full"
+}

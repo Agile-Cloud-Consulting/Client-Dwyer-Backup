@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ArchivedDate</fullName>
+    <inlineHelpText>The date on which the person affinity was archived.</inlineHelpText>
+    <trackHistory>false</trackHistory>
+</CustomField>

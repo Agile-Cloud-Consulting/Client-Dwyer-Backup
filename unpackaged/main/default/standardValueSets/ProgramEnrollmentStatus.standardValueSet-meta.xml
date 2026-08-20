@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StandardValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sorted>false</sorted>
+    <standardValue>
+        <fullName>Applied</fullName>
+        <default>true</default>
+        <label>Applied</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Denied</fullName>
+        <default>false</default>
+        <label>Denied</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Waitlisted</fullName>
+        <default>false</default>
+        <label>Waitlisted</label>
+    </standardValue>
+    <standardValue>
+        <fullName>In Progress</fullName>
+        <default>false</default>
+        <label>In Progress</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Completed</fullName>
+        <default>false</default>
+        <label>Completed</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Withdrawn</fullName>
+        <default>false</default>
+        <label>Withdrawn</label>
+    </standardValue>
+</StandardValueSet>

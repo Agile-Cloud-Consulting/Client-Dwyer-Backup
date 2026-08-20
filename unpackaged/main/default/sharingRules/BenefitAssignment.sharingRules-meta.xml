@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SharingRules xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sharingCriteriaRules>
+        <fullName>Benefit_Assignment_Mentoring</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>Benefit Assignment Mentoring</label>
+        <sharedTo>
+            <group>Mentoring_Facilitator</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>Status</field>
+            <operation>equals</operation>
+            <value>Enrolled,Active,Waitlisted,Completed,Withdrawn</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>true</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+</SharingRules>

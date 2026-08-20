@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RecordActionDeployment xmlns="http://soap.sforce.com/2006/04/metadata">
+    <componentName>ActionLauncher</componentName>
+    <deploymentContexts>
+        <entityName>Account</entityName>
+    </deploymentContexts>
+    <hasComponents>true</hasComponents>
+    <hasGuidedActions>true</hasGuidedActions>
+    <hasOmniscripts>true</hasOmniscripts>
+    <hasRecommendations>false</hasRecommendations>
+    <masterLabel>High Touch</masterLabel>
+    <selectableItems>
+        <action>frops_flow__GenerateDonorBrief</action>
+        <frequentActionSequenceNbr>0</frequentActionSequenceNbr>
+        <isFrequentAction>true</isFrequentAction>
+        <type>Flow</type>
+    </selectableItems>
+</RecordActionDeployment>

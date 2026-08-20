@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>GroupName</fullName>
+    <inlineHelpText>The name of a group of courses.</inlineHelpText>
+    <trackHistory>false</trackHistory>
+</CustomField>

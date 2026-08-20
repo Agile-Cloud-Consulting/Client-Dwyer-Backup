@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>MinimumProgramGradePointAvg</fullName>
+    <inlineHelpText>The minimum cumulative GPA that&#39;s required to complete the program.</inlineHelpText>
+    <trackHistory>false</trackHistory>
+</CustomField>

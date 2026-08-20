@@ -1,0 +1,322 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionCalls>
+        <description>Calls an action that calculates the GPA for the specified academic term and policy rule.</description>
+        <name>CalculateGpaForAcademicTerm</name>
+        <label>Calculate GPA for Academic Term</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <actionName>eduadvncdacad__CalculateGpaForAcademicTerm</actionName>
+        <actionType>batchJobAction</actionType>
+        <faultConnector>
+            <targetReference>SetEmailVariablesBatchJobRunError</targetReference>
+        </faultConnector>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>flow_policyRuleName</name>
+            <value>
+                <elementReference>$Record.PolicyRuleApiName</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>flow_academicTermId</name>
+            <value>
+                <elementReference>$Record.AcademicTerm</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>criteria_academicTermId</name>
+            <value>
+                <elementReference>$Record.AcademicTerm</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>eduadvncdacad__CalculateGpaForAcademicTerm</nameSegment>
+        <offset>0</offset>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </actionCalls>
+    <actionCalls>
+        <description>Calls an action to get the list of batch job IDs based on the batch job definition, statuses, runtime parameters, and jobs count.</description>
+        <name>GetBatchJobIds</name>
+        <label>Get Batch Job IDs</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <actionName>getBatchJobIds</actionName>
+        <actionType>getBatchJobIds</actionType>
+        <connector>
+            <targetReference>HaveDuplicateBatchJobRequest</targetReference>
+        </connector>
+        <faultConnector>
+            <targetReference>SetEmailVariableMissingBatchJobIdError</targetReference>
+        </faultConnector>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>BatchJobDefinitionApiName</name>
+            <value>
+                <stringValue>eduadvncdacad__CalculateGpaForAcademicTerm</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>BatchJobStatus</name>
+            <value>
+                <elementReference>BatchJobStatuses</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>BatchJobsCount</name>
+            <value>
+                <numberValue>1.0</numberValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>RuntimeParameter1ApiName</name>
+            <value>
+                <stringValue>academicTermId</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>RuntimeParameter1Value</name>
+            <value>
+                <elementReference>$Record.AcademicTerm</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>getBatchJobIds</nameSegment>
+        <offset>0</offset>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </actionCalls>
+    <actionCalls>
+        <description>Calls an action that sends an email to the flow user about why Salesforce didn’t calculate an academic term GPA.</description>
+        <name>SendEmail</name>
+        <label>Send Email</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <actionName>emailSimple</actionName>
+        <actionType>emailSimple</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>emailAddresses</name>
+            <value>
+                <elementReference>EmailAddress</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailSubject</name>
+            <value>
+                <elementReference>ErrorEmailSubject</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailBody</name>
+            <value>
+                <elementReference>ErrorEmailBody</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>emailSimple</nameSegment>
+        <offset>0</offset>
+    </actionCalls>
+    <apiVersion>64.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <assignments>
+        <description>Sets the batch job status values (InProgress, Submitted, QueueingInProgress, and Queued) in the batchJobStatuses collection variable.</description>
+        <name>SetBatchJobStatuses</name>
+        <label>Set Batch Job Statuses</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignmentItems>
+            <assignToReference>BatchJobStatuses</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <stringValue>InProgress</stringValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>BatchJobStatuses</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <stringValue>Submitted</stringValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>BatchJobStatuses</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <stringValue>QueueingInProgress</stringValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>BatchJobStatuses</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <stringValue>Queued</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>GetBatchJobIds</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <description>Sets the emailSubject and emailBody variables when there’s an error getting the batch job IDs.</description>
+        <name>SetEmailVariableMissingBatchJobIdError</name>
+        <label>Set Email Variables for Get Batch Job IDs Error</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignmentItems>
+            <assignToReference>ErrorEmailSubject</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Can’t find Salesforce GPA calculation batch job IDs</stringValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>ErrorEmailBody</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Hello, We couldn&#39;t get the batch job IDs to calculate the academic term GPA. Try again later.</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <isGoTo>true</isGoTo>
+            <targetReference>SendEmail</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <description>Sets the emailSubject and emailBody variables when the batch job can’t run.</description>
+        <name>SetEmailVariablesBatchJobRunError</name>
+        <label>Set Email Variables for Batch Job Run Error</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignmentItems>
+            <assignToReference>ErrorEmailSubject</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Can’t run Salesforce GPA calculation batch job</stringValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>ErrorEmailBody</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Hello, We couldn&#39;t run the batch job to calculate the academic term GPA. Try again later.</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <isGoTo>true</isGoTo>
+            <targetReference>SendEmail</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <description>Sets the emailSubject and emailBody variables when the batch job is a duplicate request.</description>
+        <name>SetEmailVariablesDuplicateRequest</name>
+        <label>Set Email Variables for Duplicate Request</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignmentItems>
+            <assignToReference>ErrorEmailSubject</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Duplicate Salesforce GPA calculation batch job</stringValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>ErrorEmailBody</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Hello, We didn’t run the batch job to calculate the academic term GPA because this calculation was already run. Try again later.</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>SendEmail</targetReference>
+        </connector>
+    </assignments>
+    <constants>
+        <description>Stores the email address of the flow user. Defaults to “example@email.com.invalid” when an email address isn’t available.</description>
+        <name>EmailAddress</name>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>example@email.com.invalid</stringValue>
+        </value>
+    </constants>
+    <decisions>
+        <description>Determines if the batch job is a duplicate request by checking the Batch Job ID in the Outputs from Get Batch Job IDs variable exists.</description>
+        <name>HaveDuplicateBatchJobRequest</name>
+        <label>Have Duplicate Batch Job Request?</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <defaultConnector>
+            <targetReference>CalculateGpaForAcademicTerm</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>No (Default)</defaultConnectorLabel>
+        <rules>
+            <name>HasDuplicateBatchJobRequest</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>GetBatchJobIds.BatchJobIds</leftValueReference>
+                <operator>IsEmpty</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>SetEmailVariablesDuplicateRequest</targetReference>
+            </connector>
+            <label>Yes</label>
+        </rules>
+    </decisions>
+    <environments>Default</environments>
+    <interviewLabel>EDU Student Information: Run Academic Term GPA Calculation Batch Job Flow {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>EDU Student Information: Term GPA Calculation Batch Job Flow</label>
+    <overriddenFlow>eduadvncdacad__RunTermGpaCalcBatchJob</overriddenFlow>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <start>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>SetBatchJobStatuses</targetReference>
+        </connector>
+        <flowRunAsUser>TriggeringUser</flowRunAsUser>
+        <object>AcademicTermGpaCalcEvent</object>
+        <triggerType>PlatformEvent</triggerType>
+    </start>
+    <status>Active</status>
+    <variables>
+        <description>Stores a collection of the batch job status values.</description>
+        <name>BatchJobStatuses</name>
+        <dataType>String</dataType>
+        <isCollection>true</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <description>Stores the text for the body of the error email.</description>
+        <name>ErrorEmailBody</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <description>Stores the text for the subject of the error email.</description>
+        <name>ErrorEmailSubject</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+</Flow>

@@ -1,0 +1,1408 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OmniScript xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Shows the applicant test result data that is already stored in Salesforce, and collects new test result data from the applicant.</description>
+    <elementTypeComponentMapping>{&quot;ElementTypeToHTMLTemplateList&quot;:[]}</elementTypeComponentMapping>
+    <isActive>false</isActive>
+    <isIntegrationProcedure>false</isIntegrationProcedure>
+    <isManagedUsingStdDesigner>false</isManagedUsingStdDesigner>
+    <isMetadataCacheDisabled>false</isMetadataCacheDisabled>
+    <isOmniScriptEmbeddable>true</isOmniScriptEmbeddable>
+    <isTestProcedure>false</isTestProcedure>
+    <isWebCompEnabled>true</isWebCompEnabled>
+    <language>English</language>
+    <name>ClonedNewTestResultSection</name>
+    <omniProcessElements>
+        <isActive>true</isActive>
+        <isOmniScriptEmbeddable>false</isOmniScriptEmbeddable>
+        <level>0.0</level>
+        <name>GetTestResultsApplicant</name>
+        <omniProcessVersionNumber>0.0</omniProcessVersionNumber>
+        <propertySetConfig>{
+  &quot;controlWidth&quot; : 12,
+  &quot;label&quot; : &quot;Get Applicant Data&quot;,
+  &quot;bundle&quot; : &quot;EDUAdmissionsGetApplicantFromIndividualApplnTask&quot;,
+  &quot;ignoreCache&quot; : true,
+  &quot;dataRaptor Input Parameters&quot; : [ {
+    &quot;element&quot; : &quot;ContextId&quot;,
+    &quot;inputParam&quot; : &quot;IndividualApplicationTaskId&quot;
+  } ],
+  &quot;remoteTimeout&quot; : 30000,
+  &quot;responseJSONPath&quot; : &quot;&quot;,
+  &quot;responseJSONNode&quot; : &quot;TestResultsApplicant&quot;,
+  &quot;inProgressMessage&quot; : &quot;In Progress&quot;,
+  &quot;postMessage&quot; : &quot;Done&quot;,
+  &quot;failureNextLabel&quot; : &quot;Continue&quot;,
+  &quot;failureAbortLabel&quot; : &quot;Abort&quot;,
+  &quot;failureGoBackLabel&quot; : &quot;Go Back&quot;,
+  &quot;failureAbortMessage&quot; : &quot;Are you sure?&quot;,
+  &quot;validationRequired&quot; : &quot;Step&quot;,
+  &quot;redirectPageName&quot; : &quot;&quot;,
+  &quot;redirectTemplateUrl&quot; : &quot;vlcAcknowledge.html&quot;,
+  &quot;redirectNextLabel&quot; : &quot;Next&quot;,
+  &quot;redirectNextWidth&quot; : 3,
+  &quot;redirectPreviousLabel&quot; : &quot;Previous&quot;,
+  &quot;redirectPreviousWidth&quot; : 3,
+  &quot;showPersistentComponent&quot; : [ true, false ],
+  &quot;show&quot; : null,
+  &quot;HTMLTemplateId&quot; : &quot;&quot;,
+  &quot;wpm&quot; : false,
+  &quot;ssm&quot; : false,
+  &quot;message&quot; : { },
+  &quot;pubsub&quot; : false,
+  &quot;errorMessage&quot; : {
+    &quot;custom&quot; : [ ],
+    &quot;default&quot; : null
+  },
+  &quot;enableDefaultAbort&quot; : false,
+  &quot;enableActionMessage&quot; : false,
+  &quot;businessCategory&quot; : &quot;&quot;,
+  &quot;businessEvent&quot; : &quot;&quot;
+}</propertySetConfig>
+        <sequenceNumber>0.0</sequenceNumber>
+        <type>DataRaptor Extract Action</type>
+    </omniProcessElements>
+    <omniProcessElements>
+        <isActive>true</isActive>
+        <isOmniScriptEmbeddable>false</isOmniScriptEmbeddable>
+        <level>0.0</level>
+        <name>SetTestResultsFlexcardAttributes</name>
+        <omniProcessVersionNumber>0.0</omniProcessVersionNumber>
+        <propertySetConfig>{
+  &quot;controlWidth&quot; : 12,
+  &quot;label&quot; : &quot;Set Flexcard Attributes&quot;,
+  &quot;elementValueMap&quot; : {
+    &quot;ACTFlexcardAttributes&quot; : &quot;{\&quot;ContactId\&quot;: \&quot;%TestResultsApplicant:ApplicantId%\&quot;, \&quot;ExaminationName\&quot;: \&quot;ACT\&quot;}&quot;,
+    &quot;SATFlexcardAttributes&quot; : &quot;{\&quot;ContactId\&quot;: \&quot;%TestResultsApplicant:ApplicantId%\&quot;, \&quot;ExaminationName\&quot;: \&quot;SAT\&quot;}&quot;
+  },
+  &quot;showPersistentComponent&quot; : [ true, false ],
+  &quot;show&quot; : null,
+  &quot;HTMLTemplateId&quot; : &quot;&quot;,
+  &quot;wpm&quot; : false,
+  &quot;ssm&quot; : false,
+  &quot;message&quot; : { },
+  &quot;pubsub&quot; : false
+}</propertySetConfig>
+        <sequenceNumber>1.0</sequenceNumber>
+        <type>Set Values</type>
+    </omniProcessElements>
+    <omniProcessElements>
+        <childElements>
+            <childElements>
+                <isActive>true</isActive>
+                <isOmniScriptEmbeddable>false</isOmniScriptEmbeddable>
+                <level>2.0</level>
+                <name>ACTTestResultsIncomplete</name>
+                <omniProcessVersionNumber>0.0</omniProcessVersionNumber>
+                <propertySetConfig>{
+  &quot;disOnTplt&quot; : false,
+  &quot;enableCaption&quot; : true,
+  &quot;imageCountInRow&quot; : 3,
+  &quot;optionHeight&quot; : 100,
+  &quot;optionWidth&quot; : 100,
+  &quot;hide&quot; : false,
+  &quot;HTMLTemplateId&quot; : &quot;&quot;,
+  &quot;accessibleInFutureSteps&quot; : false,
+  &quot;conditionType&quot; : &quot;Hide if False&quot;,
+  &quot;show&quot; : null,
+  &quot;controllingField&quot; : {
+    &quot;source&quot; : &quot;&quot;,
+    &quot;type&quot; : &quot;&quot;,
+    &quot;element&quot; : &quot;&quot;
+  },
+  &quot;optionSource&quot; : {
+    &quot;source&quot; : &quot;&quot;,
+    &quot;type&quot; : &quot;&quot;
+  },
+  &quot;options&quot; : [ {
+    &quot;autoAdv&quot; : null,
+    &quot;value&quot; : &quot;Yes&quot;,
+    &quot;developerName&quot; : null,
+    &quot;name&quot; : &quot;Yes&quot;
+  }, {
+    &quot;autoAdv&quot; : null,
+    &quot;value&quot; : &quot;No&quot;,
+    &quot;developerName&quot; : null,
+    &quot;name&quot; : &quot;No&quot;
+  } ],
+  &quot;helpTextPos&quot; : &quot;&quot;,
+  &quot;helpText&quot; : &quot;&quot;,
+  &quot;help&quot; : false,
+  &quot;defaultValue&quot; : &quot;No&quot;,
+  &quot;horizontalMode&quot; : false,
+  &quot;readOnly&quot; : false,
+  &quot;repeatLimit&quot; : null,
+  &quot;repeatClone&quot; : false,
+  &quot;repeat&quot; : false,
+  &quot;required&quot; : true,
+  &quot;label&quot; : &quot;I need to add or update information in this section&quot;,
+  &quot;controlWidth&quot; : 12
+}</propertySetConfig>
+                <sequenceNumber>2.0</sequenceNumber>
+                <type>Radio</type>
+            </childElements>
+            <childElements>
+                <isActive>true</isActive>
+                <isOmniScriptEmbeddable>false</isOmniScriptEmbeddable>
+                <level>2.0</level>
+                <name>KnownACTTestResultsCard</name>
+                <omniProcessVersionNumber>0.0</omniProcessVersionNumber>
+                <propertySetConfig>{
+  &quot;controlWidth&quot; : 12,
+  &quot;label&quot; : &quot;Known ACT Test  Card&quot;,
+  &quot;show&quot; : null,
+  &quot;conditionType&quot; : &quot;Hide if False&quot;,
+  &quot;hide&quot; : false,
+  &quot;lwcName&quot; : &quot;cfEDUAdmissionsApplicantTestResultHistory&quot;,
+  &quot;bStandalone&quot; : false,
+  &quot;customAttributes&quot; : [ {
+    &quot;name&quot; : &quot;parent-attribute&quot;,
+    &quot;source&quot; : &quot;%ACTFlexcardAttributes%&quot;
+  } ]
+}</propertySetConfig>
+                <sequenceNumber>1.0</sequenceNumber>
+                <type>Custom Lightning Web Component</type>
+            </childElements>
+            <childElements>
+                <isActive>true</isActive>
+                <isOmniScriptEmbeddable>false</isOmniScriptEmbeddable>
+                <level>2.0</level>
+                <name>KnownACTTestResultsInstructions</name>
+                <omniProcessVersionNumber>0.0</omniProcessVersionNumber>
+                <propertySetConfig>{
+  &quot;sanitize&quot; : false,
+  &quot;textKey&quot; : &quot;&quot;,
+  &quot;HTMLTemplateId&quot; : &quot;&quot;,
+  &quot;dataJSON&quot; : false,
+  &quot;show&quot; : null,
+  &quot;text&quot; : &quot;&lt;p&gt;If you previously shared information related to this section, we populated it for you.&lt;/p&gt;&quot;,
+  &quot;label&quot; : &quot;Known ACT Instructions&quot;,
+  &quot;controlWidth&quot; : 12
+}</propertySetConfig>
+                <sequenceNumber>0.0</sequenceNumber>
+                <type>Text Block</type>
+            </childElements>
+            <childElements>
+                <childElements>
+                    <isActive>true</isActive>
+                    <isOmniScriptEmbeddable>false</isOmniScriptEmbeddable>
+                    <level>3.0</level>
+                    <name>NewACTTestResultsBlockHeader</name>
+                    <omniProcessVersionNumber>0.0</omniProcessVersionNumber>
+                    <propertySetConfig>{
+  &quot;controlWidth&quot; : 12,
+  &quot;label&quot; : &quot;New ACT Block Header&quot;,
+  &quot;text&quot; : &quot;&lt;p&gt;Use this form to address any incorrect or missing data.&lt;/p&gt;&quot;,
+  &quot;show&quot; : null,
+  &quot;dataJSON&quot; : false,
+  &quot;HTMLTemplateId&quot; : &quot;&quot;,
+  &quot;textKey&quot; : &quot;&quot;,
+  &quot;sanitize&quot; : false
+}</propertySetConfig>
+                    <sequenceNumber>0.0</sequenceNumber>
+                    <type>Text Block</type>
+                </childElements>
+                <childElements>
+                    <childElements>
+                        <isActive>true</isActive>
+                        <isOmniScriptEmbeddable>false</isOmniScriptEmbeddable>
+                        <level>4.0</level>
+                        <name>NewACTCompositeScore</name>
+                        <omniProcessVersionNumber>0.0</omniProcessVersionNumber>
+                        <propertySetConfig>{
+  &quot;autocomplete&quot; : null,
+  &quot;disOnTplt&quot; : false,
+  &quot;hide&quot; : false,
+  &quot;HTMLTemplateId&quot; : &quot;&quot;,
+  &quot;debounceValue&quot; : 0,
+  &quot;accessibleInFutureSteps&quot; : false,
+  &quot;conditionType&quot; : &quot;Hide if False&quot;,
+  &quot;show&quot; : null,
+  &quot;mask&quot; : null,
+  &quot;placeholder&quot; : &quot;&quot;,
+  &quot;ptrnErrText&quot; : &quot;&quot;,
+  &quot;pattern&quot; : &quot;&quot;,
+  &quot;helpTextPos&quot; : &quot;&quot;,
+  &quot;helpText&quot; : &quot;&quot;,
+  &quot;help&quot; : false,
+  &quot;defaultValue&quot; : null,
+  &quot;readOnly&quot; : false,
+  &quot;repeatLimit&quot; : null,
+  &quot;repeatClone&quot; : false,
+  &quot;repeat&quot; : false,
+  &quot;required&quot; : false,
+  &quot;inputWidth&quot; : 12,
+  &quot;showInputWidth&quot; : false,
+  &quot;label&quot; : &quot;Composite Score&quot;,
+  &quot;controlWidth&quot; : 12
+}</propertySetConfig>
+                        <sequenceNumber>1.0</sequenceNumber>
+                        <type>Number</type>
+                    </childElements>
+                    <childElements>
+                        <isActive>true</isActive>
+                        <isOmniScriptEmbeddable>false</isOmniScriptEmbeddable>
+                        <level>4.0</level>
+                        <name>NewACTEnglishScore</name>
+                        <omniProcessVersionNumber>0.0</omniProcessVersionNumber>
+                        <propertySetConfig>{
+  &quot;autocomplete&quot; : null,
+  &quot;disOnTplt&quot; : false,
+  &quot;hide&quot; : false,
+  &quot;HTMLTemplateId&quot; : &quot;&quot;,
+  &quot;debounceValue&quot; : 0,
+  &quot;accessibleInFutureSteps&quot; : false,
+  &quot;conditionType&quot; : &quot;Hide if False&quot;,
+  &quot;show&quot; : null,
+  &quot;mask&quot; : null,
+  &quot;placeholder&quot; : &quot;&quot;,
+  &quot;ptrnErrText&quot; : &quot;&quot;,
+  &quot;pattern&quot; : &quot;&quot;,
+  &quot;helpTextPos&quot; : &quot;&quot;,
+  &quot;helpText&quot; : &quot;&quot;,
+  &quot;help&quot; : false,
+  &quot;defaultValue&quot; : null,
+  &quot;readOnly&quot; : false,
+  &quot;repeatLimit&quot; : null,
+  &quot;repeatClone&quot; : false,
+  &quot;repeat&quot; : false,
+  &quot;required&quot; : false,
+  &quot;inputWidth&quot; : 12,
+  &quot;showInputWidth&quot; : false,
+  &quot;label&quot; : &quot;English Score&quot;,
+  &quot;controlWidth&quot; : 12
+}</propertySetConfig>
+                        <sequenceNumber>2.0</sequenceNumber>
+                        <type>Number</type>
+                    </childElements>
+                    <childElements>
+                        <isActive>true</isActive>
+                        <isOmniScriptEmbeddable>false</isOmniScriptEmbeddable>
+                        <level>4.0</level>
+                        <name>NewACTMathematicsScore</name>
+                        <omniProcessVersionNumber>0.0</omniProcessVersionNumber>
+                        <propertySetConfig>{
+  &quot;controlWidth&quot; : 12,
+  &quot;label&quot; : &quot;Mathematics Score&quot;,
+  &quot;showInputWidth&quot; : false,
+  &quot;inputWidth&quot; : 12,
+  &quot;required&quot; : false,
+  &quot;repeat&quot; : false,
+  &quot;repeatClone&quot; : false,
+  &quot;repeatLimit&quot; : null,
+  &quot;readOnly&quot; : false,
+  &quot;defaultValue&quot; : null,
+  &quot;help&quot; : false,
+  &quot;helpText&quot; : &quot;&quot;,
+  &quot;helpTextPos&quot; : &quot;&quot;,
+  &quot;pattern&quot; : &quot;&quot;,
+  &quot;ptrnErrText&quot; : &quot;&quot;,
+  &quot;placeholder&quot; : &quot;&quot;,
+  &quot;mask&quot; : null,
+  &quot;show&quot; : null,
+  &quot;conditionType&quot; : &quot;Hide if False&quot;,
+  &quot;accessibleInFutureSteps&quot; : false,
+  &quot;debounceValue&quot; : 0,
+  &quot;HTMLTemplateId&quot; : &quot;&quot;,
+  &quot;hide&quot; : false,
+  &quot;disOnTplt&quot; : false,
+  &quot;autocomplete&quot; : null
+}</propertySetConfig>
+                        <sequenceNumber>3.0</sequenceNumber>
+                        <type>Number</type>
+                    </childElements>
+                    <childElements>
+                        <isActive>true</isActive>
+                        <isOmniScriptEmbeddable>false</isOmniScriptEmbeddable>
+                        <level>4.0</level>
+                        <name>NewACTReadingScore</name>
+                        <omniProcessVersionNumber>0.0</omniProcessVersionNumber>
+                        <propertySetConfig>{
+  &quot;controlWidth&quot; : 12,
+  &quot;label&quot; : &quot;Reading Score&quot;,
+  &quot;showInputWidth&quot; : false,
+  &quot;inputWidth&quot; : 12,
+  &quot;required&quot; : false,
+  &quot;repeat&quot; : false,
+  &quot;repeatClone&quot; : false,
+  &quot;repeatLimit&quot; : null,
+  &quot;readOnly&quot; : false,
+  &quot;defaultValue&quot; : null,
+  &quot;help&quot; : false,
+  &quot;helpText&quot; : &quot;&quot;,
+  &quot;helpTextPos&quot; : &quot;&quot;,
+  &quot;pattern&quot; : &quot;&quot;,
+  &quot;ptrnErrText&quot; : &quot;&quot;,
+  &quot;placeholder&quot; : &quot;&quot;,
+  &quot;mask&quot; : null,
+  &quot;show&quot; : null,
+  &quot;conditionType&quot; : &quot;Hide if False&quot;,
+  &quot;accessibleInFutureSteps&quot; : false,
+  &quot;debounceValue&quot; : 0,
+  &quot;HTMLTemplateId&quot; : &quot;&quot;,
+  &quot;hide&quot; : false,
+  &quot;disOnTplt&quot; : false,
+  &quot;autocomplete&quot; : null
+}</propertySetConfig>
+                        <sequenceNumber>4.0</sequenceNumber>
+                        <type>Number</type>
+                    </childElements>
+                    <childElements>
+                        <isActive>true</isActive>
+                        <isOmniScriptEmbeddable>false</isOmniScriptEmbeddable>
+                        <level>4.0</level>
+                        <name>NewACTScienceScore</name>
+                        <omniProcessVersionNumber>0.0</omniProcessVersionNumber>
+                        <propertySetConfig>{
+  &quot;autocomplete&quot; : null,
+  &quot;disOnTplt&quot; : false,
+  &quot;hide&quot; : false,
+  &quot;HTMLTemplateId&quot; : &quot;&quot;,
+  &quot;debounceValue&quot; : 0,
+  &quot;accessibleInFutureSteps&quot; : false,
+  &quot;conditionType&quot; : &quot;Hide if False&quot;,
+  &quot;show&quot; : null,
+  &quot;mask&quot; : null,
+  &quot;placeholder&quot; : &quot;&quot;,
+  &quot;ptrnErrText&quot; : &quot;&quot;,
+  &quot;pattern&quot; : &quot;&quot;,
+  &quot;helpTextPos&quot; : &quot;&quot;,
+  &quot;helpText&quot; : &quot;&quot;,
+  &quot;help&quot; : false,
+  &quot;defaultValue&quot; : null,
+  &quot;readOnly&quot; : false,
+  &quot;repeatLimit&quot; : null,
+  &quot;repeatClone&quot; : false,
+  &quot;repeat&quot; : false,
+  &quot;required&quot; : false,
+  &quot;inputWidth&quot; : 12,
+  &quot;showInputWidth&quot; : false,
+  &quot;label&quot; : &quot;Science Score&quot;,
+  &quot;controlWidth&quot; : 12
+}</propertySetConfig>
+                        <sequenceNumber>5.0</sequenceNumber>
+                        <type>Number</type>
+                    </childElements>
+                    <childElements>
+                        <isActive>true</isActive>
+                        <isOmniScriptEmbeddable>false</isOmniScriptEmbeddable>
+                        <level>4.0</level>
+                        <name>NewACTTestDate</name>
+                        <omniProcessVersionNumber>0.0</omniProcessVersionNumber>
+                        <propertySetConfig>{
+  &quot;maxDate&quot; : &quot;&quot;,
+  &quot;minDate&quot; : &quot;&quot;,
+  &quot;disOnTplt&quot; : false,
+  &quot;hide&quot; : false,
+  &quot;HTMLTemplateId&quot; : &quot;&quot;,
+  &quot;accessibleInFutureSteps&quot; : false,
+  &quot;conditionType&quot; : &quot;Hide if False&quot;,
+  &quot;show&quot; : null,
+  &quot;dateFormat&quot; : &quot;MM-dd-yyyy&quot;,
+  &quot;modelDateFormat&quot; : &quot;yyyy-MM-dd&quot;,
+  &quot;dateType&quot; : &quot;string&quot;,
+  &quot;helpTextPos&quot; : &quot;&quot;,
+  &quot;helpText&quot; : &quot;&quot;,
+  &quot;help&quot; : false,
+  &quot;defaultValue&quot; : null,
+  &quot;readOnly&quot; : false,
+  &quot;repeatLimit&quot; : null,
+  &quot;repeatClone&quot; : false,
+  &quot;repeat&quot; : false,
+  &quot;required&quot; : false,
+  &quot;inputWidth&quot; : 12,
+  &quot;showInputWidth&quot; : false,
+  &quot;label&quot; : &quot;Test Date&quot;,
+  &quot;controlWidth&quot; : 12
+}</propertySetConfig>
+                        <sequenceNumber>0.0</sequenceNumber>
+                        <type>Date</type>
+                    </childElements>
+                    <childElements>
+                        <isActive>true</isActive>
+                        <isOmniScriptEmbeddable>false</isOmniScriptEmbeddable>
+                        <level>4.0</level>
+                        <name>NewACTWritingScore</name>
+                        <omniProcessVersionNumber>0.0</omniProcessVersionNumber>
+                        <propertySetConfig>{
+  &quot;controlWidth&quot; : 12,
+  &quot;label&quot; : &quot;Writing Score&quot;,
+  &quot;showInputWidth&quot; : false,
+  &quot;inputWidth&quot; : 12,
+  &quot;required&quot; : false,
+  &quot;repeat&quot; : false,
+  &quot;repeatClone&quot; : false,
+  &quot;repeatLimit&quot; : null,
+  &quot;readOnly&quot; : false,
+  &quot;defaultValue&quot; : null,
+  &quot;help&quot; : false,
+  &quot;helpText&quot; : &quot;&quot;,
+  &quot;helpTextPos&quot; : &quot;&quot;,
+  &quot;pattern&quot; : &quot;&quot;,
+  &quot;ptrnErrText&quot; : &quot;&quot;,
+  &quot;placeholder&quot; : &quot;&quot;,
+  &quot;mask&quot; : null,
+  &quot;show&quot; : null,
+  &quot;conditionType&quot; : &quot;Hide if False&quot;,
+  &quot;accessibleInFutureSteps&quot; : false,
+  &quot;debounceValue&quot; : 0,
+  &quot;HTMLTemplateId&quot; : &quot;&quot;,
+  &quot;hide&quot; : false,
+  &quot;disOnTplt&quot; : false,
+  &quot;autocomplete&quot; : null
+}</propertySetConfig>
+                        <sequenceNumber>6.0</sequenceNumber>
+                        <type>Number</type>
+                    </childElements>
+                    <isActive>true</isActive>
+                    <isOmniScriptEmbeddable>false</isOmniScriptEmbeddable>
+                    <level>3.0</level>
+                    <name>NewACTTestResultsForm</name>
+                    <omniProcessVersionNumber>0.0</omniProcessVersionNumber>
+                    <propertySetConfig>{
+  &quot;controlWidth&quot; : 12,
+  &quot;label&quot; : &quot;ACT Test Score&quot;,
+  &quot;collapse&quot; : false,
+  &quot;repeat&quot; : true,
+  &quot;repeatClone&quot; : false,
+  &quot;repeatLimit&quot; : null,
+  &quot;show&quot; : null,
+  &quot;conditionType&quot; : &quot;Hide if False&quot;,
+  &quot;accessibleInFutureSteps&quot; : false,
+  &quot;HTMLTemplateId&quot; : &quot;&quot;,
+  &quot;hide&quot; : false
+}</propertySetConfig>
+                    <sequenceNumber>1.0</sequenceNumber>
+                    <type>Block</type>
+                </childElements>
+                <isActive>true</isActive>
+                <isOmniScriptEmbeddable>false</isOmniScriptEmbeddable>
+                <level>2.0</level>
+                <name>NewACTTestResultsBlock</name>
+                <omniProcessVersionNumber>0.0</omniProcessVersionNumber>
+                <propertySetConfig>{
+  &quot;controlWidth&quot; : 12,
+  &quot;label&quot; : &quot;Updated Data&quot;,
+  &quot;collapse&quot; : false,
+  &quot;repeat&quot; : false,
+  &quot;repeatClone&quot; : false,
+  &quot;repeatLimit&quot; : null,
+  &quot;show&quot; : {
+    &quot;group&quot; : {
+      &quot;operator&quot; : &quot;AND&quot;,
+      &quot;rules&quot; : [ {
+        &quot;data&quot; : &quot;Yes&quot;,
+        &quot;condition&quot; : &quot;=&quot;,
+        &quot;field&quot; : &quot;ACTTestResultsIncomplete&quot;
+      } ]
+    }
+  },
+  &quot;conditionType&quot; : &quot;Hide if False&quot;,
+  &quot;accessibleInFutureSteps&quot; : false,
+  &quot;HTMLTemplateId&quot; : &quot;&quot;,
+  &quot;hide&quot; : false
+}</propertySetConfig>
+                <sequenceNumber>3.0</sequenceNumber>
+                <type>Block</type>
+            </childElements>
+            <isActive>true</isActive>
+            <isOmniScriptEmbeddable>false</isOmniScriptEmbeddable>
+            <level>1.0</level>
+            <name>ACTBlock</name>
+            <omniProcessVersionNumber>0.0</omniProcessVersionNumber>
+            <propertySetConfig>{
+  &quot;controlWidth&quot; : 12,
+  &quot;label&quot; : &quot;ACT Information&quot;,
+  &quot;collapse&quot; : false,
+  &quot;repeat&quot; : false,
+  &quot;repeatClone&quot; : false,
+  &quot;repeatLimit&quot; : null,
+  &quot;show&quot; : {
+    &quot;group&quot; : {
+      &quot;operator&quot; : &quot;OR&quot;,
+      &quot;rules&quot; : [ {
+        &quot;data&quot; : &quot;ACT&quot;,
+        &quot;condition&quot; : &quot;=&quot;,
+        &quot;field&quot; : &quot;TestResultsTestSelect&quot;
+      }, {
+        &quot;field&quot; : &quot;TestResultsTestSelect&quot;,
+        &quot;condition&quot; : &quot;=&quot;,
+        &quot;data&quot; : &quot;ACT;SAT&quot;
+      } ]
+    }
+  },
+  &quot;conditionType&quot; : &quot;Hide if False&quot;,
+  &quot;accessibleInFutureSteps&quot; : false,
+  &quot;HTMLTemplateId&quot; : &quot;&quot;,
+  &quot;hide&quot; : false
+}</propertySetConfig>
+            <sequenceNumber>2.0</sequenceNumber>
+            <type>Block</type>
+        </childElements>
+        <childElements>
+            <childElements>
+                <isActive>true</isActive>
+                <isOmniScriptEmbeddable>false</isOmniScriptEmbeddable>
+                <level>2.0</level>
+                <name>LeavingExamBoard</name>
+                <omniProcessVersionNumber>0.0</omniProcessVersionNumber>
+                <propertySetConfig>{
+  &quot;controlWidth&quot; : 12,
+  &quot;label&quot; : &quot;Examination Board&quot;,
+  &quot;showInputWidth&quot; : false,
+  &quot;inputWidth&quot; : 12,
+  &quot;required&quot; : false,
+  &quot;repeat&quot; : false,
+  &quot;repeatClone&quot; : false,
+  &quot;repeatLimit&quot; : null,
+  &quot;readOnly&quot; : false,
+  &quot;defaultValue&quot; : null,
+  &quot;help&quot; : false,
+  &quot;helpText&quot; : &quot;&quot;,
+  &quot;helpTextPos&quot; : &quot;&quot;,
+  &quot;options&quot; : [ ],
+  &quot;optionSource&quot; : {
+    &quot;type&quot; : &quot;SObject&quot;,
+    &quot;source&quot; : &quot;PersonExamination.InstitutionName&quot;
+  },
+  &quot;controllingField&quot; : {
+    &quot;element&quot; : &quot;&quot;,
+    &quot;type&quot; : &quot;&quot;,
+    &quot;source&quot; : &quot;&quot;
+  },
+  &quot;show&quot; : null,
+  &quot;conditionType&quot; : &quot;Hide if False&quot;,
+  &quot;accessibleInFutureSteps&quot; : false,
+  &quot;HTMLTemplateId&quot; : &quot;&quot;,
+  &quot;hide&quot; : false,
+  &quot;disOnTplt&quot; : false
+}</propertySetConfig>
+                <sequenceNumber>1.0</sequenceNumber>
+                <type>Select</type>
+            </childElements>
+            <childElements>
+                <isActive>true</isActive>
+                <isOmniScriptEmbeddable>false</isOmniScriptEmbeddable>
+                <level>2.0</level>
+                <name>LeavingExamDate</name>
+                <omniProcessVersionNumber>0.0</omniProcessVersionNumber>
+                <propertySetConfig>{
+  &quot;controlWidth&quot; : 12,
+  &quot;label&quot; : &quot;Test Date&quot;,
+  &quot;showInputWidth&quot; : false,
+  &quot;inputWidth&quot; : 12,
+  &quot;required&quot; : false,
+  &quot;repeat&quot; : false,
+  &quot;repeatClone&quot; : false,
+  &quot;repeatLimit&quot; : null,
+  &quot;readOnly&quot; : false,
+  &quot;defaultValue&quot; : null,
+  &quot;help&quot; : false,
+  &quot;helpText&quot; : &quot;&quot;,
+  &quot;helpTextPos&quot; : &quot;&quot;,
+  &quot;dateType&quot; : &quot;string&quot;,
+  &quot;modelDateFormat&quot; : &quot;yyyy-MM-dd&quot;,
+  &quot;dateFormat&quot; : &quot;MM-dd-yyyy&quot;,
+  &quot;show&quot; : null,
+  &quot;conditionType&quot; : &quot;Hide if False&quot;,
+  &quot;accessibleInFutureSteps&quot; : false,
+  &quot;HTMLTemplateId&quot; : &quot;&quot;,
+  &quot;hide&quot; : false,
+  &quot;disOnTplt&quot; : false,
+  &quot;minDate&quot; : &quot;&quot;,
+  &quot;maxDate&quot; : &quot;&quot;
+}</propertySetConfig>
+                <sequenceNumber>0.0</sequenceNumber>
+                <type>Date</type>
+            </childElements>
+            <childElements>
+                <isActive>true</isActive>
+                <isOmniScriptEmbeddable>false</isOmniScriptEmbeddable>
+                <level>2.0</level>
+                <name>LeavingExamScore</name>
+                <omniProcessVersionNumber>0.0</omniProcessVersionNumber>
+                <propertySetConfig>{
+  &quot;controlWidth&quot; : 12,
+  &quot;label&quot; : &quot;Score&quot;,
+  &quot;showInputWidth&quot; : false,
+  &quot;inputWidth&quot; : 12,
+  &quot;required&quot; : false,
+  &quot;repeat&quot; : false,
+  &quot;repeatClone&quot; : false,
+  &quot;repeatLimit&quot; : null,
+  &quot;readOnly&quot; : false,
+  &quot;defaultValue&quot; : null,
+  &quot;help&quot; : false,
+  &quot;helpText&quot; : &quot;&quot;,
+  &quot;helpTextPos&quot; : &quot;&quot;,
+  &quot;mask&quot; : &quot;&quot;,
+  &quot;pattern&quot; : &quot;&quot;,
+  &quot;ptrnErrText&quot; : &quot;&quot;,
+  &quot;placeholder&quot; : &quot;&quot;,
+  &quot;show&quot; : null,
+  &quot;conditionType&quot; : &quot;Hide if False&quot;,
+  &quot;accessibleInFutureSteps&quot; : false,
+  &quot;debounceValue&quot; : 0,
+  &quot;HTMLTemplateId&quot; : &quot;&quot;,
+  &quot;hide&quot; : false,
+  &quot;disOnTplt&quot; : false,
+  &quot;autocomplete&quot; : null
+}</propertySetConfig>
+                <sequenceNumber>3.0</sequenceNumber>
+                <type>Number</type>
+            </childElements>
+            <childElements>
+                <isActive>true</isActive>
+                <isOmniScriptEmbeddable>false</isOmniScriptEmbeddable>
+                <level>2.0</level>
+                <name>LeavingExamScoreType</name>
+                <omniProcessVersionNumber>0.0</omniProcessVersionNumber>
+                <propertySetConfig>{
+  &quot;controlWidth&quot; : 12,
+  &quot;label&quot; : &quot;Score Type&quot;,
+  &quot;required&quot; : false,
+  &quot;repeat&quot; : false,
+  &quot;repeatClone&quot; : false,
+  &quot;repeatLimit&quot; : null,
+  &quot;readOnly&quot; : false,
+  &quot;horizontalMode&quot; : false,
+  &quot;defaultValue&quot; : null,
+  &quot;help&quot; : false,
+  &quot;helpText&quot; : &quot;&quot;,
+  &quot;helpTextPos&quot; : &quot;&quot;,
+  &quot;options&quot; : [ {
+    &quot;name&quot; : &quot;Actual&quot;,
+    &quot;developerName&quot; : null,
+    &quot;value&quot; : &quot;Actual&quot;,
+    &quot;autoAdv&quot; : null
+  }, {
+    &quot;name&quot; : &quot;Predicted&quot;,
+    &quot;developerName&quot; : null,
+    &quot;value&quot; : &quot;Predicted&quot;,
+    &quot;autoAdv&quot; : null
+  } ],
+  &quot;optionSource&quot; : {
+    &quot;type&quot; : &quot;&quot;,
+    &quot;source&quot; : &quot;&quot;
+  },
+  &quot;controllingField&quot; : {
+    &quot;element&quot; : &quot;&quot;,
+    &quot;type&quot; : &quot;&quot;,
+    &quot;source&quot; : &quot;&quot;
+  },
+  &quot;show&quot; : null,
+  &quot;conditionType&quot; : &quot;Hide if False&quot;,
+  &quot;accessibleInFutureSteps&quot; : false,
+  &quot;HTMLTemplateId&quot; : &quot;&quot;,
+  &quot;hide&quot; : false,
+  &quot;optionWidth&quot; : 100,
+  &quot;optionHeight&quot; : 100,
+  &quot;imageCountInRow&quot; : 3,
+  &quot;enableCaption&quot; : true,
+  &quot;disOnTplt&quot; : false
+}</propertySetConfig>
+                <sequenceNumber>4.0</sequenceNumber>
+                <type>Radio</type>
+            </childElements>
+            <childElements>
+                <isActive>true</isActive>
+                <isOmniScriptEmbeddable>false</isOmniScriptEmbeddable>
+                <level>2.0</level>
+                <name>LeavingExamSubject</name>
+                <omniProcessVersionNumber>0.0</omniProcessVersionNumber>
+                <propertySetConfig>{
+  &quot;disOnTplt&quot; : false,
+  &quot;hide&quot; : false,
+  &quot;HTMLTemplateId&quot; : &quot;&quot;,
+  &quot;accessibleInFutureSteps&quot; : false,
+  &quot;conditionType&quot; : &quot;Hide if False&quot;,
+  &quot;show&quot; : null,
+  &quot;controllingField&quot; : {
+    &quot;source&quot; : &quot;&quot;,
+    &quot;type&quot; : &quot;&quot;,
+    &quot;element&quot; : &quot;&quot;
+  },
+  &quot;optionSource&quot; : {
+    &quot;source&quot; : &quot;PersonExamination.SubjectName&quot;,
+    &quot;type&quot; : &quot;SObject&quot;
+  },
+  &quot;options&quot; : [ ],
+  &quot;helpTextPos&quot; : &quot;&quot;,
+  &quot;helpText&quot; : &quot;&quot;,
+  &quot;help&quot; : false,
+  &quot;defaultValue&quot; : null,
+  &quot;readOnly&quot; : false,
+  &quot;repeatLimit&quot; : null,
+  &quot;repeatClone&quot; : false,
+  &quot;repeat&quot; : false,
+  &quot;required&quot; : false,
+  &quot;inputWidth&quot; : 12,
+  &quot;showInputWidth&quot; : false,
+  &quot;label&quot; : &quot;Academic Subject&quot;,
+  &quot;controlWidth&quot; : 12
+}</propertySetConfig>
+                <sequenceNumber>2.0</sequenceNumber>
+                <type>Select</type>
+            </childElements>
+            <isActive>true</isActive>
+            <isOmniScriptEmbeddable>false</isOmniScriptEmbeddable>
+            <level>1.0</level>
+            <name>LeavingExamForm</name>
+            <omniProcessVersionNumber>0.0</omniProcessVersionNumber>
+            <propertySetConfig>{
+  &quot;controlWidth&quot; : 12,
+  &quot;label&quot; : &quot;Senior Secondary Leaving Examination&quot;,
+  &quot;collapse&quot; : false,
+  &quot;repeat&quot; : true,
+  &quot;repeatClone&quot; : false,
+  &quot;repeatLimit&quot; : null,
+  &quot;show&quot; : {
+    &quot;group&quot; : {
+      &quot;operator&quot; : &quot;AND&quot;,
+      &quot;rules&quot; : [ {
+        &quot;data&quot; : &quot;Yes&quot;,
+        &quot;condition&quot; : &quot;=&quot;,
+        &quot;field&quot; : &quot;TestResultsLeavingExam&quot;
+      } ]
+    }
+  },
+  &quot;conditionType&quot; : &quot;Hide if False&quot;,
+  &quot;accessibleInFutureSteps&quot; : false,
+  &quot;HTMLTemplateId&quot; : &quot;&quot;,
+  &quot;hide&quot; : false
+}</propertySetConfig>
+            <sequenceNumber>6.0</sequenceNumber>
+            <type>Block</type>
+        </childElements>
+        <childElements>
+            <childElements>
+                <isActive>true</isActive>
+                <isOmniScriptEmbeddable>false</isOmniScriptEmbeddable>
+                <level>2.0</level>
+                <name>KnownSATTestResultsCard</name>
+                <omniProcessVersionNumber>0.0</omniProcessVersionNumber>
+                <propertySetConfig>{
+  &quot;customAttributes&quot; : [ {
+    &quot;name&quot; : &quot;parent-attribute&quot;,
+    &quot;source&quot; : &quot;%SATFlexcardAttributes%&quot;
+  } ],
+  &quot;bStandalone&quot; : false,
+  &quot;lwcName&quot; : &quot;cfEDUAdmissionsApplicantTestResultHistory&quot;,
+  &quot;hide&quot; : false,
+  &quot;conditionType&quot; : &quot;Hide if False&quot;,
+  &quot;show&quot; : null,
+  &quot;label&quot; : &quot;Known SAT Test  Card&quot;,
+  &quot;controlWidth&quot; : 12
+}</propertySetConfig>
+                <sequenceNumber>1.0</sequenceNumber>
+                <type>Custom Lightning Web Component</type>
+            </childElements>
+            <childElements>
+                <isActive>true</isActive>
+                <isOmniScriptEmbeddable>false</isOmniScriptEmbeddable>
+                <level>2.0</level>
+                <name>KnownSATTestResultsInstructions</name>
+                <omniProcessVersionNumber>0.0</omniProcessVersionNumber>
+                <propertySetConfig>{
+  &quot;controlWidth&quot; : 12,
+  &quot;label&quot; : &quot;Known SAT Instructions&quot;,
+  &quot;text&quot; : &quot;&lt;p&gt;If you previously shared information related to this section, we populated it for you.&lt;/p&gt;&quot;,
+  &quot;show&quot; : null,
+  &quot;dataJSON&quot; : false,
+  &quot;HTMLTemplateId&quot; : &quot;&quot;,
+  &quot;textKey&quot; : &quot;&quot;,
+  &quot;sanitize&quot; : false
+}</propertySetConfig>
+                <sequenceNumber>0.0</sequenceNumber>
+                <type>Text Block</type>
+            </childElements>
+            <childElements>
+                <childElements>
+                    <isActive>true</isActive>
+                    <isOmniScriptEmbeddable>false</isOmniScriptEmbeddable>
+                    <level>3.0</level>
+                    <name>NewSATTestResultsBlockHeader</name>
+                    <omniProcessVersionNumber>0.0</omniProcessVersionNumber>
+                    <propertySetConfig>{
+  &quot;sanitize&quot; : false,
+  &quot;textKey&quot; : &quot;&quot;,
+  &quot;HTMLTemplateId&quot; : &quot;&quot;,
+  &quot;dataJSON&quot; : false,
+  &quot;show&quot; : null,
+  &quot;text&quot; : &quot;&lt;p&gt;Use this form to address any incorrect or missing data.&lt;/p&gt;&quot;,
+  &quot;label&quot; : &quot;New SAT Block Header&quot;,
+  &quot;controlWidth&quot; : 12
+}</propertySetConfig>
+                    <sequenceNumber>0.0</sequenceNumber>
+                    <type>Text Block</type>
+                </childElements>
+                <childElements>
+                    <childElements>
+                        <isActive>true</isActive>
+                        <isOmniScriptEmbeddable>false</isOmniScriptEmbeddable>
+                        <level>4.0</level>
+                        <name>NewSATCombinedEssayScore</name>
+                        <omniProcessVersionNumber>0.0</omniProcessVersionNumber>
+                        <propertySetConfig>{
+  &quot;autocomplete&quot; : null,
+  &quot;disOnTplt&quot; : false,
+  &quot;hide&quot; : false,
+  &quot;HTMLTemplateId&quot; : &quot;&quot;,
+  &quot;debounceValue&quot; : 0,
+  &quot;accessibleInFutureSteps&quot; : false,
+  &quot;conditionType&quot; : &quot;Hide if False&quot;,
+  &quot;show&quot; : null,
+  &quot;mask&quot; : null,
+  &quot;placeholder&quot; : &quot;&quot;,
+  &quot;ptrnErrText&quot; : &quot;&quot;,
+  &quot;pattern&quot; : &quot;&quot;,
+  &quot;helpTextPos&quot; : &quot;&quot;,
+  &quot;helpText&quot; : &quot;&quot;,
+  &quot;help&quot; : false,
+  &quot;defaultValue&quot; : null,
+  &quot;readOnly&quot; : false,
+  &quot;repeatLimit&quot; : null,
+  &quot;repeatClone&quot; : false,
+  &quot;repeat&quot; : false,
+  &quot;required&quot; : false,
+  &quot;inputWidth&quot; : 12,
+  &quot;showInputWidth&quot; : false,
+  &quot;label&quot; : &quot;Combined Essay Score&quot;,
+  &quot;controlWidth&quot; : 12
+}</propertySetConfig>
+                        <sequenceNumber>3.0</sequenceNumber>
+                        <type>Number</type>
+                    </childElements>
+                    <childElements>
+                        <isActive>true</isActive>
+                        <isOmniScriptEmbeddable>false</isOmniScriptEmbeddable>
+                        <level>4.0</level>
+                        <name>NewSATMathematicsScore</name>
+                        <omniProcessVersionNumber>0.0</omniProcessVersionNumber>
+                        <propertySetConfig>{
+  &quot;autocomplete&quot; : null,
+  &quot;disOnTplt&quot; : false,
+  &quot;hide&quot; : false,
+  &quot;HTMLTemplateId&quot; : &quot;&quot;,
+  &quot;debounceValue&quot; : 0,
+  &quot;accessibleInFutureSteps&quot; : false,
+  &quot;conditionType&quot; : &quot;Hide if False&quot;,
+  &quot;show&quot; : null,
+  &quot;mask&quot; : null,
+  &quot;placeholder&quot; : &quot;&quot;,
+  &quot;ptrnErrText&quot; : &quot;&quot;,
+  &quot;pattern&quot; : &quot;&quot;,
+  &quot;helpTextPos&quot; : &quot;&quot;,
+  &quot;helpText&quot; : &quot;&quot;,
+  &quot;help&quot; : false,
+  &quot;defaultValue&quot; : null,
+  &quot;readOnly&quot; : false,
+  &quot;repeatLimit&quot; : null,
+  &quot;repeatClone&quot; : false,
+  &quot;repeat&quot; : false,
+  &quot;required&quot; : false,
+  &quot;inputWidth&quot; : 12,
+  &quot;showInputWidth&quot; : false,
+  &quot;label&quot; : &quot;Mathematics Score&quot;,
+  &quot;controlWidth&quot; : 12
+}</propertySetConfig>
+                        <sequenceNumber>2.0</sequenceNumber>
+                        <type>Number</type>
+                    </childElements>
+                    <childElements>
+                        <isActive>true</isActive>
+                        <isOmniScriptEmbeddable>false</isOmniScriptEmbeddable>
+                        <level>4.0</level>
+                        <name>NewSATReadingWritingScore</name>
+                        <omniProcessVersionNumber>0.0</omniProcessVersionNumber>
+                        <propertySetConfig>{
+  &quot;controlWidth&quot; : 12,
+  &quot;label&quot; : &quot;Evidence-Based Reading and Writing Score&quot;,
+  &quot;showInputWidth&quot; : false,
+  &quot;inputWidth&quot; : 12,
+  &quot;required&quot; : false,
+  &quot;repeat&quot; : false,
+  &quot;repeatClone&quot; : false,
+  &quot;repeatLimit&quot; : null,
+  &quot;readOnly&quot; : false,
+  &quot;defaultValue&quot; : null,
+  &quot;help&quot; : false,
+  &quot;helpText&quot; : &quot;&quot;,
+  &quot;helpTextPos&quot; : &quot;&quot;,
+  &quot;pattern&quot; : &quot;&quot;,
+  &quot;ptrnErrText&quot; : &quot;&quot;,
+  &quot;placeholder&quot; : &quot;&quot;,
+  &quot;mask&quot; : null,
+  &quot;show&quot; : null,
+  &quot;conditionType&quot; : &quot;Hide if False&quot;,
+  &quot;accessibleInFutureSteps&quot; : false,
+  &quot;debounceValue&quot; : 0,
+  &quot;HTMLTemplateId&quot; : &quot;&quot;,
+  &quot;hide&quot; : false,
+  &quot;disOnTplt&quot; : false,
+  &quot;autocomplete&quot; : null
+}</propertySetConfig>
+                        <sequenceNumber>1.0</sequenceNumber>
+                        <type>Number</type>
+                    </childElements>
+                    <childElements>
+                        <isActive>true</isActive>
+                        <isOmniScriptEmbeddable>false</isOmniScriptEmbeddable>
+                        <level>4.0</level>
+                        <name>NewSATTestDate</name>
+                        <omniProcessVersionNumber>0.0</omniProcessVersionNumber>
+                        <propertySetConfig>{
+  &quot;controlWidth&quot; : 12,
+  &quot;label&quot; : &quot;Test Date&quot;,
+  &quot;showInputWidth&quot; : false,
+  &quot;inputWidth&quot; : 12,
+  &quot;required&quot; : false,
+  &quot;repeat&quot; : false,
+  &quot;repeatClone&quot; : false,
+  &quot;repeatLimit&quot; : null,
+  &quot;readOnly&quot; : false,
+  &quot;defaultValue&quot; : null,
+  &quot;help&quot; : false,
+  &quot;helpText&quot; : &quot;&quot;,
+  &quot;helpTextPos&quot; : &quot;&quot;,
+  &quot;dateType&quot; : &quot;string&quot;,
+  &quot;modelDateFormat&quot; : &quot;yyyy-MM-dd&quot;,
+  &quot;dateFormat&quot; : &quot;MM-dd-yyyy&quot;,
+  &quot;show&quot; : null,
+  &quot;conditionType&quot; : &quot;Hide if False&quot;,
+  &quot;accessibleInFutureSteps&quot; : false,
+  &quot;HTMLTemplateId&quot; : &quot;&quot;,
+  &quot;hide&quot; : false,
+  &quot;disOnTplt&quot; : false,
+  &quot;minDate&quot; : &quot;&quot;,
+  &quot;maxDate&quot; : &quot;&quot;
+}</propertySetConfig>
+                        <sequenceNumber>0.0</sequenceNumber>
+                        <type>Date</type>
+                    </childElements>
+                    <isActive>true</isActive>
+                    <isOmniScriptEmbeddable>false</isOmniScriptEmbeddable>
+                    <level>3.0</level>
+                    <name>NewSATTestResultsForm</name>
+                    <omniProcessVersionNumber>0.0</omniProcessVersionNumber>
+                    <propertySetConfig>{
+  &quot;hide&quot; : false,
+  &quot;HTMLTemplateId&quot; : &quot;&quot;,
+  &quot;accessibleInFutureSteps&quot; : false,
+  &quot;conditionType&quot; : &quot;Hide if False&quot;,
+  &quot;show&quot; : null,
+  &quot;repeatLimit&quot; : null,
+  &quot;repeatClone&quot; : false,
+  &quot;repeat&quot; : true,
+  &quot;collapse&quot; : false,
+  &quot;label&quot; : &quot;SAT Test Score&quot;,
+  &quot;controlWidth&quot; : 12
+}</propertySetConfig>
+                    <sequenceNumber>1.0</sequenceNumber>
+                    <type>Block</type>
+                </childElements>
+                <isActive>true</isActive>
+                <isOmniScriptEmbeddable>false</isOmniScriptEmbeddable>
+                <level>2.0</level>
+                <name>NewSATTestResultsBlock</name>
+                <omniProcessVersionNumber>0.0</omniProcessVersionNumber>
+                <propertySetConfig>{
+  &quot;hide&quot; : false,
+  &quot;HTMLTemplateId&quot; : &quot;&quot;,
+  &quot;accessibleInFutureSteps&quot; : false,
+  &quot;conditionType&quot; : &quot;Hide if False&quot;,
+  &quot;show&quot; : {
+    &quot;group&quot; : {
+      &quot;operator&quot; : &quot;AND&quot;,
+      &quot;rules&quot; : [ {
+        &quot;field&quot; : &quot;SATTestResultsIncomplete&quot;,
+        &quot;condition&quot; : &quot;=&quot;,
+        &quot;data&quot; : &quot;Yes&quot;
+      } ]
+    }
+  },
+  &quot;repeatLimit&quot; : null,
+  &quot;repeatClone&quot; : false,
+  &quot;repeat&quot; : false,
+  &quot;collapse&quot; : false,
+  &quot;label&quot; : &quot;Updated Data&quot;,
+  &quot;controlWidth&quot; : 12
+}</propertySetConfig>
+                <sequenceNumber>3.0</sequenceNumber>
+                <type>Block</type>
+            </childElements>
+            <childElements>
+                <isActive>true</isActive>
+                <isOmniScriptEmbeddable>false</isOmniScriptEmbeddable>
+                <level>2.0</level>
+                <name>SATTestResultsIncomplete</name>
+                <omniProcessVersionNumber>0.0</omniProcessVersionNumber>
+                <propertySetConfig>{
+  &quot;controlWidth&quot; : 12,
+  &quot;label&quot; : &quot;I need to add or update information in this section&quot;,
+  &quot;required&quot; : true,
+  &quot;repeat&quot; : false,
+  &quot;repeatClone&quot; : false,
+  &quot;repeatLimit&quot; : null,
+  &quot;readOnly&quot; : false,
+  &quot;horizontalMode&quot; : false,
+  &quot;defaultValue&quot; : &quot;No&quot;,
+  &quot;help&quot; : false,
+  &quot;helpText&quot; : &quot;&quot;,
+  &quot;helpTextPos&quot; : &quot;&quot;,
+  &quot;options&quot; : [ {
+    &quot;name&quot; : &quot;Yes&quot;,
+    &quot;developerName&quot; : null,
+    &quot;value&quot; : &quot;Yes&quot;,
+    &quot;autoAdv&quot; : null
+  }, {
+    &quot;name&quot; : &quot;No&quot;,
+    &quot;developerName&quot; : null,
+    &quot;value&quot; : &quot;No&quot;,
+    &quot;autoAdv&quot; : null
+  } ],
+  &quot;optionSource&quot; : {
+    &quot;type&quot; : &quot;&quot;,
+    &quot;source&quot; : &quot;&quot;
+  },
+  &quot;controllingField&quot; : {
+    &quot;element&quot; : &quot;&quot;,
+    &quot;type&quot; : &quot;&quot;,
+    &quot;source&quot; : &quot;&quot;
+  },
+  &quot;show&quot; : null,
+  &quot;conditionType&quot; : &quot;Hide if False&quot;,
+  &quot;accessibleInFutureSteps&quot; : false,
+  &quot;HTMLTemplateId&quot; : &quot;&quot;,
+  &quot;hide&quot; : false,
+  &quot;optionWidth&quot; : 100,
+  &quot;optionHeight&quot; : 100,
+  &quot;imageCountInRow&quot; : 3,
+  &quot;enableCaption&quot; : true,
+  &quot;disOnTplt&quot; : false
+}</propertySetConfig>
+                <sequenceNumber>2.0</sequenceNumber>
+                <type>Radio</type>
+            </childElements>
+            <isActive>true</isActive>
+            <isOmniScriptEmbeddable>false</isOmniScriptEmbeddable>
+            <level>1.0</level>
+            <name>SATBlock</name>
+            <omniProcessVersionNumber>0.0</omniProcessVersionNumber>
+            <propertySetConfig>{
+  &quot;hide&quot; : false,
+  &quot;HTMLTemplateId&quot; : &quot;&quot;,
+  &quot;accessibleInFutureSteps&quot; : false,
+  &quot;conditionType&quot; : &quot;Hide if False&quot;,
+  &quot;show&quot; : {
+    &quot;group&quot; : {
+      &quot;operator&quot; : &quot;OR&quot;,
+      &quot;rules&quot; : [ {
+        &quot;field&quot; : &quot;TestResultsTestSelect&quot;,
+        &quot;condition&quot; : &quot;=&quot;,
+        &quot;data&quot; : &quot;SAT&quot;
+      }, {
+        &quot;field&quot; : &quot;TestResultsTestSelect&quot;,
+        &quot;condition&quot; : &quot;=&quot;,
+        &quot;data&quot; : &quot;ACT;SAT&quot;
+      } ]
+    }
+  },
+  &quot;repeatLimit&quot; : null,
+  &quot;repeatClone&quot; : false,
+  &quot;repeat&quot; : false,
+  &quot;collapse&quot; : false,
+  &quot;label&quot; : &quot;SAT Information&quot;,
+  &quot;controlWidth&quot; : 12
+}</propertySetConfig>
+            <sequenceNumber>3.0</sequenceNumber>
+            <type>Block</type>
+        </childElements>
+        <childElements>
+            <isActive>true</isActive>
+            <isOmniScriptEmbeddable>false</isOmniScriptEmbeddable>
+            <level>1.0</level>
+            <name>TestResultsInternational</name>
+            <omniProcessVersionNumber>0.0</omniProcessVersionNumber>
+            <propertySetConfig>{
+  &quot;disOnTplt&quot; : false,
+  &quot;enableCaption&quot; : true,
+  &quot;imageCountInRow&quot; : 3,
+  &quot;optionHeight&quot; : 100,
+  &quot;optionWidth&quot; : 100,
+  &quot;hide&quot; : false,
+  &quot;HTMLTemplateId&quot; : &quot;&quot;,
+  &quot;accessibleInFutureSteps&quot; : false,
+  &quot;conditionType&quot; : &quot;Hide if False&quot;,
+  &quot;show&quot; : null,
+  &quot;controllingField&quot; : {
+    &quot;source&quot; : &quot;&quot;,
+    &quot;type&quot; : &quot;&quot;,
+    &quot;element&quot; : &quot;&quot;
+  },
+  &quot;optionSource&quot; : {
+    &quot;source&quot; : &quot;&quot;,
+    &quot;type&quot; : &quot;&quot;
+  },
+  &quot;options&quot; : [ {
+    &quot;name&quot; : &quot;Yes&quot;,
+    &quot;developerName&quot; : null,
+    &quot;value&quot; : &quot;Yes&quot;,
+    &quot;autoAdv&quot; : null
+  }, {
+    &quot;name&quot; : &quot;No&quot;,
+    &quot;developerName&quot; : null,
+    &quot;value&quot; : &quot;No&quot;,
+    &quot;autoAdv&quot; : null
+  } ],
+  &quot;helpTextPos&quot; : &quot;&quot;,
+  &quot;helpText&quot; : &quot;&quot;,
+  &quot;help&quot; : false,
+  &quot;defaultValue&quot; : &quot;No&quot;,
+  &quot;horizontalMode&quot; : false,
+  &quot;readOnly&quot; : false,
+  &quot;repeatLimit&quot; : null,
+  &quot;repeatClone&quot; : false,
+  &quot;repeat&quot; : false,
+  &quot;required&quot; : true,
+  &quot;label&quot; : &quot;Are you an international applicant?&quot;,
+  &quot;controlWidth&quot; : 12
+}</propertySetConfig>
+            <sequenceNumber>4.0</sequenceNumber>
+            <type>Radio</type>
+        </childElements>
+        <childElements>
+            <isActive>true</isActive>
+            <isOmniScriptEmbeddable>false</isOmniScriptEmbeddable>
+            <level>1.0</level>
+            <name>TestResultsLeavingExam</name>
+            <omniProcessVersionNumber>0.0</omniProcessVersionNumber>
+            <propertySetConfig>{
+  &quot;controlWidth&quot; : 12,
+  &quot;label&quot; : &quot;Promotion within my educational system is based on standard leaving examinations given by a state or national leaving examinations board&quot;,
+  &quot;required&quot; : true,
+  &quot;repeat&quot; : false,
+  &quot;repeatClone&quot; : false,
+  &quot;repeatLimit&quot; : null,
+  &quot;readOnly&quot; : false,
+  &quot;horizontalMode&quot; : false,
+  &quot;defaultValue&quot; : &quot;No&quot;,
+  &quot;help&quot; : false,
+  &quot;helpText&quot; : &quot;&quot;,
+  &quot;helpTextPos&quot; : &quot;&quot;,
+  &quot;options&quot; : [ {
+    &quot;autoAdv&quot; : null,
+    &quot;value&quot; : &quot;Yes&quot;,
+    &quot;developerName&quot; : null,
+    &quot;name&quot; : &quot;Yes&quot;
+  }, {
+    &quot;autoAdv&quot; : null,
+    &quot;value&quot; : &quot;No&quot;,
+    &quot;developerName&quot; : null,
+    &quot;name&quot; : &quot;No&quot;
+  } ],
+  &quot;optionSource&quot; : {
+    &quot;type&quot; : &quot;&quot;,
+    &quot;source&quot; : &quot;&quot;
+  },
+  &quot;controllingField&quot; : {
+    &quot;element&quot; : &quot;&quot;,
+    &quot;type&quot; : &quot;&quot;,
+    &quot;source&quot; : &quot;&quot;
+  },
+  &quot;show&quot; : {
+    &quot;group&quot; : {
+      &quot;operator&quot; : &quot;AND&quot;,
+      &quot;rules&quot; : [ {
+        &quot;data&quot; : &quot;Yes&quot;,
+        &quot;condition&quot; : &quot;=&quot;,
+        &quot;field&quot; : &quot;TestResultsInternational&quot;
+      } ]
+    }
+  },
+  &quot;conditionType&quot; : &quot;Hide if False&quot;,
+  &quot;accessibleInFutureSteps&quot; : false,
+  &quot;HTMLTemplateId&quot; : &quot;&quot;,
+  &quot;hide&quot; : false,
+  &quot;optionWidth&quot; : 100,
+  &quot;optionHeight&quot; : 100,
+  &quot;imageCountInRow&quot; : 3,
+  &quot;enableCaption&quot; : true,
+  &quot;disOnTplt&quot; : false
+}</propertySetConfig>
+            <sequenceNumber>5.0</sequenceNumber>
+            <type>Radio</type>
+        </childElements>
+        <childElements>
+            <isActive>true</isActive>
+            <isOmniScriptEmbeddable>false</isOmniScriptEmbeddable>
+            <level>1.0</level>
+            <name>TestResultsReportMore</name>
+            <omniProcessVersionNumber>0.0</omniProcessVersionNumber>
+            <propertySetConfig>{
+  &quot;controlWidth&quot; : 12,
+  &quot;label&quot; : &quot;Do you want to report additional scores or future test dates for standardized tests?&quot;,
+  &quot;required&quot; : true,
+  &quot;repeat&quot; : false,
+  &quot;repeatClone&quot; : false,
+  &quot;repeatLimit&quot; : null,
+  &quot;readOnly&quot; : false,
+  &quot;horizontalMode&quot; : false,
+  &quot;defaultValue&quot; : &quot;No&quot;,
+  &quot;help&quot; : false,
+  &quot;helpText&quot; : &quot;&quot;,
+  &quot;helpTextPos&quot; : &quot;&quot;,
+  &quot;options&quot; : [ {
+    &quot;name&quot; : &quot;Yes&quot;,
+    &quot;developerName&quot; : null,
+    &quot;value&quot; : &quot;Yes&quot;,
+    &quot;autoAdv&quot; : null
+  }, {
+    &quot;name&quot; : &quot;No&quot;,
+    &quot;developerName&quot; : null,
+    &quot;value&quot; : &quot;No&quot;,
+    &quot;autoAdv&quot; : null
+  } ],
+  &quot;optionSource&quot; : {
+    &quot;type&quot; : &quot;&quot;,
+    &quot;source&quot; : &quot;&quot;
+  },
+  &quot;controllingField&quot; : {
+    &quot;element&quot; : &quot;&quot;,
+    &quot;type&quot; : &quot;&quot;,
+    &quot;source&quot; : &quot;&quot;
+  },
+  &quot;show&quot; : null,
+  &quot;conditionType&quot; : &quot;Hide if False&quot;,
+  &quot;accessibleInFutureSteps&quot; : false,
+  &quot;HTMLTemplateId&quot; : &quot;&quot;,
+  &quot;hide&quot; : false,
+  &quot;optionWidth&quot; : 100,
+  &quot;optionHeight&quot; : 100,
+  &quot;imageCountInRow&quot; : 3,
+  &quot;enableCaption&quot; : true,
+  &quot;disOnTplt&quot; : false
+}</propertySetConfig>
+            <sequenceNumber>0.0</sequenceNumber>
+            <type>Radio</type>
+        </childElements>
+        <childElements>
+            <isActive>true</isActive>
+            <isOmniScriptEmbeddable>false</isOmniScriptEmbeddable>
+            <level>1.0</level>
+            <name>TestResultsTestSelect</name>
+            <omniProcessVersionNumber>0.0</omniProcessVersionNumber>
+            <propertySetConfig>{
+  &quot;controlWidth&quot; : 12,
+  &quot;label&quot; : &quot;Select the tests that you want to report&quot;,
+  &quot;required&quot; : false,
+  &quot;repeat&quot; : false,
+  &quot;repeatClone&quot; : false,
+  &quot;repeatLimit&quot; : null,
+  &quot;readOnly&quot; : false,
+  &quot;horizontalMode&quot; : false,
+  &quot;defaultValue&quot; : null,
+  &quot;help&quot; : false,
+  &quot;helpText&quot; : &quot;&quot;,
+  &quot;helpTextPos&quot; : &quot;&quot;,
+  &quot;options&quot; : [ {
+    &quot;name&quot; : &quot;ACT&quot;,
+    &quot;developerName&quot; : null,
+    &quot;value&quot; : &quot;ACT&quot;
+  }, {
+    &quot;name&quot; : &quot;SAT&quot;,
+    &quot;developerName&quot; : null,
+    &quot;value&quot; : &quot;SAT&quot;
+  } ],
+  &quot;optionSource&quot; : {
+    &quot;type&quot; : &quot;&quot;,
+    &quot;source&quot; : &quot;&quot;
+  },
+  &quot;controllingField&quot; : {
+    &quot;element&quot; : &quot;&quot;,
+    &quot;type&quot; : &quot;&quot;,
+    &quot;source&quot; : &quot;&quot;
+  },
+  &quot;show&quot; : {
+    &quot;group&quot; : {
+      &quot;operator&quot; : &quot;AND&quot;,
+      &quot;rules&quot; : [ {
+        &quot;data&quot; : &quot;Yes&quot;,
+        &quot;condition&quot; : &quot;=&quot;,
+        &quot;field&quot; : &quot;TestResultsReportMore&quot;
+      } ]
+    }
+  },
+  &quot;conditionType&quot; : &quot;Hide if False&quot;,
+  &quot;accessibleInFutureSteps&quot; : false,
+  &quot;HTMLTemplateId&quot; : &quot;&quot;,
+  &quot;hide&quot; : false,
+  &quot;optionWidth&quot; : 100,
+  &quot;optionHeight&quot; : 100,
+  &quot;imageCountInRow&quot; : 3,
+  &quot;enableCaption&quot; : true,
+  &quot;disOnTplt&quot; : false
+}</propertySetConfig>
+            <sequenceNumber>1.0</sequenceNumber>
+            <type>Multi-select</type>
+        </childElements>
+        <isActive>true</isActive>
+        <isOmniScriptEmbeddable>false</isOmniScriptEmbeddable>
+        <level>0.0</level>
+        <name>TestResults</name>
+        <omniProcessVersionNumber>0.0</omniProcessVersionNumber>
+        <propertySetConfig>{
+  &quot;label&quot; : &quot;Testing&quot;,
+  &quot;validationRequired&quot; : true,
+  &quot;previousLabel&quot; : &quot;Previous&quot;,
+  &quot;previousWidth&quot; : 3,
+  &quot;nextLabel&quot; : &quot;Next&quot;,
+  &quot;nextWidth&quot; : 3,
+  &quot;cancelLabel&quot; : &quot;Cancel&quot;,
+  &quot;cancelMessage&quot; : &quot;Are you sure?&quot;,
+  &quot;saveLabel&quot; : &quot;Save for later&quot;,
+  &quot;saveMessage&quot; : &quot;Are you sure you want to save it for later?&quot;,
+  &quot;completeLabel&quot; : &quot;Complete&quot;,
+  &quot;completeMessage&quot; : &quot;Are you sure you want to complete the script?&quot;,
+  &quot;instruction&quot; : &quot;&quot;,
+  &quot;showPersistentComponent&quot; : [ true, false ],
+  &quot;remoteClass&quot; : &quot;&quot;,
+  &quot;remoteMethod&quot; : &quot;&quot;,
+  &quot;remoteTimeout&quot; : 30000,
+  &quot;remoteOptions&quot; : { },
+  &quot;knowledgeOptions&quot; : {
+    &quot;language&quot; : &quot;English&quot;,
+    &quot;publishStatus&quot; : &quot;Online&quot;,
+    &quot;keyword&quot; : &quot;&quot;,
+    &quot;dataCategoryCriteria&quot; : &quot;&quot;,
+    &quot;remoteTimeout&quot; : 30000,
+    &quot;typeFilter&quot; : &quot;&quot;
+  },
+  &quot;show&quot; : null,
+  &quot;conditionType&quot; : &quot;Hide if False&quot;,
+  &quot;HTMLTemplateId&quot; : &quot;&quot;,
+  &quot;instructionKey&quot; : &quot;&quot;,
+  &quot;chartLabel&quot; : null,
+  &quot;allowSaveForLater&quot; : true,
+  &quot;errorMessage&quot; : {
+    &quot;custom&quot; : [ ],
+    &quot;default&quot; : null
+  },
+  &quot;wpm&quot; : false,
+  &quot;ssm&quot; : false,
+  &quot;message&quot; : { },
+  &quot;pubsub&quot; : false,
+  &quot;businessCategory&quot; : &quot;&quot;,
+  &quot;businessEvent&quot; : &quot;&quot;
+}</propertySetConfig>
+        <sequenceNumber>2.0</sequenceNumber>
+        <type>Step</type>
+    </omniProcessElements>
+    <omniProcessType>OmniScript</omniProcessType>
+    <overrideKey>eduadmissions__EDUAdmissions_NewTestResultSection_English_1</overrideKey>
+    <propertySetConfig>{&quot;persistentComponent&quot;:[{&quot;render&quot;:false,&quot;label&quot;:&quot;&quot;,&quot;remoteClass&quot;:&quot;&quot;,&quot;remoteMethod&quot;:&quot;&quot;,&quot;remoteTimeout&quot;:30000,&quot;remoteOptions&quot;:{&quot;preTransformBundle&quot;:&quot;&quot;,&quot;postTransformBundle&quot;:&quot;&quot;},&quot;preTransformBundle&quot;:&quot;&quot;,&quot;postTransformBundle&quot;:&quot;&quot;,&quot;sendJSONPath&quot;:&quot;&quot;,&quot;sendJSONNode&quot;:&quot;&quot;,&quot;responseJSONPath&quot;:&quot;&quot;,&quot;responseJSONNode&quot;:&quot;&quot;,&quot;id&quot;:&quot;vlcCart&quot;,&quot;itemsKey&quot;:&quot;cartItems&quot;,&quot;modalConfigurationSetting&quot;:{&quot;modalHTMLTemplateId&quot;:&quot;vlcProductConfig.html&quot;,&quot;modalController&quot;:&quot;ModalProductCtrl&quot;,&quot;modalSize&quot;:&quot;lg&quot;}},{&quot;render&quot;:false,&quot;dispOutsideOmni&quot;:false,&quot;label&quot;:&quot;&quot;,&quot;remoteClass&quot;:&quot;&quot;,&quot;remoteMethod&quot;:&quot;&quot;,&quot;remoteTimeout&quot;:30000,&quot;remoteOptions&quot;:{&quot;preTransformBundle&quot;:&quot;&quot;,&quot;postTransformBundle&quot;:&quot;&quot;},&quot;preTransformBundle&quot;:&quot;&quot;,&quot;postTransformBundle&quot;:&quot;&quot;,&quot;id&quot;:&quot;vlcKnowledge&quot;,&quot;itemsKey&quot;:&quot;knowledgeItems&quot;,&quot;modalConfigurationSetting&quot;:{&quot;modalHTMLTemplateId&quot;:&quot;&quot;,&quot;modalController&quot;:&quot;&quot;,&quot;modalSize&quot;:&quot;lg&quot;}}],&quot;allowSaveForLater&quot;:true,&quot;saveNameTemplate&quot;:&quot;%ContextId%-%timeStamp%&quot;,&quot;saveExpireInDays&quot;:-1,&quot;saveForLaterRedirectPageName&quot;:&quot;sflRedirect&quot;,&quot;saveForLaterRedirectTemplateUrl&quot;:&quot;vlcSaveForLaterAcknowledge.html&quot;,&quot;saveContentEncoded&quot;:false,&quot;saveObjectId&quot;:&quot;%ContextId%&quot;,&quot;saveURLPatterns&quot;:{},&quot;autoSaveOnStepNext&quot;:true,&quot;elementTypeToHTMLTemplateMapping&quot;:{},&quot;seedDataJSON&quot;:{},&quot;trackingCustomData&quot;:{},&quot;enableKnowledge&quot;:false,&quot;bLK&quot;:false,&quot;lkObjName&quot;:null,&quot;knowledgeArticleTypeQueryFieldsMap&quot;:{},&quot;timeTracking&quot;:false,&quot;hideStepChart&quot;:true,&quot;mergeSavedData&quot;:false,&quot;visualforcePagesAvailableInPreview&quot;:{},&quot;cancelType&quot;:&quot;SObject&quot;,&quot;allowCancel&quot;:true,&quot;cancelSource&quot;:&quot;%ContextId%&quot;,&quot;cancelRedirectPageName&quot;:&quot;OmniScriptCancelled&quot;,&quot;cancelRedirectTemplateUrl&quot;:&quot;vlcCancelled.html&quot;,&quot;consoleTabLabel&quot;:&quot;New&quot;,&quot;wpm&quot;:false,&quot;ssm&quot;:false,&quot;message&quot;:{},&quot;pubsub&quot;:false,&quot;autoFocus&quot;:false,&quot;currencyCode&quot;:&quot;&quot;,&quot;showInputWidth&quot;:false,&quot;rtpSeed&quot;:false,&quot;consoleTabTitle&quot;:null,&quot;consoleTabIcon&quot;:&quot;custom:custom18&quot;,&quot;errorMessage&quot;:{&quot;custom&quot;:[]},&quot;stylesheet&quot;:{&quot;newport&quot;:&quot;&quot;,&quot;lightning&quot;:&quot;&quot;,&quot;newportRtl&quot;:&quot;&quot;,&quot;lightningRtl&quot;:&quot;&quot;},&quot;stepChartPlacement&quot;:&quot;left&quot;,&quot;disableUnloadWarn&quot;:true,&quot;scrollBehavior&quot;:&quot;auto&quot;,&quot;currentLanguage&quot;:&quot;en_US&quot;}</propertySetConfig>
+    <subType>ClonedNewTestResultSection</subType>
+    <type>EDUAdmissions</type>
+    <uniqueName>EDUAdmissions_ClonedNewTestResultSection_English_1</uniqueName>
+    <versionNumber>1.0</versionNumber>
+    <webComponentKey>cde54966-8c1b-baa0-87bb-8dfc7d45fa10</webComponentKey>
+</OmniScript>

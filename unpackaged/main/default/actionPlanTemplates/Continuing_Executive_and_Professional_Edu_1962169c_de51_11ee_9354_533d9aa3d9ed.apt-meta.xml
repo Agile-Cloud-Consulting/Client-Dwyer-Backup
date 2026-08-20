@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ActionPlanTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionPlanTemplateItem>
+        <actionPlanTemplateItemValue>
+            <itemEntityType>IndividualApplicationTask</itemEntityType>
+            <name>Name</name>
+            <valueLiteral>Files</valueLiteral>
+        </actionPlanTemplateItemValue>
+        <actionPlanTemplateItemValue>
+            <itemEntityType>IndividualApplicationTask</itemEntityType>
+            <name>ApplicationStageDefinitionId</name>
+            <valueLiteral>13bal000000vdRKAAY</valueLiteral>
+        </actionPlanTemplateItemValue>
+        <displayOrder>2</displayOrder>
+        <isRequired>false</isRequired>
+        <itemEntityType>IndividualApplicationTask</itemEntityType>
+        <name>Files</name>
+        <uniqueName>Files_41b6087a_00f9_11ef_adcc_6f307101ef7c</uniqueName>
+    </actionPlanTemplateItem>
+    <actionPlanTemplateItem>
+        <actionPlanTemplateItemValue>
+            <itemEntityType>IndividualApplicationTask</itemEntityType>
+            <name>Name</name>
+            <valueLiteral>Profile</valueLiteral>
+        </actionPlanTemplateItemValue>
+        <actionPlanTemplateItemValue>
+            <itemEntityType>IndividualApplicationTask</itemEntityType>
+            <name>ApplicationStageDefinitionId</name>
+            <valueLiteral>13bal000000vdRFAAY</valueLiteral>
+        </actionPlanTemplateItemValue>
+        <displayOrder>1</displayOrder>
+        <isRequired>true</isRequired>
+        <itemEntityType>IndividualApplicationTask</itemEntityType>
+        <name>Profile</name>
+        <uniqueName>Profile_37526d08_00f9_11ef_adcc_9ffaf745f669</uniqueName>
+    </actionPlanTemplateItem>
+    <isAdHocItemCreationEnabled>false</isAdHocItemCreationEnabled>
+    <name>Continuing, Executive, and Professional Education Application</name>
+    <status>Final</status>
+    <targetEntityType>PreliminaryApplicationRef</targetEntityType>
+    <uniqueName>Continuing_Executive_and_Professional_Edu_1962169c_de51_11ee_9354_533d9aa3d9ed</uniqueName>
+</ActionPlanTemplate>

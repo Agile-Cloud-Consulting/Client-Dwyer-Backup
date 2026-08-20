@@ -1,0 +1,457 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>62.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <assignments>
+        <description>Add the current Academic Interest Id to the list of Academic Interest Ids.</description>
+        <name>AddAcademicInterestIds</name>
+        <label>Add Academic Interest Ids</label>
+        <locationX>886</locationX>
+        <locationY>1832</locationY>
+        <assignmentItems>
+            <assignToReference>newAcademicInterestIds</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>currentAcademicInterestId</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>IterateOverLearningPrograms</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <description>Add the current Academic Interest to the list of records to update. This will set the Subscription value.</description>
+        <name>AddAcademicInterestToUpdateList</name>
+        <label>Add Academic Interest To Update List</label>
+        <locationX>1106</locationX>
+        <locationY>1190</locationY>
+        <assignmentItems>
+            <assignToReference>academicInterestsToUpdate</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>IterateOverExistingAcademicInterests</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <isGoTo>true</isGoTo>
+            <targetReference>ShouldCreateNewAcademicInterest</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <description>The match flag will keep track of whether or not a matching Academic Interest record was found. This initializes it to &quot;false&quot;.</description>
+        <name>InitializeMatchFoundFlag</name>
+        <label>Initialize Match Found Flag</label>
+        <locationX>1018</locationX>
+        <locationY>542</locationY>
+        <assignmentItems>
+            <assignToReference>matchingAcademicInterestExists</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>IterateOverExistingAcademicInterests</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <description>This sets a flag to indicate that a match was found, which will indicate that a new record does not need to be created.</description>
+        <name>SetMatchFoundFlag</name>
+        <label>Set Match Found Flag</label>
+        <locationX>1238</locationX>
+        <locationY>866</locationY>
+        <assignmentItems>
+            <assignToReference>matchingAcademicInterestExists</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>IsUpdateSubscriptionField</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <description>Set the incoming Subscription value to the matched Academic Interest for updating.</description>
+        <name>SetSubscriptionValue</name>
+        <label>Set Subscription Value</label>
+        <locationX>1106</locationX>
+        <locationY>1082</locationY>
+        <assignmentItems>
+            <assignToReference>IterateOverExistingAcademicInterests.Subscription</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>academicInterestTemplate.Subscription</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>AddAcademicInterestToUpdateList</targetReference>
+        </connector>
+    </assignments>
+    <decisions>
+        <description>Determines if there are Academic Interest records to update with the Subscription.</description>
+        <name>HasAcademicInterestToUpdate</name>
+        <label>Has Academic Interest to Update?</label>
+        <locationX>182</locationX>
+        <locationY>2108</locationY>
+        <defaultConnectorLabel>No</defaultConnectorLabel>
+        <rules>
+            <name>AcademicInterestToUpdate</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>academicInterestsToUpdate</leftValueReference>
+                <operator>IsEmpty</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>UpdateAcademicInterestsWithSubscription</targetReference>
+            </connector>
+            <label>Yes</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>Determines if this is a new Person Account or not based on the flag.</description>
+        <name>HasNewPersonAccount</name>
+        <label>Has New Person Account?</label>
+        <locationX>182</locationX>
+        <locationY>134</locationY>
+        <defaultConnector>
+            <targetReference>GetExistingAcademicInterests</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>No</defaultConnectorLabel>
+        <rules>
+            <name>YesIsNewPersonAccount</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>isNewPersonAccount</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>IterateOverLearningPrograms</targetReference>
+            </connector>
+            <label>Yes</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>Update the Subscription field on the Academic Interest if the incoming value is not null.</description>
+        <name>IsUpdateSubscriptionField</name>
+        <label>Update Subscription Field?</label>
+        <locationX>1238</locationX>
+        <locationY>974</locationY>
+        <defaultConnector>
+            <isGoTo>true</isGoTo>
+            <targetReference>ShouldCreateNewAcademicInterest</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>No</defaultConnectorLabel>
+        <rules>
+            <name>UpdateSubscriptionField</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>academicInterestTemplate.Subscription</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>SetSubscriptionValue</targetReference>
+            </connector>
+            <label>Yes</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>After looping through all Academic Interest records, this determines if a match was found or not.</description>
+        <name>ShouldCreateNewAcademicInterest</name>
+        <label>Create New Academic Interest?</label>
+        <locationX>1018</locationX>
+        <locationY>1616</locationY>
+        <defaultConnector>
+            <targetReference>IterateOverLearningPrograms</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>No</defaultConnectorLabel>
+        <rules>
+            <name>CreateNewAcademicInterest</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>matchingAcademicInterestExists</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>CreateAcademicInterest</targetReference>
+            </connector>
+            <label>Yes</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>Determines if an Academic Interest record was found that matches the current Learning Program Id.</description>
+        <name>WasMatchingAcademicInterestFound</name>
+        <label>Was Matching Academic Interest Found?</label>
+        <locationX>1436</locationX>
+        <locationY>758</locationY>
+        <defaultConnector>
+            <targetReference>IterateOverExistingAcademicInterests</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>No</defaultConnectorLabel>
+        <rules>
+            <name>MatchingAcademicInterestFound</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>IterateOverExistingAcademicInterests.LearningProgramId</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <elementReference>IterateOverLearningPrograms</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>SetMatchFoundFlag</targetReference>
+            </connector>
+            <label>Yes</label>
+        </rules>
+    </decisions>
+    <environments>Default</environments>
+    <interviewLabel>EDU Cloud: Inquiry: Academic Interest Processing {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>EDU Cloud: Inquiry: Academic Interest Processing</label>
+    <loops>
+        <description>Iterate over all existing Academic Interests for the user that match the selected Learning Programs.</description>
+        <name>IterateOverExistingAcademicInterests</name>
+        <label>Iterate Over Existing Academic Interests</label>
+        <locationX>1018</locationX>
+        <locationY>650</locationY>
+        <collectionReference>GetExistingAcademicInterests</collectionReference>
+        <iterationOrder>Asc</iterationOrder>
+        <nextValueConnector>
+            <targetReference>WasMatchingAcademicInterestFound</targetReference>
+        </nextValueConnector>
+        <noMoreValuesConnector>
+            <targetReference>ShouldCreateNewAcademicInterest</targetReference>
+        </noMoreValuesConnector>
+    </loops>
+    <loops>
+        <description>Iterate through the selected Learning Programs. There will be at least one and the limit should be kept low enough to avoid governor limits.
+
+It is typically best practice to avoid DML statements in loops, but Create New Academic Interest records is being included within the loop to avoid the bulkification handling in the trigger-based flow for Academic Records. This ensures the records are processed sequentially to avoid duplicating Opportunity records. 
+
+This is intended for example purposes and this functionality should be replaced with Apex in order to adhere to best practices.</description>
+        <name>IterateOverLearningPrograms</name>
+        <label>Iterate Over Learning Programs</label>
+        <locationX>182</locationX>
+        <locationY>434</locationY>
+        <collectionReference>selectedLearningProgramIds</collectionReference>
+        <iterationOrder>Asc</iterationOrder>
+        <nextValueConnector>
+            <targetReference>InitializeMatchFoundFlag</targetReference>
+        </nextValueConnector>
+        <noMoreValuesConnector>
+            <targetReference>HasAcademicInterestToUpdate</targetReference>
+        </noMoreValuesConnector>
+    </loops>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordCreates>
+        <description>If no match was found, then create a new Academic Interest record. The fields are set from the IncomingDefaultAcademicInterest with the addition of the current Learning Program in the loop.
+
+Note that this insert statement is in a loop which is typically avoided. This is done because the Learning Programs are expected to be limited to a very low number, and this avoids the bulkification processing in the Academic Interest trigger handler that can result in duplicate Opportunities for bulk inserts. That process should be rewritten as invocable Apex as needed.</description>
+        <name>CreateAcademicInterest</name>
+        <label>Create Academic Interest</label>
+        <locationX>886</locationX>
+        <locationY>1724</locationY>
+        <assignRecordIdToReference>currentAcademicInterestId</assignRecordIdToReference>
+        <connector>
+            <targetReference>AddAcademicInterestIds</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>AcademicTermId</field>
+            <value>
+                <elementReference>academicInterestTemplate.AcademicTermId</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>AccountId</field>
+            <value>
+                <elementReference>academicInterestTemplate.AccountId</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>ContactId</field>
+            <value>
+                <elementReference>academicInterestTemplate.ContactId</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>LearningProgramId</field>
+            <value>
+                <elementReference>IterateOverLearningPrograms</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>ReceivedDate</field>
+            <value>
+                <elementReference>$Flow.CurrentDate</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Subscription</field>
+            <value>
+                <elementReference>academicInterestTemplate.Subscription</elementReference>
+            </value>
+        </inputAssignments>
+        <object>AcademicInterest</object>
+    </recordCreates>
+    <recordLookups>
+        <description>Get any existing Academic Interest records for the Person Account and the selected Learning Program(s).</description>
+        <name>GetExistingAcademicInterests</name>
+        <label>Get Existing Academic Interests</label>
+        <locationX>270</locationX>
+        <locationY>242</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>IterateOverLearningPrograms</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>AccountId</field>
+            <operator>IsNull</operator>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </filters>
+        <filters>
+            <field>AccountId</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>incomingPersonAccount.Id</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>LearningProgramId</field>
+            <operator>In</operator>
+            <value>
+                <elementReference>selectedLearningProgramIds</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>false</getFirstRecordOnly>
+        <object>AcademicInterest</object>
+        <queriedFields>Id</queriedFields>
+        <queriedFields>LearningProgramId</queriedFields>
+        <queriedFields>Subscription</queriedFields>
+        <sortField>CreatedDate</sortField>
+        <sortOrder>Asc</sortOrder>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordUpdates>
+        <description>Update the list of Academic Interests whose Subscription fields were updated.</description>
+        <name>UpdateAcademicInterestsWithSubscription</name>
+        <label>Update Academic Interests With Subscription</label>
+        <locationX>50</locationX>
+        <locationY>2216</locationY>
+        <inputReference>academicInterestsToUpdate</inputReference>
+    </recordUpdates>
+    <runInMode>SystemModeWithoutSharing</runInMode>
+    <sourceTemplate>eduadmissions__InquiryAIProcessing</sourceTemplate>
+    <start>
+        <locationX>56</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>HasNewPersonAccount</targetReference>
+        </connector>
+    </start>
+    <status>Active</status>
+    <variables>
+        <description>A list of Academic Interests to update with new Subscription values.</description>
+        <name>academicInterestsToUpdate</name>
+        <dataType>SObject</dataType>
+        <isCollection>true</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <objectType>AcademicInterest</objectType>
+    </variables>
+    <variables>
+        <description>The incoming record template containing the default fields for any new Academic Interest record.</description>
+        <name>academicInterestTemplate</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+        <objectType>AcademicInterest</objectType>
+    </variables>
+    <variables>
+        <description>The Id of the current Academic Interest.</description>
+        <name>currentAcademicInterestId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <description>The Person Account details that are sent as input from the parent flow. This typically will not contain the Person Account Id.</description>
+        <name>incomingPersonAccount</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+        <objectType>Account</objectType>
+    </variables>
+    <variables>
+        <description>Boolean to set if this is a new Person Account or not. This should be an input value from the parent flow.</description>
+        <name>isNewPersonAccount</name>
+        <dataType>Boolean</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+        <value>
+            <booleanValue>false</booleanValue>
+        </value>
+    </variables>
+    <variables>
+        <description>Flag to denote if a matching Academic Interest record was found.</description>
+        <name>matchingAcademicInterestExists</name>
+        <dataType>Boolean</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <value>
+            <booleanValue>false</booleanValue>
+        </value>
+    </variables>
+    <variables>
+        <description>A list of new Academic Interest Ids.</description>
+        <name>newAcademicInterestIds</name>
+        <dataType>String</dataType>
+        <isCollection>true</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <description>The selected Learning Program Ids from the parent flow.</description>
+        <name>selectedLearningProgramIds</name>
+        <dataType>String</dataType>
+        <isCollection>true</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+</Flow>

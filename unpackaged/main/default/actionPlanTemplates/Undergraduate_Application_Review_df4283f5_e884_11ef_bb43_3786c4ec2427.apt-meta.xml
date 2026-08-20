@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ActionPlanTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionPlanTemplateItem>
+        <actionPlanTemplateItemValue>
+            <itemEntityType>IndividualApplicationTask</itemEntityType>
+            <name>ApplicationStageDefinitionId</name>
+            <valueLiteral>13bal000000vdRMAAY</valueLiteral>
+        </actionPlanTemplateItemValue>
+        <actionPlanTemplateItemValue>
+            <itemEntityType>IndividualApplicationTask</itemEntityType>
+            <name>Name</name>
+            <valueLiteral>Undergraduate Application Review</valueLiteral>
+        </actionPlanTemplateItemValue>
+        <displayOrder>1</displayOrder>
+        <isRequired>true</isRequired>
+        <itemEntityType>IndividualApplicationTask</itemEntityType>
+        <name>Undergraduate Application Review</name>
+        <uniqueName>Undergraduate_Application_Review_df5c7498_e884_11ef_bb43_0352766db321</uniqueName>
+    </actionPlanTemplateItem>
+    <isAdHocItemCreationEnabled>false</isAdHocItemCreationEnabled>
+    <name>Undergraduate Application Review</name>
+    <status>Final</status>
+    <targetEntityType>ApplicationReview</targetEntityType>
+    <uniqueName>Undergraduate_Application_Review_df4283f5_e884_11ef_bb43_3786c4ec2427</uniqueName>
+</ActionPlanTemplate>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>AuditDueDate</fullName>
+    <inlineHelpText>The last date for a student to audit a course and take it without seeking a grade or credit.</inlineHelpText>
+    <trackHistory>false</trackHistory>
+</CustomField>

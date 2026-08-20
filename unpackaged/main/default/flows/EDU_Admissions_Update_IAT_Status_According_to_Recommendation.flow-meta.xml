@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>62.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <assignments>
+        <description>Sets the status of the Individual Application Task GetIndividualApplicationTask variable to Completed.</description>
+        <name>SetIndividualApplicationTaskStatus</name>
+        <label>Set Individual Application Task Status</label>
+        <locationX>506</locationX>
+        <locationY>755</locationY>
+        <assignmentItems>
+            <assignToReference>GetIndividualApplicationTask.Status</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Completed</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>UpdateIndividualApplicationTask</targetReference>
+        </connector>
+    </assignments>
+    <decisions>
+        <description>Determines if an individual application task was found by checking if the individual application task item ID from the Individual Application Task GetIndividualApplicationTask variable is null.</description>
+        <name>HaveIndividualApplicationTask</name>
+        <label>Have Individual Application Task?</label>
+        <locationX>374</locationX>
+        <locationY>647</locationY>
+        <defaultConnector>
+            <targetReference>SetIndividualApplicationTaskStatus</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Yes (Default)</defaultConnectorLabel>
+        <rules>
+            <name>DoesNotHaveIndividualApplicationTask</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>GetIndividualApplicationTask.Id</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <label>No</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>Determines if an individual application task item was found by checking if the ID from the Individual Application Task Item GetIndividualApplicationTaskItem variable is null.</description>
+        <name>HaveIndividualApplicationTaskItem</name>
+        <label>Have Individual Application Task Item?</label>
+        <locationX>176</locationX>
+        <locationY>431</locationY>
+        <defaultConnector>
+            <targetReference>GetIndividualApplicationTask</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Yes (Default)</defaultConnectorLabel>
+        <rules>
+            <name>DoesNotHaveIndividualApplicationTaskItem</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>GetIndividualApplicationTaskItem.Id</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <label>No</label>
+        </rules>
+    </decisions>
+    <description>Clone of Admissions: Update IAT Status According to Recommendation</description>
+    <environments>Default</environments>
+    <interviewLabel>EDU Admissions: Update IAT Status According to Recommendation {!$Flow.CurrentDateTime}</interviewLabel>
+    <isAdditionalPermissionRequiredToRun>true</isAdditionalPermissionRequiredToRun>
+    <label>EDU Admissions: Update IAT Status According to Recommendation</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordLookups>
+        <description>Gets the individual application task with an ID matching the ID of the Individual Application Task Item GetIndividualApplicationTaskItem variable.</description>
+        <name>GetIndividualApplicationTask</name>
+        <label>Get Individual Application Task</label>
+        <locationX>374</locationX>
+        <locationY>539</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>HaveIndividualApplicationTask</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>GetIndividualApplicationTaskItem.IndividualApplicationTaskId</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>IndividualApplicationTask</object>
+        <sortField>Id</sortField>
+        <sortOrder>Desc</sortOrder>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <description>Gets the individual application task item with an application item matching the ID of the triggering record and that has an individual application task ID.</description>
+        <name>GetIndividualApplicationTaskItem</name>
+        <label>Get Individual Application Task Item</label>
+        <locationX>176</locationX>
+        <locationY>323</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>HaveIndividualApplicationTaskItem</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>ApplicationItem</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>IndividualApplicationTaskId</field>
+            <operator>IsNull</operator>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>IndividualApplicationTaskItem</object>
+        <sortField>Id</sortField>
+        <sortOrder>Desc</sortOrder>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordUpdates>
+        <description>Updates the record from the Individual Application Task GetIndividualApplicationTask variable.</description>
+        <name>UpdateIndividualApplicationTask</name>
+        <label>Update Individual Application Task</label>
+        <locationX>506</locationX>
+        <locationY>863</locationY>
+        <inputReference>GetIndividualApplicationTask</inputReference>
+    </recordUpdates>
+    <sourceTemplate>eduadmissions__UpdtIatStsRcmd</sourceTemplate>
+    <start>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>GetIndividualApplicationTaskItem</targetReference>
+        </connector>
+        <doesRequireRecordChangedToMeetCriteria>true</doesRequireRecordChangedToMeetCriteria>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>RecommendationStatus</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Submitted</stringValue>
+            </value>
+        </filters>
+        <object>ApplicationRecommender</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+</Flow>

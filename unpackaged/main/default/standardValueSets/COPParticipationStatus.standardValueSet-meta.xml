@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StandardValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sorted>false</sorted>
+    <standardValue>
+        <fullName>Facilitating</fullName>
+        <default>false</default>
+        <label>Facilitating</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Enrolled</fullName>
+        <default>false</default>
+        <label>Enrolled</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Failed</fullName>
+        <default>false</default>
+        <label>Failed</label>
+    </standardValue>
+    <standardValue>
+        <fullName>On Hold</fullName>
+        <default>false</default>
+        <label>On Hold</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Withdrew</fullName>
+        <default>false</default>
+        <label>Withdrew</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Audit</fullName>
+        <default>false</default>
+        <label>Audit</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Completed</fullName>
+        <default>false</default>
+        <label>Completed</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Transfer Credit</fullName>
+        <default>false</default>
+        <label>Transfer Credit</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Waitlisted</fullName>
+        <default>false</default>
+        <label>Waitlisted</label>
+    </standardValue>
+    <standardValue>
+        <fullName>In Cart</fullName>
+        <default>false</default>
+        <label>In Cart</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Declined Waitlist</fullName>
+        <default>false</default>
+        <label>Declined Waitlist</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Dropped</fullName>
+        <default>false</default>
+        <label>Dropped</label>
+    </standardValue>
+    <standardValue>
+        <fullName>__MISSING LABEL__ PropertyFile - val ExpiredWaitlistEnrollmentOffer not found in section ParticipationStatusValues</fullName>
+        <default>false</default>
+        <label>__MISSING LABEL__ PropertyFile - val ExpiredWaitlistEnrollmentOffer not found in section ParticipationStatusValues</label>
+    </standardValue>
+    <standardValue>
+        <fullName>__MISSING LABEL__ PropertyFile - val RemovedFromWaitlist not found in section ParticipationStatusValues</fullName>
+        <default>false</default>
+        <label>__MISSING LABEL__ PropertyFile - val RemovedFromWaitlist not found in section ParticipationStatusValues</label>
+    </standardValue>
+    <standardValue>
+        <fullName>__MISSING LABEL__ PropertyFile - val EligibleToEnrollFromWaitlist not found in section ParticipationStatusValues</fullName>
+        <default>false</default>
+        <label>__MISSING LABEL__ PropertyFile - val EligibleToEnrollFromWaitlist not found in section ParticipationStatusValues</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Expired Waitlist Enrollment Offer</fullName>
+        <default>false</default>
+        <label>Expired Waitlist Enrollment Offer</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Removed from Waitlist</fullName>
+        <default>false</default>
+        <label>Removed from Waitlist</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Eligible to Enroll from Waitlist</fullName>
+        <default>false</default>
+        <label>Eligible to Enroll from Waitlist</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Waitlist Enrollment Offer in Cart</fullName>
+        <default>false</default>
+        <label>Waitlist Enrollment Offer in Cart</label>
+    </standardValue>
+</StandardValueSet>

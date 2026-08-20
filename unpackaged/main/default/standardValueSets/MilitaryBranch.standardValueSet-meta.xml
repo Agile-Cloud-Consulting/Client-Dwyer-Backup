@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StandardValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sorted>false</sorted>
+    <standardValue>
+        <fullName>Army</fullName>
+        <default>false</default>
+        <label>Army</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Marine Corps</fullName>
+        <default>false</default>
+        <label>Marine Corps</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Navy</fullName>
+        <default>false</default>
+        <label>Navy</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Air Force</fullName>
+        <default>false</default>
+        <label>Air Force</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Space Force</fullName>
+        <default>false</default>
+        <label>Space Force</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Coast Guard</fullName>
+        <default>false</default>
+        <label>Coast Guard</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Other</fullName>
+        <default>false</default>
+        <label>Other</label>
+    </standardValue>
+</StandardValueSet>

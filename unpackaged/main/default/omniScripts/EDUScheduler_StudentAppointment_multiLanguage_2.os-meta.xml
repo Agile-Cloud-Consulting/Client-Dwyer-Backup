@@ -1,0 +1,3680 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OmniScript xmlns="http://soap.sforce.com/2006/04/metadata">
+    <elementTypeComponentMapping>{&quot;ElementTypeToHTMLTemplateList&quot;:[]}</elementTypeComponentMapping>
+    <isActive>false</isActive>
+    <isIntegrationProcedure>false</isIntegrationProcedure>
+    <isManagedUsingStdDesigner>false</isManagedUsingStdDesigner>
+    <isMetadataCacheDisabled>false</isMetadataCacheDisabled>
+    <isOmniScriptEmbeddable>false</isOmniScriptEmbeddable>
+    <isTestProcedure>false</isTestProcedure>
+    <isWebCompEnabled>true</isWebCompEnabled>
+    <language>Multi-Language</language>
+    <name>EDUSchedulerStudentAppointment</name>
+    <omniProcessElements>
+        <isActive>true</isActive>
+        <isOmniScriptEmbeddable>false</isOmniScriptEmbeddable>
+        <level>0.0</level>
+        <name>ClearAppointmentVM</name>
+        <omniProcessVersionNumber>0.0</omniProcessVersionNumber>
+        <propertySetConfig>{
+  &quot;controlWidth&quot; : 12,
+  &quot;label&quot; : &quot;$standardLabel.EDUSchedulerFieldLabels.ClearAppointmentVM&quot;,
+  &quot;elementValueMap&quot; : {
+    &quot;AppointmentVM&quot; : &quot;=null&quot;
+  },
+  &quot;showPersistentComponent&quot; : [ true, false ],
+  &quot;HTMLTemplateId&quot; : &quot;&quot;,
+  &quot;wpm&quot; : false,
+  &quot;ssm&quot; : false,
+  &quot;message&quot; : { },
+  &quot;pubsub&quot; : false
+}</propertySetConfig>
+        <sequenceNumber>56.0</sequenceNumber>
+        <type>Set Values</type>
+    </omniProcessElements>
+    <omniProcessElements>
+        <isActive>true</isActive>
+        <isOmniScriptEmbeddable>false</isOmniScriptEmbeddable>
+        <level>0.0</level>
+        <name>ClearChannelValues</name>
+        <omniProcessVersionNumber>0.0</omniProcessVersionNumber>
+        <propertySetConfig>{
+  &quot;controlWidth&quot; : 12,
+  &quot;label&quot; : &quot;$standardLabel.EDUSchedulerFieldLabels.ClearChannelValues&quot;,
+  &quot;elementValueMap&quot; : {
+    &quot;SelectedChannelId&quot; : &quot;=null&quot;,
+    &quot;SelectedChannelName&quot; : &quot;=null&quot;,
+    &quot;SelectedChannelType&quot; : &quot;=null&quot;,
+    &quot;SelectedValues3&quot; : {
+      &quot;Staff&quot; : &quot;&quot;,
+      &quot;Topic&quot; : &quot;&quot;,
+      &quot;Channel&quot; : &quot;&quot;
+    }
+  },
+  &quot;showPersistentComponent&quot; : [ true, false ],
+  &quot;HTMLTemplateId&quot; : &quot;&quot;,
+  &quot;wpm&quot; : false,
+  &quot;ssm&quot; : false,
+  &quot;message&quot; : { },
+  &quot;pubsub&quot; : false
+}</propertySetConfig>
+        <sequenceNumber>30.0</sequenceNumber>
+        <type>Set Values</type>
+    </omniProcessElements>
+    <omniProcessElements>
+        <isActive>true</isActive>
+        <isOmniScriptEmbeddable>false</isOmniScriptEmbeddable>
+        <level>0.0</level>
+        <name>ClearDateTimeValues</name>
+        <omniProcessVersionNumber>0.0</omniProcessVersionNumber>
+        <propertySetConfig>{
+  &quot;controlWidth&quot; : 12,
+  &quot;label&quot; : &quot;$standardLabel.EDUSchedulerFieldLabels.ClearDateTimeValues&quot;,
+  &quot;elementValueMap&quot; : {
+    &quot;SlotLocalDateTimeString&quot; : &quot;=NULL&quot;,
+    &quot;StartDateTimeGMT&quot; : &quot;=NULL&quot;,
+    &quot;ServiceResourceId&quot; : &quot;=NULL&quot;,
+    &quot;ServiceTerritoryId&quot; : &quot;=NULL&quot;,
+    &quot;StartTime&quot; : &quot;=NULL&quot;,
+    &quot;EndDateTimeGMT&quot; : &quot;=NULL&quot;,
+    &quot;EndTime&quot; : &quot;=NULL&quot;,
+    &quot;SelectedDate&quot; : &quot;=NULL&quot;
+  },
+  &quot;showPersistentComponent&quot; : [ true, false ],
+  &quot;HTMLTemplateId&quot; : &quot;&quot;,
+  &quot;wpm&quot; : false,
+  &quot;ssm&quot; : false,
+  &quot;message&quot; : { },
+  &quot;pubsub&quot; : false
+}</propertySetConfig>
+        <sequenceNumber>46.0</sequenceNumber>
+        <type>Set Values</type>
+    </omniProcessElements>
+    <omniProcessElements>
+        <isActive>true</isActive>
+        <isOmniScriptEmbeddable>false</isOmniScriptEmbeddable>
+        <level>0.0</level>
+        <name>ClearSelectResourceAssignmentTypeContainerLWC</name>
+        <omniProcessVersionNumber>0.0</omniProcessVersionNumber>
+        <propertySetConfig>{
+  &quot;controlWidth&quot; : 12,
+  &quot;label&quot; : &quot;$standardLabel.EDUSchedulerFieldLabels.ClearSelectResourceAssignmentTypeContainerLWC&quot;,
+  &quot;elementValueMap&quot; : {
+    &quot;SelectResourceAssignmentTypeStep&quot; : {
+      &quot;SelectResourceAssignmentTypeContainerLWC&quot; : {
+        &quot;data&quot; : null
+      }
+    }
+  },
+  &quot;showPersistentComponent&quot; : [ true, false ],
+  &quot;show&quot; : {
+    &quot;group&quot; : {
+      &quot;operator&quot; : &quot;AND&quot;,
+      &quot;rules&quot; : [ {
+        &quot;data&quot; : &quot;true&quot;,
+        &quot;condition&quot; : &quot;=&quot;,
+        &quot;field&quot; : &quot;IsBothResourceAssignmentType&quot;
+      } ]
+    }
+  },
+  &quot;HTMLTemplateId&quot; : &quot;&quot;,
+  &quot;wpm&quot; : false,
+  &quot;ssm&quot; : false,
+  &quot;message&quot; : { },
+  &quot;pubsub&quot; : false
+}</propertySetConfig>
+        <sequenceNumber>16.0</sequenceNumber>
+        <type>Set Values</type>
+    </omniProcessElements>
+    <omniProcessElements>
+        <isActive>true</isActive>
+        <isOmniScriptEmbeddable>false</isOmniScriptEmbeddable>
+        <level>0.0</level>
+        <name>ClearStaffValues</name>
+        <omniProcessVersionNumber>0.0</omniProcessVersionNumber>
+        <propertySetConfig>{
+  &quot;lwcComponentOverride&quot; : &quot;&quot;,
+  &quot;controlWidth&quot; : 12,
+  &quot;label&quot; : &quot;$standardLabel.EDUSchedulerFieldLabels.ClearStaffValues&quot;,
+  &quot;elementValueMap&quot; : {
+    &quot;Role&quot; : &quot;=NULL&quot;,
+    &quot;ImageURL&quot; : &quot;=NULL&quot;,
+    &quot;Name&quot; : &quot;=NULL&quot;,
+    &quot;ServiceResourceId&quot; : &quot;=NULL&quot;,
+    &quot;CaseId&quot; : &quot;=NULL&quot;,
+    &quot;CaseTeamTemplateName&quot; : &quot;=NULL&quot;,
+    &quot;CaseTeamTemplateId&quot; : &quot;=NULL&quot;,
+    &quot;StaffSelections&quot; : &quot;=NULL&quot;,
+    &quot;Roles&quot; : &quot;=NULL&quot;,
+    &quot;Topic&quot; : &quot;=NULL&quot;,
+    &quot;DisplayTopics&quot; : &quot;=NULL&quot;,
+    &quot;RoleInfo&quot; : &quot;=NULL&quot;,
+    &quot;SelectedValues&quot; : {
+      &quot;Staff&quot; : &quot;=IF(%Name% != NULL, %Name% , %CaseTeamTemplateName%)&quot;,
+      &quot;Topic&quot; : &quot;&quot;,
+      &quot;Channel&quot; : &quot;&quot;
+    },
+    &quot;ResourceAssignmentType&quot; : &quot;=NULL&quot;
+  },
+  &quot;showPersistentComponent&quot; : [ true, false ],
+  &quot;HTMLTemplateId&quot; : &quot;&quot;,
+  &quot;wpm&quot; : false,
+  &quot;ssm&quot; : false,
+  &quot;message&quot; : { },
+  &quot;pubsub&quot; : false
+}</propertySetConfig>
+        <sequenceNumber>4.0</sequenceNumber>
+        <type>Set Values</type>
+    </omniProcessElements>
+    <omniProcessElements>
+        <isActive>true</isActive>
+        <isOmniScriptEmbeddable>false</isOmniScriptEmbeddable>
+        <level>0.0</level>
+        <name>ClearTimeSelectionLWC</name>
+        <omniProcessVersionNumber>0.0</omniProcessVersionNumber>
+        <propertySetConfig>{
+  &quot;pubsub&quot; : false,
+  &quot;message&quot; : { },
+  &quot;ssm&quot; : false,
+  &quot;wpm&quot; : false,
+  &quot;HTMLTemplateId&quot; : &quot;&quot;,
+  &quot;showPersistentComponent&quot; : [ true, false ],
+  &quot;elementValueMap&quot; : {
+    &quot;DateAndTime&quot; : {
+      &quot;TimeSelectionLWC&quot; : {
+        &quot;State&quot; : {
+          &quot;DisplayCard&quot; : &quot;&quot;
+        },
+        &quot;data&quot; : { },
+        &quot;Timeslot&quot; : { }
+      }
+    }
+  },
+  &quot;label&quot; : &quot;$standardLabel.EDUSchedulerFieldLabels.SetSelectedValues&quot;,
+  &quot;controlWidth&quot; : 12
+}</propertySetConfig>
+        <sequenceNumber>38.0</sequenceNumber>
+        <type>Set Values</type>
+    </omniProcessElements>
+    <omniProcessElements>
+        <isActive>true</isActive>
+        <isOmniScriptEmbeddable>false</isOmniScriptEmbeddable>
+        <level>0.0</level>
+        <name>ClearTopicLWC</name>
+        <omniProcessVersionNumber>0.0</omniProcessVersionNumber>
+        <propertySetConfig>{
+  &quot;controlWidth&quot; : 12,
+  &quot;label&quot; : &quot;$standardLabel.EDUSchedulerFieldLabels.SetSelectedValues&quot;,
+  &quot;elementValueMap&quot; : {
+    &quot;SelectTopic&quot; : {
+      &quot;TopicLWC&quot; : {
+        &quot;Topic&quot; : {
+          &quot;SubtopicWorkTypeGroupId&quot; : &quot;&quot;,
+          &quot;SubtopicName&quot; : &quot;&quot;,
+          &quot;SubtopicWorkTypeId&quot; : &quot;&quot;,
+          &quot;TopicWorkTypeGroupId&quot; : &quot;&quot;,
+          &quot;HasSubtopics&quot; : &quot;&quot;,
+          &quot;TopicName&quot; : &quot;&quot;,
+          &quot;TopicWorkTypeId&quot; : &quot;&quot;
+        }
+      }
+    }
+  },
+  &quot;showPersistentComponent&quot; : [ true, false ],
+  &quot;HTMLTemplateId&quot; : &quot;&quot;,
+  &quot;wpm&quot; : false,
+  &quot;ssm&quot; : false,
+  &quot;message&quot; : { },
+  &quot;pubsub&quot; : false
+}</propertySetConfig>
+        <sequenceNumber>19.0</sequenceNumber>
+        <type>Set Values</type>
+    </omniProcessElements>
+    <omniProcessElements>
+        <isActive>true</isActive>
+        <isOmniScriptEmbeddable>false</isOmniScriptEmbeddable>
+        <level>0.0</level>
+        <name>ClearTopicValues</name>
+        <omniProcessVersionNumber>0.0</omniProcessVersionNumber>
+        <propertySetConfig>{
+  &quot;controlWidth&quot; : 12,
+  &quot;label&quot; : &quot;$standardLabel.EDUSchedulerFieldLabels.ClearTopicsValue&quot;,
+  &quot;elementValueMap&quot; : {
+    &quot;TopicWorkTypeGroupId&quot; : &quot;=null&quot;,
+    &quot;SubtopicWorkTypeGroupId&quot; : &quot;=null&quot;,
+    &quot;TopicWorkTypeId&quot; : &quot;=null&quot;,
+    &quot;SubtopicWorkTypeId&quot; : &quot;=null&quot;,
+    &quot;SelectedTopicName&quot; : &quot;=null&quot;,
+    &quot;SelectedSubtopicName&quot; : &quot;=null&quot;,
+    &quot;SelectedValues2&quot; : {
+      &quot;Staff&quot; : &quot;&quot;,
+      &quot;Topic&quot; : &quot;&quot;,
+      &quot;Channel&quot; : &quot;&quot;
+    }
+  },
+  &quot;showPersistentComponent&quot; : [ true, false ],
+  &quot;HTMLTemplateId&quot; : &quot;&quot;,
+  &quot;wpm&quot; : false,
+  &quot;ssm&quot; : false,
+  &quot;message&quot; : { },
+  &quot;pubsub&quot; : false
+}</propertySetConfig>
+        <sequenceNumber>21.0</sequenceNumber>
+        <type>Set Values</type>
+    </omniProcessElements>
+    <omniProcessElements>
+        <isActive>true</isActive>
+        <isOmniScriptEmbeddable>false</isOmniScriptEmbeddable>
+        <level>0.0</level>
+        <name>CreateServiceAppointment</name>
+        <omniProcessVersionNumber>0.0</omniProcessVersionNumber>
+        <propertySetConfig>{
+  &quot;controlWidth&quot; : 12,
+  &quot;label&quot; : &quot;$standardLabel.EDUSchedulerFieldLabels.CreateServiceAppointment&quot;,
+  &quot;integrationProcedureKey&quot; : &quot;EDUScheduler_CreateServiceAppointment&quot;,
+  &quot;useContinuation&quot; : false,
+  &quot;remoteOptions&quot; : {
+    &quot;preTransformBundle&quot; : &quot;&quot;,
+    &quot;postTransformBundle&quot; : &quot;&quot;,
+    &quot;useFuture&quot; : false,
+    &quot;chainable&quot; : false
+  },
+  &quot;remoteTimeout&quot; : 30000,
+  &quot;preTransformBundle&quot; : &quot;&quot;,
+  &quot;postTransformBundle&quot; : &quot;&quot;,
+  &quot;sendJSONPath&quot; : &quot;&quot;,
+  &quot;sendJSONNode&quot; : &quot;&quot;,
+  &quot;responseJSONPath&quot; : &quot;&quot;,
+  &quot;responseJSONNode&quot; : &quot;&quot;,
+  &quot;extraPayload&quot; : {
+    &quot;ServiceTerritoryId&quot; : &quot;%ServiceTerritoryId%&quot;,
+    &quot;ParentRecordId&quot; : &quot;%CaseId%&quot;,
+    &quot;SchedStartTime&quot; : &quot;%StartDateTimeGMT%&quot;,
+    &quot;SchedEndTime&quot; : &quot;%EndDateTimeGMT%&quot;,
+    &quot;EngagementChannelType&quot; : &quot;%SelectedChannelId%&quot;,
+    &quot;ServiceResourceId&quot; : &quot;%ServiceResourceId%&quot;,
+    &quot;Comments&quot; : &quot;%ReviewAppointment:finalNotes%&quot;,
+    &quot;OwnerId&quot; : &quot;%userId%&quot;,
+    &quot;Subject&quot; : &quot;%TopicName%&quot;,
+    &quot;WorkTypeId&quot; : &quot;%WorkTypeId%&quot;,
+    &quot;MinsPriorToJoining&quot; : &quot;%MinsPriorToJoining%&quot;,
+    &quot;ContextId&quot; : &quot;%ContextId%&quot;
+  },
+  &quot;inProgressMessage&quot; : &quot;&quot;,
+  &quot;postMessage&quot; : &quot;&quot;,
+  &quot;failureNextLabel&quot; : &quot;&quot;,
+  &quot;failureAbortLabel&quot; : &quot;&quot;,
+  &quot;failureGoBackLabel&quot; : &quot;&quot;,
+  &quot;failureAbortMessage&quot; : &quot;&quot;,
+  &quot;validationRequired&quot; : &quot;Step&quot;,
+  &quot;redirectPageName&quot; : &quot;&quot;,
+  &quot;redirectTemplateUrl&quot; : &quot;vlcAcknowledge.html&quot;,
+  &quot;redirectNextLabel&quot; : &quot;&quot;,
+  &quot;redirectNextWidth&quot; : 3,
+  &quot;redirectPreviousLabel&quot; : &quot;&quot;,
+  &quot;redirectPreviousWidth&quot; : 3,
+  &quot;showPersistentComponent&quot; : [ true, false ],
+  &quot;HTMLTemplateId&quot; : &quot;&quot;,
+  &quot;wpm&quot; : false,
+  &quot;ssm&quot; : false,
+  &quot;message&quot; : { },
+  &quot;pubsub&quot; : false,
+  &quot;svgSprite&quot; : &quot;&quot;,
+  &quot;svgIcon&quot; : &quot;&quot;,
+  &quot;errorMessage&quot; : {
+    &quot;custom&quot; : [ ]
+  },
+  &quot;enableDefaultAbort&quot; : false,
+  &quot;enableActionMessage&quot; : false,
+  &quot;businessCategory&quot; : &quot;&quot;,
+  &quot;businessEvent&quot; : &quot;&quot;,
+  &quot;sendOnlyExtraPayload&quot; : true
+}</propertySetConfig>
+        <sequenceNumber>65.0</sequenceNumber>
+        <type>Integration Procedure Action</type>
+    </omniProcessElements>
+    <omniProcessElements>
+        <childElements>
+            <isActive>true</isActive>
+            <isOmniScriptEmbeddable>false</isOmniScriptEmbeddable>
+            <level>1.0</level>
+            <name>CanSelectTimeSlot</name>
+            <omniProcessVersionNumber>0.0</omniProcessVersionNumber>
+            <propertySetConfig>{
+  &quot;controlWidth&quot; : 12,
+  &quot;label&quot; : &quot;$standardLabel.EDUSchedulerFieldLabels.CanSelectTimeSlot&quot;,
+  &quot;showInputWidth&quot; : false,
+  &quot;inputWidth&quot; : 12,
+  &quot;expression&quot; : &quot;(%Appointment|1:DisplayCard% == \&quot;Active\&quot; &amp;&amp; %TimeSelectionLWC:State:DisplayCard% == NULL ) || %TimeSelectionLWC:State:DisplayCard% == \&quot;Active\&quot; &quot;,
+  &quot;hide&quot; : true,
+  &quot;dataType&quot; : &quot;Boolean&quot;,
+  &quot;hideGroupSep&quot; : false,
+  &quot;dateFormat&quot; : &quot;MM-dd-yyyy&quot;,
+  &quot;HTMLTemplateId&quot; : &quot;&quot;,
+  &quot;disOnTplt&quot; : false
+}</propertySetConfig>
+            <sequenceNumber>4.0</sequenceNumber>
+            <type>Formula</type>
+        </childElements>
+        <childElements>
+            <isActive>true</isActive>
+            <isOmniScriptEmbeddable>false</isOmniScriptEmbeddable>
+            <level>1.0</level>
+            <name>DateSelectionLWC</name>
+            <omniProcessVersionNumber>0.0</omniProcessVersionNumber>
+            <propertySetConfig>{
+  &quot;controlWidth&quot; : 12,
+  &quot;label&quot; : &quot;$standardLabel.EDUSchedulerFieldLabels.SchedulerDateHeader&quot;,
+  &quot;conditionType&quot; : &quot;Hide if False&quot;,
+  &quot;hide&quot; : false,
+  &quot;lwcName&quot; : &quot;cfEDUSchedulerDateHeader&quot;,
+  &quot;bStandalone&quot; : true,
+  &quot;customAttributes&quot; : [ {
+    &quot;name&quot; : &quot;parent-data&quot;,
+    &quot;source&quot; : &quot;true&quot;
+  }, {
+    &quot;name&quot; : &quot;records&quot;,
+    &quot;source&quot; : &quot;%DateInfo%&quot;
+  }, {
+    &quot;name&quot; : &quot;parent-attribute&quot;,
+    &quot;source&quot; : &quot;%Appointment%&quot;
+  } ]
+}</propertySetConfig>
+            <sequenceNumber>1.0</sequenceNumber>
+            <type>Custom Lightning Web Component</type>
+        </childElements>
+        <childElements>
+            <isActive>true</isActive>
+            <isOmniScriptEmbeddable>false</isOmniScriptEmbeddable>
+            <level>1.0</level>
+            <name>SelectTimeSlotMessaging</name>
+            <omniProcessVersionNumber>0.0</omniProcessVersionNumber>
+            <propertySetConfig>{
+  &quot;controlWidth&quot; : 12,
+  &quot;label&quot; : &quot;$standardLabel.EDUSchedulerFieldLabels.SelectTimeSlotMessaging&quot;,
+  &quot;validateExpression&quot; : {
+    &quot;group&quot; : {
+      &quot;operator&quot; : &quot;AND&quot;,
+      &quot;rules&quot; : [ {
+        &quot;data&quot; : &quot;true&quot;,
+        &quot;condition&quot; : &quot;=&quot;,
+        &quot;field&quot; : &quot;CanSelectTimeSlot&quot;
+      } ]
+    }
+  },
+  &quot;messages&quot; : [ {
+    &quot;value&quot; : true,
+    &quot;type&quot; : &quot;Success&quot;,
+    &quot;text&quot; : &quot;&quot;,
+    &quot;active&quot; : false
+  }, {
+    &quot;value&quot; : false,
+    &quot;type&quot; : &quot;Requirement&quot;,
+    &quot;text&quot; : &quot;$standardLabel.EDUScheduler.SelectDateTime&quot;,
+    &quot;active&quot; : true
+  } ],
+  &quot;hideLabel&quot; : true,
+  &quot;HTMLTemplateId&quot; : &quot;&quot;
+}</propertySetConfig>
+            <sequenceNumber>3.0</sequenceNumber>
+            <type>Validation</type>
+        </childElements>
+        <childElements>
+            <isActive>true</isActive>
+            <isOmniScriptEmbeddable>false</isOmniScriptEmbeddable>
+            <level>1.0</level>
+            <name>SetSelectedValuesLWC3</name>
+            <omniProcessVersionNumber>0.0</omniProcessVersionNumber>
+            <propertySetConfig>{
+  &quot;controlWidth&quot; : 12,
+  &quot;label&quot; : &quot;$standardLabel.EDUSchedulerFieldLabels.SetSelectedValues&quot;,
+  &quot;conditionType&quot; : &quot;Hide if False&quot;,
+  &quot;hide&quot; : false,
+  &quot;lwcName&quot; : &quot;cfEDUSchedulerPreviousSelections&quot;,
+  &quot;bStandalone&quot; : false,
+  &quot;customAttributes&quot; : [ {
+    &quot;name&quot; : &quot;parent-attribute&quot;,
+    &quot;source&quot; : &quot;%SelectedValues3%&quot;
+  } ]
+}</propertySetConfig>
+            <sequenceNumber>0.0</sequenceNumber>
+            <type>Custom Lightning Web Component</type>
+        </childElements>
+        <childElements>
+            <isActive>true</isActive>
+            <isOmniScriptEmbeddable>false</isOmniScriptEmbeddable>
+            <level>1.0</level>
+            <name>TimeSelectionLWC</name>
+            <omniProcessVersionNumber>0.0</omniProcessVersionNumber>
+            <propertySetConfig>{
+  &quot;controlWidth&quot; : 12,
+  &quot;label&quot; : &quot;$standardLabel.EDUSchedulerFieldLabels.SchedulerTimeSlots&quot;,
+  &quot;conditionType&quot; : &quot;Hide if False&quot;,
+  &quot;hide&quot; : false,
+  &quot;lwcName&quot; : &quot;cfEDUSchedulerTimeSlots&quot;,
+  &quot;bStandalone&quot; : true,
+  &quot;customAttributes&quot; : [ {
+    &quot;name&quot; : &quot;parent-data&quot;,
+    &quot;source&quot; : &quot;true&quot;
+  }, {
+    &quot;name&quot; : &quot;records&quot;,
+    &quot;source&quot; : &quot;%Appointment%&quot;
+  }, {
+    &quot;name&quot; : &quot;parent-attribute&quot;,
+    &quot;source&quot; : &quot;%NextAvailableInput%&quot;
+  } ]
+}</propertySetConfig>
+            <sequenceNumber>2.0</sequenceNumber>
+            <type>Custom Lightning Web Component</type>
+        </childElements>
+        <isActive>true</isActive>
+        <isOmniScriptEmbeddable>false</isOmniScriptEmbeddable>
+        <level>0.0</level>
+        <name>DateAndTime</name>
+        <omniProcessVersionNumber>0.0</omniProcessVersionNumber>
+        <propertySetConfig>{
+  &quot;label&quot; : &quot;$standardLabel.EDUScheduler.SelectDateTime&quot;,
+  &quot;validationRequired&quot; : true,
+  &quot;previousLabel&quot; : &quot;$standardLabel.EDUScheduler.Back&quot;,
+  &quot;previousWidth&quot; : 3,
+  &quot;nextLabel&quot; : &quot;$standardLabel.EDUScheduler.Next&quot;,
+  &quot;nextWidth&quot; : 3,
+  &quot;cancelLabel&quot; : &quot;&quot;,
+  &quot;cancelMessage&quot; : &quot;&quot;,
+  &quot;saveLabel&quot; : &quot;&quot;,
+  &quot;saveMessage&quot; : &quot;&quot;,
+  &quot;completeLabel&quot; : &quot;&quot;,
+  &quot;completeMessage&quot; : &quot;&quot;,
+  &quot;instruction&quot; : &quot;&quot;,
+  &quot;showPersistentComponent&quot; : [ true, false ],
+  &quot;remoteClass&quot; : &quot;&quot;,
+  &quot;remoteMethod&quot; : &quot;&quot;,
+  &quot;remoteTimeout&quot; : 30000,
+  &quot;remoteOptions&quot; : { },
+  &quot;knowledgeOptions&quot; : {
+    &quot;language&quot; : &quot;English&quot;,
+    &quot;publishStatus&quot; : &quot;Online&quot;,
+    &quot;keyword&quot; : &quot;&quot;,
+    &quot;dataCategoryCriteria&quot; : &quot;&quot;,
+    &quot;remoteTimeout&quot; : 30000,
+    &quot;typeFilter&quot; : &quot;&quot;
+  },
+  &quot;conditionType&quot; : &quot;Hide if False&quot;,
+  &quot;HTMLTemplateId&quot; : &quot;&quot;,
+  &quot;instructionKey&quot; : &quot;&quot;,
+  &quot;allowSaveForLater&quot; : false,
+  &quot;errorMessage&quot; : {
+    &quot;custom&quot; : [ ],
+    &quot;default&quot; : &quot;&quot;
+  },
+  &quot;wpm&quot; : false,
+  &quot;ssm&quot; : false,
+  &quot;message&quot; : { },
+  &quot;pubsub&quot; : false,
+  &quot;businessCategory&quot; : &quot;&quot;,
+  &quot;businessEvent&quot; : &quot;&quot;
+}</propertySetConfig>
+        <sequenceNumber>45.0</sequenceNumber>
+        <type>Step</type>
+    </omniProcessElements>
+    <omniProcessElements>
+        <isActive>true</isActive>
+        <isOmniScriptEmbeddable>false</isOmniScriptEmbeddable>
+        <level>0.0</level>
+        <name>GetActiveLocation</name>
+        <omniProcessVersionNumber>0.0</omniProcessVersionNumber>
+        <propertySetConfig>{
+  &quot;controlWidth&quot; : 12,
+  &quot;label&quot; : &quot;$standardLabel.EDUSchedulerFieldLabels.GetActiveLocation&quot;,
+  &quot;bundle&quot; : &quot;EDUSchedulerGetServiceResourceLocation&quot;,
+  &quot;ignoreCache&quot; : false,
+  &quot;dataRaptor Input Parameters&quot; : [ {
+    &quot;element&quot; : &quot;ServiceTerritoryId&quot;,
+    &quot;inputParam&quot; : &quot;ServiceTerritoryId&quot;
+  }, {
+    &quot;element&quot; : &quot;ServiceResourceId&quot;,
+    &quot;inputParam&quot; : &quot;ServiceResourceId&quot;
+  } ],
+  &quot;remoteTimeout&quot; : 30000,
+  &quot;responseJSONPath&quot; : &quot;&quot;,
+  &quot;responseJSONNode&quot; : &quot;&quot;,
+  &quot;inProgressMessage&quot; : &quot;&quot;,
+  &quot;postMessage&quot; : &quot;&quot;,
+  &quot;failureNextLabel&quot; : &quot;&quot;,
+  &quot;failureAbortLabel&quot; : &quot;&quot;,
+  &quot;failureGoBackLabel&quot; : &quot;&quot;,
+  &quot;failureAbortMessage&quot; : &quot;&quot;,
+  &quot;validationRequired&quot; : &quot;Step&quot;,
+  &quot;redirectPageName&quot; : &quot;&quot;,
+  &quot;redirectTemplateUrl&quot; : &quot;vlcAcknowledge.html&quot;,
+  &quot;redirectNextLabel&quot; : &quot;&quot;,
+  &quot;redirectNextWidth&quot; : 3,
+  &quot;redirectPreviousLabel&quot; : &quot;&quot;,
+  &quot;redirectPreviousWidth&quot; : 3,
+  &quot;showPersistentComponent&quot; : [ true, false ],
+  &quot;HTMLTemplateId&quot; : &quot;&quot;,
+  &quot;wpm&quot; : false,
+  &quot;ssm&quot; : false,
+  &quot;message&quot; : { },
+  &quot;pubsub&quot; : false,
+  &quot;errorMessage&quot; : {
+    &quot;custom&quot; : [ ],
+    &quot;default&quot; : &quot;&quot;
+  },
+  &quot;enableDefaultAbort&quot; : false,
+  &quot;enableActionMessage&quot; : false,
+  &quot;businessCategory&quot; : &quot;&quot;,
+  &quot;businessEvent&quot; : &quot;&quot;
+}</propertySetConfig>
+        <sequenceNumber>53.0</sequenceNumber>
+        <type>DataRaptor Extract Action</type>
+    </omniProcessElements>
+    <omniProcessElements>
+        <isActive>true</isActive>
+        <isOmniScriptEmbeddable>false</isOmniScriptEmbeddable>
+        <level>0.0</level>
+        <name>GetActiveServiceTerritories</name>
+        <omniProcessVersionNumber>0.0</omniProcessVersionNumber>
+        <propertySetConfig>{
+  &quot;controlWidth&quot; : 12,
+  &quot;label&quot; : &quot;$standardLabel.EDUSchedulerFieldLabels.GetActiveServiceTerritories&quot;,
+  &quot;integrationProcedureKey&quot; : &quot;EDUScheduler_GetActiveServiceTerritories&quot;,
+  &quot;useContinuation&quot; : false,
+  &quot;remoteOptions&quot; : {
+    &quot;useFuture&quot; : false,
+    &quot;chainable&quot; : false,
+    &quot;preTransformBundle&quot; : &quot;&quot;,
+    &quot;postTransformBundle&quot; : &quot;&quot;
+  },
+  &quot;remoteTimeout&quot; : 30000,
+  &quot;preTransformBundle&quot; : &quot;&quot;,
+  &quot;postTransformBundle&quot; : &quot;&quot;,
+  &quot;sendJSONPath&quot; : &quot;&quot;,
+  &quot;sendJSONNode&quot; : &quot;&quot;,
+  &quot;responseJSONPath&quot; : &quot;&quot;,
+  &quot;responseJSONNode&quot; : &quot;&quot;,
+  &quot;extraPayload&quot; : {
+    &quot;DateTime&quot; : &quot;%Now%&quot;,
+    &quot;StaffSelections&quot; : &quot;%StaffSelections%&quot;
+  },
+  &quot;inProgressMessage&quot; : &quot;&quot;,
+  &quot;postMessage&quot; : &quot;&quot;,
+  &quot;failureNextLabel&quot; : &quot;&quot;,
+  &quot;failureAbortLabel&quot; : &quot;&quot;,
+  &quot;failureGoBackLabel&quot; : &quot;&quot;,
+  &quot;failureAbortMessage&quot; : &quot;&quot;,
+  &quot;validationRequired&quot; : &quot;Step&quot;,
+  &quot;redirectPageName&quot; : &quot;&quot;,
+  &quot;redirectTemplateUrl&quot; : &quot;vlcAcknowledge.html&quot;,
+  &quot;redirectNextLabel&quot; : &quot;&quot;,
+  &quot;redirectNextWidth&quot; : 3,
+  &quot;redirectPreviousLabel&quot; : &quot;&quot;,
+  &quot;redirectPreviousWidth&quot; : 3,
+  &quot;showPersistentComponent&quot; : [ true, false ],
+  &quot;HTMLTemplateId&quot; : &quot;&quot;,
+  &quot;wpm&quot; : false,
+  &quot;ssm&quot; : false,
+  &quot;message&quot; : { },
+  &quot;pubsub&quot; : false,
+  &quot;svgSprite&quot; : &quot;&quot;,
+  &quot;svgIcon&quot; : &quot;&quot;,
+  &quot;errorMessage&quot; : {
+    &quot;custom&quot; : [ ],
+    &quot;default&quot; : &quot;&quot;
+  },
+  &quot;enableDefaultAbort&quot; : false,
+  &quot;enableActionMessage&quot; : false,
+  &quot;businessCategory&quot; : &quot;&quot;,
+  &quot;businessEvent&quot; : &quot;&quot;,
+  &quot;sendOnlyExtraPayload&quot; : true
+}</propertySetConfig>
+        <sequenceNumber>35.0</sequenceNumber>
+        <type>Integration Procedure Action</type>
+    </omniProcessElements>
+    <omniProcessElements>
+        <isActive>false</isActive>
+        <isOmniScriptEmbeddable>false</isOmniScriptEmbeddable>
+        <level>0.0</level>
+        <name>GetAppointmentConfirmation</name>
+        <omniProcessVersionNumber>0.0</omniProcessVersionNumber>
+        <propertySetConfig>{
+  &quot;controlWidth&quot; : 12,
+  &quot;label&quot; : &quot;$standardLabel.EDUSchedulerFieldLabels.GetAppointmentConfirmation&quot;,
+  &quot;integrationProcedureKey&quot; : &quot;EDUScheduler_FinalConfirmation&quot;,
+  &quot;useContinuation&quot; : false,
+  &quot;remoteOptions&quot; : {
+    &quot;preTransformBundle&quot; : &quot;&quot;,
+    &quot;postTransformBundle&quot; : &quot;&quot;,
+    &quot;useFuture&quot; : false,
+    &quot;chainable&quot; : false
+  },
+  &quot;remoteTimeout&quot; : 30000,
+  &quot;preTransformBundle&quot; : &quot;&quot;,
+  &quot;postTransformBundle&quot; : &quot;&quot;,
+  &quot;sendJSONPath&quot; : &quot;&quot;,
+  &quot;sendJSONNode&quot; : &quot;&quot;,
+  &quot;responseJSONPath&quot; : &quot;&quot;,
+  &quot;responseJSONNode&quot; : &quot;&quot;,
+  &quot;extraPayload&quot; : { },
+  &quot;inProgressMessage&quot; : &quot;&quot;,
+  &quot;postMessage&quot; : &quot;&quot;,
+  &quot;failureNextLabel&quot; : &quot;&quot;,
+  &quot;failureAbortLabel&quot; : &quot;&quot;,
+  &quot;failureGoBackLabel&quot; : &quot;&quot;,
+  &quot;failureAbortMessage&quot; : &quot;&quot;,
+  &quot;validationRequired&quot; : &quot;Step&quot;,
+  &quot;redirectPageName&quot; : &quot;&quot;,
+  &quot;redirectTemplateUrl&quot; : &quot;vlcAcknowledge.html&quot;,
+  &quot;redirectNextLabel&quot; : &quot;&quot;,
+  &quot;redirectNextWidth&quot; : 3,
+  &quot;redirectPreviousLabel&quot; : &quot;&quot;,
+  &quot;redirectPreviousWidth&quot; : 3,
+  &quot;showPersistentComponent&quot; : [ true, false ],
+  &quot;HTMLTemplateId&quot; : &quot;&quot;,
+  &quot;wpm&quot; : false,
+  &quot;ssm&quot; : false,
+  &quot;message&quot; : { },
+  &quot;pubsub&quot; : false,
+  &quot;svgSprite&quot; : &quot;&quot;,
+  &quot;svgIcon&quot; : &quot;&quot;,
+  &quot;errorMessage&quot; : {
+    &quot;custom&quot; : [ ],
+    &quot;default&quot; : &quot;&quot;
+  },
+  &quot;enableDefaultAbort&quot; : false,
+  &quot;enableActionMessage&quot; : false,
+  &quot;businessCategory&quot; : &quot;&quot;,
+  &quot;businessEvent&quot; : &quot;&quot;
+}</propertySetConfig>
+        <sequenceNumber>66.0</sequenceNumber>
+        <type>Integration Procedure Action</type>
+    </omniProcessElements>
+    <omniProcessElements>
+        <isActive>true</isActive>
+        <isOmniScriptEmbeddable>false</isOmniScriptEmbeddable>
+        <level>0.0</level>
+        <name>GetAppointmentDateTimes</name>
+        <omniProcessVersionNumber>0.0</omniProcessVersionNumber>
+        <propertySetConfig>{
+  &quot;businessEvent&quot; : &quot;&quot;,
+  &quot;businessCategory&quot; : &quot;&quot;,
+  &quot;enableActionMessage&quot; : false,
+  &quot;enableDefaultAbort&quot; : false,
+  &quot;errorMessage&quot; : {
+    &quot;default&quot; : &quot;&quot;,
+    &quot;custom&quot; : [ ]
+  },
+  &quot;svgIcon&quot; : &quot;&quot;,
+  &quot;svgSprite&quot; : &quot;&quot;,
+  &quot;pubsub&quot; : false,
+  &quot;message&quot; : { },
+  &quot;ssm&quot; : false,
+  &quot;wpm&quot; : false,
+  &quot;HTMLTemplateId&quot; : &quot;&quot;,
+  &quot;showPersistentComponent&quot; : [ true, false ],
+  &quot;redirectPreviousWidth&quot; : 3,
+  &quot;redirectPreviousLabel&quot; : &quot;&quot;,
+  &quot;redirectNextWidth&quot; : 3,
+  &quot;redirectNextLabel&quot; : &quot;&quot;,
+  &quot;redirectTemplateUrl&quot; : &quot;vlcAcknowledge.html&quot;,
+  &quot;redirectPageName&quot; : &quot;&quot;,
+  &quot;validationRequired&quot; : &quot;Step&quot;,
+  &quot;failureAbortMessage&quot; : &quot;&quot;,
+  &quot;failureGoBackLabel&quot; : &quot;&quot;,
+  &quot;failureAbortLabel&quot; : &quot;&quot;,
+  &quot;failureNextLabel&quot; : &quot;&quot;,
+  &quot;postMessage&quot; : &quot;&quot;,
+  &quot;inProgressMessage&quot; : &quot;&quot;,
+  &quot;extraPayload&quot; : {
+    &quot;queryForNext30Days&quot; : false,
+    &quot;startTime&quot; : &quot;%SelectedDate%&quot;,
+    &quot;ChannelId&quot; : &quot;%SelectedChannelId%&quot;,
+    &quot;SupportStaff&quot; : &quot;%StaffSelections%&quot;,
+    &quot;ServiceTerritoryMembers&quot; : &quot;%ServiceTerritoryMembers%&quot;,
+    &quot;WorkTypeGroupId&quot; : &quot;%WorkTypeGroupId%&quot;,
+    &quot;IsAutoAssignment&quot; : &quot;%IsAutoAssignment%&quot;
+  },
+  &quot;responseJSONNode&quot; : &quot;&quot;,
+  &quot;responseJSONPath&quot; : &quot;&quot;,
+  &quot;sendJSONNode&quot; : &quot;&quot;,
+  &quot;sendJSONPath&quot; : &quot;&quot;,
+  &quot;postTransformBundle&quot; : &quot;&quot;,
+  &quot;preTransformBundle&quot; : &quot;&quot;,
+  &quot;remoteTimeout&quot; : 30000,
+  &quot;remoteOptions&quot; : {
+    &quot;useFuture&quot; : false,
+    &quot;chainable&quot; : false,
+    &quot;preTransformBundle&quot; : &quot;&quot;,
+    &quot;postTransformBundle&quot; : &quot;&quot;
+  },
+  &quot;useContinuation&quot; : false,
+  &quot;integrationProcedureKey&quot; : &quot;EDUScheduler_GetTimeSlotsIP&quot;,
+  &quot;label&quot; : &quot;$standardLabel.EDUSchedulerFieldLabels.GetAppointmentDateTimesIP&quot;,
+  &quot;controlWidth&quot; : 12,
+  &quot;sendOnlyExtraPayload&quot; : true
+}</propertySetConfig>
+        <sequenceNumber>41.0</sequenceNumber>
+        <type>Integration Procedure Action</type>
+    </omniProcessElements>
+    <omniProcessElements>
+        <isActive>true</isActive>
+        <isOmniScriptEmbeddable>false</isOmniScriptEmbeddable>
+        <level>0.0</level>
+        <name>GetChannelData</name>
+        <omniProcessVersionNumber>0.0</omniProcessVersionNumber>
+        <propertySetConfig>{
+  &quot;controlWidth&quot; : 12,
+  &quot;label&quot; : &quot;$standardLabel.EDUSchedulerFieldLabels.GetChannelDataIP&quot;,
+  &quot;integrationProcedureKey&quot; : &quot;EDUScheduler_ChannelSelection&quot;,
+  &quot;useContinuation&quot; : false,
+  &quot;remoteOptions&quot; : {
+    &quot;useFuture&quot; : false,
+    &quot;chainable&quot; : false,
+    &quot;preTransformBundle&quot; : &quot;&quot;,
+    &quot;postTransformBundle&quot; : &quot;&quot;
+  },
+  &quot;remoteTimeout&quot; : 30000,
+  &quot;preTransformBundle&quot; : &quot;&quot;,
+  &quot;postTransformBundle&quot; : &quot;&quot;,
+  &quot;sendJSONPath&quot; : &quot;&quot;,
+  &quot;sendJSONNode&quot; : &quot;&quot;,
+  &quot;responseJSONPath&quot; : &quot;&quot;,
+  &quot;responseJSONNode&quot; : &quot;&quot;,
+  &quot;extraPayload&quot; : {
+    &quot;WorkTypeId&quot; : &quot;%WorkTypeId%&quot;
+  },
+  &quot;inProgressMessage&quot; : &quot;&quot;,
+  &quot;postMessage&quot; : &quot;&quot;,
+  &quot;failureNextLabel&quot; : &quot;&quot;,
+  &quot;failureAbortLabel&quot; : &quot;&quot;,
+  &quot;failureGoBackLabel&quot; : &quot;&quot;,
+  &quot;failureAbortMessage&quot; : &quot;&quot;,
+  &quot;validationRequired&quot; : &quot;Step&quot;,
+  &quot;redirectPageName&quot; : &quot;&quot;,
+  &quot;redirectTemplateUrl&quot; : &quot;vlcAcknowledge.html&quot;,
+  &quot;redirectNextLabel&quot; : &quot;&quot;,
+  &quot;redirectNextWidth&quot; : 3,
+  &quot;redirectPreviousLabel&quot; : &quot;&quot;,
+  &quot;redirectPreviousWidth&quot; : 3,
+  &quot;showPersistentComponent&quot; : [ true, false ],
+  &quot;HTMLTemplateId&quot; : &quot;&quot;,
+  &quot;wpm&quot; : false,
+  &quot;ssm&quot; : false,
+  &quot;message&quot; : { },
+  &quot;pubsub&quot; : false,
+  &quot;svgSprite&quot; : &quot;&quot;,
+  &quot;svgIcon&quot; : &quot;&quot;,
+  &quot;errorMessage&quot; : {
+    &quot;custom&quot; : [ ],
+    &quot;default&quot; : &quot;&quot;
+  },
+  &quot;enableDefaultAbort&quot; : false,
+  &quot;enableActionMessage&quot; : false,
+  &quot;businessCategory&quot; : &quot;&quot;,
+  &quot;businessEvent&quot; : &quot;&quot;,
+  &quot;sendOnlyExtraPayload&quot; : true
+}</propertySetConfig>
+        <sequenceNumber>26.0</sequenceNumber>
+        <type>Integration Procedure Action</type>
+    </omniProcessElements>
+    <omniProcessElements>
+        <isActive>false</isActive>
+        <isOmniScriptEmbeddable>false</isOmniScriptEmbeddable>
+        <level>0.0</level>
+        <name>GetInputForNextAvailableDate</name>
+        <omniProcessVersionNumber>0.0</omniProcessVersionNumber>
+        <propertySetConfig>{
+  &quot;controlWidth&quot; : 12,
+  &quot;label&quot; : &quot;$standardLabel.EDUSchedulerFieldLabels.GetInputForNextAvailableDateIP&quot;,
+  &quot;integrationProcedureKey&quot; : &quot;EDUScheduler_TimeSlotsInputForNextAvailableDate&quot;,
+  &quot;useContinuation&quot; : false,
+  &quot;remoteOptions&quot; : {
+    &quot;preTransformBundle&quot; : &quot;&quot;,
+    &quot;postTransformBundle&quot; : &quot;&quot;,
+    &quot;useFuture&quot; : false,
+    &quot;chainable&quot; : false
+  },
+  &quot;remoteTimeout&quot; : 30000,
+  &quot;preTransformBundle&quot; : &quot;&quot;,
+  &quot;postTransformBundle&quot; : &quot;&quot;,
+  &quot;sendJSONPath&quot; : &quot;&quot;,
+  &quot;sendJSONNode&quot; : &quot;&quot;,
+  &quot;responseJSONPath&quot; : &quot;&quot;,
+  &quot;responseJSONNode&quot; : &quot;&quot;,
+  &quot;extraPayload&quot; : {
+    &quot;ServiceTerritoryMembers&quot; : &quot;%ServiceTerritoryMembers%&quot;,
+    &quot;SupportStaff&quot; : &quot;%StaffSelections%&quot;,
+    &quot;DefaultSelectedDate&quot; : &quot;%SelectedDate%&quot;
+  },
+  &quot;inProgressMessage&quot; : &quot;&quot;,
+  &quot;postMessage&quot; : &quot;&quot;,
+  &quot;failureNextLabel&quot; : &quot;&quot;,
+  &quot;failureAbortLabel&quot; : &quot;&quot;,
+  &quot;failureGoBackLabel&quot; : &quot;&quot;,
+  &quot;failureAbortMessage&quot; : &quot;&quot;,
+  &quot;validationRequired&quot; : &quot;Step&quot;,
+  &quot;redirectPageName&quot; : &quot;&quot;,
+  &quot;redirectTemplateUrl&quot; : &quot;vlcAcknowledge.html&quot;,
+  &quot;redirectNextLabel&quot; : &quot;&quot;,
+  &quot;redirectNextWidth&quot; : 3,
+  &quot;redirectPreviousLabel&quot; : &quot;&quot;,
+  &quot;redirectPreviousWidth&quot; : 3,
+  &quot;showPersistentComponent&quot; : [ true, false ],
+  &quot;HTMLTemplateId&quot; : &quot;&quot;,
+  &quot;wpm&quot; : false,
+  &quot;ssm&quot; : false,
+  &quot;message&quot; : { },
+  &quot;pubsub&quot; : false,
+  &quot;svgSprite&quot; : &quot;&quot;,
+  &quot;svgIcon&quot; : &quot;&quot;,
+  &quot;errorMessage&quot; : {
+    &quot;custom&quot; : [ ]
+  },
+  &quot;enableDefaultAbort&quot; : false,
+  &quot;enableActionMessage&quot; : false,
+  &quot;businessCategory&quot; : &quot;&quot;,
+  &quot;businessEvent&quot; : &quot;&quot;,
+  &quot;sendOnlyExtraPayload&quot; : true
+}</propertySetConfig>
+        <sequenceNumber>42.0</sequenceNumber>
+        <type>Integration Procedure Action</type>
+    </omniProcessElements>
+    <omniProcessElements>
+        <isActive>true</isActive>
+        <isOmniScriptEmbeddable>false</isOmniScriptEmbeddable>
+        <level>0.0</level>
+        <name>GetLatestSlots</name>
+        <omniProcessVersionNumber>0.0</omniProcessVersionNumber>
+        <propertySetConfig>{
+  &quot;sendOnlyExtraPayload&quot; : true,
+  &quot;controlWidth&quot; : 12,
+  &quot;label&quot; : &quot;$standardLabel.EDUSchedulerFieldLabels.GetAppointmentDateTimesIP&quot;,
+  &quot;integrationProcedureKey&quot; : &quot;EDUScheduler_GetTimeSlotsIP&quot;,
+  &quot;useContinuation&quot; : false,
+  &quot;remoteOptions&quot; : {
+    &quot;postTransformBundle&quot; : &quot;&quot;,
+    &quot;preTransformBundle&quot; : &quot;&quot;,
+    &quot;chainable&quot; : false,
+    &quot;useFuture&quot; : false
+  },
+  &quot;remoteTimeout&quot; : 30000,
+  &quot;preTransformBundle&quot; : &quot;&quot;,
+  &quot;postTransformBundle&quot; : &quot;&quot;,
+  &quot;sendJSONPath&quot; : &quot;&quot;,
+  &quot;sendJSONNode&quot; : &quot;&quot;,
+  &quot;responseJSONPath&quot; : &quot;&quot;,
+  &quot;responseJSONNode&quot; : &quot;&quot;,
+  &quot;extraPayload&quot; : {
+    &quot;WorkTypeGroupId&quot; : &quot;%WorkTypeGroupId%&quot;,
+    &quot;ServiceTerritoryMembers&quot; : &quot;%ServiceTerritoryMembers%&quot;,
+    &quot;SupportStaff&quot; : &quot;%StaffSelections%&quot;,
+    &quot;ChannelId&quot; : &quot;%SelectedChannelId%&quot;,
+    &quot;startTime&quot; : &quot;%SelectedDate%&quot;,
+    &quot;queryForNext30Days&quot; : false,
+    &quot;IsAutoAssignment&quot; : &quot;%IsAutoAssignment%&quot;
+  },
+  &quot;inProgressMessage&quot; : &quot;&quot;,
+  &quot;postMessage&quot; : &quot;&quot;,
+  &quot;failureNextLabel&quot; : &quot;&quot;,
+  &quot;failureAbortLabel&quot; : &quot;&quot;,
+  &quot;failureGoBackLabel&quot; : &quot;&quot;,
+  &quot;failureAbortMessage&quot; : &quot;&quot;,
+  &quot;validationRequired&quot; : &quot;Step&quot;,
+  &quot;redirectPageName&quot; : &quot;&quot;,
+  &quot;redirectTemplateUrl&quot; : &quot;vlcAcknowledge.html&quot;,
+  &quot;redirectNextLabel&quot; : &quot;&quot;,
+  &quot;redirectNextWidth&quot; : 3,
+  &quot;redirectPreviousLabel&quot; : &quot;&quot;,
+  &quot;redirectPreviousWidth&quot; : 3,
+  &quot;showPersistentComponent&quot; : [ true, false ],
+  &quot;HTMLTemplateId&quot; : &quot;&quot;,
+  &quot;wpm&quot; : false,
+  &quot;ssm&quot; : false,
+  &quot;message&quot; : { },
+  &quot;pubsub&quot; : false,
+  &quot;svgSprite&quot; : &quot;&quot;,
+  &quot;svgIcon&quot; : &quot;&quot;,
+  &quot;errorMessage&quot; : {
+    &quot;custom&quot; : [ ],
+    &quot;default&quot; : &quot;&quot;
+  },
+  &quot;enableDefaultAbort&quot; : false,
+  &quot;enableActionMessage&quot; : false,
+  &quot;businessCategory&quot; : &quot;&quot;,
+  &quot;businessEvent&quot; : &quot;&quot;
+}</propertySetConfig>
+        <sequenceNumber>48.0</sequenceNumber>
+        <type>Integration Procedure Action</type>
+    </omniProcessElements>
+    <omniProcessElements>
+        <isActive>true</isActive>
+        <isOmniScriptEmbeddable>false</isOmniScriptEmbeddable>
+        <level>0.0</level>
+        <name>GetSupportStaff</name>
+        <omniProcessVersionNumber>0.0</omniProcessVersionNumber>
+        <propertySetConfig>{
+  &quot;controlWidth&quot; : 12,
+  &quot;label&quot; : &quot;$standardLabel.EDUSchedulerFieldLabels.GetSupportStaffIP&quot;,
+  &quot;integrationProcedureKey&quot; : &quot;EDUScheduler_SupportStaffLandingScreen&quot;,
+  &quot;useContinuation&quot; : false,
+  &quot;remoteOptions&quot; : {
+    &quot;useFuture&quot; : false,
+    &quot;chainable&quot; : false,
+    &quot;preTransformBundle&quot; : &quot;&quot;,
+    &quot;postTransformBundle&quot; : &quot;&quot;
+  },
+  &quot;remoteTimeout&quot; : 30000,
+  &quot;preTransformBundle&quot; : &quot;&quot;,
+  &quot;postTransformBundle&quot; : &quot;&quot;,
+  &quot;sendJSONPath&quot; : &quot;&quot;,
+  &quot;sendJSONNode&quot; : &quot;&quot;,
+  &quot;responseJSONPath&quot; : &quot;&quot;,
+  &quot;responseJSONNode&quot; : &quot;&quot;,
+  &quot;extraPayload&quot; : {
+    &quot;RecordContext&quot; : &quot;%ContextId%&quot;,
+    &quot;RunningUserId&quot; : &quot;%userId%&quot;,
+    &quot;CaseTeamName&quot; : &quot;%CaseTeamName%&quot;,
+    &quot;RecordTypeId&quot; : &quot;%RecordTypeId%&quot;,
+    &quot;ProgramId&quot; : &quot;%ProgramId%&quot;
+  },
+  &quot;inProgressMessage&quot; : &quot;&quot;,
+  &quot;postMessage&quot; : &quot;&quot;,
+  &quot;failureNextLabel&quot; : &quot;&quot;,
+  &quot;failureAbortLabel&quot; : &quot;&quot;,
+  &quot;failureGoBackLabel&quot; : &quot;&quot;,
+  &quot;failureAbortMessage&quot; : &quot;&quot;,
+  &quot;validationRequired&quot; : &quot;Step&quot;,
+  &quot;redirectPageName&quot; : &quot;&quot;,
+  &quot;redirectTemplateUrl&quot; : &quot;vlcAcknowledge.html&quot;,
+  &quot;redirectNextLabel&quot; : &quot;&quot;,
+  &quot;redirectNextWidth&quot; : 3,
+  &quot;redirectPreviousLabel&quot; : &quot;&quot;,
+  &quot;redirectPreviousWidth&quot; : 3,
+  &quot;showPersistentComponent&quot; : [ true, false ],
+  &quot;HTMLTemplateId&quot; : &quot;&quot;,
+  &quot;wpm&quot; : false,
+  &quot;ssm&quot; : false,
+  &quot;message&quot; : { },
+  &quot;pubsub&quot; : false,
+  &quot;svgSprite&quot; : &quot;&quot;,
+  &quot;svgIcon&quot; : &quot;&quot;,
+  &quot;errorMessage&quot; : {
+    &quot;custom&quot; : [ ],
+    &quot;default&quot; : &quot;&quot;
+  },
+  &quot;enableDefaultAbort&quot; : false,
+  &quot;enableActionMessage&quot; : false,
+  &quot;businessCategory&quot; : &quot;&quot;,
+  &quot;businessEvent&quot; : &quot;&quot;,
+  &quot;sendOnlyExtraPayload&quot; : true
+}</propertySetConfig>
+        <sequenceNumber>1.0</sequenceNumber>
+        <type>Integration Procedure Action</type>
+    </omniProcessElements>
+    <omniProcessElements>
+        <isActive>true</isActive>
+        <isOmniScriptEmbeddable>false</isOmniScriptEmbeddable>
+        <level>0.0</level>
+        <name>GetTimeSlotOmniOutput</name>
+        <omniProcessVersionNumber>0.0</omniProcessVersionNumber>
+        <propertySetConfig>{
+  &quot;controlWidth&quot; : 12,
+  &quot;label&quot; : &quot;$standardLabel.EDUSchedulerFieldLabels.GetTimeSlotOmniOutput&quot;,
+  &quot;integrationProcedureKey&quot; : &quot;EDUScheduler_GetTimeSlotOmniOutput&quot;,
+  &quot;useContinuation&quot; : false,
+  &quot;remoteOptions&quot; : {
+    &quot;preTransformBundle&quot; : &quot;&quot;,
+    &quot;postTransformBundle&quot; : &quot;&quot;,
+    &quot;useFuture&quot; : false,
+    &quot;chainable&quot; : false
+  },
+  &quot;remoteTimeout&quot; : 30000,
+  &quot;preTransformBundle&quot; : &quot;&quot;,
+  &quot;postTransformBundle&quot; : &quot;&quot;,
+  &quot;sendJSONPath&quot; : &quot;&quot;,
+  &quot;sendJSONNode&quot; : &quot;&quot;,
+  &quot;responseJSONPath&quot; : &quot;&quot;,
+  &quot;responseJSONNode&quot; : &quot;&quot;,
+  &quot;extraPayload&quot; : {
+    &quot;SlotLocalDateTimeString&quot; : &quot;%SlotLocalDateTimeString%&quot;,
+    &quot;StartDateTimeGMT&quot; : &quot;%StartDateTimeGMT%&quot;,
+    &quot;StartTime&quot; : &quot;%StartTime%&quot;,
+    &quot;EndTime&quot; : &quot;%EndTime%&quot;,
+    &quot;EndDateTimeGMT&quot; : &quot;%EndDateTimeGMT%&quot;,
+    &quot;ServiceTerritoryId&quot; : &quot;%ServiceTerritoryId%&quot;,
+    &quot;ServiceResourceId&quot; : &quot;%ServiceResourceId%&quot;
+  },
+  &quot;inProgressMessage&quot; : &quot;&quot;,
+  &quot;postMessage&quot; : &quot;&quot;,
+  &quot;failureNextLabel&quot; : &quot;&quot;,
+  &quot;failureAbortLabel&quot; : &quot;&quot;,
+  &quot;failureGoBackLabel&quot; : &quot;&quot;,
+  &quot;failureAbortMessage&quot; : &quot;&quot;,
+  &quot;validationRequired&quot; : &quot;Step&quot;,
+  &quot;redirectPageName&quot; : &quot;&quot;,
+  &quot;redirectTemplateUrl&quot; : &quot;vlcAcknowledge.html&quot;,
+  &quot;redirectNextLabel&quot; : &quot;&quot;,
+  &quot;redirectNextWidth&quot; : 3,
+  &quot;redirectPreviousLabel&quot; : &quot;&quot;,
+  &quot;redirectPreviousWidth&quot; : 3,
+  &quot;showPersistentComponent&quot; : [ true, false ],
+  &quot;HTMLTemplateId&quot; : &quot;&quot;,
+  &quot;wpm&quot; : false,
+  &quot;ssm&quot; : false,
+  &quot;message&quot; : { },
+  &quot;pubsub&quot; : false,
+  &quot;svgSprite&quot; : &quot;&quot;,
+  &quot;svgIcon&quot; : &quot;&quot;,
+  &quot;errorMessage&quot; : {
+    &quot;custom&quot; : [ ],
+    &quot;default&quot; : &quot;&quot;
+  },
+  &quot;enableDefaultAbort&quot; : false,
+  &quot;enableActionMessage&quot; : false,
+  &quot;businessCategory&quot; : &quot;&quot;,
+  &quot;businessEvent&quot; : &quot;&quot;,
+  &quot;sendOnlyExtraPayload&quot; : true
+}</propertySetConfig>
+        <sequenceNumber>50.0</sequenceNumber>
+        <type>Integration Procedure Action</type>
+    </omniProcessElements>
+    <omniProcessElements>
+        <isActive>true</isActive>
+        <isOmniScriptEmbeddable>false</isOmniScriptEmbeddable>
+        <level>0.0</level>
+        <name>GetTopics</name>
+        <omniProcessVersionNumber>0.0</omniProcessVersionNumber>
+        <propertySetConfig>{
+  &quot;controlWidth&quot; : 12,
+  &quot;label&quot; : &quot;$standardLabel.EDUSchedulerFieldLabels.GetTopics&quot;,
+  &quot;integrationProcedureKey&quot; : &quot;EDUScheduler_GetTopicsIP&quot;,
+  &quot;useContinuation&quot; : false,
+  &quot;remoteOptions&quot; : {
+    &quot;useFuture&quot; : false,
+    &quot;chainable&quot; : false,
+    &quot;preTransformBundle&quot; : &quot;&quot;,
+    &quot;postTransformBundle&quot; : &quot;&quot;
+  },
+  &quot;remoteTimeout&quot; : 30000,
+  &quot;preTransformBundle&quot; : &quot;&quot;,
+  &quot;postTransformBundle&quot; : &quot;&quot;,
+  &quot;sendJSONPath&quot; : &quot;&quot;,
+  &quot;sendJSONNode&quot; : &quot;&quot;,
+  &quot;responseJSONPath&quot; : &quot;&quot;,
+  &quot;responseJSONNode&quot; : &quot;&quot;,
+  &quot;extraPayload&quot; : {
+    &quot;Roles&quot; : &quot;%RoleInfo:Roles%&quot;
+  },
+  &quot;inProgressMessage&quot; : &quot;&quot;,
+  &quot;postMessage&quot; : &quot;&quot;,
+  &quot;failureNextLabel&quot; : &quot;&quot;,
+  &quot;failureAbortLabel&quot; : &quot;&quot;,
+  &quot;failureGoBackLabel&quot; : &quot;&quot;,
+  &quot;failureAbortMessage&quot; : &quot;&quot;,
+  &quot;validationRequired&quot; : &quot;Step&quot;,
+  &quot;redirectPageName&quot; : &quot;&quot;,
+  &quot;redirectTemplateUrl&quot; : &quot;vlcAcknowledge.html&quot;,
+  &quot;redirectNextLabel&quot; : &quot;&quot;,
+  &quot;redirectNextWidth&quot; : 3,
+  &quot;redirectPreviousLabel&quot; : &quot;&quot;,
+  &quot;redirectPreviousWidth&quot; : 3,
+  &quot;showPersistentComponent&quot; : [ true, false ],
+  &quot;show&quot; : {
+    &quot;group&quot; : {
+      &quot;operator&quot; : &quot;AND&quot;,
+      &quot;rules&quot; : [ {
+        &quot;data&quot; : &quot;true&quot;,
+        &quot;condition&quot; : &quot;=&quot;,
+        &quot;field&quot; : &quot;HasRoles&quot;
+      } ]
+    }
+  },
+  &quot;HTMLTemplateId&quot; : &quot;&quot;,
+  &quot;wpm&quot; : false,
+  &quot;ssm&quot; : false,
+  &quot;message&quot; : { },
+  &quot;pubsub&quot; : false,
+  &quot;svgSprite&quot; : &quot;&quot;,
+  &quot;svgIcon&quot; : &quot;&quot;,
+  &quot;errorMessage&quot; : {
+    &quot;custom&quot; : [ ],
+    &quot;default&quot; : &quot;&quot;
+  },
+  &quot;enableDefaultAbort&quot; : false,
+  &quot;enableActionMessage&quot; : false,
+  &quot;businessCategory&quot; : &quot;&quot;,
+  &quot;businessEvent&quot; : &quot;&quot;,
+  &quot;sendOnlyExtraPayload&quot; : true
+}</propertySetConfig>
+        <sequenceNumber>11.0</sequenceNumber>
+        <type>Integration Procedure Action</type>
+    </omniProcessElements>
+    <omniProcessElements>
+        <isActive>true</isActive>
+        <isOmniScriptEmbeddable>false</isOmniScriptEmbeddable>
+        <level>0.0</level>
+        <name>IntegrationProcedureGetCaseTeamTemplateMembers</name>
+        <omniProcessVersionNumber>0.0</omniProcessVersionNumber>
+        <propertySetConfig>{
+  &quot;controlWidth&quot; : 12,
+  &quot;label&quot; : &quot;$standardLabel.EDUSchedulerFieldLabels.GetCaseTeamTemplateMembers&quot;,
+  &quot;integrationProcedureKey&quot; : &quot;EDUScheduler_GetCaseTeamTemplateMembersIP&quot;,
+  &quot;useContinuation&quot; : false,
+  &quot;remoteOptions&quot; : {
+    &quot;useFuture&quot; : false,
+    &quot;chainable&quot; : false,
+    &quot;preTransformBundle&quot; : &quot;&quot;,
+    &quot;postTransformBundle&quot; : &quot;&quot;
+  },
+  &quot;remoteTimeout&quot; : 30000,
+  &quot;preTransformBundle&quot; : &quot;&quot;,
+  &quot;postTransformBundle&quot; : &quot;&quot;,
+  &quot;sendJSONPath&quot; : &quot;&quot;,
+  &quot;sendJSONNode&quot; : &quot;&quot;,
+  &quot;responseJSONPath&quot; : &quot;&quot;,
+  &quot;responseJSONNode&quot; : &quot;&quot;,
+  &quot;extraPayload&quot; : {
+    &quot;CaseTeamTemplateId&quot; : &quot;%CaseTeamTemplateId%&quot;,
+    &quot;CaseId&quot; : &quot;%CaseId%&quot;,
+    &quot;CaseTeamTemplateName&quot; : &quot;%CaseTeamTemplateName%&quot;
+  },
+  &quot;inProgressMessage&quot; : &quot;&quot;,
+  &quot;postMessage&quot; : &quot;&quot;,
+  &quot;failureNextLabel&quot; : &quot;&quot;,
+  &quot;failureAbortLabel&quot; : &quot;&quot;,
+  &quot;failureGoBackLabel&quot; : &quot;&quot;,
+  &quot;failureAbortMessage&quot; : &quot;&quot;,
+  &quot;validationRequired&quot; : &quot;Step&quot;,
+  &quot;redirectPageName&quot; : &quot;&quot;,
+  &quot;redirectTemplateUrl&quot; : &quot;vlcAcknowledge.html&quot;,
+  &quot;redirectNextLabel&quot; : &quot;&quot;,
+  &quot;redirectNextWidth&quot; : 3,
+  &quot;redirectPreviousLabel&quot; : &quot;&quot;,
+  &quot;redirectPreviousWidth&quot; : 3,
+  &quot;showPersistentComponent&quot; : [ true, false ],
+  &quot;show&quot; : {
+    &quot;group&quot; : {
+      &quot;operator&quot; : &quot;AND&quot;,
+      &quot;rules&quot; : [ {
+        &quot;condition&quot; : &quot;&lt;&gt;&quot;,
+        &quot;field&quot; : &quot;CaseTeamTemplateId&quot;
+      }, {
+        &quot;group&quot; : {
+          &quot;operator&quot; : &quot;OR&quot;,
+          &quot;rules&quot; : [ {
+            &quot;field&quot; : &quot;ServiceResourceId&quot;,
+            &quot;condition&quot; : &quot;=&quot;
+          }, {
+            &quot;field&quot; : &quot;ServiceResourceId&quot;,
+            &quot;condition&quot; : &quot;=&quot;,
+            &quot;data&quot; : &quot;noId&quot;
+          }, {
+            &quot;field&quot; : &quot;ServiceResourceId&quot;,
+            &quot;condition&quot; : &quot;=&quot;,
+            &quot;data&quot; : &quot;{ServiceResourceId}&quot;
+          } ]
+        }
+      } ]
+    }
+  },
+  &quot;HTMLTemplateId&quot; : &quot;&quot;,
+  &quot;wpm&quot; : false,
+  &quot;ssm&quot; : false,
+  &quot;message&quot; : { },
+  &quot;pubsub&quot; : false,
+  &quot;svgSprite&quot; : &quot;&quot;,
+  &quot;svgIcon&quot; : &quot;&quot;,
+  &quot;errorMessage&quot; : {
+    &quot;custom&quot; : [ ],
+    &quot;default&quot; : &quot;&quot;
+  },
+  &quot;enableDefaultAbort&quot; : false,
+  &quot;enableActionMessage&quot; : false,
+  &quot;businessCategory&quot; : &quot;&quot;,
+  &quot;businessEvent&quot; : &quot;&quot;,
+  &quot;sendOnlyExtraPayload&quot; : true
+}</propertySetConfig>
+        <sequenceNumber>8.0</sequenceNumber>
+        <type>Integration Procedure Action</type>
+    </omniProcessElements>
+    <omniProcessElements>
+        <childElements>
+            <isActive>true</isActive>
+            <isOmniScriptEmbeddable>false</isOmniScriptEmbeddable>
+            <level>1.0</level>
+            <name>NoStaffMessage</name>
+            <omniProcessVersionNumber>0.0</omniProcessVersionNumber>
+            <propertySetConfig>{
+  &quot;HTMLTemplateId&quot; : &quot;&quot;,
+  &quot;hideLabel&quot; : true,
+  &quot;messages&quot; : [ {
+    &quot;value&quot; : true,
+    &quot;type&quot; : &quot;Success&quot;,
+    &quot;text&quot; : &quot;&quot;,
+    &quot;active&quot; : false
+  }, {
+    &quot;value&quot; : false,
+    &quot;type&quot; : &quot;Requirement&quot;,
+    &quot;text&quot; : &quot;$standardLabel.EDUScheduler.NoSupportStaff&quot;,
+    &quot;active&quot; : true
+  } ],
+  &quot;validateExpression&quot; : {
+    &quot;group&quot; : {
+      &quot;operator&quot; : &quot;AND&quot;,
+      &quot;rules&quot; : [ {
+        &quot;field&quot; : &quot;NoSupportStaff&quot;,
+        &quot;condition&quot; : &quot;=&quot;,
+        &quot;data&quot; : &quot;false&quot;
+      } ]
+    }
+  },
+  &quot;label&quot; : &quot;$standardLabel.EDUSchedulerFieldLabels.NoStaffMessage&quot;,
+  &quot;controlWidth&quot; : 12,
+  &quot;lwcComponentOverride&quot; : &quot;&quot;
+}</propertySetConfig>
+            <sequenceNumber>1.0</sequenceNumber>
+            <type>Validation</type>
+        </childElements>
+        <childElements>
+            <isActive>true</isActive>
+            <isOmniScriptEmbeddable>false</isOmniScriptEmbeddable>
+            <level>1.0</level>
+            <name>NoSupportStaff</name>
+            <omniProcessVersionNumber>0.0</omniProcessVersionNumber>
+            <propertySetConfig>{
+  &quot;disOnTplt&quot; : false,
+  &quot;HTMLTemplateId&quot; : &quot;&quot;,
+  &quot;dateFormat&quot; : &quot;MM-dd-yyyy&quot;,
+  &quot;hideGroupSep&quot; : false,
+  &quot;hide&quot; : true,
+  &quot;expression&quot; : &quot;(%SupportStaff:DisplayAssigned% == false &amp;&amp; %SupportStaff:DisplayUnassigned% == false)&quot;,
+  &quot;inputWidth&quot; : 12,
+  &quot;showInputWidth&quot; : false,
+  &quot;label&quot; : &quot;$standardLabel.EDUSchedulerFieldLabels.NoSupportStaff&quot;,
+  &quot;controlWidth&quot; : 12
+}</propertySetConfig>
+            <sequenceNumber>2.0</sequenceNumber>
+            <type>Formula</type>
+        </childElements>
+        <childElements>
+            <isActive>true</isActive>
+            <isOmniScriptEmbeddable>false</isOmniScriptEmbeddable>
+            <level>1.0</level>
+            <name>schedulerLWC</name>
+            <omniProcessVersionNumber>0.0</omniProcessVersionNumber>
+            <propertySetConfig>{
+  &quot;customAttributes&quot; : [ {
+    &quot;name&quot; : &quot;parent-data&quot;,
+    &quot;source&quot; : &quot;true&quot;
+  }, {
+    &quot;name&quot; : &quot;records&quot;,
+    &quot;source&quot; : &quot;%SupportStaff%&quot;
+  } ],
+  &quot;bStandalone&quot; : true,
+  &quot;lwcName&quot; : &quot;cfEDUSchedulerLandingSupportStaff&quot;,
+  &quot;hide&quot; : false,
+  &quot;conditionType&quot; : &quot;Hide if False&quot;,
+  &quot;label&quot; : &quot;$standardLabel.EDUSchedulerFieldLabels.SchedulerLanding&quot;,
+  &quot;controlWidth&quot; : 12
+}</propertySetConfig>
+            <sequenceNumber>0.0</sequenceNumber>
+            <type>Custom Lightning Web Component</type>
+        </childElements>
+        <isActive>true</isActive>
+        <isOmniScriptEmbeddable>false</isOmniScriptEmbeddable>
+        <level>0.0</level>
+        <name>LandingStep</name>
+        <omniProcessVersionNumber>0.0</omniProcessVersionNumber>
+        <propertySetConfig>{
+  &quot;businessEvent&quot; : &quot;&quot;,
+  &quot;businessCategory&quot; : &quot;&quot;,
+  &quot;pubsub&quot; : false,
+  &quot;message&quot; : { },
+  &quot;ssm&quot; : false,
+  &quot;wpm&quot; : false,
+  &quot;errorMessage&quot; : {
+    &quot;default&quot; : &quot;&quot;,
+    &quot;custom&quot; : [ ]
+  },
+  &quot;allowSaveForLater&quot; : false,
+  &quot;instructionKey&quot; : &quot;&quot;,
+  &quot;HTMLTemplateId&quot; : &quot;&quot;,
+  &quot;conditionType&quot; : &quot;Hide if False&quot;,
+  &quot;knowledgeOptions&quot; : {
+    &quot;typeFilter&quot; : &quot;&quot;,
+    &quot;remoteTimeout&quot; : 30000,
+    &quot;dataCategoryCriteria&quot; : &quot;&quot;,
+    &quot;keyword&quot; : &quot;&quot;,
+    &quot;publishStatus&quot; : &quot;Online&quot;,
+    &quot;language&quot; : &quot;English&quot;
+  },
+  &quot;remoteOptions&quot; : { },
+  &quot;remoteTimeout&quot; : 30000,
+  &quot;remoteMethod&quot; : &quot;&quot;,
+  &quot;remoteClass&quot; : &quot;&quot;,
+  &quot;showPersistentComponent&quot; : [ true, false ],
+  &quot;instruction&quot; : &quot;&quot;,
+  &quot;completeMessage&quot; : &quot;&quot;,
+  &quot;completeLabel&quot; : &quot;&quot;,
+  &quot;saveMessage&quot; : &quot;&quot;,
+  &quot;saveLabel&quot; : &quot;&quot;,
+  &quot;cancelMessage&quot; : &quot;&quot;,
+  &quot;cancelLabel&quot; : &quot;&quot;,
+  &quot;nextWidth&quot; : 3,
+  &quot;nextLabel&quot; : &quot;$standardLabel.EDUScheduler.Next&quot;,
+  &quot;previousWidth&quot; : 3,
+  &quot;previousLabel&quot; : &quot;$standardLabel.EDUScheduler.Back&quot;,
+  &quot;validationRequired&quot; : true,
+  &quot;label&quot; : &quot;$standardLabel.EDUScheduler.ScheduleAppointment&quot;,
+  &quot;omniClearSaveState&quot; : [ &quot;cfEDUSchedulerLandingSupportStaff&quot;, &quot;schedulerLWC&quot; ]
+}</propertySetConfig>
+        <sequenceNumber>3.0</sequenceNumber>
+        <type>Step</type>
+    </omniProcessElements>
+    <omniProcessElements>
+        <isActive>true</isActive>
+        <isOmniScriptEmbeddable>false</isOmniScriptEmbeddable>
+        <level>0.0</level>
+        <name>NoRolesTopicSet</name>
+        <omniProcessVersionNumber>0.0</omniProcessVersionNumber>
+        <propertySetConfig>{
+  &quot;controlWidth&quot; : 12,
+  &quot;label&quot; : &quot;$standardLabel.EDUSchedulerFieldLabels.NoRolesTopicSet&quot;,
+  &quot;elementValueMap&quot; : {
+    &quot;Topic&quot; : {
+      &quot;DisplayTopics&quot; : &quot;false&quot;
+    }
+  },
+  &quot;showPersistentComponent&quot; : [ true, false ],
+  &quot;show&quot; : {
+    &quot;group&quot; : {
+      &quot;operator&quot; : &quot;AND&quot;,
+      &quot;rules&quot; : [ {
+        &quot;data&quot; : &quot;false&quot;,
+        &quot;condition&quot; : &quot;=&quot;,
+        &quot;field&quot; : &quot;HasRoles&quot;
+      } ]
+    }
+  },
+  &quot;HTMLTemplateId&quot; : &quot;&quot;,
+  &quot;wpm&quot; : false,
+  &quot;ssm&quot; : false,
+  &quot;message&quot; : { },
+  &quot;pubsub&quot; : false
+}</propertySetConfig>
+        <sequenceNumber>12.0</sequenceNumber>
+        <type>Set Values</type>
+    </omniProcessElements>
+    <omniProcessElements>
+        <isActive>true</isActive>
+        <isOmniScriptEmbeddable>false</isOmniScriptEmbeddable>
+        <level>0.0</level>
+        <name>OrganizeRoles</name>
+        <omniProcessVersionNumber>0.0</omniProcessVersionNumber>
+        <propertySetConfig>{
+  &quot;controlWidth&quot; : 12,
+  &quot;label&quot; : &quot;$standardLabel.EDUSchedulerFieldLabels.OrganizeRoles&quot;,
+  &quot;integrationProcedureKey&quot; : &quot;EDUScheduler_OrganizeRoles&quot;,
+  &quot;useContinuation&quot; : false,
+  &quot;remoteOptions&quot; : {
+    &quot;useFuture&quot; : false,
+    &quot;chainable&quot; : false,
+    &quot;preTransformBundle&quot; : &quot;&quot;,
+    &quot;postTransformBundle&quot; : &quot;&quot;
+  },
+  &quot;remoteTimeout&quot; : 30000,
+  &quot;preTransformBundle&quot; : &quot;&quot;,
+  &quot;postTransformBundle&quot; : &quot;&quot;,
+  &quot;sendJSONPath&quot; : &quot;&quot;,
+  &quot;sendJSONNode&quot; : &quot;&quot;,
+  &quot;responseJSONPath&quot; : &quot;&quot;,
+  &quot;responseJSONNode&quot; : &quot;&quot;,
+  &quot;extraPayload&quot; : {
+    &quot;StaffSelections&quot; : &quot;%StaffSelections%&quot;
+  },
+  &quot;inProgressMessage&quot; : &quot;&quot;,
+  &quot;postMessage&quot; : &quot;&quot;,
+  &quot;failureNextLabel&quot; : &quot;&quot;,
+  &quot;failureAbortLabel&quot; : &quot;&quot;,
+  &quot;failureGoBackLabel&quot; : &quot;&quot;,
+  &quot;failureAbortMessage&quot; : &quot;&quot;,
+  &quot;validationRequired&quot; : &quot;Step&quot;,
+  &quot;redirectPageName&quot; : &quot;&quot;,
+  &quot;redirectTemplateUrl&quot; : &quot;vlcAcknowledge.html&quot;,
+  &quot;redirectNextLabel&quot; : &quot;&quot;,
+  &quot;redirectNextWidth&quot; : 3,
+  &quot;redirectPreviousLabel&quot; : &quot;&quot;,
+  &quot;redirectPreviousWidth&quot; : 3,
+  &quot;showPersistentComponent&quot; : [ true, false ],
+  &quot;show&quot; : {
+    &quot;group&quot; : {
+      &quot;operator&quot; : &quot;AND&quot;,
+      &quot;rules&quot; : [ {
+        &quot;condition&quot; : &quot;&lt;&gt;&quot;,
+        &quot;field&quot; : &quot;StaffSelections&quot;
+      } ]
+    }
+  },
+  &quot;HTMLTemplateId&quot; : &quot;&quot;,
+  &quot;wpm&quot; : false,
+  &quot;ssm&quot; : false,
+  &quot;message&quot; : { },
+  &quot;pubsub&quot; : false,
+  &quot;svgSprite&quot; : &quot;&quot;,
+  &quot;svgIcon&quot; : &quot;&quot;,
+  &quot;errorMessage&quot; : {
+    &quot;custom&quot; : [ ],
+    &quot;default&quot; : &quot;&quot;
+  },
+  &quot;enableDefaultAbort&quot; : false,
+  &quot;enableActionMessage&quot; : false,
+  &quot;businessCategory&quot; : &quot;&quot;,
+  &quot;businessEvent&quot; : &quot;&quot;,
+  &quot;sendOnlyExtraPayload&quot; : true
+}</propertySetConfig>
+        <sequenceNumber>9.0</sequenceNumber>
+        <type>Integration Procedure Action</type>
+    </omniProcessElements>
+    <omniProcessElements>
+        <isActive>true</isActive>
+        <isOmniScriptEmbeddable>false</isOmniScriptEmbeddable>
+        <level>0.0</level>
+        <name>OrganizeSupportStaff</name>
+        <omniProcessVersionNumber>0.0</omniProcessVersionNumber>
+        <propertySetConfig>{
+  &quot;controlWidth&quot; : 12,
+  &quot;label&quot; : &quot;$standardLabel.EDUSchedulerFieldLabels.OrganizeSupportStaffSelection&quot;,
+  &quot;elementValueMap&quot; : {
+    &quot;StaffSelections&quot; : {
+      &quot;ServiceResourceId&quot; : &quot;%ServiceResourceId%&quot;,
+      &quot;Name&quot; : &quot;%Name%&quot;,
+      &quot;ImageUrl&quot; : &quot;%ImageURL%&quot;,
+      &quot;Role&quot; : &quot;%Role%&quot;
+    }
+  },
+  &quot;showPersistentComponent&quot; : [ true, false ],
+  &quot;show&quot; : {
+    &quot;group&quot; : {
+      &quot;operator&quot; : &quot;AND&quot;,
+      &quot;rules&quot; : [ {
+        &quot;condition&quot; : &quot;&lt;&gt;&quot;,
+        &quot;field&quot; : &quot;ServiceResourceId&quot;
+      }, {
+        &quot;field&quot; : &quot;ServiceResourceId&quot;,
+        &quot;condition&quot; : &quot;&lt;&gt;&quot;,
+        &quot;data&quot; : &quot;noId&quot;
+      }, {
+        &quot;field&quot; : &quot;ServiceResourceId&quot;,
+        &quot;condition&quot; : &quot;&lt;&gt;&quot;,
+        &quot;data&quot; : &quot;{ServiceResourceId}&quot;
+      } ]
+    }
+  },
+  &quot;HTMLTemplateId&quot; : &quot;&quot;,
+  &quot;wpm&quot; : false,
+  &quot;ssm&quot; : false,
+  &quot;message&quot; : { },
+  &quot;pubsub&quot; : false
+}</propertySetConfig>
+        <sequenceNumber>7.0</sequenceNumber>
+        <type>Set Values</type>
+    </omniProcessElements>
+    <omniProcessElements>
+        <isActive>true</isActive>
+        <isOmniScriptEmbeddable>false</isOmniScriptEmbeddable>
+        <level>0.0</level>
+        <name>OutputSupportStaff</name>
+        <omniProcessVersionNumber>0.0</omniProcessVersionNumber>
+        <propertySetConfig>{
+  &quot;controlWidth&quot; : 12,
+  &quot;label&quot; : &quot;$standardLabel.EDUSchedulerFieldLabels.OutputSupportStaff&quot;,
+  &quot;elementValueMap&quot; : {
+    &quot;HasRoles&quot; : &quot;=IF(COUNT(%RoleInfo:HasRoles%)==0, false, %RoleInfo:HasRoles%)&quot;,
+    &quot;StaffSelections&quot; : &quot;%StaffSelections%&quot;
+  },
+  &quot;showPersistentComponent&quot; : [ true, false ],
+  &quot;HTMLTemplateId&quot; : &quot;&quot;,
+  &quot;wpm&quot; : false,
+  &quot;ssm&quot; : false,
+  &quot;message&quot; : { },
+  &quot;pubsub&quot; : false
+}</propertySetConfig>
+        <sequenceNumber>10.0</sequenceNumber>
+        <type>Set Values</type>
+    </omniProcessElements>
+    <omniProcessElements>
+        <isActive>true</isActive>
+        <isOmniScriptEmbeddable>false</isOmniScriptEmbeddable>
+        <level>0.0</level>
+        <name>OutputTopic</name>
+        <omniProcessVersionNumber>0.0</omniProcessVersionNumber>
+        <propertySetConfig>{
+  &quot;controlWidth&quot; : 12,
+  &quot;label&quot; : &quot;$standardLabel.EDUSchedulerFieldLabels.OutputTopic&quot;,
+  &quot;elementValueMap&quot; : {
+    &quot;WorkTypeGroupId&quot; : &quot;=IF(%SubtopicWorkTypeGroupId%==NULL,%TopicWorkTypeGroupId%,%SubtopicWorkTypeGroupId%)&quot;,
+    &quot;WorkTypeId&quot; : &quot;=IF(%SubtopicWorkTypeId%==NULL,%TopicWorkTypeId%,%SubtopicWorkTypeId%)&quot;,
+    &quot;TopicName&quot; : &quot;=IF(%SelectedSubtopicName% != NULL, %SelectedSubtopicName%, %SelectedTopicName% )&quot;
+  },
+  &quot;showPersistentComponent&quot; : [ true, false ],
+  &quot;HTMLTemplateId&quot; : &quot;&quot;,
+  &quot;wpm&quot; : false,
+  &quot;ssm&quot; : false,
+  &quot;message&quot; : { },
+  &quot;pubsub&quot; : false
+}</propertySetConfig>
+        <sequenceNumber>24.0</sequenceNumber>
+        <type>Set Values</type>
+    </omniProcessElements>
+    <omniProcessElements>
+        <childElements>
+            <isActive>true</isActive>
+            <isOmniScriptEmbeddable>false</isOmniScriptEmbeddable>
+            <level>1.0</level>
+            <name>appointmentReviewScreen</name>
+            <omniProcessVersionNumber>0.0</omniProcessVersionNumber>
+            <propertySetConfig>{
+  &quot;controlWidth&quot; : 12,
+  &quot;label&quot; : &quot;$standardLabel.EDUScheduler.ReviewAppointment&quot;,
+  &quot;conditionType&quot; : &quot;Hide if False&quot;,
+  &quot;hide&quot; : false,
+  &quot;lwcName&quot; : &quot;cfEDUSchedulerReviewAppointment&quot;,
+  &quot;bStandalone&quot; : true,
+  &quot;customAttributes&quot; : [ {
+    &quot;name&quot; : &quot;parent-data&quot;,
+    &quot;source&quot; : &quot;true&quot;
+  }, {
+    &quot;name&quot; : &quot;records&quot;,
+    &quot;source&quot; : &quot;%AppointmentVM%&quot;
+  } ]
+}</propertySetConfig>
+            <sequenceNumber>0.0</sequenceNumber>
+            <type>Custom Lightning Web Component</type>
+        </childElements>
+        <childElements>
+            <isActive>true</isActive>
+            <isOmniScriptEmbeddable>false</isOmniScriptEmbeddable>
+            <level>1.0</level>
+            <name>finalNotes</name>
+            <omniProcessVersionNumber>0.0</omniProcessVersionNumber>
+            <propertySetConfig>{
+  &quot;controlWidth&quot; : 12,
+  &quot;label&quot; : &quot;$standardLabel.EDUScheduler.Notes&quot;,
+  &quot;showInputWidth&quot; : false,
+  &quot;inputWidth&quot; : 12,
+  &quot;expression&quot; : &quot;IF(%CommentsRequired% !=true,%notesOptional%,%notesRequired%)&quot;,
+  &quot;hide&quot; : true,
+  &quot;hideGroupSep&quot; : false,
+  &quot;dateFormat&quot; : &quot;MM-dd-yyyy&quot;,
+  &quot;HTMLTemplateId&quot; : &quot;&quot;,
+  &quot;disOnTplt&quot; : false
+}</propertySetConfig>
+            <sequenceNumber>3.0</sequenceNumber>
+            <type>Formula</type>
+        </childElements>
+        <childElements>
+            <isActive>true</isActive>
+            <isOmniScriptEmbeddable>false</isOmniScriptEmbeddable>
+            <level>1.0</level>
+            <name>notesOptional</name>
+            <omniProcessVersionNumber>0.0</omniProcessVersionNumber>
+            <propertySetConfig>{
+  &quot;controlWidth&quot; : 12,
+  &quot;label&quot; : &quot;$standardLabel.EDUScheduler.Notes&quot;,
+  &quot;showInputWidth&quot; : false,
+  &quot;inputWidth&quot; : 12,
+  &quot;required&quot; : false,
+  &quot;repeat&quot; : false,
+  &quot;repeatClone&quot; : false,
+  &quot;readOnly&quot; : false,
+  &quot;help&quot; : false,
+  &quot;helpText&quot; : &quot;&quot;,
+  &quot;helpTextPos&quot; : &quot;&quot;,
+  &quot;pattern&quot; : &quot;&quot;,
+  &quot;ptrnErrText&quot; : &quot;&quot;,
+  &quot;minLength&quot; : 0,
+  &quot;maxLength&quot; : 255,
+  &quot;placeholder&quot; : &quot;&quot;,
+  &quot;show&quot; : {
+    &quot;group&quot; : {
+      &quot;operator&quot; : &quot;AND&quot;,
+      &quot;rules&quot; : [ {
+        &quot;data&quot; : &quot;true&quot;,
+        &quot;condition&quot; : &quot;&lt;&gt;&quot;,
+        &quot;field&quot; : &quot;CommentsRequired&quot;
+      } ]
+    }
+  },
+  &quot;conditionType&quot; : &quot;Hide if False&quot;,
+  &quot;accessibleInFutureSteps&quot; : false,
+  &quot;debounceValue&quot; : 0,
+  &quot;HTMLTemplateId&quot; : &quot;&quot;,
+  &quot;hide&quot; : false,
+  &quot;disOnTplt&quot; : false
+}</propertySetConfig>
+            <sequenceNumber>2.0</sequenceNumber>
+            <type>Text Area</type>
+        </childElements>
+        <childElements>
+            <isActive>true</isActive>
+            <isOmniScriptEmbeddable>false</isOmniScriptEmbeddable>
+            <level>1.0</level>
+            <name>notesRequired</name>
+            <omniProcessVersionNumber>0.0</omniProcessVersionNumber>
+            <propertySetConfig>{
+  &quot;controlWidth&quot; : 12,
+  &quot;label&quot; : &quot;$standardLabel.EDUScheduler.Notes&quot;,
+  &quot;showInputWidth&quot; : false,
+  &quot;inputWidth&quot; : 12,
+  &quot;required&quot; : true,
+  &quot;repeat&quot; : false,
+  &quot;repeatClone&quot; : false,
+  &quot;readOnly&quot; : false,
+  &quot;help&quot; : false,
+  &quot;helpText&quot; : &quot;&quot;,
+  &quot;helpTextPos&quot; : &quot;&quot;,
+  &quot;pattern&quot; : &quot;&quot;,
+  &quot;ptrnErrText&quot; : &quot;&quot;,
+  &quot;minLength&quot; : 0,
+  &quot;maxLength&quot; : 255,
+  &quot;placeholder&quot; : &quot;&quot;,
+  &quot;show&quot; : {
+    &quot;group&quot; : {
+      &quot;operator&quot; : &quot;AND&quot;,
+      &quot;rules&quot; : [ {
+        &quot;data&quot; : &quot;true&quot;,
+        &quot;condition&quot; : &quot;=&quot;,
+        &quot;field&quot; : &quot;CommentsRequired&quot;
+      } ]
+    }
+  },
+  &quot;conditionType&quot; : &quot;Hide if False&quot;,
+  &quot;accessibleInFutureSteps&quot; : false,
+  &quot;debounceValue&quot; : 0,
+  &quot;HTMLTemplateId&quot; : &quot;&quot;,
+  &quot;hide&quot; : false,
+  &quot;disOnTplt&quot; : false
+}</propertySetConfig>
+            <sequenceNumber>1.0</sequenceNumber>
+            <type>Text Area</type>
+        </childElements>
+        <isActive>true</isActive>
+        <isOmniScriptEmbeddable>false</isOmniScriptEmbeddable>
+        <level>0.0</level>
+        <name>ReviewAppointment</name>
+        <omniProcessVersionNumber>0.0</omniProcessVersionNumber>
+        <propertySetConfig>{
+  &quot;label&quot; : &quot;$standardLabel.EDUScheduler.ReviewAppointment&quot;,
+  &quot;validationRequired&quot; : true,
+  &quot;previousLabel&quot; : &quot;$standardLabel.EDUScheduler.Back&quot;,
+  &quot;previousWidth&quot; : 3,
+  &quot;nextLabel&quot; : &quot;$standardLabel.EDUScheduler.Confirm&quot;,
+  &quot;nextWidth&quot; : 3,
+  &quot;cancelLabel&quot; : &quot;&quot;,
+  &quot;cancelMessage&quot; : &quot;&quot;,
+  &quot;saveLabel&quot; : &quot;&quot;,
+  &quot;saveMessage&quot; : &quot;&quot;,
+  &quot;completeLabel&quot; : &quot;&quot;,
+  &quot;completeMessage&quot; : &quot;&quot;,
+  &quot;instruction&quot; : &quot;&quot;,
+  &quot;showPersistentComponent&quot; : [ true, false ],
+  &quot;remoteClass&quot; : &quot;&quot;,
+  &quot;remoteMethod&quot; : &quot;&quot;,
+  &quot;remoteTimeout&quot; : 30000,
+  &quot;remoteOptions&quot; : { },
+  &quot;knowledgeOptions&quot; : {
+    &quot;language&quot; : &quot;English&quot;,
+    &quot;publishStatus&quot; : &quot;Online&quot;,
+    &quot;keyword&quot; : &quot;&quot;,
+    &quot;dataCategoryCriteria&quot; : &quot;&quot;,
+    &quot;remoteTimeout&quot; : 30000,
+    &quot;typeFilter&quot; : &quot;&quot;
+  },
+  &quot;conditionType&quot; : &quot;Hide if False&quot;,
+  &quot;HTMLTemplateId&quot; : &quot;&quot;,
+  &quot;instructionKey&quot; : &quot;&quot;,
+  &quot;allowSaveForLater&quot; : false,
+  &quot;errorMessage&quot; : {
+    &quot;custom&quot; : [ ],
+    &quot;default&quot; : &quot;&quot;
+  },
+  &quot;wpm&quot; : false,
+  &quot;ssm&quot; : false,
+  &quot;message&quot; : { },
+  &quot;pubsub&quot; : false,
+  &quot;businessCategory&quot; : &quot;&quot;,
+  &quot;businessEvent&quot; : &quot;&quot;
+}</propertySetConfig>
+        <sequenceNumber>63.0</sequenceNumber>
+        <type>Step</type>
+    </omniProcessElements>
+    <omniProcessElements>
+        <isActive>false</isActive>
+        <isOmniScriptEmbeddable>false</isOmniScriptEmbeddable>
+        <level>0.0</level>
+        <name>ReviewAppointmentIP</name>
+        <omniProcessVersionNumber>0.0</omniProcessVersionNumber>
+        <propertySetConfig>{
+  &quot;controlWidth&quot; : 12,
+  &quot;label&quot; : &quot;$standardLabel.EDUSchedulerFieldLabels.ReviewAppointmentIP&quot;,
+  &quot;integrationProcedureKey&quot; : &quot;EDUScheduler_ReviewAppointment&quot;,
+  &quot;useContinuation&quot; : false,
+  &quot;remoteOptions&quot; : {
+    &quot;preTransformBundle&quot; : &quot;&quot;,
+    &quot;postTransformBundle&quot; : &quot;&quot;,
+    &quot;useFuture&quot; : false,
+    &quot;chainable&quot; : false
+  },
+  &quot;remoteTimeout&quot; : 30000,
+  &quot;preTransformBundle&quot; : &quot;&quot;,
+  &quot;postTransformBundle&quot; : &quot;&quot;,
+  &quot;sendJSONPath&quot; : &quot;&quot;,
+  &quot;sendJSONNode&quot; : &quot;&quot;,
+  &quot;responseJSONPath&quot; : &quot;&quot;,
+  &quot;responseJSONNode&quot; : &quot;&quot;,
+  &quot;extraPayload&quot; : { },
+  &quot;inProgressMessage&quot; : &quot;&quot;,
+  &quot;postMessage&quot; : &quot;&quot;,
+  &quot;failureNextLabel&quot; : &quot;&quot;,
+  &quot;failureAbortLabel&quot; : &quot;&quot;,
+  &quot;failureGoBackLabel&quot; : &quot;&quot;,
+  &quot;failureAbortMessage&quot; : &quot;&quot;,
+  &quot;validationRequired&quot; : &quot;Step&quot;,
+  &quot;redirectPageName&quot; : &quot;&quot;,
+  &quot;redirectTemplateUrl&quot; : &quot;vlcAcknowledge.html&quot;,
+  &quot;redirectNextLabel&quot; : &quot;&quot;,
+  &quot;redirectNextWidth&quot; : 3,
+  &quot;redirectPreviousLabel&quot; : &quot;&quot;,
+  &quot;redirectPreviousWidth&quot; : 3,
+  &quot;showPersistentComponent&quot; : [ true, false ],
+  &quot;HTMLTemplateId&quot; : &quot;&quot;,
+  &quot;wpm&quot; : false,
+  &quot;ssm&quot; : false,
+  &quot;message&quot; : { },
+  &quot;pubsub&quot; : false,
+  &quot;svgSprite&quot; : &quot;&quot;,
+  &quot;svgIcon&quot; : &quot;&quot;,
+  &quot;errorMessage&quot; : {
+    &quot;custom&quot; : [ ],
+    &quot;default&quot; : &quot;&quot;
+  },
+  &quot;enableDefaultAbort&quot; : false,
+  &quot;enableActionMessage&quot; : false,
+  &quot;businessCategory&quot; : &quot;&quot;,
+  &quot;businessEvent&quot; : &quot;&quot;
+}</propertySetConfig>
+        <sequenceNumber>58.0</sequenceNumber>
+        <type>Integration Procedure Action</type>
+    </omniProcessElements>
+    <omniProcessElements>
+        <childElements>
+            <isActive>true</isActive>
+            <isOmniScriptEmbeddable>false</isOmniScriptEmbeddable>
+            <level>1.0</level>
+            <name>ErrorState</name>
+            <omniProcessVersionNumber>0.0</omniProcessVersionNumber>
+            <propertySetConfig>{
+  &quot;customAttributes&quot; : [ {
+    &quot;name&quot; : &quot;parent-data&quot;,
+    &quot;source&quot; : &quot;true&quot;
+  }, {
+    &quot;name&quot; : &quot;records&quot;,
+    &quot;source&quot; : &quot;%ErrorVM%&quot;
+  } ],
+  &quot;bStandalone&quot; : true,
+  &quot;lwcName&quot; : &quot;cfEDUSchedulerApptConfirmationPageErrorState&quot;,
+  &quot;hide&quot; : false,
+  &quot;conditionType&quot; : &quot;Hide if False&quot;,
+  &quot;show&quot; : {
+    &quot;group&quot; : {
+      &quot;operator&quot; : &quot;AND&quot;,
+      &quot;rules&quot; : [ {
+        &quot;field&quot; : &quot;ShowConfirmation&quot;,
+        &quot;condition&quot; : &quot;&lt;&gt;&quot;,
+        &quot;data&quot; : &quot;true&quot;
+      } ]
+    }
+  },
+  &quot;label&quot; : &quot;$standardLabel.EDUSchedulerFieldLabels.SchedulerConfirmation&quot;,
+  &quot;controlWidth&quot; : 12
+}</propertySetConfig>
+            <sequenceNumber>1.0</sequenceNumber>
+            <type>Custom Lightning Web Component</type>
+        </childElements>
+        <childElements>
+            <isActive>true</isActive>
+            <isOmniScriptEmbeddable>false</isOmniScriptEmbeddable>
+            <level>1.0</level>
+            <name>FinalConfirmationLWC</name>
+            <omniProcessVersionNumber>0.0</omniProcessVersionNumber>
+            <propertySetConfig>{
+  &quot;controlWidth&quot; : 12,
+  &quot;label&quot; : &quot;$standardLabel.EDUSchedulerFieldLabels.SchedulerConfirmation&quot;,
+  &quot;show&quot; : {
+    &quot;group&quot; : {
+      &quot;operator&quot; : &quot;AND&quot;,
+      &quot;rules&quot; : [ {
+        &quot;data&quot; : &quot;true&quot;,
+        &quot;condition&quot; : &quot;=&quot;,
+        &quot;field&quot; : &quot;ShowConfirmation&quot;
+      } ]
+    }
+  },
+  &quot;conditionType&quot; : &quot;Hide if False&quot;,
+  &quot;hide&quot; : false,
+  &quot;lwcName&quot; : &quot;cfEDUSchedulerApptConfirmationPage&quot;,
+  &quot;bStandalone&quot; : true,
+  &quot;customAttributes&quot; : [ {
+    &quot;name&quot; : &quot;parent-data&quot;,
+    &quot;source&quot; : &quot;true&quot;
+  }, {
+    &quot;name&quot; : &quot;records&quot;,
+    &quot;source&quot; : &quot;%AppointmentVM%&quot;
+  } ]
+}</propertySetConfig>
+            <sequenceNumber>0.0</sequenceNumber>
+            <type>Custom Lightning Web Component</type>
+        </childElements>
+        <childElements>
+            <isActive>true</isActive>
+            <isOmniScriptEmbeddable>false</isOmniScriptEmbeddable>
+            <level>1.0</level>
+            <name>NavigateStartScheduleAppointment</name>
+            <omniProcessVersionNumber>0.0</omniProcessVersionNumber>
+            <propertySetConfig>{
+  &quot;controlWidth&quot; : 12,
+  &quot;label&quot; : &quot;$standardLabel.EDUScheduler.ScheduleAppointment&quot;,
+  &quot;validationRequired&quot; : &quot;Submit&quot;,
+  &quot;show&quot; : {
+    &quot;group&quot; : {
+      &quot;operator&quot; : &quot;AND&quot;,
+      &quot;rules&quot; : [ {
+        &quot;data&quot; : &quot;true&quot;,
+        &quot;condition&quot; : &quot;&lt;&gt;&quot;,
+        &quot;field&quot; : &quot;ShowConfirmation&quot;
+      } ]
+    }
+  },
+  &quot;HTMLTemplateId&quot; : &quot;&quot;,
+  &quot;wpm&quot; : false,
+  &quot;ssm&quot; : false,
+  &quot;pubsub&quot; : false,
+  &quot;message&quot; : { },
+  &quot;targetType&quot; : &quot;Restart OmniScript&quot;,
+  &quot;objectAction&quot; : &quot;home&quot;,
+  &quot;recordAction&quot; : &quot;view&quot;,
+  &quot;loginAction&quot; : &quot;login&quot;,
+  &quot;targetFilter&quot; : &quot;Recent&quot;,
+  &quot;targetId&quot; : &quot;%ContextId%&quot;,
+  &quot;variant&quot; : &quot;brand&quot;,
+  &quot;iconName&quot; : &quot;&quot;,
+  &quot;iconVariant&quot; : &quot;&quot;,
+  &quot;iconPosition&quot; : &quot;left&quot;,
+  &quot;replace&quot; : false,
+  &quot;targetLWCLayout&quot; : &quot;lightning&quot;,
+  &quot;businessCategory&quot; : &quot;&quot;,
+  &quot;businessEvent&quot; : &quot;&quot;
+}</propertySetConfig>
+            <sequenceNumber>2.0</sequenceNumber>
+            <type>Navigate Action</type>
+        </childElements>
+        <isActive>true</isActive>
+        <isOmniScriptEmbeddable>false</isOmniScriptEmbeddable>
+        <level>0.0</level>
+        <name>SchedulerConfirmation</name>
+        <omniProcessVersionNumber>0.0</omniProcessVersionNumber>
+        <propertySetConfig>{
+  &quot;label&quot; : &quot;$standardLabel.EDUScheduler.SchedulerConfirmation&quot;,
+  &quot;validationRequired&quot; : true,
+  &quot;previousLabel&quot; : &quot;&quot;,
+  &quot;previousWidth&quot; : &quot;0&quot;,
+  &quot;nextLabel&quot; : &quot;&quot;,
+  &quot;nextWidth&quot; : &quot;0&quot;,
+  &quot;cancelLabel&quot; : &quot;&quot;,
+  &quot;cancelMessage&quot; : &quot;&quot;,
+  &quot;saveLabel&quot; : &quot;&quot;,
+  &quot;saveMessage&quot; : &quot;&quot;,
+  &quot;completeLabel&quot; : &quot;&quot;,
+  &quot;completeMessage&quot; : &quot;&quot;,
+  &quot;instruction&quot; : &quot;&quot;,
+  &quot;showPersistentComponent&quot; : [ true, false ],
+  &quot;remoteClass&quot; : &quot;&quot;,
+  &quot;remoteMethod&quot; : &quot;&quot;,
+  &quot;remoteTimeout&quot; : 30000,
+  &quot;remoteOptions&quot; : { },
+  &quot;knowledgeOptions&quot; : {
+    &quot;language&quot; : &quot;English&quot;,
+    &quot;publishStatus&quot; : &quot;Online&quot;,
+    &quot;keyword&quot; : &quot;&quot;,
+    &quot;dataCategoryCriteria&quot; : &quot;&quot;,
+    &quot;remoteTimeout&quot; : 30000,
+    &quot;typeFilter&quot; : &quot;&quot;
+  },
+  &quot;conditionType&quot; : &quot;Hide if False&quot;,
+  &quot;HTMLTemplateId&quot; : &quot;&quot;,
+  &quot;instructionKey&quot; : &quot;&quot;,
+  &quot;allowSaveForLater&quot; : false,
+  &quot;errorMessage&quot; : {
+    &quot;custom&quot; : [ ],
+    &quot;default&quot; : &quot;&quot;
+  },
+  &quot;wpm&quot; : false,
+  &quot;ssm&quot; : false,
+  &quot;message&quot; : { },
+  &quot;pubsub&quot; : false,
+  &quot;businessCategory&quot; : &quot;&quot;,
+  &quot;businessEvent&quot; : &quot;&quot;
+}</propertySetConfig>
+        <sequenceNumber>68.0</sequenceNumber>
+        <type>Step</type>
+    </omniProcessElements>
+    <omniProcessElements>
+        <childElements>
+            <isActive>true</isActive>
+            <isOmniScriptEmbeddable>false</isOmniScriptEmbeddable>
+            <level>1.0</level>
+            <name>CanSelectChannel</name>
+            <omniProcessVersionNumber>0.0</omniProcessVersionNumber>
+            <propertySetConfig>{
+  &quot;controlWidth&quot; : 12,
+  &quot;label&quot; : &quot;$standardLabel.EDUSchedulerFieldLabels.CanSelectChannel&quot;,
+  &quot;showInputWidth&quot; : false,
+  &quot;inputWidth&quot; : 12,
+  &quot;expression&quot; : &quot;COUNT(%Channels|1:ChannelName%) == 1 &amp;&amp; %Channels|1:ChannelName% &lt;&gt; \&quot;\&quot; &amp;&amp; %Channels|1:ChannelName% &lt;&gt; NULL&quot;,
+  &quot;hide&quot; : true,
+  &quot;hideGroupSep&quot; : false,
+  &quot;dateFormat&quot; : &quot;MM-dd-yyyy&quot;,
+  &quot;HTMLTemplateId&quot; : &quot;&quot;,
+  &quot;disOnTplt&quot; : false
+}</propertySetConfig>
+            <sequenceNumber>3.0</sequenceNumber>
+            <type>Formula</type>
+        </childElements>
+        <childElements>
+            <isActive>true</isActive>
+            <isOmniScriptEmbeddable>false</isOmniScriptEmbeddable>
+            <level>1.0</level>
+            <name>Messaging1</name>
+            <omniProcessVersionNumber>0.0</omniProcessVersionNumber>
+            <propertySetConfig>{
+  &quot;controlWidth&quot; : 12,
+  &quot;label&quot; : &quot;$standardLabel.EDUSchedulerFieldLabels.Messaging1&quot;,
+  &quot;validateExpression&quot; : {
+    &quot;group&quot; : {
+      &quot;operator&quot; : &quot;AND&quot;,
+      &quot;rules&quot; : [ {
+        &quot;data&quot; : &quot;true&quot;,
+        &quot;condition&quot; : &quot;=&quot;,
+        &quot;field&quot; : &quot;CanSelectChannel&quot;
+      } ]
+    }
+  },
+  &quot;messages&quot; : [ {
+    &quot;value&quot; : true,
+    &quot;type&quot; : &quot;Success&quot;,
+    &quot;text&quot; : &quot;&quot;,
+    &quot;active&quot; : true
+  }, {
+    &quot;value&quot; : false,
+    &quot;type&quot; : &quot;Requirement&quot;,
+    &quot;text&quot; : &quot;$standardLabel.EDUScheduler.SelectChannel&quot;,
+    &quot;active&quot; : true
+  } ],
+  &quot;hideLabel&quot; : true,
+  &quot;HTMLTemplateId&quot; : &quot;&quot;
+}</propertySetConfig>
+            <sequenceNumber>2.0</sequenceNumber>
+            <type>Validation</type>
+        </childElements>
+        <childElements>
+            <isActive>true</isActive>
+            <isOmniScriptEmbeddable>false</isOmniScriptEmbeddable>
+            <level>1.0</level>
+            <name>SelectChannelLWC</name>
+            <omniProcessVersionNumber>0.0</omniProcessVersionNumber>
+            <propertySetConfig>{
+  &quot;customAttributes&quot; : [ {
+    &quot;name&quot; : &quot;parent-data&quot;,
+    &quot;source&quot; : &quot;true&quot;
+  }, {
+    &quot;name&quot; : &quot;records&quot;,
+    &quot;source&quot; : &quot;%Channels%&quot;
+  } ],
+  &quot;bStandalone&quot; : true,
+  &quot;lwcName&quot; : &quot;cfEDUSchedulerChannelSelectionPage&quot;,
+  &quot;hide&quot; : false,
+  &quot;conditionType&quot; : &quot;Hide if False&quot;,
+  &quot;label&quot; : &quot;$standardLabel.EDUScheduler.SelectChannel&quot;,
+  &quot;controlWidth&quot; : 12
+}</propertySetConfig>
+            <sequenceNumber>1.0</sequenceNumber>
+            <type>Custom Lightning Web Component</type>
+        </childElements>
+        <childElements>
+            <isActive>true</isActive>
+            <isOmniScriptEmbeddable>false</isOmniScriptEmbeddable>
+            <level>1.0</level>
+            <name>SetPreviousSelectionsLWC2</name>
+            <omniProcessVersionNumber>0.0</omniProcessVersionNumber>
+            <propertySetConfig>{
+  &quot;controlWidth&quot; : 12,
+  &quot;label&quot; : &quot;$standardLabel.EDUSchedulerFieldLabels.SetSelectedValues&quot;,
+  &quot;conditionType&quot; : &quot;Hide if False&quot;,
+  &quot;hide&quot; : false,
+  &quot;lwcName&quot; : &quot;cfEDUSchedulerPreviousSelections&quot;,
+  &quot;bStandalone&quot; : false,
+  &quot;customAttributes&quot; : [ {
+    &quot;name&quot; : &quot;parent-attribute&quot;,
+    &quot;source&quot; : &quot;%SelectedValues2%&quot;
+  } ]
+}</propertySetConfig>
+            <sequenceNumber>0.0</sequenceNumber>
+            <type>Custom Lightning Web Component</type>
+        </childElements>
+        <isActive>true</isActive>
+        <isOmniScriptEmbeddable>false</isOmniScriptEmbeddable>
+        <level>0.0</level>
+        <name>SelectChannel</name>
+        <omniProcessVersionNumber>0.0</omniProcessVersionNumber>
+        <propertySetConfig>{
+  &quot;businessEvent&quot; : &quot;&quot;,
+  &quot;businessCategory&quot; : &quot;&quot;,
+  &quot;pubsub&quot; : false,
+  &quot;message&quot; : { },
+  &quot;ssm&quot; : false,
+  &quot;wpm&quot; : false,
+  &quot;errorMessage&quot; : {
+    &quot;default&quot; : &quot;&quot;,
+    &quot;custom&quot; : [ ]
+  },
+  &quot;allowSaveForLater&quot; : false,
+  &quot;instructionKey&quot; : &quot;&quot;,
+  &quot;HTMLTemplateId&quot; : &quot;&quot;,
+  &quot;conditionType&quot; : &quot;Hide if False&quot;,
+  &quot;knowledgeOptions&quot; : {
+    &quot;typeFilter&quot; : &quot;&quot;,
+    &quot;remoteTimeout&quot; : 30000,
+    &quot;dataCategoryCriteria&quot; : &quot;&quot;,
+    &quot;keyword&quot; : &quot;&quot;,
+    &quot;publishStatus&quot; : &quot;Online&quot;,
+    &quot;language&quot; : &quot;English&quot;
+  },
+  &quot;remoteOptions&quot; : { },
+  &quot;remoteTimeout&quot; : 30000,
+  &quot;remoteMethod&quot; : &quot;&quot;,
+  &quot;remoteClass&quot; : &quot;&quot;,
+  &quot;showPersistentComponent&quot; : [ true, false ],
+  &quot;instruction&quot; : &quot;&quot;,
+  &quot;completeMessage&quot; : &quot;&quot;,
+  &quot;completeLabel&quot; : &quot;&quot;,
+  &quot;saveMessage&quot; : &quot;&quot;,
+  &quot;saveLabel&quot; : &quot;&quot;,
+  &quot;cancelMessage&quot; : &quot;&quot;,
+  &quot;cancelLabel&quot; : &quot;&quot;,
+  &quot;nextWidth&quot; : 3,
+  &quot;nextLabel&quot; : &quot;$standardLabel.EDUScheduler.Next&quot;,
+  &quot;previousWidth&quot; : 3,
+  &quot;previousLabel&quot; : &quot;$standardLabel.EDUScheduler.Back&quot;,
+  &quot;validationRequired&quot; : true,
+  &quot;label&quot; : &quot;$standardLabel.EDUScheduler.SelectChannel&quot;
+}</propertySetConfig>
+        <sequenceNumber>29.0</sequenceNumber>
+        <type>Step</type>
+    </omniProcessElements>
+    <omniProcessElements>
+        <childElements>
+            <isActive>true</isActive>
+            <isOmniScriptEmbeddable>false</isOmniScriptEmbeddable>
+            <level>1.0</level>
+            <name>SelectResourceAssignmentTypeContainerLWC</name>
+            <omniProcessVersionNumber>0.0</omniProcessVersionNumber>
+            <propertySetConfig>{
+  &quot;controlWidth&quot; : 12,
+  &quot;label&quot; : &quot;$standardLabel.EDUSchedulerFieldLabels.SelectResourceAssignmentTypeContainerLWC&quot;,
+  &quot;show&quot; : null,
+  &quot;conditionType&quot; : &quot;Hide if False&quot;,
+  &quot;hide&quot; : false,
+  &quot;lwcName&quot; : &quot;cfEDUSchedulerSelectResourceAssignmentTypeContainer&quot;,
+  &quot;bStandalone&quot; : true,
+  &quot;customAttributes&quot; : [ {
+    &quot;name&quot; : &quot;parent-data&quot;,
+    &quot;source&quot; : &quot;true&quot;
+  }, {
+    &quot;name&quot; : &quot;records&quot;,
+    &quot;source&quot; : &quot;%ResourceAssignmentTypeOptions%&quot;
+  } ]
+}</propertySetConfig>
+            <sequenceNumber>0.0</sequenceNumber>
+            <type>Custom Lightning Web Component</type>
+        </childElements>
+        <isActive>true</isActive>
+        <isOmniScriptEmbeddable>false</isOmniScriptEmbeddable>
+        <level>0.0</level>
+        <name>SelectResourceAssignmentTypeStep</name>
+        <omniProcessVersionNumber>0.0</omniProcessVersionNumber>
+        <propertySetConfig>{
+  &quot;omniClearSaveState&quot; : [ &quot;cfEDUSchedulerLandingSupportStaff&quot;, &quot;schedulerLWC&quot; ],
+  &quot;label&quot; : &quot;$standardLabel.EDUScheduler.SelectResourceAssignmentTypeStep&quot;,
+  &quot;validationRequired&quot; : true,
+  &quot;previousLabel&quot; : &quot;$standardLabel.EDUScheduler.Back&quot;,
+  &quot;previousWidth&quot; : 3,
+  &quot;nextLabel&quot; : &quot;$standardLabel.EDUScheduler.Next&quot;,
+  &quot;nextWidth&quot; : 3,
+  &quot;cancelLabel&quot; : &quot;&quot;,
+  &quot;cancelMessage&quot; : &quot;&quot;,
+  &quot;saveLabel&quot; : &quot;&quot;,
+  &quot;saveMessage&quot; : &quot;&quot;,
+  &quot;completeLabel&quot; : &quot;&quot;,
+  &quot;completeMessage&quot; : &quot;&quot;,
+  &quot;instruction&quot; : &quot;&quot;,
+  &quot;showPersistentComponent&quot; : [ true, false ],
+  &quot;remoteClass&quot; : &quot;&quot;,
+  &quot;remoteMethod&quot; : &quot;&quot;,
+  &quot;remoteTimeout&quot; : 30000,
+  &quot;remoteOptions&quot; : { },
+  &quot;knowledgeOptions&quot; : {
+    &quot;language&quot; : &quot;English&quot;,
+    &quot;publishStatus&quot; : &quot;Online&quot;,
+    &quot;keyword&quot; : &quot;&quot;,
+    &quot;dataCategoryCriteria&quot; : &quot;&quot;,
+    &quot;remoteTimeout&quot; : 30000,
+    &quot;typeFilter&quot; : &quot;&quot;
+  },
+  &quot;conditionType&quot; : &quot;Hide if False&quot;,
+  &quot;HTMLTemplateId&quot; : &quot;&quot;,
+  &quot;instructionKey&quot; : &quot;&quot;,
+  &quot;allowSaveForLater&quot; : false,
+  &quot;errorMessage&quot; : {
+    &quot;custom&quot; : [ ],
+    &quot;default&quot; : &quot;&quot;
+  },
+  &quot;wpm&quot; : false,
+  &quot;ssm&quot; : false,
+  &quot;message&quot; : { },
+  &quot;pubsub&quot; : false,
+  &quot;businessCategory&quot; : &quot;&quot;,
+  &quot;businessEvent&quot; : &quot;&quot;,
+  &quot;show&quot; : {
+    &quot;group&quot; : {
+      &quot;operator&quot; : &quot;AND&quot;,
+      &quot;rules&quot; : [ {
+        &quot;data&quot; : &quot;true&quot;,
+        &quot;condition&quot; : &quot;=&quot;,
+        &quot;field&quot; : &quot;IsBothResourceAssignmentType&quot;
+      } ]
+    }
+  }
+}</propertySetConfig>
+        <sequenceNumber>17.0</sequenceNumber>
+        <type>Step</type>
+    </omniProcessElements>
+    <omniProcessElements>
+        <childElements>
+            <isActive>true</isActive>
+            <isOmniScriptEmbeddable>false</isOmniScriptEmbeddable>
+            <level>1.0</level>
+            <name>SelectedValuesLWC1</name>
+            <omniProcessVersionNumber>0.0</omniProcessVersionNumber>
+            <propertySetConfig>{
+  &quot;controlWidth&quot; : 12,
+  &quot;label&quot; : &quot;$standardLabel.EDUSchedulerFieldLabels.SetSelectedValues&quot;,
+  &quot;conditionType&quot; : &quot;Hide if False&quot;,
+  &quot;hide&quot; : false,
+  &quot;lwcName&quot; : &quot;cfEDUSchedulerPreviousSelections&quot;,
+  &quot;bStandalone&quot; : false,
+  &quot;customAttributes&quot; : [ {
+    &quot;name&quot; : &quot;parent-attribute&quot;,
+    &quot;source&quot; : &quot;%SelectedValues%&quot;
+  } ]
+}</propertySetConfig>
+            <sequenceNumber>0.0</sequenceNumber>
+            <type>Custom Lightning Web Component</type>
+        </childElements>
+        <childElements>
+            <isActive>true</isActive>
+            <isOmniScriptEmbeddable>false</isOmniScriptEmbeddable>
+            <level>1.0</level>
+            <name>SelectSubtopicMessage</name>
+            <omniProcessVersionNumber>0.0</omniProcessVersionNumber>
+            <propertySetConfig>{
+  &quot;controlWidth&quot; : 12,
+  &quot;label&quot; : &quot;$standardLabel.EDUSchedulerFieldLabels.SubTopicMessage&quot;,
+  &quot;validateExpression&quot; : {
+    &quot;group&quot; : {
+      &quot;operator&quot; : &quot;AND&quot;,
+      &quot;rules&quot; : [ {
+        &quot;data&quot; : &quot;false&quot;,
+        &quot;condition&quot; : &quot;=&quot;,
+        &quot;field&quot; : &quot;SubtopicRequired&quot;
+      } ]
+    }
+  },
+  &quot;messages&quot; : [ {
+    &quot;value&quot; : true,
+    &quot;type&quot; : &quot;Success&quot;,
+    &quot;text&quot; : &quot;&quot;,
+    &quot;active&quot; : true
+  }, {
+    &quot;value&quot; : false,
+    &quot;type&quot; : &quot;Requirement&quot;,
+    &quot;text&quot; : &quot;$standardLabel.EDUScheduler.SelectSubtopic&quot;,
+    &quot;active&quot; : true
+  } ],
+  &quot;hideLabel&quot; : true,
+  &quot;HTMLTemplateId&quot; : &quot;&quot;
+}</propertySetConfig>
+            <sequenceNumber>2.0</sequenceNumber>
+            <type>Validation</type>
+        </childElements>
+        <childElements>
+            <isActive>true</isActive>
+            <isOmniScriptEmbeddable>false</isOmniScriptEmbeddable>
+            <level>1.0</level>
+            <name>SubtopicRequired</name>
+            <omniProcessVersionNumber>0.0</omniProcessVersionNumber>
+            <propertySetConfig>{
+  &quot;controlWidth&quot; : 12,
+  &quot;label&quot; : &quot;$standardLabel.EDUSchedulerFieldLabels.SubTopicRequired&quot;,
+  &quot;showInputWidth&quot; : false,
+  &quot;inputWidth&quot; : 12,
+  &quot;expression&quot; : &quot;(%TopicLWC:Topic:TopicWorkTypeGroupId% &lt;&gt; NULL \n&amp;&amp; %TopicLWC:Topic:SubtopicWorkTypeGroupId% == NULL \n&amp;&amp; %TopicLWC:Topic:HasSubtopics% == \&quot;true\&quot;) ||\n%DisplayTopics% == false ||\n%DisplayTopics% == \&quot;false\&quot;&quot;,
+  &quot;hide&quot; : true,
+  &quot;hideGroupSep&quot; : false,
+  &quot;dateFormat&quot; : &quot;MM-dd-yyyy&quot;,
+  &quot;HTMLTemplateId&quot; : &quot;&quot;,
+  &quot;disOnTplt&quot; : false
+}</propertySetConfig>
+            <sequenceNumber>3.0</sequenceNumber>
+            <type>Formula</type>
+        </childElements>
+        <childElements>
+            <isActive>true</isActive>
+            <isOmniScriptEmbeddable>false</isOmniScriptEmbeddable>
+            <level>1.0</level>
+            <name>TopicLWC</name>
+            <omniProcessVersionNumber>0.0</omniProcessVersionNumber>
+            <propertySetConfig>{
+  &quot;controlWidth&quot; : 12,
+  &quot;label&quot; : &quot;$standardLabel.EDUSchedulerFieldLabels.SchedulerTopics&quot;,
+  &quot;conditionType&quot; : &quot;Hide if False&quot;,
+  &quot;hide&quot; : false,
+  &quot;lwcName&quot; : &quot;cfEDUSchedulerTopics&quot;,
+  &quot;bStandalone&quot; : true,
+  &quot;customAttributes&quot; : [ {
+    &quot;name&quot; : &quot;parent-data&quot;,
+    &quot;source&quot; : &quot;true&quot;
+  }, {
+    &quot;name&quot; : &quot;records&quot;,
+    &quot;source&quot; : &quot;%Topic%&quot;
+  } ]
+}</propertySetConfig>
+            <sequenceNumber>1.0</sequenceNumber>
+            <type>Custom Lightning Web Component</type>
+        </childElements>
+        <isActive>true</isActive>
+        <isOmniScriptEmbeddable>false</isOmniScriptEmbeddable>
+        <level>0.0</level>
+        <name>SelectTopic</name>
+        <omniProcessVersionNumber>0.0</omniProcessVersionNumber>
+        <propertySetConfig>{
+  &quot;label&quot; : &quot;$standardLabel.EDUScheduler.SelectTopic&quot;,
+  &quot;validationRequired&quot; : true,
+  &quot;previousLabel&quot; : &quot;$standardLabel.EDUScheduler.Back&quot;,
+  &quot;previousWidth&quot; : 3,
+  &quot;nextLabel&quot; : &quot;$standardLabel.EDUScheduler.Next&quot;,
+  &quot;nextWidth&quot; : 3,
+  &quot;cancelLabel&quot; : &quot;&quot;,
+  &quot;cancelMessage&quot; : &quot;&quot;,
+  &quot;saveLabel&quot; : &quot;&quot;,
+  &quot;saveMessage&quot; : &quot;&quot;,
+  &quot;completeLabel&quot; : &quot;&quot;,
+  &quot;completeMessage&quot; : &quot;&quot;,
+  &quot;instruction&quot; : &quot;&quot;,
+  &quot;showPersistentComponent&quot; : [ true, false ],
+  &quot;remoteClass&quot; : &quot;&quot;,
+  &quot;remoteMethod&quot; : &quot;&quot;,
+  &quot;remoteTimeout&quot; : 30000,
+  &quot;remoteOptions&quot; : { },
+  &quot;knowledgeOptions&quot; : {
+    &quot;language&quot; : &quot;English&quot;,
+    &quot;publishStatus&quot; : &quot;Online&quot;,
+    &quot;keyword&quot; : &quot;&quot;,
+    &quot;dataCategoryCriteria&quot; : &quot;&quot;,
+    &quot;remoteTimeout&quot; : 30000,
+    &quot;typeFilter&quot; : &quot;&quot;
+  },
+  &quot;conditionType&quot; : &quot;Hide if False&quot;,
+  &quot;HTMLTemplateId&quot; : &quot;&quot;,
+  &quot;instructionKey&quot; : &quot;&quot;,
+  &quot;allowSaveForLater&quot; : false,
+  &quot;errorMessage&quot; : {
+    &quot;custom&quot; : [ ],
+    &quot;default&quot; : &quot;&quot;
+  },
+  &quot;wpm&quot; : false,
+  &quot;ssm&quot; : false,
+  &quot;message&quot; : { },
+  &quot;pubsub&quot; : false,
+  &quot;businessCategory&quot; : &quot;&quot;,
+  &quot;businessEvent&quot; : &quot;&quot;,
+  &quot;omniClearSaveState&quot; : [ &quot;cfEDUSchedulerLandingSupportStaff&quot;, &quot;schedulerLWC&quot; ]
+}</propertySetConfig>
+        <sequenceNumber>20.0</sequenceNumber>
+        <type>Step</type>
+    </omniProcessElements>
+    <omniProcessElements>
+        <isActive>false</isActive>
+        <isOmniScriptEmbeddable>false</isOmniScriptEmbeddable>
+        <level>0.0</level>
+        <name>SetAppointmentValues</name>
+        <omniProcessVersionNumber>0.0</omniProcessVersionNumber>
+        <propertySetConfig>{
+  &quot;controlWidth&quot; : 12,
+  &quot;label&quot; : &quot;$standardLabel.EDUSchedulerFieldLabels.SetAppointmentValues&quot;,
+  &quot;elementValueMap&quot; : {
+    &quot;appointment&quot; : &quot;=%appointment%&quot;
+  },
+  &quot;showPersistentComponent&quot; : [ true, false ],
+  &quot;HTMLTemplateId&quot; : &quot;&quot;,
+  &quot;wpm&quot; : false,
+  &quot;ssm&quot; : false,
+  &quot;message&quot; : { },
+  &quot;pubsub&quot; : false
+}</propertySetConfig>
+        <sequenceNumber>59.0</sequenceNumber>
+        <type>Set Values</type>
+    </omniProcessElements>
+    <omniProcessElements>
+        <isActive>true</isActive>
+        <isOmniScriptEmbeddable>false</isOmniScriptEmbeddable>
+        <level>0.0</level>
+        <name>SetAutoAssignmentFlag</name>
+        <omniProcessVersionNumber>0.0</omniProcessVersionNumber>
+        <propertySetConfig>{
+  &quot;controlWidth&quot; : 12,
+  &quot;label&quot; : &quot;$standardLabel.EDUSchedulerFieldLabels.SetAutoAssignmentFlag&quot;,
+  &quot;elementValueMap&quot; : {
+    &quot;IsAutoAssignment&quot; : &quot;=%ResourceAssignmentType%==%AutoAssignmentAPIValue%&quot;
+  },
+  &quot;showPersistentComponent&quot; : [ true, false ],
+  &quot;show&quot; : null,
+  &quot;HTMLTemplateId&quot; : &quot;&quot;,
+  &quot;wpm&quot; : false,
+  &quot;ssm&quot; : false,
+  &quot;message&quot; : { },
+  &quot;pubsub&quot; : false
+}</propertySetConfig>
+        <sequenceNumber>40.0</sequenceNumber>
+        <type>Set Values</type>
+    </omniProcessElements>
+    <omniProcessElements>
+        <isActive>true</isActive>
+        <isOmniScriptEmbeddable>false</isOmniScriptEmbeddable>
+        <level>0.0</level>
+        <name>SetChannel</name>
+        <omniProcessVersionNumber>0.0</omniProcessVersionNumber>
+        <propertySetConfig>{
+  &quot;pubsub&quot; : false,
+  &quot;message&quot; : { },
+  &quot;ssm&quot; : false,
+  &quot;wpm&quot; : false,
+  &quot;HTMLTemplateId&quot; : &quot;&quot;,
+  &quot;showPersistentComponent&quot; : [ true, false ],
+  &quot;elementValueMap&quot; : {
+    &quot;SelectedChannelId&quot; : &quot;=IF((%SelectChannelLWC:SelectedChannel:Id% != NULL), %SelectChannelLWC:SelectedChannel:Id%, %Channels|1:ChannelId%)&quot;,
+    &quot;SelectedChannelName&quot; : &quot;=IF((%SelectChannelLWC:SelectedChannel:Name% != NULL), %SelectChannelLWC:SelectedChannel:Name%, %Channels|1:ChannelName%)&quot;,
+    &quot;SelectedChannelType&quot; : &quot;=IF((%SelectChannelLWC:SelectedChannel:Type% != NULL), %SelectChannelLWC:SelectedChannel:Type%, %Channels|1:ChannelType%)&quot;
+  },
+  &quot;label&quot; : &quot;$standardLabel.EDUSchedulerFieldLabels.SetChannelValue&quot;,
+  &quot;controlWidth&quot; : 12
+}</propertySetConfig>
+        <sequenceNumber>31.0</sequenceNumber>
+        <type>Set Values</type>
+    </omniProcessElements>
+    <omniProcessElements>
+        <isActive>true</isActive>
+        <isOmniScriptEmbeddable>false</isOmniScriptEmbeddable>
+        <level>0.0</level>
+        <name>SetChannelValues</name>
+        <omniProcessVersionNumber>0.0</omniProcessVersionNumber>
+        <propertySetConfig>{
+  &quot;controlWidth&quot; : 12,
+  &quot;label&quot; : &quot;$standardLabel.EDUSchedulerFieldLabels.SetSelectedValues&quot;,
+  &quot;elementValueMap&quot; : {
+    &quot;SelectChannel&quot; : {
+      &quot;SelectChannelLWC&quot; : {
+        &quot;SelectedChannel&quot; : {
+          &quot;Id&quot; : &quot;&quot;,
+          &quot;Name&quot; : &quot;&quot;,
+          &quot;Type&quot; : &quot;&quot;
+        }
+      }
+    }
+  },
+  &quot;showPersistentComponent&quot; : [ true, false ],
+  &quot;HTMLTemplateId&quot; : &quot;&quot;,
+  &quot;wpm&quot; : false,
+  &quot;ssm&quot; : false,
+  &quot;message&quot; : { },
+  &quot;pubsub&quot; : false
+}</propertySetConfig>
+        <sequenceNumber>28.0</sequenceNumber>
+        <type>Set Values</type>
+    </omniProcessElements>
+    <omniProcessElements>
+        <isActive>true</isActive>
+        <isOmniScriptEmbeddable>false</isOmniScriptEmbeddable>
+        <level>0.0</level>
+        <name>SetChosenResourceAssignmentTypeInCaseOfBoth</name>
+        <omniProcessVersionNumber>0.0</omniProcessVersionNumber>
+        <propertySetConfig>{
+  &quot;controlWidth&quot; : 12,
+  &quot;label&quot; : &quot;$standardLabel.EDUSchedulerFieldLabels.SetChosenResourceAssignmentTypeInCaseOfBoth&quot;,
+  &quot;elementValueMap&quot; : {
+    &quot;ResourceAssignmentType&quot; : &quot;=IF(%SelectResourceAssignmentTypeContainerLWC:data:ResourceAssignmentType% != NULL, %SelectResourceAssignmentTypeContainerLWC:data:ResourceAssignmentType%, %ResourceAssignmentType%)&quot;,
+    &quot;ResourceAssignmentTypeOptions&quot; : {
+      &quot;TeamName&quot; : &quot;%ResourceAssignmentTypeOptions:TeamName%&quot;,
+      &quot;Options&quot; : {
+        &quot;GeneralBooking&quot; : {
+          &quot;Selected&quot; : &quot;=IF(%SelectResourceAssignmentTypeContainerLWC:data:ResourceAssignmentType% != NULL, IF(%SelectResourceAssignmentTypeContainerLWC:data:ResourceAssignmentType% == %GeneralBookingAPIValue%, true, false), %ResourceAssignmentTypeOptions:Options:GeneralBooking:Selected%)&quot;,
+          &quot;ResourceAssignmentType&quot; : &quot;%GeneralBookingAPIValue%&quot;
+        },
+        &quot;AutoAssignment&quot; : {
+          &quot;Selected&quot; : &quot;=IF(%SelectResourceAssignmentTypeContainerLWC:data:ResourceAssignmentType% != NULL, IF(%SelectResourceAssignmentTypeContainerLWC:data:ResourceAssignmentType% == %AutoAssignmentAPIValue%, true, false), %ResourceAssignmentTypeOptions:Options:AutoAssignment:Selected%)&quot;,
+          &quot;ResourceAssignmentType&quot; : &quot;%AutoAssignmentAPIValue%&quot;
+        }
+      }
+    }
+  },
+  &quot;showPersistentComponent&quot; : [ true, false ],
+  &quot;show&quot; : {
+    &quot;group&quot; : {
+      &quot;operator&quot; : &quot;AND&quot;,
+      &quot;rules&quot; : [ {
+        &quot;data&quot; : &quot;true&quot;,
+        &quot;condition&quot; : &quot;=&quot;,
+        &quot;field&quot; : &quot;IsBothResourceAssignmentType&quot;
+      } ]
+    }
+  },
+  &quot;HTMLTemplateId&quot; : &quot;&quot;,
+  &quot;wpm&quot; : false,
+  &quot;ssm&quot; : false,
+  &quot;message&quot; : { },
+  &quot;pubsub&quot; : false
+}</propertySetConfig>
+        <sequenceNumber>18.0</sequenceNumber>
+        <type>Set Values</type>
+    </omniProcessElements>
+    <omniProcessElements>
+        <isActive>true</isActive>
+        <isOmniScriptEmbeddable>false</isOmniScriptEmbeddable>
+        <level>0.0</level>
+        <name>SetCommentsRequired</name>
+        <omniProcessVersionNumber>0.0</omniProcessVersionNumber>
+        <propertySetConfig>{
+  &quot;controlWidth&quot; : 12,
+  &quot;label&quot; : &quot;$standardLabel.EDUSchedulerFieldLabels.SetCommentsRequired&quot;,
+  &quot;elementValueMap&quot; : {
+    &quot;CommentsRequired&quot; : false
+  },
+  &quot;showPersistentComponent&quot; : [ true, false ],
+  &quot;HTMLTemplateId&quot; : &quot;&quot;,
+  &quot;wpm&quot; : false,
+  &quot;ssm&quot; : false,
+  &quot;message&quot; : { },
+  &quot;pubsub&quot; : false
+}</propertySetConfig>
+        <sequenceNumber>60.0</sequenceNumber>
+        <type>Set Values</type>
+    </omniProcessElements>
+    <omniProcessElements>
+        <isActive>true</isActive>
+        <isOmniScriptEmbeddable>false</isOmniScriptEmbeddable>
+        <level>0.0</level>
+        <name>SetConstantValuesForResourceAssignmentType</name>
+        <omniProcessVersionNumber>0.0</omniProcessVersionNumber>
+        <propertySetConfig>{
+  &quot;controlWidth&quot; : 12,
+  &quot;label&quot; : &quot;$standardLabel.EDUSchedulerFieldLabels.SetConstantValuesForResourceAssignmentType&quot;,
+  &quot;elementValueMap&quot; : {
+    &quot;AutoAssignmentAPIValue&quot; : &quot;Automatic&quot;,
+    &quot;GeneralBookingAPIValue&quot; : &quot;Manual&quot;,
+    &quot;BothAPIValue&quot; : &quot;Both&quot;
+  },
+  &quot;showPersistentComponent&quot; : [ true, false ],
+  &quot;show&quot; : null,
+  &quot;HTMLTemplateId&quot; : &quot;&quot;,
+  &quot;wpm&quot; : false,
+  &quot;ssm&quot; : false,
+  &quot;message&quot; : { },
+  &quot;pubsub&quot; : false
+}</propertySetConfig>
+        <sequenceNumber>0.0</sequenceNumber>
+        <type>Set Values</type>
+    </omniProcessElements>
+    <omniProcessElements>
+        <isActive>true</isActive>
+        <isOmniScriptEmbeddable>false</isOmniScriptEmbeddable>
+        <level>0.0</level>
+        <name>SetDate</name>
+        <omniProcessVersionNumber>0.0</omniProcessVersionNumber>
+        <propertySetConfig>{
+  &quot;pubsub&quot; : false,
+  &quot;message&quot; : { },
+  &quot;ssm&quot; : false,
+  &quot;wpm&quot; : false,
+  &quot;HTMLTemplateId&quot; : &quot;&quot;,
+  &quot;showPersistentComponent&quot; : [ true, false ],
+  &quot;elementValueMap&quot; : {
+    &quot;TextDate&quot; : &quot;=IF(%DateSelectionLWC:Date:TextDate% != NULL, %DateSelectionLWC:Date:TextDate%, NULL)\n&quot;,
+    &quot;MinimumDate&quot; : &quot;=IF(%DateSelectionLWC:Date:MinimumDate% != NULL, %DateSelectionLWC:Date:MinimumDate%, TODAY())&quot;,
+    &quot;DisplayBack&quot; : &quot;=IF(%DateSelectionLWC:Date:DisplayBack% != NULL, %DateSelectionLWC:Date:DisplayBack%, NULL)&quot;,
+    &quot;SelectedDate&quot; : &quot;=IF(%DateSelectionLWC:Date:SelectedDate% != NULL, %DateSelectionLWC:Date:SelectedDate%, %DateInfo:SelectedDate%)&quot;
+  },
+  &quot;label&quot; : &quot;$standardLabel.EDUSchedulerFieldLabels.SetDateValue&quot;,
+  &quot;controlWidth&quot; : 12
+}</propertySetConfig>
+        <sequenceNumber>47.0</sequenceNumber>
+        <type>Set Values</type>
+    </omniProcessElements>
+    <omniProcessElements>
+        <isActive>true</isActive>
+        <isOmniScriptEmbeddable>false</isOmniScriptEmbeddable>
+        <level>0.0</level>
+        <name>SetDateHeaderValue</name>
+        <omniProcessVersionNumber>0.0</omniProcessVersionNumber>
+        <propertySetConfig>{
+  &quot;controlWidth&quot; : 12,
+  &quot;label&quot; : &quot;$standardLabel.EDUSchedulerFieldLabels.SetDateHeaderValue&quot;,
+  &quot;ignoreCache&quot; : false,
+  &quot;bundle&quot; : &quot;EDUSchedulerDefaultDate&quot;,
+  &quot;remoteTimeout&quot; : 30000,
+  &quot;sendJSONPath&quot; : &quot;Now&quot;,
+  &quot;sendJSONNode&quot; : &quot;&quot;,
+  &quot;responseJSONPath&quot; : &quot;&quot;,
+  &quot;responseJSONNode&quot; : &quot;&quot;,
+  &quot;inProgressMessage&quot; : &quot;&quot;,
+  &quot;postMessage&quot; : &quot;&quot;,
+  &quot;failureNextLabel&quot; : &quot;&quot;,
+  &quot;failureAbortLabel&quot; : &quot;&quot;,
+  &quot;failureGoBackLabel&quot; : &quot;&quot;,
+  &quot;failureAbortMessage&quot; : &quot;&quot;,
+  &quot;validationRequired&quot; : &quot;Submit&quot;,
+  &quot;redirectPageName&quot; : &quot;&quot;,
+  &quot;redirectTemplateUrl&quot; : &quot;vlcAcknowledge.html&quot;,
+  &quot;redirectNextLabel&quot; : &quot;&quot;,
+  &quot;redirectNextWidth&quot; : 3,
+  &quot;redirectPreviousLabel&quot; : &quot;&quot;,
+  &quot;redirectPreviousWidth&quot; : 3,
+  &quot;showPersistentComponent&quot; : [ true, false ],
+  &quot;HTMLTemplateId&quot; : &quot;&quot;,
+  &quot;wpm&quot; : false,
+  &quot;ssm&quot; : false,
+  &quot;message&quot; : { },
+  &quot;pubsub&quot; : false,
+  &quot;errorMessage&quot; : {
+    &quot;custom&quot; : [ ]
+  },
+  &quot;enableDefaultAbort&quot; : false,
+  &quot;enableActionMessage&quot; : false,
+  &quot;businessCategory&quot; : &quot;&quot;,
+  &quot;businessEvent&quot; : &quot;&quot;
+}</propertySetConfig>
+        <sequenceNumber>37.0</sequenceNumber>
+        <type>DataRaptor Transform Action</type>
+    </omniProcessElements>
+    <omniProcessElements>
+        <isActive>true</isActive>
+        <isOmniScriptEmbeddable>false</isOmniScriptEmbeddable>
+        <level>0.0</level>
+        <name>SetDefaultDateTimeValues</name>
+        <omniProcessVersionNumber>0.0</omniProcessVersionNumber>
+        <propertySetConfig>{
+  &quot;controlWidth&quot; : 12,
+  &quot;label&quot; : &quot;$standardLabel.EDUSchedulerFieldLabels.SetDefaultDateTimeValues&quot;,
+  &quot;elementValueMap&quot; : {
+    &quot;DefaultSlotLocalDateTimeString&quot; : &quot;=%Appointment:AppointmentInformation|1:AppointmentTimes|1:SlotLocalDateTimeString%&quot;,
+    &quot;DefaultStartDateTimeGMT&quot; : &quot;=%Appointment:AppointmentInformation|1:AppointmentTimes|1:StartDateTimeGMT%&quot;,
+    &quot;DefaultServiceResourceId&quot; : &quot;=%Appointment:AppointmentInformation|1:AppointmentTimes|1:ServiceResourceId%&quot;,
+    &quot;DefaultServiceTerritoryId&quot; : &quot;%Appointment:AppointmentInformation|1:AppointmentTimes|1:ServiceTerritoryId%&quot;,
+    &quot;DefaultStartTime&quot; : &quot;%Appointment:AppointmentInformation|1:AppointmentTimes|1:StartTime%&quot;,
+    &quot;DefaultEndDateTimeGMT&quot; : &quot;%Appointment:AppointmentInformation|1:AppointmentTimes|1:EndDateTimeGMT%&quot;,
+    &quot;DefaultEndTime&quot; : &quot;%Appointment:AppointmentInformation|1:AppointmentTimes|1:EndTime%&quot;,
+    &quot;SelectedDate&quot; : &quot;=%DateInfo:SelectedDate%&quot;
+  },
+  &quot;showPersistentComponent&quot; : [ true, false ],
+  &quot;HTMLTemplateId&quot; : &quot;&quot;,
+  &quot;wpm&quot; : false,
+  &quot;ssm&quot; : false,
+  &quot;message&quot; : { },
+  &quot;pubsub&quot; : false
+}</propertySetConfig>
+        <sequenceNumber>39.0</sequenceNumber>
+        <type>Set Values</type>
+    </omniProcessElements>
+    <omniProcessElements>
+        <isActive>true</isActive>
+        <isOmniScriptEmbeddable>false</isOmniScriptEmbeddable>
+        <level>0.0</level>
+        <name>SetDefaultResourceAssignmentTypeSelectionInCaseOfBoth</name>
+        <omniProcessVersionNumber>0.0</omniProcessVersionNumber>
+        <propertySetConfig>{
+  &quot;controlWidth&quot; : 12,
+  &quot;label&quot; : &quot;$standardLabel.EDUSchedulerFieldLabels.SetDefaultResourceAssignmentTypeSelectionInCaseOfBoth&quot;,
+  &quot;elementValueMap&quot; : {
+    &quot;ResourceAssignmentTypeOptions&quot; : {
+      &quot;TeamName&quot; : &quot;%SelectedValues:Staff%&quot;,
+      &quot;Options&quot; : {
+        &quot;GeneralBooking&quot; : {
+          &quot;Selected&quot; : &quot;false&quot;,
+          &quot;ResourceAssignmentType&quot; : &quot;%GeneralBookingAPIValue%&quot;
+        },
+        &quot;AutoAssignment&quot; : {
+          &quot;Selected&quot; : &quot;true&quot;,
+          &quot;ResourceAssignmentType&quot; : &quot;%AutoAssignmentAPIValue%&quot;
+        }
+      }
+    },
+    &quot;ResourceAssignmentType&quot; : &quot;%AutoAssignmentAPIValue%&quot;
+  },
+  &quot;showPersistentComponent&quot; : [ true, false ],
+  &quot;show&quot; : {
+    &quot;group&quot; : {
+      &quot;operator&quot; : &quot;AND&quot;,
+      &quot;rules&quot; : [ {
+        &quot;data&quot; : &quot;true&quot;,
+        &quot;condition&quot; : &quot;=&quot;,
+        &quot;field&quot; : &quot;IsBothResourceAssignmentType&quot;
+      } ]
+    }
+  },
+  &quot;HTMLTemplateId&quot; : &quot;&quot;,
+  &quot;wpm&quot; : false,
+  &quot;ssm&quot; : false,
+  &quot;message&quot; : { },
+  &quot;pubsub&quot; : false
+}</propertySetConfig>
+        <sequenceNumber>15.0</sequenceNumber>
+        <type>Set Values</type>
+    </omniProcessElements>
+    <omniProcessElements>
+        <isActive>true</isActive>
+        <isOmniScriptEmbeddable>false</isOmniScriptEmbeddable>
+        <level>0.0</level>
+        <name>SetDefaultValues</name>
+        <omniProcessVersionNumber>0.0</omniProcessVersionNumber>
+        <propertySetConfig>{
+  &quot;controlWidth&quot; : 12,
+  &quot;label&quot; : &quot;$standardLabel.EDUSchedulerFieldLabels.SetDefaultValues&quot;,
+  &quot;elementValueMap&quot; : {
+    &quot;DefaultRole&quot; : &quot;=IF(COUNT(%SupportStaff:Teams|1:SupportStaff|1:Role%) == 0, NULL, %SupportStaff:Teams|1:SupportStaff|1:Role%)&quot;,
+    &quot;DefaultCaseId&quot; : &quot;=IF(COUNT(%SupportStaff:Teams|1:SupportStaff|1:CaseId%) == 0, %SupportStaff:Teams|1:CaseId%, %SupportStaff:Teams|1:SupportStaff|1:CaseId%)&quot;,
+    &quot;DefaultServiceResourceId&quot; : &quot;=IF(COUNT(%SupportStaff|1:Teams|1:SupportStaff|1:ServiceResourceId%) == 0, NULL, %SupportStaff|1:Teams|1:SupportStaff|1:ServiceResourceId%)\n&quot;,
+    &quot;DefaultName&quot; : &quot;%SupportStaff:Teams|1:SupportStaff|1:Name%&quot;,
+    &quot;DefaultImageURL&quot; : &quot;%SupportStaff:Teams|1:SupportStaff|1:ImageUrl%&quot;,
+    &quot;SupportStaff&quot; : &quot;%SupportStaff%&quot;,
+    &quot;DefaultResourceAssignmentType&quot; : &quot;=IF(%SupportStaff:Teams|1:ResourceAssignmentType% != NULL, %SupportStaff:Teams|1:ResourceAssignmentType%, %GeneralBookingAPIValue%)&quot;
+  },
+  &quot;showPersistentComponent&quot; : [ true, false ],
+  &quot;HTMLTemplateId&quot; : &quot;&quot;,
+  &quot;wpm&quot; : false,
+  &quot;ssm&quot; : false,
+  &quot;message&quot; : { },
+  &quot;pubsub&quot; : false
+}</propertySetConfig>
+        <sequenceNumber>2.0</sequenceNumber>
+        <type>Set Values</type>
+    </omniProcessElements>
+    <omniProcessElements>
+        <isActive>true</isActive>
+        <isOmniScriptEmbeddable>false</isOmniScriptEmbeddable>
+        <level>0.0</level>
+        <name>SetLocation</name>
+        <omniProcessVersionNumber>0.0</omniProcessVersionNumber>
+        <propertySetConfig>{
+  &quot;controlWidth&quot; : 12,
+  &quot;label&quot; : &quot;$standardLabel.EDUSchedulerFieldLabels.SetLocation&quot;,
+  &quot;elementValueMap&quot; : {
+    &quot;FinalLocationName&quot; : &quot;=IF((%SelectedChannelType% == &#39;InPerson&#39;), IF((%parentLocationName% != NULL), %parentLocationName% + &#39;, &#39; + %locationName%, %locationName%), &#39; &#39;)&quot;
+  },
+  &quot;showPersistentComponent&quot; : [ true, false ],
+  &quot;HTMLTemplateId&quot; : &quot;&quot;,
+  &quot;wpm&quot; : false,
+  &quot;ssm&quot; : false,
+  &quot;message&quot; : { },
+  &quot;pubsub&quot; : false
+}</propertySetConfig>
+        <sequenceNumber>54.0</sequenceNumber>
+        <type>Set Values</type>
+    </omniProcessElements>
+    <omniProcessElements>
+        <isActive>true</isActive>
+        <isOmniScriptEmbeddable>false</isOmniScriptEmbeddable>
+        <level>0.0</level>
+        <name>SetMinsPriorToJoining</name>
+        <omniProcessVersionNumber>0.0</omniProcessVersionNumber>
+        <propertySetConfig>{
+  &quot;controlWidth&quot; : 12,
+  &quot;label&quot; : &quot;$standardLabel.EDUSchedulerFieldLabels.SetMinsPriorToJoining&quot;,
+  &quot;elementValueMap&quot; : {
+    &quot;MinsPriorToJoining&quot; : &quot;=\&quot;60\&quot;&quot;
+  },
+  &quot;showPersistentComponent&quot; : [ true, false ],
+  &quot;HTMLTemplateId&quot; : &quot;&quot;,
+  &quot;wpm&quot; : false,
+  &quot;ssm&quot; : false,
+  &quot;message&quot; : { },
+  &quot;pubsub&quot; : false
+}</propertySetConfig>
+        <sequenceNumber>64.0</sequenceNumber>
+        <type>Set Values</type>
+    </omniProcessElements>
+    <omniProcessElements>
+        <isActive>true</isActive>
+        <isOmniScriptEmbeddable>false</isOmniScriptEmbeddable>
+        <level>0.0</level>
+        <name>SetNextAvailableInput</name>
+        <omniProcessVersionNumber>0.0</omniProcessVersionNumber>
+        <propertySetConfig>{
+  &quot;controlWidth&quot; : 12,
+  &quot;label&quot; : &quot;$standardLabel.EDUSchedulerFieldLabels.GetInputForNextAvailableDateIP&quot;,
+  &quot;elementValueMap&quot; : {
+    &quot;NextAvailableInput&quot; : {
+      &quot;DefaultSelectedDate&quot; : &quot;=%SelectedDate%&quot;,
+      &quot;SupportStaff&quot; : &quot;=%StaffSelections%&quot;,
+      &quot;ServiceTerritoryMembers&quot; : &quot;=%ServiceTerritoryMembers%&quot;,
+      &quot;IsAutoAssignment&quot; : &quot;=%IsAutoAssignment%&quot;
+    }
+  },
+  &quot;showPersistentComponent&quot; : [ true, false ],
+  &quot;HTMLTemplateId&quot; : &quot;&quot;,
+  &quot;wpm&quot; : false,
+  &quot;ssm&quot; : false,
+  &quot;message&quot; : { },
+  &quot;pubsub&quot; : false,
+  &quot;lwcComponentOverride&quot; : &quot;&quot;
+}</propertySetConfig>
+        <sequenceNumber>43.0</sequenceNumber>
+        <type>Set Values</type>
+    </omniProcessElements>
+    <omniProcessElements>
+        <isActive>true</isActive>
+        <isOmniScriptEmbeddable>false</isOmniScriptEmbeddable>
+        <level>0.0</level>
+        <name>SetPreviousSelection</name>
+        <omniProcessVersionNumber>0.0</omniProcessVersionNumber>
+        <propertySetConfig>{
+  &quot;controlWidth&quot; : 12,
+  &quot;label&quot; : &quot;$standardLabel.EDUSchedulerFieldLabels.SetSelectedValues&quot;,
+  &quot;elementValueMap&quot; : {
+    &quot;SelectedValues&quot; : {
+      &quot;Staff&quot; : &quot;=IF(%Name% != NULL, %Name% , %CaseTeamTemplateName%)&quot;,
+      &quot;Topic&quot; : &quot;&quot;,
+      &quot;Channel&quot; : &quot;&quot;
+    },
+    &quot;IsBothResourceAssignmentType&quot; : &quot;=IF(%ResourceAssignmentType% == %BothAPIValue%, true, false)&quot;
+  },
+  &quot;showPersistentComponent&quot; : [ true, false ],
+  &quot;HTMLTemplateId&quot; : &quot;&quot;,
+  &quot;wpm&quot; : false,
+  &quot;ssm&quot; : false,
+  &quot;message&quot; : { },
+  &quot;pubsub&quot; : false
+}</propertySetConfig>
+        <sequenceNumber>6.0</sequenceNumber>
+        <type>Set Values</type>
+    </omniProcessElements>
+    <omniProcessElements>
+        <isActive>true</isActive>
+        <isOmniScriptEmbeddable>false</isOmniScriptEmbeddable>
+        <level>0.0</level>
+        <name>SetPreviousSelection2</name>
+        <omniProcessVersionNumber>0.0</omniProcessVersionNumber>
+        <propertySetConfig>{
+  &quot;controlWidth&quot; : 12,
+  &quot;label&quot; : &quot;$standardLabel.EDUSchedulerFieldLabels.SetSelectedValues&quot;,
+  &quot;elementValueMap&quot; : {
+    &quot;SelectedValues2&quot; : {
+      &quot;Staff&quot; : &quot;=IF(%Name% != NULL, %Name% , %CaseTeamTemplateName%)&quot;,
+      &quot;Topic&quot; : &quot;%TopicName%&quot;,
+      &quot;Channel&quot; : &quot;&quot;
+    }
+  },
+  &quot;showPersistentComponent&quot; : [ true, false ],
+  &quot;HTMLTemplateId&quot; : &quot;&quot;,
+  &quot;wpm&quot; : false,
+  &quot;ssm&quot; : false,
+  &quot;message&quot; : { },
+  &quot;pubsub&quot; : false
+}</propertySetConfig>
+        <sequenceNumber>25.0</sequenceNumber>
+        <type>Set Values</type>
+    </omniProcessElements>
+    <omniProcessElements>
+        <isActive>true</isActive>
+        <isOmniScriptEmbeddable>false</isOmniScriptEmbeddable>
+        <level>0.0</level>
+        <name>SetPreviousSelection3</name>
+        <omniProcessVersionNumber>0.0</omniProcessVersionNumber>
+        <propertySetConfig>{
+  &quot;controlWidth&quot; : 12,
+  &quot;label&quot; : &quot;$standardLabel.EDUSchedulerFieldLabels.SetSelectedValues&quot;,
+  &quot;elementValueMap&quot; : {
+    &quot;SelectedValues3&quot; : {
+      &quot;Staff&quot; : &quot;=IF(%Name% != NULL, %Name% , %CaseTeamTemplateName%)&quot;,
+      &quot;Topic&quot; : &quot;%TopicName%&quot;,
+      &quot;Channel&quot; : &quot;%SelectedChannelName%&quot;
+    }
+  },
+  &quot;showPersistentComponent&quot; : [ true, false ],
+  &quot;HTMLTemplateId&quot; : &quot;&quot;,
+  &quot;wpm&quot; : false,
+  &quot;ssm&quot; : false,
+  &quot;message&quot; : { },
+  &quot;pubsub&quot; : false
+}</propertySetConfig>
+        <sequenceNumber>32.0</sequenceNumber>
+        <type>Set Values</type>
+    </omniProcessElements>
+    <omniProcessElements>
+        <isActive>true</isActive>
+        <isOmniScriptEmbeddable>false</isOmniScriptEmbeddable>
+        <level>0.0</level>
+        <name>SetSelectedChannel</name>
+        <omniProcessVersionNumber>0.0</omniProcessVersionNumber>
+        <propertySetConfig>{
+  &quot;controlWidth&quot; : 12,
+  &quot;label&quot; : &quot;$standardLabel.EDUSchedulerFieldLabels.SetSelectedChannel&quot;,
+  &quot;elementValueMap&quot; : {
+    &quot;UserSelection&quot; : {
+      &quot;Channel&quot; : {
+        &quot;ChannelId&quot; : &quot;%SelectedChannelId%&quot;,
+        &quot;ChannelName&quot; : &quot;%SelectedChannelName%&quot;,
+        &quot;ChannelType&quot; : &quot;%SelectedChannelType%&quot;
+      }
+    }
+  },
+  &quot;showPersistentComponent&quot; : [ true, false ],
+  &quot;HTMLTemplateId&quot; : &quot;&quot;,
+  &quot;wpm&quot; : false,
+  &quot;ssm&quot; : false,
+  &quot;message&quot; : { },
+  &quot;pubsub&quot; : false
+}</propertySetConfig>
+        <sequenceNumber>33.0</sequenceNumber>
+        <type>Set Values</type>
+    </omniProcessElements>
+    <omniProcessElements>
+        <isActive>true</isActive>
+        <isOmniScriptEmbeddable>false</isOmniScriptEmbeddable>
+        <level>0.0</level>
+        <name>SetSelectedStaffValues</name>
+        <omniProcessVersionNumber>0.0</omniProcessVersionNumber>
+        <propertySetConfig>{
+  &quot;pubsub&quot; : false,
+  &quot;message&quot; : { },
+  &quot;ssm&quot; : false,
+  &quot;wpm&quot; : false,
+  &quot;HTMLTemplateId&quot; : &quot;&quot;,
+  &quot;showPersistentComponent&quot; : [ true, false ],
+  &quot;elementValueMap&quot; : {
+    &quot;CaseTeamTemplateId&quot; : &quot;=IF(COUNT(%schedulerLWC:data:CaseTeamTemplateId%) != 0  &amp;&amp; %schedulerLWC:data:CaseTeamTemplateId% != \&quot;{TeamTemplateId}\&quot;, %schedulerLWC:data:CaseTeamTemplateId%, %SupportStaff:Teams|1:Id%)&quot;,
+    &quot;CaseTeamTemplateName&quot; : &quot;=IF(COUNT(%schedulerLWC:data:CaseTeamName%) == 0, %SupportStaff:Teams|1:TeamName%, %schedulerLWC:data:CaseTeamName%)&quot;,
+    &quot;CaseId&quot; : &quot;=IF(COUNT(%schedulerLWC:data:CaseId%) != 0, %schedulerLWC:data:CaseId%, %DefaultCaseId%)&quot;,
+    &quot;ServiceResourceId&quot; : &quot;=IF(COUNT(%schedulerLWC:data:ServiceResourceId%) == 0 &amp;&amp; COUNT(%schedulerLWC:data:CaseTeamTemplateId%) == 0, %DefaultServiceResourceId%, %schedulerLWC:data:ServiceResourceId%)&quot;,
+    &quot;Name&quot; : &quot;=IF(COUNT(%schedulerLWC:data:Name%) == 0 &amp;&amp; COUNT(%schedulerLWC:data:CaseTeamTemplateId%) == 0, %DefaultName%, %schedulerLWC:data:Name%)&quot;,
+    &quot;Role&quot; : &quot;=IF(COUNT(%schedulerLWC:data:Role%)==0 &amp;&amp; COUNT(%schedulerLWC:data:CaseTeamTemplateId%) == 0, %DefaultRole%, %schedulerLWC:data:Role%)&quot;,
+    &quot;ImageURL&quot; : &quot;=IF(COUNT(%schedulerLWC:data:ImageURL%) == 0 &amp;&amp; COUNT(%schedulerLWC:data:CaseTeamTemplateId%) == 0, %DefaultImageURL%,  %schedulerLWC:data:ImageURL%)&quot;,
+    &quot;SelectedValues&quot; : {
+      &quot;Staff&quot; : &quot;&quot;,
+      &quot;Topic&quot; : &quot;&quot;,
+      &quot;Channel&quot; : &quot;&quot;
+    },
+    &quot;ResourceAssignmentType&quot; : &quot;=IF(COUNT(%schedulerLWC:data:ResourceAssignmentType%) &gt; 0, %schedulerLWC:data:ResourceAssignmentType%, %DefaultResourceAssignmentType%)&quot;
+  },
+  &quot;label&quot; : &quot;$standardLabel.EDUSchedulerFieldLabels.SetSelectedStaffValues&quot;,
+  &quot;controlWidth&quot; : 12,
+  &quot;lwcComponentOverride&quot; : &quot;&quot;
+}</propertySetConfig>
+        <sequenceNumber>5.0</sequenceNumber>
+        <type>Set Values</type>
+    </omniProcessElements>
+    <omniProcessElements>
+        <isActive>true</isActive>
+        <isOmniScriptEmbeddable>false</isOmniScriptEmbeddable>
+        <level>0.0</level>
+        <name>SetServiceResourceAndTerritory</name>
+        <omniProcessVersionNumber>0.0</omniProcessVersionNumber>
+        <propertySetConfig>{
+  &quot;controlWidth&quot; : 12,
+  &quot;label&quot; : &quot;$standardLabel.EDUSchedulerFieldLabels.SetServiceResourceAndTerritory&quot;,
+  &quot;elementValueMap&quot; : {
+    &quot;ServiceResourceId&quot; : &quot;%SelectedTimeSlot:ServiceResourceId%&quot;,
+    &quot;ServiceTerritoryId&quot; : &quot;%SelectedTimeSlot:ServiceTerritoryId%&quot;
+  },
+  &quot;showPersistentComponent&quot; : [ true, false ],
+  &quot;HTMLTemplateId&quot; : &quot;&quot;,
+  &quot;wpm&quot; : false,
+  &quot;ssm&quot; : false,
+  &quot;message&quot; : { },
+  &quot;pubsub&quot; : false
+}</propertySetConfig>
+        <sequenceNumber>52.0</sequenceNumber>
+        <type>Set Values</type>
+    </omniProcessElements>
+    <omniProcessElements>
+        <isActive>true</isActive>
+        <isOmniScriptEmbeddable>false</isOmniScriptEmbeddable>
+        <level>0.0</level>
+        <name>SetShowConfirmationState</name>
+        <omniProcessVersionNumber>0.0</omniProcessVersionNumber>
+        <propertySetConfig>{
+  &quot;controlWidth&quot; : 12,
+  &quot;label&quot; : &quot;$standardLabel.EDUSchedulerFieldLabels.SetShowConfirmationState&quot;,
+  &quot;elementValueMap&quot; : {
+    &quot;ErrorVM&quot; : {
+      &quot;AppointmentConfirmation&quot; : false
+    },
+    &quot;ShowConfirmation&quot; : &quot;=IF(%ServiceAppointmentId% = NULL, false, true)&quot;
+  },
+  &quot;showPersistentComponent&quot; : [ true, false ],
+  &quot;HTMLTemplateId&quot; : &quot;&quot;,
+  &quot;wpm&quot; : false,
+  &quot;ssm&quot; : false,
+  &quot;message&quot; : { },
+  &quot;pubsub&quot; : false
+}</propertySetConfig>
+        <sequenceNumber>67.0</sequenceNumber>
+        <type>Set Values</type>
+    </omniProcessElements>
+    <omniProcessElements>
+        <isActive>true</isActive>
+        <isOmniScriptEmbeddable>false</isOmniScriptEmbeddable>
+        <level>0.0</level>
+        <name>SetSubtopicValues</name>
+        <omniProcessVersionNumber>0.0</omniProcessVersionNumber>
+        <propertySetConfig>{
+  &quot;controlWidth&quot; : 12,
+  &quot;label&quot; : &quot;$standardLabel.EDUSchedulerFieldLabels.SetSubTopicValues&quot;,
+  &quot;elementValueMap&quot; : {
+    &quot;SelectedSubtopicName&quot; : &quot;=IF((%TopicLWC:Topic:SubtopicName%==NULL &amp;&amp; %TopicWorkTypeGroupId% == %Topic|1:WorkTypeGroupId% &amp;&amp; %Topic|1:HasSubtopics% == true),%Topic|1:Subtopic|1:Name%, %TopicLWC:Topic:SubtopicName%)&quot;,
+    &quot;SubtopicWorkTypeGroupId&quot; : &quot;=IF((%TopicLWC:Topic:SubtopicWorkTypeGroupId%==NULL &amp;&amp; %TopicWorkTypeGroupId% == %Topic|1:WorkTypeGroupId% &amp;&amp; %Topic|1:HasSubtopics% == true), %Topic|1:Subtopic|1:WorkTypeGroupId%, %TopicLWC:Topic:SubtopicWorkTypeGroupId%)&quot;,
+    &quot;SubtopicWorkTypeId&quot; : &quot;=IF((%TopicLWC:Topic:SubtopicWorkTypeId%==NULL &amp;&amp; %TopicWorkTypeGroupId% == %Topic|1:WorkTypeGroupId% &amp;&amp; %Topic|1:HasSubtopics% == true), %Topic|1:Subtopic|1:WorkTypeId%, %TopicLWC:Topic:SubtopicWorkTypeId%)&quot;
+  },
+  &quot;showPersistentComponent&quot; : [ true, false ],
+  &quot;HTMLTemplateId&quot; : &quot;&quot;,
+  &quot;wpm&quot; : false,
+  &quot;ssm&quot; : false,
+  &quot;message&quot; : { },
+  &quot;pubsub&quot; : false
+}</propertySetConfig>
+        <sequenceNumber>23.0</sequenceNumber>
+        <type>Set Values</type>
+    </omniProcessElements>
+    <omniProcessElements>
+        <isActive>true</isActive>
+        <isOmniScriptEmbeddable>false</isOmniScriptEmbeddable>
+        <level>0.0</level>
+        <name>SetTerritoryMembers</name>
+        <omniProcessVersionNumber>0.0</omniProcessVersionNumber>
+        <propertySetConfig>{
+  &quot;controlWidth&quot; : 12,
+  &quot;label&quot; : &quot;$standardLabel.EDUSchedulerFieldLabels.SetTerritoryMembers&quot;,
+  &quot;elementValueMap&quot; : {
+    &quot;ServiceTerritoryMembers&quot; : &quot;=%ServiceTerritoryMember%&quot;
+  },
+  &quot;showPersistentComponent&quot; : [ true, false ],
+  &quot;HTMLTemplateId&quot; : &quot;&quot;,
+  &quot;wpm&quot; : false,
+  &quot;ssm&quot; : false,
+  &quot;message&quot; : { },
+  &quot;pubsub&quot; : false
+}</propertySetConfig>
+        <sequenceNumber>36.0</sequenceNumber>
+        <type>Set Values</type>
+    </omniProcessElements>
+    <omniProcessElements>
+        <isActive>true</isActive>
+        <isOmniScriptEmbeddable>false</isOmniScriptEmbeddable>
+        <level>0.0</level>
+        <name>SetTime</name>
+        <omniProcessVersionNumber>0.0</omniProcessVersionNumber>
+        <propertySetConfig>{
+  &quot;controlWidth&quot; : 12,
+  &quot;label&quot; : &quot;$standardLabel.EDUSchedulerFieldLabels.SetTimeValue&quot;,
+  &quot;elementValueMap&quot; : {
+    &quot;SelectedTimeSlot&quot; : &quot;=%TimeSlotOutput%&quot;
+  },
+  &quot;showPersistentComponent&quot; : [ true, false ],
+  &quot;HTMLTemplateId&quot; : &quot;&quot;,
+  &quot;wpm&quot; : false,
+  &quot;ssm&quot; : false,
+  &quot;message&quot; : { },
+  &quot;pubsub&quot; : false
+}</propertySetConfig>
+        <sequenceNumber>51.0</sequenceNumber>
+        <type>Set Values</type>
+    </omniProcessElements>
+    <omniProcessElements>
+        <isActive>true</isActive>
+        <isOmniScriptEmbeddable>false</isOmniScriptEmbeddable>
+        <level>0.0</level>
+        <name>SetTimeNow</name>
+        <omniProcessVersionNumber>0.0</omniProcessVersionNumber>
+        <propertySetConfig>{
+  &quot;controlWidth&quot; : 12,
+  &quot;label&quot; : &quot;$standardLabel.EDUSchedulerFieldLabels.SetTimeNow&quot;,
+  &quot;elementValueMap&quot; : {
+    &quot;Now&quot; : &quot;=NOW()&quot;
+  },
+  &quot;showPersistentComponent&quot; : [ true, false ],
+  &quot;HTMLTemplateId&quot; : &quot;&quot;,
+  &quot;wpm&quot; : false,
+  &quot;ssm&quot; : false,
+  &quot;message&quot; : { },
+  &quot;pubsub&quot; : false
+}</propertySetConfig>
+        <sequenceNumber>34.0</sequenceNumber>
+        <type>Set Values</type>
+    </omniProcessElements>
+    <omniProcessElements>
+        <isActive>true</isActive>
+        <isOmniScriptEmbeddable>false</isOmniScriptEmbeddable>
+        <level>0.0</level>
+        <name>SetTimeValues</name>
+        <omniProcessVersionNumber>0.0</omniProcessVersionNumber>
+        <propertySetConfig>{
+  &quot;controlWidth&quot; : 12,
+  &quot;label&quot; : &quot;$standardLabel.EDUSchedulerFieldLabels.SetTimeValues&quot;,
+  &quot;elementValueMap&quot; : {
+    &quot;SlotLocalDateTimeString&quot; : &quot;=IF(%TimeSelectionLWC:Timeslot:SlotLocalDateTimeString% != NULL , %TimeSelectionLWC:Timeslot:SlotLocalDateTimeString%, %Appointment:AppointmentInformation|1:AppointmentTimes|1:SlotLocalDateTimeString%)&quot;,
+    &quot;StartDateTimeGMT&quot; : &quot;=IF(%TimeSelectionLWC:Timeslot:StartDateTimeGMT% != NULL, %TimeSelectionLWC:Timeslot:StartDateTimeGMT%, %Appointment:AppointmentInformation|1:AppointmentTimes|1:StartDateTimeGMT%)&quot;,
+    &quot;ServiceResourceId&quot; : &quot;=IF(%TimeSelectionLWC:Timeslot:ServiceResourceId% != NULL, %TimeSelectionLWC:Timeslot:ServiceResourceId%, %Appointment:AppointmentInformation|1:AppointmentTimes|1:ServiceResourceId%)&quot;,
+    &quot;ServiceTerritoryId&quot; : &quot;=IF(%TimeSelectionLWC:Timeslot:ServiceTerritoryId% != NULL, %TimeSelectionLWC:Timeslot:ServiceTerritoryId%, %Appointment:AppointmentInformation|1:AppointmentTimes|1:ServiceTerritoryId%)&quot;,
+    &quot;StartTime&quot; : &quot;=IF(%TimeSelectionLWC:Timeslot:StartTime% != NULL, %TimeSelectionLWC:Timeslot:StartTime%, %Appointment:AppointmentInformation|1:AppointmentTimes|1:StartTime%)&quot;,
+    &quot;EndDateTimeGMT&quot; : &quot;=IF(%TimeSelectionLWC:Timeslot:EndDateTimeGMT% != NULL, %TimeSelectionLWC:Timeslot:EndDateTimeGMT%,  %Appointment:AppointmentInformation|1:AppointmentTimes|1:EndDateTimeGMT%)&quot;,
+    &quot;EndTime&quot; : &quot;=IF(%TimeSelectionLWC:Timeslot:EndTime% != NULL, %TimeSelectionLWC:Timeslot:EndTime%, %Appointment:AppointmentInformation|1:AppointmentTimes|1:EndTime%)&quot;
+  },
+  &quot;showPersistentComponent&quot; : [ true, false ],
+  &quot;HTMLTemplateId&quot; : &quot;&quot;,
+  &quot;wpm&quot; : false,
+  &quot;ssm&quot; : false,
+  &quot;message&quot; : { },
+  &quot;pubsub&quot; : false
+}</propertySetConfig>
+        <sequenceNumber>49.0</sequenceNumber>
+        <type>Set Values</type>
+    </omniProcessElements>
+    <omniProcessElements>
+        <isActive>true</isActive>
+        <isOmniScriptEmbeddable>false</isOmniScriptEmbeddable>
+        <level>0.0</level>
+        <name>SetTopics</name>
+        <omniProcessVersionNumber>0.0</omniProcessVersionNumber>
+        <propertySetConfig>{
+  &quot;controlWidth&quot; : 12,
+  &quot;label&quot; : &quot;$standardLabel.EDUSchedulerFieldLabels.SetTopics&quot;,
+  &quot;elementValueMap&quot; : {
+    &quot;DisplayTopics&quot; : &quot;=IF(%Topic|1:DisplayTopics% == NULL, false, %Topic|1:DisplayTopics%)&quot;
+  },
+  &quot;showPersistentComponent&quot; : [ true, false ],
+  &quot;HTMLTemplateId&quot; : &quot;&quot;,
+  &quot;wpm&quot; : false,
+  &quot;ssm&quot; : false,
+  &quot;message&quot; : { },
+  &quot;pubsub&quot; : false
+}</propertySetConfig>
+        <sequenceNumber>13.0</sequenceNumber>
+        <type>Set Values</type>
+    </omniProcessElements>
+    <omniProcessElements>
+        <isActive>true</isActive>
+        <isOmniScriptEmbeddable>false</isOmniScriptEmbeddable>
+        <level>0.0</level>
+        <name>SetTopicValues</name>
+        <omniProcessVersionNumber>0.0</omniProcessVersionNumber>
+        <propertySetConfig>{
+  &quot;controlWidth&quot; : 12,
+  &quot;label&quot; : &quot;$standardLabel.EDUSchedulerFieldLabels.SetTopicValues&quot;,
+  &quot;elementValueMap&quot; : {
+    &quot;TopicWorkTypeGroupId&quot; : &quot;=IF(COUNT(%TopicLWC:Topic:TopicWorkTypeGroupId%) == 0, %Topic|1:WorkTypeGroupId%, %TopicLWC:Topic:TopicWorkTypeGroupId%)&quot;,
+    &quot;TopicWorkTypeId&quot; : &quot;=IF(COUNT(%TopicLWC:Topic:TopicWorkTypeId%) == 0, %Topic|1:WorkTypeId%, %TopicLWC:Topic:TopicWorkTypeId%)&quot;,
+    &quot;SelectedTopicName&quot; : &quot;=IF(COUNT(%TopicLWC:Topic:TopicName%) == 0, %Topic|1:Name%, %TopicLWC:Topic:TopicName%)&quot;
+  },
+  &quot;showPersistentComponent&quot; : [ true, false ],
+  &quot;HTMLTemplateId&quot; : &quot;&quot;,
+  &quot;wpm&quot; : false,
+  &quot;ssm&quot; : false,
+  &quot;message&quot; : { },
+  &quot;pubsub&quot; : false
+}</propertySetConfig>
+        <sequenceNumber>22.0</sequenceNumber>
+        <type>Set Values</type>
+    </omniProcessElements>
+    <omniProcessElements>
+        <isActive>true</isActive>
+        <isOmniScriptEmbeddable>false</isOmniScriptEmbeddable>
+        <level>0.0</level>
+        <name>SetUserSelection</name>
+        <omniProcessVersionNumber>0.0</omniProcessVersionNumber>
+        <propertySetConfig>{
+  &quot;controlWidth&quot; : 12,
+  &quot;label&quot; : &quot;$standardLabel.EDUSchedulerFieldLabels.SetUserSelection&quot;,
+  &quot;elementValueMap&quot; : {
+    &quot;UserSelectedValues&quot; : {
+      &quot;Subject&quot; : &quot;%TopicName%&quot;,
+      &quot;AdvisorName&quot; : &quot;%Name%&quot;,
+      &quot;AdvisorRole&quot; : &quot;%Role%&quot;,
+      &quot;AdvisorImage&quot; : &quot;%ImageURL%&quot;,
+      &quot;Date&quot; : &quot;%SelectedDate%&quot;,
+      &quot;TimeSlot&quot; : &quot;%SelectedTimeSlot%&quot;,
+      &quot;ChannelName&quot; : &quot;%SelectedChannelName%&quot;,
+      &quot;ChannelType&quot; : &quot;%SelectedChannelType%&quot;,
+      &quot;LocationName&quot; : &quot;%FinalLocationName%&quot;
+    }
+  },
+  &quot;showPersistentComponent&quot; : [ true, false ],
+  &quot;HTMLTemplateId&quot; : &quot;&quot;,
+  &quot;wpm&quot; : false,
+  &quot;ssm&quot; : false,
+  &quot;message&quot; : { },
+  &quot;pubsub&quot; : false
+}</propertySetConfig>
+        <sequenceNumber>55.0</sequenceNumber>
+        <type>Set Values</type>
+    </omniProcessElements>
+    <omniProcessElements>
+        <isActive>true</isActive>
+        <isOmniScriptEmbeddable>false</isOmniScriptEmbeddable>
+        <level>0.0</level>
+        <name>UpdateDateHeaderSelection</name>
+        <omniProcessVersionNumber>0.0</omniProcessVersionNumber>
+        <propertySetConfig>{
+  &quot;controlWidth&quot; : 12,
+  &quot;label&quot; : &quot;$standardLabel.EDUSchedulerFieldLabels.UpdateDateHeaderSelection&quot;,
+  &quot;integrationProcedureKey&quot; : &quot;EDUScheduler_UpdateDateHeaderSelection&quot;,
+  &quot;useContinuation&quot; : false,
+  &quot;remoteOptions&quot; : {
+    &quot;useFuture&quot; : false,
+    &quot;chainable&quot; : false,
+    &quot;preTransformBundle&quot; : &quot;&quot;,
+    &quot;postTransformBundle&quot; : &quot;&quot;,
+    &quot;&quot; : &quot;&quot;
+  },
+  &quot;remoteTimeout&quot; : 30000,
+  &quot;preTransformBundle&quot; : &quot;&quot;,
+  &quot;postTransformBundle&quot; : &quot;&quot;,
+  &quot;sendJSONPath&quot; : &quot;&quot;,
+  &quot;sendJSONNode&quot; : &quot;&quot;,
+  &quot;responseJSONPath&quot; : &quot;&quot;,
+  &quot;responseJSONNode&quot; : &quot;&quot;,
+  &quot;extraPayload&quot; : {
+    &quot;MinimumDate&quot; : &quot;%MinimumDate%&quot;,
+    &quot;DisplayBack&quot; : &quot;%DisplayBack%&quot;,
+    &quot;TextDate&quot; : &quot;%TextDate%&quot;,
+    &quot;SelectedDate&quot; : &quot;%SelectedDate%&quot;
+  },
+  &quot;inProgressMessage&quot; : &quot;&quot;,
+  &quot;postMessage&quot; : &quot;&quot;,
+  &quot;failureNextLabel&quot; : &quot;&quot;,
+  &quot;failureAbortLabel&quot; : &quot;&quot;,
+  &quot;failureGoBackLabel&quot; : &quot;&quot;,
+  &quot;failureAbortMessage&quot; : &quot;&quot;,
+  &quot;validationRequired&quot; : &quot;Step&quot;,
+  &quot;redirectPageName&quot; : &quot;&quot;,
+  &quot;redirectTemplateUrl&quot; : &quot;vlcAcknowledge.html&quot;,
+  &quot;redirectNextLabel&quot; : &quot;&quot;,
+  &quot;redirectNextWidth&quot; : 3,
+  &quot;redirectPreviousLabel&quot; : &quot;&quot;,
+  &quot;redirectPreviousWidth&quot; : 3,
+  &quot;showPersistentComponent&quot; : [ true, false ],
+  &quot;HTMLTemplateId&quot; : &quot;&quot;,
+  &quot;wpm&quot; : false,
+  &quot;ssm&quot; : false,
+  &quot;message&quot; : { },
+  &quot;pubsub&quot; : false,
+  &quot;svgSprite&quot; : &quot;&quot;,
+  &quot;svgIcon&quot; : &quot;&quot;,
+  &quot;errorMessage&quot; : {
+    &quot;custom&quot; : [ ]
+  },
+  &quot;enableDefaultAbort&quot; : false,
+  &quot;enableActionMessage&quot; : false,
+  &quot;businessCategory&quot; : &quot;&quot;,
+  &quot;businessEvent&quot; : &quot;&quot;,
+  &quot;invokeMode&quot; : &quot;noBlock&quot;,
+  &quot;sendOnlyExtraPayload&quot; : true
+}</propertySetConfig>
+        <sequenceNumber>61.0</sequenceNumber>
+        <type>Integration Procedure Action</type>
+    </omniProcessElements>
+    <omniProcessElements>
+        <isActive>true</isActive>
+        <isOmniScriptEmbeddable>false</isOmniScriptEmbeddable>
+        <level>0.0</level>
+        <name>UpdateSelectedChannel</name>
+        <omniProcessVersionNumber>0.0</omniProcessVersionNumber>
+        <propertySetConfig>{
+  &quot;controlWidth&quot; : 12,
+  &quot;label&quot; : &quot;$standardLabel.EDUSchedulerFieldLabels.UpdateSelectedChannel&quot;,
+  &quot;integrationProcedureKey&quot; : &quot;EDUScheduler_UpdateChannelSelection&quot;,
+  &quot;useContinuation&quot; : false,
+  &quot;remoteOptions&quot; : {
+    &quot;preTransformBundle&quot; : &quot;&quot;,
+    &quot;postTransformBundle&quot; : &quot;&quot;,
+    &quot;useFuture&quot; : false,
+    &quot;chainable&quot; : false
+  },
+  &quot;remoteTimeout&quot; : 30000,
+  &quot;preTransformBundle&quot; : &quot;&quot;,
+  &quot;postTransformBundle&quot; : &quot;&quot;,
+  &quot;sendJSONPath&quot; : &quot;&quot;,
+  &quot;sendJSONNode&quot; : &quot;&quot;,
+  &quot;responseJSONPath&quot; : &quot;&quot;,
+  &quot;responseJSONNode&quot; : &quot;&quot;,
+  &quot;extraPayload&quot; : {
+    &quot;Channels&quot; : &quot;%Channels%&quot;,
+    &quot;SelectedChannelId&quot; : &quot;%SelectedChannelId%&quot;
+  },
+  &quot;inProgressMessage&quot; : &quot;&quot;,
+  &quot;postMessage&quot; : &quot;&quot;,
+  &quot;failureNextLabel&quot; : &quot;&quot;,
+  &quot;failureAbortLabel&quot; : &quot;&quot;,
+  &quot;failureGoBackLabel&quot; : &quot;&quot;,
+  &quot;failureAbortMessage&quot; : &quot;&quot;,
+  &quot;validationRequired&quot; : &quot;Step&quot;,
+  &quot;redirectPageName&quot; : &quot;&quot;,
+  &quot;redirectTemplateUrl&quot; : &quot;vlcAcknowledge.html&quot;,
+  &quot;redirectNextLabel&quot; : &quot;&quot;,
+  &quot;redirectNextWidth&quot; : 3,
+  &quot;redirectPreviousLabel&quot; : &quot;&quot;,
+  &quot;redirectPreviousWidth&quot; : 3,
+  &quot;showPersistentComponent&quot; : [ true, false ],
+  &quot;HTMLTemplateId&quot; : &quot;&quot;,
+  &quot;wpm&quot; : false,
+  &quot;ssm&quot; : false,
+  &quot;message&quot; : { },
+  &quot;pubsub&quot; : false,
+  &quot;svgSprite&quot; : &quot;&quot;,
+  &quot;svgIcon&quot; : &quot;&quot;,
+  &quot;errorMessage&quot; : {
+    &quot;custom&quot; : [ ],
+    &quot;default&quot; : &quot;&quot;
+  },
+  &quot;enableDefaultAbort&quot; : false,
+  &quot;enableActionMessage&quot; : false,
+  &quot;businessCategory&quot; : &quot;&quot;,
+  &quot;businessEvent&quot; : &quot;&quot;,
+  &quot;invokeMode&quot; : &quot;noBlock&quot;,
+  &quot;sendOnlyExtraPayload&quot; : true
+}</propertySetConfig>
+        <sequenceNumber>44.0</sequenceNumber>
+        <type>Integration Procedure Action</type>
+    </omniProcessElements>
+    <omniProcessElements>
+        <isActive>true</isActive>
+        <isOmniScriptEmbeddable>false</isOmniScriptEmbeddable>
+        <level>0.0</level>
+        <name>UpdateSupportStaffSelection</name>
+        <omniProcessVersionNumber>0.0</omniProcessVersionNumber>
+        <propertySetConfig>{
+  &quot;controlWidth&quot; : 12,
+  &quot;label&quot; : &quot;$standardLabel.EDUSchedulerFieldLabels.UpdateSupportStaffSelection&quot;,
+  &quot;integrationProcedureKey&quot; : &quot;EDUScheduler_UpdateSupportStaffSelection&quot;,
+  &quot;useContinuation&quot; : false,
+  &quot;remoteOptions&quot; : {
+    &quot;preTransformBundle&quot; : &quot;&quot;,
+    &quot;postTransformBundle&quot; : &quot;&quot;,
+    &quot;useFuture&quot; : false,
+    &quot;chainable&quot; : false
+  },
+  &quot;remoteTimeout&quot; : 30000,
+  &quot;preTransformBundle&quot; : &quot;&quot;,
+  &quot;postTransformBundle&quot; : &quot;&quot;,
+  &quot;sendJSONPath&quot; : &quot;&quot;,
+  &quot;sendJSONNode&quot; : &quot;&quot;,
+  &quot;responseJSONPath&quot; : &quot;&quot;,
+  &quot;responseJSONNode&quot; : &quot;&quot;,
+  &quot;extraPayload&quot; : {
+    &quot;SupportStaff&quot; : &quot;%SupportStaff%&quot;,
+    &quot;SelectedServiceResourceId&quot; : &quot;%ServiceResourceId%&quot;,
+    &quot;SelectedCaseId&quot; : &quot;%CaseId%&quot;,
+    &quot;SelectedName&quot; : &quot;%Name%&quot;,
+    &quot;SelectedTeamId&quot; : &quot;%CaseTeamTemplateId%&quot;,
+    &quot;SelectedTeamName&quot; : &quot;%CaseTeamTemplateName%&quot;
+  },
+  &quot;inProgressMessage&quot; : &quot;&quot;,
+  &quot;postMessage&quot; : &quot;&quot;,
+  &quot;failureNextLabel&quot; : &quot;&quot;,
+  &quot;failureAbortLabel&quot; : &quot;&quot;,
+  &quot;failureGoBackLabel&quot; : &quot;&quot;,
+  &quot;failureAbortMessage&quot; : &quot;&quot;,
+  &quot;validationRequired&quot; : &quot;Step&quot;,
+  &quot;redirectPageName&quot; : &quot;&quot;,
+  &quot;redirectTemplateUrl&quot; : &quot;vlcAcknowledge.html&quot;,
+  &quot;redirectNextLabel&quot; : &quot;&quot;,
+  &quot;redirectNextWidth&quot; : 3,
+  &quot;redirectPreviousLabel&quot; : &quot;&quot;,
+  &quot;redirectPreviousWidth&quot; : 3,
+  &quot;showPersistentComponent&quot; : [ true, false ],
+  &quot;HTMLTemplateId&quot; : &quot;&quot;,
+  &quot;wpm&quot; : false,
+  &quot;ssm&quot; : false,
+  &quot;message&quot; : { },
+  &quot;pubsub&quot; : false,
+  &quot;svgSprite&quot; : &quot;&quot;,
+  &quot;svgIcon&quot; : &quot;&quot;,
+  &quot;errorMessage&quot; : {
+    &quot;custom&quot; : [ ],
+    &quot;default&quot; : &quot;&quot;
+  },
+  &quot;enableDefaultAbort&quot; : false,
+  &quot;enableActionMessage&quot; : false,
+  &quot;businessCategory&quot; : &quot;&quot;,
+  &quot;businessEvent&quot; : &quot;&quot;,
+  &quot;invokeMode&quot; : &quot;noBlock&quot;,
+  &quot;sendOnlyExtraPayload&quot; : true
+}</propertySetConfig>
+        <sequenceNumber>14.0</sequenceNumber>
+        <type>Integration Procedure Action</type>
+    </omniProcessElements>
+    <omniProcessElements>
+        <isActive>true</isActive>
+        <isOmniScriptEmbeddable>false</isOmniScriptEmbeddable>
+        <level>0.0</level>
+        <name>UpdateTimeSlotSelection</name>
+        <omniProcessVersionNumber>0.0</omniProcessVersionNumber>
+        <propertySetConfig>{
+  &quot;controlWidth&quot; : 12,
+  &quot;label&quot; : &quot;$standardLabel.EDUSchedulerFieldLabels.UpdateTimeSlotSelection&quot;,
+  &quot;integrationProcedureKey&quot; : &quot;EDUScheduler_UpdateTimeSlotselection&quot;,
+  &quot;useContinuation&quot; : false,
+  &quot;remoteOptions&quot; : {
+    &quot;preTransformBundle&quot; : &quot;&quot;,
+    &quot;postTransformBundle&quot; : &quot;&quot;,
+    &quot;useFuture&quot; : false,
+    &quot;chainable&quot; : false
+  },
+  &quot;remoteTimeout&quot; : 30000,
+  &quot;preTransformBundle&quot; : &quot;&quot;,
+  &quot;postTransformBundle&quot; : &quot;&quot;,
+  &quot;sendJSONPath&quot; : &quot;&quot;,
+  &quot;sendJSONNode&quot; : &quot;&quot;,
+  &quot;responseJSONPath&quot; : &quot;&quot;,
+  &quot;responseJSONNode&quot; : &quot;&quot;,
+  &quot;extraPayload&quot; : {
+    &quot;EndDateTimeGMT&quot; : &quot;%EndDateTimeGMT%&quot;,
+    &quot;StartDateTimeGMT&quot; : &quot;%StartDateTimeGMT%&quot;,
+    &quot;ServiceTerritoryId&quot; : &quot;%ServiceTerritoryId%&quot;,
+    &quot;ServiceResourceId&quot; : &quot;%ServiceResourceId%&quot;,
+    &quot;Appointment&quot; : &quot;%Appointment%&quot;
+  },
+  &quot;inProgressMessage&quot; : &quot;&quot;,
+  &quot;postMessage&quot; : &quot;&quot;,
+  &quot;failureNextLabel&quot; : &quot;&quot;,
+  &quot;failureAbortLabel&quot; : &quot;&quot;,
+  &quot;failureGoBackLabel&quot; : &quot;&quot;,
+  &quot;failureAbortMessage&quot; : &quot;&quot;,
+  &quot;validationRequired&quot; : &quot;Step&quot;,
+  &quot;redirectPageName&quot; : &quot;&quot;,
+  &quot;redirectTemplateUrl&quot; : &quot;vlcAcknowledge.html&quot;,
+  &quot;redirectNextLabel&quot; : &quot;&quot;,
+  &quot;redirectNextWidth&quot; : 3,
+  &quot;redirectPreviousLabel&quot; : &quot;&quot;,
+  &quot;redirectPreviousWidth&quot; : 3,
+  &quot;showPersistentComponent&quot; : [ true, false ],
+  &quot;HTMLTemplateId&quot; : &quot;&quot;,
+  &quot;wpm&quot; : false,
+  &quot;ssm&quot; : false,
+  &quot;message&quot; : { },
+  &quot;pubsub&quot; : false,
+  &quot;svgSprite&quot; : &quot;&quot;,
+  &quot;svgIcon&quot; : &quot;&quot;,
+  &quot;errorMessage&quot; : {
+    &quot;custom&quot; : [ ],
+    &quot;default&quot; : &quot;&quot;
+  },
+  &quot;enableDefaultAbort&quot; : false,
+  &quot;enableActionMessage&quot; : false,
+  &quot;businessCategory&quot; : &quot;&quot;,
+  &quot;businessEvent&quot; : &quot;&quot;,
+  &quot;sendOnlyExtraPayload&quot; : true,
+  &quot;invokeMode&quot; : &quot;noBlock&quot;
+}</propertySetConfig>
+        <sequenceNumber>62.0</sequenceNumber>
+        <type>Integration Procedure Action</type>
+    </omniProcessElements>
+    <omniProcessElements>
+        <isActive>true</isActive>
+        <isOmniScriptEmbeddable>false</isOmniScriptEmbeddable>
+        <level>0.0</level>
+        <name>UpdateTopicSelection</name>
+        <omniProcessVersionNumber>0.0</omniProcessVersionNumber>
+        <propertySetConfig>{
+  &quot;controlWidth&quot; : 12,
+  &quot;label&quot; : &quot;$standardLabel.EDUSchedulerFieldLabels.UpdateTopicSelection&quot;,
+  &quot;integrationProcedureKey&quot; : &quot;EDUScheduler_UpdateTopicSelection&quot;,
+  &quot;useContinuation&quot; : false,
+  &quot;remoteOptions&quot; : {
+    &quot;preTransformBundle&quot; : &quot;&quot;,
+    &quot;postTransformBundle&quot; : &quot;&quot;,
+    &quot;useFuture&quot; : false,
+    &quot;chainable&quot; : false
+  },
+  &quot;remoteTimeout&quot; : 30000,
+  &quot;preTransformBundle&quot; : &quot;&quot;,
+  &quot;postTransformBundle&quot; : &quot;&quot;,
+  &quot;sendJSONPath&quot; : &quot;&quot;,
+  &quot;sendJSONNode&quot; : &quot;&quot;,
+  &quot;responseJSONPath&quot; : &quot;&quot;,
+  &quot;responseJSONNode&quot; : &quot;&quot;,
+  &quot;extraPayload&quot; : {
+    &quot;Topic&quot; : &quot;%Topic%&quot;,
+    &quot;SelectedTopicWorkTypeGroupId&quot; : &quot;%TopicWorkTypeGroupId%&quot;,
+    &quot;SelectedSubtopicWorkTypeGroupId&quot; : &quot;%SubtopicWorkTypeGroupId%&quot;
+  },
+  &quot;inProgressMessage&quot; : &quot;&quot;,
+  &quot;postMessage&quot; : &quot;&quot;,
+  &quot;failureNextLabel&quot; : &quot;&quot;,
+  &quot;failureAbortLabel&quot; : &quot;&quot;,
+  &quot;failureGoBackLabel&quot; : &quot;&quot;,
+  &quot;failureAbortMessage&quot; : &quot;&quot;,
+  &quot;validationRequired&quot; : &quot;Step&quot;,
+  &quot;redirectPageName&quot; : &quot;&quot;,
+  &quot;redirectTemplateUrl&quot; : &quot;vlcAcknowledge.html&quot;,
+  &quot;redirectNextLabel&quot; : &quot;&quot;,
+  &quot;redirectNextWidth&quot; : 3,
+  &quot;redirectPreviousLabel&quot; : &quot;&quot;,
+  &quot;redirectPreviousWidth&quot; : 3,
+  &quot;showPersistentComponent&quot; : [ true, false ],
+  &quot;HTMLTemplateId&quot; : &quot;&quot;,
+  &quot;wpm&quot; : false,
+  &quot;ssm&quot; : false,
+  &quot;message&quot; : { },
+  &quot;pubsub&quot; : false,
+  &quot;svgSprite&quot; : &quot;&quot;,
+  &quot;svgIcon&quot; : &quot;&quot;,
+  &quot;errorMessage&quot; : {
+    &quot;custom&quot; : [ ],
+    &quot;default&quot; : &quot;&quot;
+  },
+  &quot;enableDefaultAbort&quot; : false,
+  &quot;enableActionMessage&quot; : false,
+  &quot;businessCategory&quot; : &quot;&quot;,
+  &quot;businessEvent&quot; : &quot;&quot;,
+  &quot;invokeMode&quot; : &quot;noBlock&quot;,
+  &quot;sendOnlyExtraPayload&quot; : true
+}</propertySetConfig>
+        <sequenceNumber>27.0</sequenceNumber>
+        <type>Integration Procedure Action</type>
+    </omniProcessElements>
+    <omniProcessElements>
+        <isActive>true</isActive>
+        <isOmniScriptEmbeddable>false</isOmniScriptEmbeddable>
+        <level>0.0</level>
+        <name>UserSelectionConsolidation</name>
+        <omniProcessVersionNumber>0.0</omniProcessVersionNumber>
+        <propertySetConfig>{
+  &quot;controlWidth&quot; : 12,
+  &quot;label&quot; : &quot;$standardLabel.EDUSchedulerFieldLabels.UserSelectionConsolidation&quot;,
+  &quot;integrationProcedureKey&quot; : &quot;EDUScheduler_UserSelectionDataTransform&quot;,
+  &quot;useContinuation&quot; : false,
+  &quot;remoteOptions&quot; : {
+    &quot;preTransformBundle&quot; : &quot;&quot;,
+    &quot;postTransformBundle&quot; : &quot;&quot;,
+    &quot;useFuture&quot; : false,
+    &quot;chainable&quot; : false
+  },
+  &quot;remoteTimeout&quot; : 30000,
+  &quot;preTransformBundle&quot; : &quot;&quot;,
+  &quot;postTransformBundle&quot; : &quot;&quot;,
+  &quot;sendJSONPath&quot; : &quot;&quot;,
+  &quot;sendJSONNode&quot; : &quot;&quot;,
+  &quot;responseJSONPath&quot; : &quot;&quot;,
+  &quot;responseJSONNode&quot; : &quot;&quot;,
+  &quot;extraPayload&quot; : {
+    &quot;Input&quot; : &quot;%UserSelectedValues%&quot;,
+    &quot;SupportStaffData&quot; : &quot;%StaffSelections%&quot;,
+    &quot;IsAutoAssignment&quot; : &quot;%IsAutoAssignment%&quot;
+  },
+  &quot;inProgressMessage&quot; : &quot;&quot;,
+  &quot;postMessage&quot; : &quot;&quot;,
+  &quot;failureNextLabel&quot; : &quot;&quot;,
+  &quot;failureAbortLabel&quot; : &quot;&quot;,
+  &quot;failureGoBackLabel&quot; : &quot;&quot;,
+  &quot;failureAbortMessage&quot; : &quot;&quot;,
+  &quot;validationRequired&quot; : &quot;Step&quot;,
+  &quot;redirectPageName&quot; : &quot;&quot;,
+  &quot;redirectTemplateUrl&quot; : &quot;vlcAcknowledge.html&quot;,
+  &quot;redirectNextLabel&quot; : &quot;&quot;,
+  &quot;redirectNextWidth&quot; : 3,
+  &quot;redirectPreviousLabel&quot; : &quot;&quot;,
+  &quot;redirectPreviousWidth&quot; : 3,
+  &quot;showPersistentComponent&quot; : [ true, false ],
+  &quot;HTMLTemplateId&quot; : &quot;&quot;,
+  &quot;wpm&quot; : false,
+  &quot;ssm&quot; : false,
+  &quot;message&quot; : { },
+  &quot;pubsub&quot; : false,
+  &quot;svgSprite&quot; : &quot;&quot;,
+  &quot;svgIcon&quot; : &quot;&quot;,
+  &quot;errorMessage&quot; : {
+    &quot;custom&quot; : [ ],
+    &quot;default&quot; : &quot;&quot;
+  },
+  &quot;enableDefaultAbort&quot; : false,
+  &quot;enableActionMessage&quot; : false,
+  &quot;businessCategory&quot; : &quot;&quot;,
+  &quot;businessEvent&quot; : &quot;&quot;,
+  &quot;sendOnlyExtraPayload&quot; : true
+}</propertySetConfig>
+        <sequenceNumber>57.0</sequenceNumber>
+        <type>Integration Procedure Action</type>
+    </omniProcessElements>
+    <omniProcessType>OmniScript</omniProcessType>
+    <overrideKey>eduscheduler__EDUScheduler_StudentAppointment_MultiLanguage_1</overrideKey>
+    <propertySetConfig>{
+      &quot;persistentComponent&quot;: [
+        {
+          &quot;render&quot;: false,
+          &quot;label&quot;: &quot;&quot;,
+          &quot;remoteClass&quot;: &quot;&quot;,
+          &quot;remoteMethod&quot;: &quot;&quot;,
+          &quot;remoteTimeout&quot;: 30000,
+          &quot;remoteOptions&quot;: {
+            &quot;preTransformBundle&quot;: &quot;&quot;,
+            &quot;postTransformBundle&quot;: &quot;&quot;
+          },
+          &quot;preTransformBundle&quot;: &quot;&quot;,
+          &quot;postTransformBundle&quot;: &quot;&quot;,
+          &quot;sendJSONPath&quot;: &quot;&quot;,
+          &quot;sendJSONNode&quot;: &quot;&quot;,
+          &quot;responseJSONPath&quot;: &quot;&quot;,
+          &quot;responseJSONNode&quot;: &quot;&quot;,
+          &quot;id&quot;: &quot;vlcCart&quot;,
+          &quot;itemsKey&quot;: &quot;cartItems&quot;,
+          &quot;modalConfigurationSetting&quot;: {
+            &quot;modalHTMLTemplateId&quot;: &quot;vlcProductConfig.html&quot;,
+            &quot;modalController&quot;: &quot;ModalProductCtrl&quot;,
+            &quot;modalSize&quot;: &quot;lg&quot;
+          }
+        },
+        {
+          &quot;render&quot;: false,
+          &quot;dispOutsideOmni&quot;: false,
+          &quot;label&quot;: &quot;&quot;,
+          &quot;remoteClass&quot;: &quot;&quot;,
+          &quot;remoteMethod&quot;: &quot;&quot;,
+          &quot;remoteTimeout&quot;: 30000,
+          &quot;remoteOptions&quot;: {
+            &quot;preTransformBundle&quot;: &quot;&quot;,
+            &quot;postTransformBundle&quot;: &quot;&quot;
+          },
+          &quot;preTransformBundle&quot;: &quot;&quot;,
+          &quot;postTransformBundle&quot;: &quot;&quot;,
+          &quot;id&quot;: &quot;vlcKnowledge&quot;,
+          &quot;itemsKey&quot;: &quot;knowledgeItems&quot;,
+          &quot;modalConfigurationSetting&quot;: {
+            &quot;modalHTMLTemplateId&quot;: &quot;&quot;,
+            &quot;modalController&quot;: &quot;&quot;,
+            &quot;modalSize&quot;: &quot;lg&quot;
+          }
+        }
+      ],
+      &quot;allowSaveForLater&quot;: false,
+      &quot;saveForLaterRedirectPageName&quot;: &quot;sflRedirect&quot;,
+      &quot;saveForLaterRedirectTemplateUrl&quot;: &quot;vlcSaveForLaterAcknowledge.html&quot;,
+      &quot;saveContentEncoded&quot;: false,
+      &quot;saveObjectId&quot;: &quot;%ContextId%&quot;,
+      &quot;saveURLPatterns&quot;: {},
+      &quot;autoSaveOnStepNext&quot;: false,
+      &quot;elementTypeToHTMLTemplateMapping&quot;: {},
+      &quot;seedDataJSON&quot;: {
+        &quot;CaseTeamName&quot;: &quot;&quot;
+      },
+      &quot;trackingCustomData&quot;: {},
+      &quot;enableKnowledge&quot;: false,
+      &quot;bLK&quot;: false,
+      &quot;knowledgeArticleTypeQueryFieldsMap&quot;: {},
+      &quot;timeTracking&quot;: false,
+      &quot;hideStepChart&quot;: false,
+      &quot;mergeSavedData&quot;: false,
+      &quot;visualforcePagesAvailableInPreview&quot;: {},
+      &quot;cancelType&quot;: &quot;SObject&quot;,
+      &quot;allowCancel&quot;: true,
+      &quot;cancelSource&quot;: &quot;%ContextId%&quot;,
+      &quot;cancelRedirectPageName&quot;: &quot;OmniScriptCancelled&quot;,
+      &quot;cancelRedirectTemplateUrl&quot;: &quot;vlcCancelled.html&quot;,
+      &quot;consoleTabLabel&quot;: &quot;&quot;,
+      &quot;wpm&quot;: false,
+      &quot;ssm&quot;: false,
+      &quot;message&quot;: {},
+      &quot;pubsub&quot;: false,
+      &quot;autoFocus&quot;: false,
+      &quot;currencyCode&quot;: &quot;&quot;,
+      &quot;showInputWidth&quot;: false,
+      &quot;rtpSeed&quot;: false,
+      &quot;consoleTabIcon&quot;: &quot;custom:custom18&quot;,
+      &quot;errorMessage&quot;: {
+        &quot;custom&quot;: [],
+        &quot;default&quot;: &quot;$standardLabel.EDUSchedulerFieldLabels.GetSupportStaffIP&quot;
+      },
+      &quot;stylesheet&quot;: {
+        &quot;newport&quot;: &quot;&quot;,
+        &quot;lightning&quot;: &quot;&quot;,
+        &quot;newportRtl&quot;: &quot;&quot;,
+        &quot;lightningRtl&quot;: &quot;&quot;
+      },
+      &quot;stepChartPlacement&quot;: &quot;top&quot;,
+      &quot;disableUnloadWarn&quot;: true,
+      &quot;scrollBehavior&quot;: &quot;auto&quot;,
+      &quot;currentLanguage&quot;: &quot;en_US&quot;,
+      &quot;fixedFooterOnMobile&quot;: false
+    }</propertySetConfig>
+    <subType>StudentAppointment</subType>
+    <type>EDUScheduler</type>
+    <uniqueName>EDUScheduler_StudentAppointment_multiLanguage_2</uniqueName>
+    <versionNumber>2.0</versionNumber>
+    <webComponentKey>b079bca9-af10-90c5-5c96-e0d72ad1ae65</webComponentKey>
+</OmniScript>

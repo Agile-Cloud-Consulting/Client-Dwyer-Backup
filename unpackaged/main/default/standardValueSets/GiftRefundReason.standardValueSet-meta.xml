@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StandardValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sorted>false</sorted>
+    <standardValue>
+        <fullName>Incorrect Amount</fullName>
+        <default>false</default>
+        <label>Incorrect Amount</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Donor Request</fullName>
+        <default>false</default>
+        <label>Donor Request</label>
+    </standardValue>
+</StandardValueSet>

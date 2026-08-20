@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>DisclosureDefinitionVerId</fullName>
+    <inlineHelpText>Displays the Disclosure Definition Version defined by the user. It remains blank if you’re using a predefined disclosure definition version.</inlineHelpText>
+    <trackHistory>false</trackHistory>
+    <type>Lookup</type>
+</CustomField>

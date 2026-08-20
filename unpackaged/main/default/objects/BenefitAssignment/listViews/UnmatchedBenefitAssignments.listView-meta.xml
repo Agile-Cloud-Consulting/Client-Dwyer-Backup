@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>UnmatchedBenefitAssignments</fullName>
+    <columns>Name</columns>
+    <columns>ParentRecord</columns>
+    <columns>Benefit</columns>
+    <columns>Enrollee</columns>
+    <columns>Status</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Provider</field>
+        <operation>equals</operation>
+    </filters>
+    <label>Unmatched Benefit Assignments</label>
+</ListView>

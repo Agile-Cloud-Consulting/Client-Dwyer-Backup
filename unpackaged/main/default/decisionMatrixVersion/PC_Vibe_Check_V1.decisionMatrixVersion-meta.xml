@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DecisionMatrixDefinitionVersion xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <columnType>Input</columnType>
+        <dataType>Text</dataType>
+        <displaySequence>1</displaySequence>
+        <isWildcardColumn>false</isWildcardColumn>
+        <name>Question</name>
+    </columns>
+    <columns>
+        <columnType>Input</columnType>
+        <dataType>Text</dataType>
+        <displaySequence>2</displaySequence>
+        <isWildcardColumn>false</isWildcardColumn>
+        <name>Option</name>
+    </columns>
+    <columns>
+        <columnType>Output</columnType>
+        <dataType>Number</dataType>
+        <displaySequence>3</displaySequence>
+        <isWildcardColumn>false</isWildcardColumn>
+        <name>ResponseValueScore</name>
+    </columns>
+    <decisionMatrixDefinition>PC_Vibe_Check</decisionMatrixDefinition>
+    <label>PC Vibe Check V1</label>
+    <rank>1</rank>
+    <startDate>2024-10-14T12:29:15.000Z</startDate>
+    <status>Active</status>
+    <versionNumber>1</versionNumber>
+</DecisionMatrixDefinitionVersion>
