@@ -11422,6 +11422,9 @@
         <layout>EmailMessage-Email Message Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
+        <layout>Email_Scrubber_Config__mdt-Email Scrubber Config Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>Employee2-Employee Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
@@ -11441,6 +11444,9 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>EntityMilestone-Object Milestone Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Error_Log__c-Error Log Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Event-Event Layout</layout>
@@ -12410,11 +12416,23 @@
         <visible>false</visible>
     </recordTypeVisibilities>
     <tabVisibilities>
+        <tab>Base_Utilities_Documentation</tab>
+        <visibility>Hidden</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
         <tab>Block__c</tab>
         <visibility>Hidden</visibility>
     </tabVisibilities>
     <tabVisibilities>
         <tab>DynamicLink__c</tab>
+        <visibility>Hidden</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>Email_Scrubbing</tab>
+        <visibility>Hidden</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>Error_Log__c</tab>
         <visibility>Hidden</visibility>
     </tabVisibilities>
     <tabVisibilities>

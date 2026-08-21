@@ -260,4 +260,8 @@
         <name>Gearset_Deploy</name>
         <type>ConnectedApp</type>
     </appMenuItems>
+    <appMenuItems>
+        <name>Base_Utilities</name>
+        <type>CustomApplication</type>
+    </appMenuItems>
 </AppMenu>

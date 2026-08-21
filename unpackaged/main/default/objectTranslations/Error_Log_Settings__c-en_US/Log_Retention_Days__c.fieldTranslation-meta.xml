@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- Error logs older than this many days are deleted by the retention batch job. --></help>
+        <label><!-- Log Retention Days --></label>
+        <name>Log_Retention_Days__c</name>
+    </CustomFieldTranslation>

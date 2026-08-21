@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- Valid values: ERROR, WARNING, INFO, DEBUG. Controls which severity levels are logged. ERROR = only errors. WARNING = warnings and errors. INFO = info, warnings, and errors. DEBUG = everything. --></help>
+        <label><!-- Verbosity Level --></label>
+        <name>Verbosity_Level__c</name>
+    </CustomFieldTranslation>

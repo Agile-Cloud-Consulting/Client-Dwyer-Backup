@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Disable_Lead_Assignment_Flow__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Disables the Lead assignment flow.</description>
+    <inlineHelpText>Check to disable the Lead assignment flow.</inlineHelpText>
+    <label>Disable Lead Assignment Flow</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>
