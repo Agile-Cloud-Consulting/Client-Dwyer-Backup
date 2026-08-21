@@ -6,7 +6,7 @@
     <picklistValues>
         <picklist>AccountSource</picklist>
         <values>
-            <fullName>Other</fullName>
+            <fullName>Referral</fullName>
             <default>false</default>
         </values>
     </picklistValues>
