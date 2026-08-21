@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PathAssistant xmlns="http://soap.sforce.com/2006/04/metadata">
+    <active>true</active>
+    <entityName>Account</entityName>
+    <fieldName>Partner_Status__c</fieldName>
+    <masterLabel>Partner Status Business Account</masterLabel>
+    <pathAssistantSteps>
+        <info>&lt;p&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;Maintain quarterly meetings and log performance data, alerts, and scholar data. Annual review is required.&lt;/span&gt;&lt;/p&gt;</info>
+        <picklistValueName>Active</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <info>&lt;p&gt;Pursuit detail is tracked on the open Opportunity.&lt;/p&gt;</info>
+        <picklistValueName>In Pipeline</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <info>&lt;p&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;Partnership exited. Offboarding Reason is required.&lt;/span&gt;&lt;/p&gt;</info>
+        <picklistValueName>Offboarded</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <info>&lt;p&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;Partner Onboarding Checklist Completed&lt;/span&gt;&lt;/p&gt;</info>
+        <picklistValueName>Onboarding</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <info>&lt;p&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;Annual review decision: renew or expand → update MOU/SOW; exit → move to Offboarded.&lt;/span&gt;&lt;/p&gt;</info>
+        <picklistValueName>Renewal/Expansion Review</picklistValueName>
+    </pathAssistantSteps>
+    <recordTypeName>Business_Account</recordTypeName>
+</PathAssistant>
