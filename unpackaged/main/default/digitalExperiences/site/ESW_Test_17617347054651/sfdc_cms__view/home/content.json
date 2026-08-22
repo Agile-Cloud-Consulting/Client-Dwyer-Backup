@@ -5,7 +5,9 @@
     "component" : {
       "children" : [ {
         "children" : [ {
-          "attributes" : { },
+          "attributes" : {
+            "dxpStyle" : { }
+          },
           "definition" : "embeddedMessaging:container",
           "id" : "cd9f34e4-5646-4ad3-8688-bfae45828a39",
           "type" : "component"
@@ -19,6 +21,7 @@
           "attributes" : {
             "customHeadTags" : "",
             "description" : "",
+            "dxpStyle" : { },
             "pageTitle" : "Home",
             "recordId" : "{!recordId}"
           },
