@@ -125,6 +125,24 @@
                 <identifier>RecordPartner_Status__cField</identifier>
             </fieldInstance>
         </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldItem>Record.Region__c</fieldItem>
+                <identifier>RecordRegion__cField</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldItem>Record.Service_Area__c</fieldItem>
+                <identifier>RecordService_Area__cField</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldItem>Record.Manual_Geography_Override__c</fieldItem>
+                <identifier>RecordManual_Geography_Override__cField</identifier>
+            </fieldInstance>
+        </itemInstances>
         <name>Facet-a4ba30b2-80da-4568-a5b6-e3693e83309b</name>
         <type>Facet</type>
     </flexiPageRegions>

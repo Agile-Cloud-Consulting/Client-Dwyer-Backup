@@ -1664,6 +1664,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Account.Manual_Geography_Override__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Account.NumberOfEmployees</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -1680,6 +1685,16 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Account.Phone</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Account.Region__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Account.Service_Area__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -6814,6 +6829,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Region__c.Description__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>ResourceAbsence.Address</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -7055,6 +7075,16 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>ServiceTerritoryMember.Role</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Service_Area_Zip_Code__c.Zip_Code_Description__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Service_Area__c.Service_Area_Description__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -8876,6 +8906,12 @@
         <flow>EDU_Admissions_Update_IAT_Status_According_to_Recommendation</flow>
     </flowAccesses>
     <layoutAssignments>
+        <layout>AccountTeamMember-Account Team Member Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Account_Team_Default__mdt-Account Team Default Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>ActionPlanTemplate-Action Plan Template Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
@@ -8913,9 +8949,6 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>FlowRecord-Flow Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Geographic_Mapping__mdt-Geographic Mapping Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Global-Global Layout</layout>
@@ -8966,6 +8999,18 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>RecordAlertCategory-Record Alert Category Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Region__c-Region Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Service_Area_Zip_Code__c-Service Area Zip Code Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Service_Area__c-Service Area Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>State__c-States Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>SurveyQuestion-Survey Question Layout</layout>
@@ -10466,12 +10511,28 @@
         <visibility>Hidden</visibility>
     </tabVisibilities>
     <tabVisibilities>
+        <tab>Region__c</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
         <tab>SectionBlock__c</tab>
         <visibility>Hidden</visibility>
     </tabVisibilities>
     <tabVisibilities>
         <tab>Section__c</tab>
         <visibility>Hidden</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>Service_Area_Zip_Code__c</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>Service_Area__c</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>State__c</tab>
+        <visibility>DefaultOn</visibility>
     </tabVisibilities>
     <tabVisibilities>
         <tab>Vlocity_Flex_Card_Home</tab>

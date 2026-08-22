@@ -8,5 +8,6 @@
         <plural>true</plural>
         <value>Business Incidents</value>
     </caseValues>
+    
     <startsWith>Consonant</startsWith>
 </CustomObjectTranslation>

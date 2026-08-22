@@ -99,7 +99,7 @@
         <queriedFields>Id</queriedFields>
         <queriedFields>Name</queriedFields>
         <queriedFields>Subject</queriedFields>
-        <queriedFields>Severity</queriedFields>
+        <queriedFields>Category_Label__c</queriedFields>
         <queriedFields>Description</queriedFields>
         <queriedFields>CreatedDate</queriedFields>
         <queriedFields>IsActive</queriedFields>
@@ -139,7 +139,7 @@
             <inputParameters>
                 <name>columns</name>
                 <value>
-                    <stringValue>[{&quot;apiName&quot;:&quot;Subject&quot;,&quot;guid&quot;:&quot;column-0&quot;,&quot;label&quot;:&quot;Subject&quot;,&quot;order&quot;:0,&quot;type&quot;:&quot;text&quot;,&quot;wrapText&quot;:true,&quot;editable&quot;:false},{&quot;apiName&quot;:&quot;Severity&quot;,&quot;guid&quot;:&quot;column-1&quot;,&quot;label&quot;:&quot;Severity&quot;,&quot;order&quot;:1,&quot;type&quot;:&quot;text&quot;,&quot;wrapText&quot;:false,&quot;editable&quot;:false},{&quot;apiName&quot;:&quot;Description&quot;,&quot;guid&quot;:&quot;column-2&quot;,&quot;label&quot;:&quot;Description&quot;,&quot;order&quot;:2,&quot;type&quot;:&quot;text&quot;,&quot;wrapText&quot;:true,&quot;editable&quot;:false},{&quot;apiName&quot;:&quot;CreatedDate&quot;,&quot;guid&quot;:&quot;column-3&quot;,&quot;label&quot;:&quot;Logged On&quot;,&quot;order&quot;:3,&quot;type&quot;:&quot;date&quot;,&quot;wrapText&quot;:false,&quot;editable&quot;:false},{&quot;apiName&quot;:&quot;IsActive&quot;,&quot;guid&quot;:&quot;column-4&quot;,&quot;label&quot;:&quot;Active&quot;,&quot;order&quot;:4,&quot;type&quot;:&quot;boolean&quot;,&quot;wrapText&quot;:false,&quot;editable&quot;:false}]</stringValue>
+                    <stringValue>[{&quot;apiName&quot;:&quot;Subject&quot;,&quot;guid&quot;:&quot;column-0&quot;,&quot;label&quot;:&quot;Subject&quot;,&quot;order&quot;:0,&quot;type&quot;:&quot;text&quot;,&quot;wrapText&quot;:true,&quot;editable&quot;:false},{&quot;apiName&quot;:&quot;Category_Label__c&quot;,&quot;guid&quot;:&quot;column-1&quot;,&quot;label&quot;:&quot;Category&quot;,&quot;order&quot;:1,&quot;type&quot;:&quot;text&quot;,&quot;wrapText&quot;:false,&quot;editable&quot;:false},{&quot;apiName&quot;:&quot;Description&quot;,&quot;guid&quot;:&quot;column-2&quot;,&quot;label&quot;:&quot;Description&quot;,&quot;order&quot;:2,&quot;type&quot;:&quot;text&quot;,&quot;wrapText&quot;:true,&quot;editable&quot;:false},{&quot;apiName&quot;:&quot;CreatedDate&quot;,&quot;guid&quot;:&quot;column-3&quot;,&quot;label&quot;:&quot;Logged On&quot;,&quot;order&quot;:3,&quot;type&quot;:&quot;date&quot;,&quot;wrapText&quot;:false,&quot;editable&quot;:false},{&quot;apiName&quot;:&quot;IsActive&quot;,&quot;guid&quot;:&quot;column-4&quot;,&quot;label&quot;:&quot;Active&quot;,&quot;order&quot;:4,&quot;type&quot;:&quot;boolean&quot;,&quot;wrapText&quot;:false,&quot;editable&quot;:false}]</stringValue>
                 </value>
             </inputParameters>
             <inputParameters>
@@ -166,15 +166,7 @@
                     <numberValue>0.0</numberValue>
                 </value>
             </inputParameters>
-            <inputParameters>
-                <name>keyField</name>
-                <value>
-                    <complexValue>{&quot;dataType&quot;:&quot;SObject&quot;,&quot;objectType&quot;:&quot;RecordAlert&quot;,&quot;fieldReferences&quot;:[&quot;Id&quot;],&quot;elementReference&quot;:&quot;Get_Business_Incidents&quot;}</complexValue>
-                    <complexValueType>ComplexObjectFieldDetails</complexValueType>
-                </value>
-            </inputParameters>
-            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
-            <isRequired>true</isRequired>
+            <isRequired>false</isRequired>
             <storeOutputAutomatically>true</storeOutputAutomatically>
             <styleProperties>
                 <verticalAlignment>
@@ -186,7 +178,7 @@
             </styleProperties>
         </fields>
         <showFooter>false</showFooter>
-        <showHeader>false</showHeader>
+        <showHeader>true</showHeader>
     </screens>
     <start>
         <locationX>0</locationX>

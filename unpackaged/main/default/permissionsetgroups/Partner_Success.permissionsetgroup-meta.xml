@@ -2,6 +2,7 @@
 <PermissionSetGroup xmlns="http://soap.sforce.com/2006/04/metadata">
     <hasActivationRequired>false</hasActivationRequired>
     <label>Partner Success</label>
+    <permissionSets>CRED_Account_Teams</permissionSets>
     <permissionSets>CRED_Accounts_Person_Account_Relationships_and_Affiliations</permissionSets>
     <permissionSets>CRED_Interactions_and_Interaction_Summaries</permissionSets>
     <permissionSets>CRED_Record_Alerts</permissionSets>

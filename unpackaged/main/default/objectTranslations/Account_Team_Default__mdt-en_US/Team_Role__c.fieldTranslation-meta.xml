@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <label><!-- Team Role --></label>
+        <name>Team_Role__c</name>
+        <picklistValues>
+            <masterLabel>Career Counselor</masterLabel>
+            <translation><!-- Career Counselor --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Lead</masterLabel>
+            <translation><!-- Lead --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Partner Engagement Specialist</masterLabel>
+            <translation><!-- Partner Engagement Specialist --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Partner Success Specialist</masterLabel>
+            <translation><!-- Partner Success Specialist --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Success Coach</masterLabel>
+            <translation><!-- Success Coach --></translation>
+        </picklistValues>
+    </CustomFieldTranslation>

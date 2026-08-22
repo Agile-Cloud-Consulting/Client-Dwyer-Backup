@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Sends_Sensitive_Info__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>DWDECI-37. Flags that this Partner sends sensitive inbound information. Visible to all internal users - not restricted, unlike Sensitive_Inbound_Details__c.</description>
+    <inlineHelpText>Check if this Partner submits sensitive information (e.g. via referrals or incidents).</inlineHelpText>
+    <label>Sends Sensitive Info</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

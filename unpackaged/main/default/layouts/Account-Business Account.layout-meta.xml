@@ -36,6 +36,14 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
+                <field>Sends_Sensitive_Info__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Sensitive_Inbound_Details__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
                 <field>Services_Offered__c</field>
             </layoutItems>
             <layoutItems>
@@ -49,6 +57,18 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Partner_Status__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Region__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Service_Area__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Manual_Geography_Override__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
@@ -104,6 +124,11 @@
         <relatedList>RelatedContactList</relatedList>
     </relatedLists>
     <relatedLists>
+        <fields>MEMBER_NAME</fields>
+        <fields>TEAM_MEMBER_ROLE</fields>
+        <relatedList>RelatedAccountSalesTeam</relatedList>
+    </relatedLists>
+    <relatedLists>
         <fields>Name</fields>
         <fields>Occupation</fields>
         <fields>EmploymentStatus</fields>
@@ -137,6 +162,13 @@
         <fields>CreatedDate</fields>
         <fields>Description</fields>
         <relatedList>Interactions</relatedList>
+    </relatedLists>
+    <relatedLists>
+        <fields>Name</fields>
+        <fields>ActionPlanState</fields>
+        <fields>Owner</fields>
+        <fields>StartDate</fields>
+        <relatedList>ActionPlan</relatedList>
     </relatedLists>
     <relatedLists>
         <relatedList>RelatedEntityHistoryList</relatedList>

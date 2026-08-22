@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StandardValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sorted>false</sorted>
+    <standardValue>
+        <fullName>Lead</fullName>
+        <default>false</default>
+        <label>Lead</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Partner Engagement Specialist</fullName>
+        <default>false</default>
+        <label>Partner Engagement Specialist</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Career Counselor</fullName>
+        <default>false</default>
+        <label>Career Counselor</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Success Coach</fullName>
+        <default>false</default>
+        <label>Success Coach</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Partner Success Specialist</fullName>
+        <default>false</default>
+        <label>Partner Success Specialist</label>
+    </standardValue>
+</StandardValueSet>
