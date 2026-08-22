@@ -6687,6 +6687,12 @@
         <readable>true</readable>
     </fieldPermissions>
     <layoutAssignments>
+        <layout>AccountTeamMember-Account Team Member Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Account_Team_Default__mdt-Account Team Default Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>ActionPlanTemplate-Action Plan Template Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
@@ -6771,6 +6777,9 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>PricebookEntry-Price Book Entry</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Region__c-Region Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>SurveyQuestion-Survey Question Layout</layout>

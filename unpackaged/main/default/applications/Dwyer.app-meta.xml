@@ -32,6 +32,7 @@
         <profile>Admin</profile>
     </profileActionOverrides>
     <tabs>standard-Account</tabs>
+    <tabs>standard-RecordAlert</tabs>
     <tabs>standard-GiftTransaction</tabs>
     <tabs>standard-Benefit</tabs>
     <tabs>standard-Learning</tabs>

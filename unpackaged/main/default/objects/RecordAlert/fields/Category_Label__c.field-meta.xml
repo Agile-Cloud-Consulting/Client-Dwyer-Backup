@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Category_Label__c</fullName>
+    <description>Cross-object formula surfacing the related RecordAlertCategory&#39;s label (Red/Yellow/Green). Added because Flow&#39;s Get Records queriedFields cannot reliably traverse RecordAlertCategoryId to RecordAlertCategory.MasterLabel for a datatable-bound collection (confirmed via Tooling API: the relationship reference silently serializes to a placeholder instead of erroring). A formula field evaluates the same cross-object reference natively at the database layer, sidestepping that Flow limitation.</description>
+    <externalId>false</externalId>
+    <formula>RecordAlertCategory.MasterLabel</formula>
+    <label>Category</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

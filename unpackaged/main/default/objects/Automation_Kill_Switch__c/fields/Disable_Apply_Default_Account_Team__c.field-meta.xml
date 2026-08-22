@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Disable_Apply_Default_Account_Team__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Disables the Account - On Create - Apply Default Account Team flow.</description>
+    <inlineHelpText>Check to disable the default Account Team assignment automation on new Partner Accounts.</inlineHelpText>
+    <label>Disable Apply Default Account Team</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

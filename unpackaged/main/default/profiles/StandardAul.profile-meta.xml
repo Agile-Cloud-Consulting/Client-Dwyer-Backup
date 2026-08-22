@@ -1894,6 +1894,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Account.Region__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Account.ShippingAddress</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -7024,6 +7029,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Region__c.Description__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>ResourceAbsence.Address</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -9086,6 +9096,12 @@
         <flow>EDU_Admissions_Update_IAT_Status_According_to_Recommendation</flow>
     </flowAccesses>
     <layoutAssignments>
+        <layout>AccountTeamMember-Account Team Member Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Account_Team_Default__mdt-Account Team Default Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>ActionPlanTemplate-Action Plan Template Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
@@ -9170,6 +9186,9 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>PricebookEntry-Price Book Entry</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Region__c-Region Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>SurveyQuestion-Survey Question Layout</layout>
