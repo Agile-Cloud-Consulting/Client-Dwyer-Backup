@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Grants Read/Edit FLS on Account.Sensitive_Inbound_Details__c, hidden on every profile. Assign only to authorized viewers (Support &amp; Intervention Services, Rachel Foster).</description>
+    <hasActivationRequired>false</hasActivationRequired>
+    <label>DWD Sensitive Partner Data</label>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Account.Sensitive_Inbound_Details__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+</PermissionSet>

@@ -184,6 +184,40 @@
         </values>
     </picklistValues>
     <picklistValues>
+        <picklist>MOU_Level__c</picklist>
+        <values>
+            <fullName>Corporate Level</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Per Facility</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Offboarding_Reason__c</picklist>
+        <values>
+            <fullName>Does not meet standards</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Incident</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>MOU Was Not Renewed</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Not Mission Aligned</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Out of Service Area</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
         <picklist>Ownership</picklist>
         <values>
             <fullName>Other</fullName>

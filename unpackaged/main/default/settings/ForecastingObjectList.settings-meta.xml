@@ -102,6 +102,10 @@
             <label>Stage</label>
         </forecastingObjectListLabelMappings>
         <forecastingObjectListLabelMappings>
+            <field>00NWE000008KIqg</field>
+            <label>Facility MOU Required</label>
+        </forecastingObjectListLabelMappings>
+        <forecastingObjectListLabelMappings>
             <field>ActivityHeatmap</field>
             <label>__MISSING LABEL__ PropertyFile - val ActivityHeatmap not found in section ForecastingOppListFilter</label>
         </forecastingObjectListLabelMappings>
@@ -225,6 +229,7 @@
             <field>OPPORTUNITY.LAST_ACTIVITY</field>
             <field>OPPORTUNITY.CREATED_DATE</field>
             <field>OPPORTUNITY.LAST_UPDATE</field>
+            <field>00NWE000008KIqg</field>
             <field>00NWE0000085wl8</field>
             <field>PARTNER.NAME</field>
             <field>OPPORTUNITY.ISPRIORITYRECORD</field>
@@ -339,6 +344,10 @@
             <label>Stage</label>
         </forecastingObjectListLabelMappings>
         <forecastingObjectListLabelMappings>
+            <field>00NWE000008KIqg</field>
+            <label>Facility MOU Required</label>
+        </forecastingObjectListLabelMappings>
+        <forecastingObjectListLabelMappings>
             <field>ActivityHeatmap</field>
             <label>__MISSING LABEL__ PropertyFile - val ActivityHeatmap not found in section ForecastingOppListFilter</label>
         </forecastingObjectListLabelMappings>
@@ -462,6 +471,7 @@
             <field>OPPORTUNITY.LAST_ACTIVITY</field>
             <field>OPPORTUNITY.CREATED_DATE</field>
             <field>OPPORTUNITY.LAST_UPDATE</field>
+            <field>00NWE000008KIqg</field>
             <field>00NWE0000085wl8</field>
             <field>PARTNER.NAME</field>
             <field>OPPORTUNITY.ISPRIORITYRECORD</field>
@@ -574,6 +584,10 @@
         <forecastingObjectListLabelMappings>
             <field>OPPORTUNITY.STAGE_NAME</field>
             <label>Stage</label>
+        </forecastingObjectListLabelMappings>
+        <forecastingObjectListLabelMappings>
+            <field>00NWE000008KIqg</field>
+            <label>Facility MOU Required</label>
         </forecastingObjectListLabelMappings>
         <forecastingObjectListLabelMappings>
             <field>ActivityHeatmap</field>
@@ -699,6 +713,7 @@
             <field>OPPORTUNITY.LAST_ACTIVITY</field>
             <field>OPPORTUNITY.CREATED_DATE</field>
             <field>OPPORTUNITY.LAST_UPDATE</field>
+            <field>00NWE000008KIqg</field>
             <field>00NWE0000085wl8</field>
             <field>PARTNER.NAME</field>
             <field>OPPORTUNITY.ISPRIORITYRECORD</field>
@@ -811,6 +826,10 @@
         <forecastingObjectListLabelMappings>
             <field>OPPORTUNITY.STAGE_NAME</field>
             <label>Stage</label>
+        </forecastingObjectListLabelMappings>
+        <forecastingObjectListLabelMappings>
+            <field>00NWE000008KIqg</field>
+            <label>Facility MOU Required</label>
         </forecastingObjectListLabelMappings>
         <forecastingObjectListLabelMappings>
             <field>ActivityHeatmap</field>
@@ -941,6 +960,7 @@
             <field>OPPORTUNITY.LAST_ACTIVITY</field>
             <field>OPPORTUNITY.CREATED_DATE</field>
             <field>OPPORTUNITY.LAST_UPDATE</field>
+            <field>00NWE000008KIqg</field>
             <field>00NWE0000085wl8</field>
             <field>PARTNER.NAME</field>
             <field>OPPORTUNITY.ISPRIORITYRECORD</field>
@@ -1053,6 +1073,10 @@
         <forecastingObjectListLabelMappings>
             <field>OPPORTUNITY.STAGE_NAME</field>
             <label>Stage</label>
+        </forecastingObjectListLabelMappings>
+        <forecastingObjectListLabelMappings>
+            <field>00NWE000008KIqg</field>
+            <label>Facility MOU Required</label>
         </forecastingObjectListLabelMappings>
         <forecastingObjectListLabelMappings>
             <field>ActivityHeatmap</field>
@@ -1178,6 +1202,7 @@
             <field>OPPORTUNITY.LAST_ACTIVITY</field>
             <field>OPPORTUNITY.CREATED_DATE</field>
             <field>OPPORTUNITY.LAST_UPDATE</field>
+            <field>00NWE000008KIqg</field>
             <field>00NWE0000085wl8</field>
             <field>PARTNER.NAME</field>
             <field>OPPORTUNITY.ISPRIORITYRECORD</field>
@@ -1290,6 +1315,10 @@
         <forecastingObjectListLabelMappings>
             <field>OPPORTUNITY.STAGE_NAME</field>
             <label>Stage</label>
+        </forecastingObjectListLabelMappings>
+        <forecastingObjectListLabelMappings>
+            <field>00NWE000008KIqg</field>
+            <label>Facility MOU Required</label>
         </forecastingObjectListLabelMappings>
         <forecastingObjectListLabelMappings>
             <field>ActivityHeatmap</field>
@@ -1420,6 +1449,7 @@
             <field>OPPORTUNITY.LAST_ACTIVITY</field>
             <field>OPPORTUNITY.CREATED_DATE</field>
             <field>OPPORTUNITY.LAST_UPDATE</field>
+            <field>00NWE000008KIqg</field>
             <field>00NWE0000085wl8</field>
             <field>PARTNER.NAME</field>
             <field>OPPORTUNITY.ISPRIORITYRECORD</field>
@@ -1532,6 +1562,10 @@
         <forecastingObjectListLabelMappings>
             <field>OPPORTUNITY.STAGE_NAME</field>
             <label>Stage</label>
+        </forecastingObjectListLabelMappings>
+        <forecastingObjectListLabelMappings>
+            <field>00NWE000008KIqg</field>
+            <label>Facility MOU Required</label>
         </forecastingObjectListLabelMappings>
         <forecastingObjectListLabelMappings>
             <field>ActivityHeatmap</field>
@@ -1657,6 +1691,7 @@
             <field>OPPORTUNITY.LAST_ACTIVITY</field>
             <field>OPPORTUNITY.CREATED_DATE</field>
             <field>OPPORTUNITY.LAST_UPDATE</field>
+            <field>00NWE000008KIqg</field>
             <field>00NWE0000085wl8</field>
             <field>PARTNER.NAME</field>
             <field>OPPORTUNITY.ISPRIORITYRECORD</field>
@@ -1769,6 +1804,10 @@
         <forecastingObjectListLabelMappings>
             <field>OPPORTUNITY.STAGE_NAME</field>
             <label>Stage</label>
+        </forecastingObjectListLabelMappings>
+        <forecastingObjectListLabelMappings>
+            <field>00NWE000008KIqg</field>
+            <label>Facility MOU Required</label>
         </forecastingObjectListLabelMappings>
         <forecastingObjectListLabelMappings>
             <field>ActivityHeatmap</field>
@@ -1899,6 +1938,7 @@
             <field>OPPORTUNITY.LAST_ACTIVITY</field>
             <field>OPPORTUNITY.CREATED_DATE</field>
             <field>OPPORTUNITY.LAST_UPDATE</field>
+            <field>00NWE000008KIqg</field>
             <field>00NWE0000085wl8</field>
             <field>PARTNER.NAME</field>
             <field>OPPORTUNITY.ISPRIORITYRECORD</field>
@@ -2011,6 +2051,10 @@
         <forecastingObjectListLabelMappings>
             <field>OPPORTUNITY.STAGE_NAME</field>
             <label>Stage</label>
+        </forecastingObjectListLabelMappings>
+        <forecastingObjectListLabelMappings>
+            <field>00NWE000008KIqg</field>
+            <label>Facility MOU Required</label>
         </forecastingObjectListLabelMappings>
         <forecastingObjectListLabelMappings>
             <field>ActivityHeatmap</field>
@@ -2136,6 +2180,7 @@
             <field>OPPORTUNITY.LAST_ACTIVITY</field>
             <field>OPPORTUNITY.CREATED_DATE</field>
             <field>OPPORTUNITY.LAST_UPDATE</field>
+            <field>00NWE000008KIqg</field>
             <field>00NWE0000085wl8</field>
             <field>PARTNER.NAME</field>
             <field>OPPORTUNITY.ISPRIORITYRECORD</field>

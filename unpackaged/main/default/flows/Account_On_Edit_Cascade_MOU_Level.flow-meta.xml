@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionCalls>
+        <description>Fault path handler: logs the Get Child Accounts lookup failure via ACC Base Utilities.</description>
+        <name>Log_Error_Get_Child_Accounts</name>
+        <label>Log Error - Get Child Accounts</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <actionName>ErrorLogger</actionName>
+        <actionType>apex</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>className</name>
+            <value>
+                <stringValue>Account - On Edit - Cascade MOU Level</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>methodName</name>
+            <value>
+                <stringValue>Get Child Accounts</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>errorMessage</name>
+            <value>
+                <elementReference>$Flow.FaultMessage</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>recordId</name>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>severity</name>
+            <value>
+                <stringValue>ERROR</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>source</name>
+            <value>
+                <stringValue>Flow</stringValue>
+            </value>
+        </inputParameters>
+        <nameSegment>ErrorLogger</nameSegment>
+        <offset>0</offset>
+    </actionCalls>
+    <actionCalls>
+        <description>Fault path handler: logs the Update Child Accounts DML failure via ACC Base Utilities.</description>
+        <name>Log_Error_Update_Child_Accounts</name>
+        <label>Log Error - Update Child Accounts</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <actionName>ErrorLogger</actionName>
+        <actionType>apex</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>className</name>
+            <value>
+                <stringValue>Account - On Edit - Cascade MOU Level</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>methodName</name>
+            <value>
+                <stringValue>Update Child Accounts</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>errorMessage</name>
+            <value>
+                <elementReference>$Flow.FaultMessage</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>recordId</name>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>severity</name>
+            <value>
+                <stringValue>ERROR</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>source</name>
+            <value>
+                <stringValue>Flow</stringValue>
+            </value>
+        </inputParameters>
+        <nameSegment>ErrorLogger</nameSegment>
+        <offset>0</offset>
+    </actionCalls>
+    <apiVersion>67.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <assignments>
+        <description>Sets MOU_Level__c to Corporate Level on the current loop iteration&#39;s child Account and adds it to the update collection.</description>
+        <name>Set_Child_MOU_Level</name>
+        <label>Set Child MOU Level</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignmentItems>
+            <assignToReference>Loop_Child_Accounts.MOU_Level__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Corporate Level</stringValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>colChildAccountsToUpdate</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>Loop_Child_Accounts</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Loop_Child_Accounts</targetReference>
+        </connector>
+    </assignments>
+    <decisions>
+        <description>Short-circuits when any ACC Base Utilities kill switch covering this automation is active: the global master switch, the Account object switch, or this flow&#39;s own named-automation switch.</description>
+        <name>Is_Kill_Switch_Active</name>
+        <label>Is Kill Switch Active?</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <defaultConnectorLabel>Kill Switch Active</defaultConnectorLabel>
+        <rules>
+            <name>All_Kill_Switches_Clear</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Setup.Global_Kill_Switch__c.Disable_All__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Setup.Object_Kill_Switch__c.Disable_Account__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Setup.Automation_Kill_Switch__c.Disable_Cascade_MOU_Level__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Get_Child_Accounts</targetReference>
+            </connector>
+            <label>All Kill Switches Clear</label>
+        </rules>
+    </decisions>
+    <description>DWDECI-43. When a parent Account&#39;s MOU_Level__c changes to Corporate Level, cascades that value to every child Account (by ParentId). Single bulk Update Records (no DML in loops). Checks the Global, Object (Account), and Automation kill switches from ACC Base Utilities. Fault path -&gt; ErrorLogger.logFromFlow (ACC Base Utilities Log Error action).</description>
+    <environments>Default</environments>
+    <interviewLabel>Account - On Edit - Cascade MOU Level {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Account - On Edit - Cascade MOU Level</label>
+    <loops>
+        <description>Iterates every child Account of the record whose MOU_Level__c just changed to Corporate Level.</description>
+        <name>Loop_Child_Accounts</name>
+        <label>Loop Child Accounts</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <collectionReference>Get_Child_Accounts</collectionReference>
+        <iterationOrder>Asc</iterationOrder>
+        <nextValueConnector>
+            <targetReference>Set_Child_MOU_Level</targetReference>
+        </nextValueConnector>
+        <noMoreValuesConnector>
+            <targetReference>Update_Child_Accounts</targetReference>
+        </noMoreValuesConnector>
+    </loops>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordLookups>
+        <description>Gets every child Account of the triggering record.</description>
+        <name>Get_Child_Accounts</name>
+        <label>Get Child Accounts</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Loop_Child_Accounts</targetReference>
+        </connector>
+        <faultConnector>
+            <targetReference>Log_Error_Get_Child_Accounts</targetReference>
+        </faultConnector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>ParentId</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>false</getFirstRecordOnly>
+        <object>Account</object>
+        <queriedFields>Id</queriedFields>
+        <queriedFields>MOU_Level__c</queriedFields>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordUpdates>
+        <description>Single bulk update of every child Account (no DML in the loop). A no-op if there are no children.</description>
+        <name>Update_Child_Accounts</name>
+        <label>Update Child Accounts</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <faultConnector>
+            <targetReference>Log_Error_Update_Child_Accounts</targetReference>
+        </faultConnector>
+        <inputReference>colChildAccountsToUpdate</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Is_Kill_Switch_Active</targetReference>
+        </connector>
+        <doesRequireRecordChangedToMeetCriteria>true</doesRequireRecordChangedToMeetCriteria>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>MOU_Level__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Corporate Level</stringValue>
+            </value>
+        </filters>
+        <object>Account</object>
+        <recordTriggerType>Update</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+    <variables>
+        <name>colChildAccountsToUpdate</name>
+        <dataType>SObject</dataType>
+        <isCollection>true</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <objectType>Account</objectType>
+    </variables>
+</Flow>

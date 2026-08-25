@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- Check to disable the validation that blocks saving an Offboarded Account without an Offboarding Reason. --></help>
+        <label><!-- Disable Require Offboarding Reason --></label>
+        <name>Disable_Require_Offboarding_Reason__c</name>
+    </CustomFieldTranslation>

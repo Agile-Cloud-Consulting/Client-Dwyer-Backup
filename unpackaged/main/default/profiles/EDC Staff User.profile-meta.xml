@@ -1566,7 +1566,7 @@
     <applicationVisibilities>
         <application>Dwyer</application>
         <default>false</default>
-        <visible>false</visible>
+        <visible>true</visible>
     </applicationVisibilities>
     <applicationVisibilities>
         <application>Education_Cloud_Learning_Experience</application>
@@ -8442,6 +8442,10 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>OmniScriptView-OmniScript Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Opportunity-Partner Expansion Layout</layout>
+        <recordType>Opportunity.Partner_Expansion_Amendment</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>PersonAccount-Person Account Layout</layout>
