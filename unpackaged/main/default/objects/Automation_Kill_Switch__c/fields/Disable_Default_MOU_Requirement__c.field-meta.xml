@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Disable_Default_MOU_Requirement__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Disables the Opportunity - On Create - Default MOU Requirement flow.</description>
+    <inlineHelpText>Check to disable auto-defaulting Facility_MOU_Required__c on new Partner Expansion / Amendment Opportunities.</inlineHelpText>
+    <label>Disable Default MOU Requirement</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

@@ -9,5 +9,9 @@
         <value>Business Incidents</value>
     </caseValues>
     
+    <quickActions>
+        <label><!-- Notify Staff --></label>
+        <name>Notify_Staff</name>
+    </quickActions>
     <startsWith>Consonant</startsWith>
 </CustomObjectTranslation>

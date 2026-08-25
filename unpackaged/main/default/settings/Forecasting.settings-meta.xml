@@ -260,6 +260,10 @@
             <label>Last Modified Date</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
+            <field>00NWE000008Ju9K</field>
+            <label>Facility MOU Required</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
             <field>00NWE000008334n</field>
             <label>Handoff Tasks Created</label>
         </opportunityListFieldsLabelMappings>
@@ -335,6 +339,7 @@
             <field>OPPORTUNITY.LAST_ACTIVITY</field>
             <field>OPPORTUNITY.CREATED_DATE</field>
             <field>OPPORTUNITY.LAST_UPDATE</field>
+            <field>00NWE000008Ju9K</field>
             <field>00NWE000008334n</field>
             <field>PARTNER.NAME</field>
             <field>OPPORTUNITY.ISPRIORITYRECORD</field>
@@ -518,6 +523,10 @@
             <label>Last Modified Date</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
+            <field>00NWE000008Ju9K</field>
+            <label>Facility MOU Required</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
             <field>00NWE000008334n</field>
             <label>Handoff Tasks Created</label>
         </opportunityListFieldsLabelMappings>
@@ -593,6 +602,7 @@
             <field>OPPORTUNITY.LAST_ACTIVITY</field>
             <field>OPPORTUNITY.CREATED_DATE</field>
             <field>OPPORTUNITY.LAST_UPDATE</field>
+            <field>00NWE000008Ju9K</field>
             <field>00NWE000008334n</field>
             <field>PARTNER.NAME</field>
             <field>OPPORTUNITY.ISPRIORITYRECORD</field>
@@ -780,6 +790,10 @@
             <label>Last Modified Date</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
+            <field>00NWE000008Ju9K</field>
+            <label>Facility MOU Required</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
             <field>00NWE000008334n</field>
             <label>Handoff Tasks Created</label>
         </opportunityListFieldsLabelMappings>
@@ -856,6 +870,7 @@
             <field>OPPORTUNITY.LAST_ACTIVITY</field>
             <field>OPPORTUNITY.CREATED_DATE</field>
             <field>OPPORTUNITY.LAST_UPDATE</field>
+            <field>00NWE000008Ju9K</field>
             <field>00NWE000008334n</field>
             <field>PARTNER.NAME</field>
             <field>OPPORTUNITY.ISPRIORITYRECORD</field>
@@ -1039,6 +1054,10 @@
             <label>Last Modified Date</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
+            <field>00NWE000008Ju9K</field>
+            <label>Facility MOU Required</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
             <field>00NWE000008334n</field>
             <label>Handoff Tasks Created</label>
         </opportunityListFieldsLabelMappings>
@@ -1114,6 +1133,7 @@
             <field>OPPORTUNITY.LAST_ACTIVITY</field>
             <field>OPPORTUNITY.CREATED_DATE</field>
             <field>OPPORTUNITY.LAST_UPDATE</field>
+            <field>00NWE000008Ju9K</field>
             <field>00NWE000008334n</field>
             <field>PARTNER.NAME</field>
             <field>OPPORTUNITY.ISPRIORITYRECORD</field>
@@ -1301,6 +1321,10 @@
             <label>Last Modified Date</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
+            <field>00NWE000008Ju9K</field>
+            <label>Facility MOU Required</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
             <field>00NWE000008334n</field>
             <label>Handoff Tasks Created</label>
         </opportunityListFieldsLabelMappings>
@@ -1377,6 +1401,7 @@
             <field>OPPORTUNITY.LAST_ACTIVITY</field>
             <field>OPPORTUNITY.CREATED_DATE</field>
             <field>OPPORTUNITY.LAST_UPDATE</field>
+            <field>00NWE000008Ju9K</field>
             <field>00NWE000008334n</field>
             <field>PARTNER.NAME</field>
             <field>OPPORTUNITY.ISPRIORITYRECORD</field>
@@ -1560,6 +1585,10 @@
             <label>Last Modified Date</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
+            <field>00NWE000008Ju9K</field>
+            <label>Facility MOU Required</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
             <field>00NWE000008334n</field>
             <label>Handoff Tasks Created</label>
         </opportunityListFieldsLabelMappings>
@@ -1635,6 +1664,7 @@
             <field>OPPORTUNITY.LAST_ACTIVITY</field>
             <field>OPPORTUNITY.CREATED_DATE</field>
             <field>OPPORTUNITY.LAST_UPDATE</field>
+            <field>00NWE000008Ju9K</field>
             <field>00NWE000008334n</field>
             <field>PARTNER.NAME</field>
             <field>OPPORTUNITY.ISPRIORITYRECORD</field>
@@ -1822,6 +1852,10 @@
             <label>Last Modified Date</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
+            <field>00NWE000008Ju9K</field>
+            <label>Facility MOU Required</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
             <field>00NWE000008334n</field>
             <label>Handoff Tasks Created</label>
         </opportunityListFieldsLabelMappings>
@@ -1898,6 +1932,7 @@
             <field>OPPORTUNITY.LAST_ACTIVITY</field>
             <field>OPPORTUNITY.CREATED_DATE</field>
             <field>OPPORTUNITY.LAST_UPDATE</field>
+            <field>00NWE000008Ju9K</field>
             <field>00NWE000008334n</field>
             <field>PARTNER.NAME</field>
             <field>OPPORTUNITY.ISPRIORITYRECORD</field>
@@ -2081,6 +2116,10 @@
             <label>Last Modified Date</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
+            <field>00NWE000008Ju9K</field>
+            <label>Facility MOU Required</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
             <field>00NWE000008334n</field>
             <label>Handoff Tasks Created</label>
         </opportunityListFieldsLabelMappings>
@@ -2156,6 +2195,7 @@
             <field>OPPORTUNITY.LAST_ACTIVITY</field>
             <field>OPPORTUNITY.CREATED_DATE</field>
             <field>OPPORTUNITY.LAST_UPDATE</field>
+            <field>00NWE000008Ju9K</field>
             <field>00NWE000008334n</field>
             <field>PARTNER.NAME</field>
             <field>OPPORTUNITY.ISPRIORITYRECORD</field>

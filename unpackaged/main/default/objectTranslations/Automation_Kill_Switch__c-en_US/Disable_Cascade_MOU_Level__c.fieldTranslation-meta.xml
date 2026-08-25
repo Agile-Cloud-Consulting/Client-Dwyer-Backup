@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- Check to disable cascading MOU_Level__c to child Accounts when a parent Account is set to Corporate Level. --></help>
+        <label><!-- Disable Cascade MOU Level --></label>
+        <name>Disable_Cascade_MOU_Level__c</name>
+    </CustomFieldTranslation>

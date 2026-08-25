@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>67.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <customErrors>
+        <description>Blocks the save with a page-level error when an Offboarded Account has no Offboarding Reason.</description>
+        <name>Show_Error_Offboarding_Reason_Required</name>
+        <label>Show Error - Offboarding Reason Required</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <customErrorMessages>
+            <errorMessage>Offboarding Reason is required when Partner Status is set to Offboarded.</errorMessage>
+            <isFieldError>false</isFieldError>
+        </customErrorMessages>
+    </customErrors>
+    <decisions>
+        <description>Short-circuits when any ACC Base Utilities kill switch covering this automation is active: the global master switch, the Account object switch, or this flow&#39;s own named-automation switch.</description>
+        <name>Is_Kill_Switch_Active</name>
+        <label>Is Kill Switch Active?</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <defaultConnectorLabel>Kill Switch Active</defaultConnectorLabel>
+        <rules>
+            <name>All_Kill_Switches_Clear</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Setup.Global_Kill_Switch__c.Disable_All__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Setup.Object_Kill_Switch__c.Disable_Account__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Setup.Automation_Kill_Switch__c.Disable_Require_Offboarding_Reason__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Is_Offboarding_Reason_Blank</targetReference>
+            </connector>
+            <label>All Kill Switches Clear</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>Only blocks the save when Offboarding_Reason__c has no value.</description>
+        <name>Is_Offboarding_Reason_Blank</name>
+        <label>Is Offboarding Reason Blank?</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <defaultConnectorLabel>Reason Populated</defaultConnectorLabel>
+        <rules>
+            <name>Reason_Is_Blank</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Offboarding_Reason__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Show_Error_Offboarding_Reason_Required</targetReference>
+            </connector>
+            <label>Reason Is Blank</label>
+        </rules>
+    </decisions>
+    <description>DWDECI-44. Blocks saving an Account whose Partner_Status__c is Offboarded unless Offboarding_Reason__c is populated. Before-save, no DML. Runs on every Update while Partner_Status__c = Offboarded (doesRequireRecordChangedToMeetCriteria = false) so clearing the reason on a later edit is also blocked, not just the initial transition. Checks the Global, Object (Account), and Automation kill switches from ACC Base Utilities. Uses the native Custom Error element (not an Action call) since Record-Run-Before-Save flows disallow Action elements entirely.</description>
+    <environments>Default</environments>
+    <interviewLabel>Account - On Edit - Require Offboarding Reason {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Account - On Edit - Require Offboarding Reason</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <start>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Is_Kill_Switch_Active</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Partner_Status__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Offboarded</stringValue>
+            </value>
+        </filters>
+        <object>Account</object>
+        <recordTriggerType>Update</recordTriggerType>
+        <triggerType>RecordBeforeSave</triggerType>
+    </start>
+    <status>Active</status>
+</Flow>

@@ -127,18 +127,50 @@
         </itemInstances>
         <itemInstances>
             <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.Offboarding_Reason__c</fieldItem>
+                <identifier>RecordOffboarding_Reason__cField</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.Offboarding_Description__c</fieldItem>
+                <identifier>RecordOffboarding_Description__cField</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
                 <fieldItem>Record.Region__c</fieldItem>
                 <identifier>RecordRegion__cField</identifier>
             </fieldInstance>
         </itemInstances>
         <itemInstances>
             <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
                 <fieldItem>Record.Service_Area__c</fieldItem>
                 <identifier>RecordService_Area__cField</identifier>
             </fieldInstance>
         </itemInstances>
         <itemInstances>
             <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
                 <fieldItem>Record.Manual_Geography_Override__c</fieldItem>
                 <identifier>RecordManual_Geography_Override__cField</identifier>
             </fieldInstance>
@@ -215,6 +247,16 @@
                 </fieldInstanceProperties>
                 <fieldItem>Record.Level_of_Relationship__c</fieldItem>
                 <identifier>RecordLevel_of_Relationship__cField</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.MOU_Level__c</fieldItem>
+                <identifier>RecordMOU_Level_cField</identifier>
             </fieldInstance>
         </itemInstances>
         <name>Facet-f67b2e02-bc34-4acd-97e9-c7083d09152e</name>

@@ -486,7 +486,7 @@
     </actionPlanTemplateItemDependencies>
     <isAdHocItemCreationEnabled>false</isAdHocItemCreationEnabled>
     <name>Partner Onboarding</name>
-    <status>Draft</status>
+    <status>Final</status>
     <targetEntityType>Account</targetEntityType>
     <uniqueName>Partner_Onboarding_94b3a905_9d81_11f1_888d_019df46c0d92</uniqueName>
 </ActionPlanTemplate>

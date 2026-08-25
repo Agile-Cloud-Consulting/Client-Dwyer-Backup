@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>67.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <assignments>
+        <description>Unchecks Facility_MOU_Required__c on the triggering record via fast field update (before-save, no DML).</description>
+        <name>Unset_Facility_MOU_Required</name>
+        <label>Unset Facility MOU Required</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.Facility_MOU_Required__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </assignmentItems>
+    </assignments>
+    <decisions>
+        <description>Short-circuits when any ACC Base Utilities kill switch covering this automation is active: the global master switch, the Opportunity object switch, or this flow&#39;s own named-automation switch.</description>
+        <name>Is_Kill_Switch_Active</name>
+        <label>Is Kill Switch Active?</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <defaultConnectorLabel>Kill Switch Active</defaultConnectorLabel>
+        <rules>
+            <name>All_Kill_Switches_Clear</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Setup.Global_Kill_Switch__c.Disable_All__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Setup.Object_Kill_Switch__c.Disable_Opportunity__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Setup.Automation_Kill_Switch__c.Disable_Default_MOU_Requirement__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Is_Partner_Expansion_RT</targetReference>
+            </connector>
+            <label>All Kill Switches Clear</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>Only Corporate Level parents drop the facility-level MOU requirement.</description>
+        <name>Is_Parent_Corporate_Level</name>
+        <label>Is Parent Corporate Level?</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <defaultConnectorLabel>Not Corporate Level</defaultConnectorLabel>
+        <rules>
+            <name>Is_Corporate_Level</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Get_Parent_Account.MOU_Level__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Corporate Level</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Unset_Facility_MOU_Required</targetReference>
+            </connector>
+            <label>Is Corporate Level</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>Only Partner Expansion / Amendment Opportunities get a default MOU requirement. Checked here (not as a Start filter) because a RecordType.DeveloperName cross-object Start filter crashes at runtime in this org.</description>
+        <name>Is_Partner_Expansion_RT</name>
+        <label>Is Partner Expansion RT?</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <defaultConnectorLabel>Not Partner Expansion RT</defaultConnectorLabel>
+        <rules>
+            <name>Is_Partner_Expansion</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.RecordType.DeveloperName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Partner_Expansion_Amendment</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Get_Parent_Account</targetReference>
+            </connector>
+            <label>Is Partner Expansion</label>
+        </rules>
+    </decisions>
+    <description>DWDECI-43. On new Partner Expansion / Amendment Opportunity creation, defaults Facility_MOU_Required__c to unchecked if the parent Account&#39;s MOU_Level__c is Corporate Level (stays checked/default otherwise). Before-save fast field update - no DML. Checks the Global, Object (Opportunity), and Automation kill switches from ACC Base Utilities. NOTE: the Record Type check is done via a Decision on $Record.RecordType.DeveloperName rather than a Start filter, per the established pattern in this org (a RecordType.DeveloperName cross-object Start filter deploys and activates cleanly but throws an unhandled runtime exception on every trigger in this org - see Opportunity_On_Edit_Apply_Warm_Handoff_Action_Plan). No fault-path error logging: Salesforce disallows Action elements entirely in Record-Run-Before-Save flows, so a Get Parent Account failure surfaces as a standard Salesforce save error to the user rather than an Error_Log__c record.</description>
+    <environments>Default</environments>
+    <interviewLabel>Opportunity - On Create - Default MOU Requirement {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Opportunity - On Create - Default MOU Requirement</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordLookups>
+        <description>Resolves the parent Account&#39;s MOU_Level__c. Guarded so a missing/blank AccountId just no-ops (Facility_MOU_Required__c keeps its default checked value).</description>
+        <name>Get_Parent_Account</name>
+        <label>Get Parent Account</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignNullValuesIfNoRecordsFound>true</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Is_Parent_Corporate_Level</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.AccountId</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Account</object>
+        <queriedFields>Id</queriedFields>
+        <queriedFields>MOU_Level__c</queriedFields>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <start>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Is_Kill_Switch_Active</targetReference>
+        </connector>
+        <object>Opportunity</object>
+        <recordTriggerType>Create</recordTriggerType>
+        <triggerType>RecordBeforeSave</triggerType>
+    </start>
+    <status>Active</status>
+</Flow>
