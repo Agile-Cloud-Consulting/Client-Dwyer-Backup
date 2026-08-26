@@ -3,7 +3,7 @@
     <caseAccessLevel>Edit</caseAccessLevel>
     <contactAccessLevel>Edit</contactAccessLevel>
     <mayForecastManagerShare>false</mayForecastManagerShare>
-    <name>Project Manager</name>
+    <name>Onboarding and Roster Management Specialist</name>
     <opportunityAccessLevel>Edit</opportunityAccessLevel>
-    <parentRole>PMO_Project_Management</parentRole>
+    <parentRole>Director_of_Scholar_Education_Support_Center</parentRole>
 </Role>

@@ -15,7 +15,7 @@
             </value>
         </assignmentItems>
         <assignmentItems>
-            <assignToReference>$Record.PostalCode</assignToReference>
+            <assignToReference>$Record.Region__c</assignToReference>
             <operator>Assign</operator>
             <value>
                 <elementReference>Get_Zip.Service_Area__r.State__r.Region__c</elementReference>
@@ -112,5 +112,5 @@
         <recordTriggerType>CreateAndUpdate</recordTriggerType>
         <triggerType>RecordBeforeSave</triggerType>
     </start>
-    <status>Draft</status>
+    <status>Active</status>
 </Flow>

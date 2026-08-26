@@ -3,7 +3,7 @@
     <caseAccessLevel>Edit</caseAccessLevel>
     <contactAccessLevel>Edit</contactAccessLevel>
     <mayForecastManagerShare>false</mayForecastManagerShare>
-    <name>Technology</name>
+    <name>Director of Operations</name>
     <opportunityAccessLevel>Edit</opportunityAccessLevel>
-    <parentRole>DWD_Executive</parentRole>
+    <parentRole>Operations</parentRole>
 </Role>

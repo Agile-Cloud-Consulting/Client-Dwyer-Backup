@@ -10,21 +10,33 @@
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
             <name>Change_Detected</name>
-            <conditionLogic>and</conditionLogic>
+            <conditionLogic>or</conditionLogic>
             <conditions>
-                <leftValueReference>Get_Current_Zip.Service_Area__c</leftValueReference>
+                <leftValueReference>$Record.BillingPostalCode</leftValueReference>
                 <operator>NotEqualTo</operator>
                 <rightValue>
-                    <elementReference>$Record.Service_Area__c</elementReference>
+                    <elementReference>Get_Current_Zip.Name</elementReference>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.PersonMailingPostalCode</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <elementReference>Get_Current_Zip.Name</elementReference>
                 </rightValue>
             </conditions>
             <connector>
-                <targetReference>Create_Records_1</targetReference>
+                <targetReference>Generate_Boundary_Task_Alert</targetReference>
             </connector>
             <label>Change Detected</label>
         </rules>
     </decisions>
     <environments>Default</environments>
+    <formulas>
+        <name>frmResolvedZip</name>
+        <dataType>String</dataType>
+        <expression>BLANKVALUE({!$Record.PersonMailingPostalCode}, {!$Record.BillingPostalCode})</expression>
+    </formulas>
     <interviewLabel>Account - Scheduled - Boundary Change Alert {!$Flow.CurrentDateTime}</interviewLabel>
     <label>Account - Scheduled - Boundary Change Alert</label>
     <processMetadataValues>
@@ -47,8 +59,8 @@
     </processMetadataValues>
     <processType>AutoLaunchedFlow</processType>
     <recordCreates>
-        <name>Create_Records_1</name>
-        <label>Create Records 1</label>
+        <name>Generate_Boundary_Task_Alert</name>
+        <label>Generate Boundary Task Alert</label>
         <locationX>0</locationX>
         <locationY>0</locationY>
         <inputAssignments>
@@ -58,9 +70,21 @@
             </value>
         </inputAssignments>
         <inputAssignments>
+            <field>Status</field>
+            <value>
+                <stringValue>Not Started</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
             <field>Subject</field>
             <value>
                 <stringValue>Service Area boundary change - review geography</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>WhatId</field>
+            <value>
+                <elementReference>$Record.Id</elementReference>
             </value>
         </inputAssignments>
         <object>Task</object>
@@ -75,16 +99,23 @@
         <connector>
             <targetReference>Detect_Boundary_Change</targetReference>
         </connector>
-        <filterLogic>and</filterLogic>
+        <filterLogic>or</filterLogic>
         <filters>
-            <field>Service_Area__c</field>
-            <operator>IsNull</operator>
+            <field>Name</field>
+            <operator>NotEqualTo</operator>
             <value>
-                <booleanValue>false</booleanValue>
+                <elementReference>$Record.BillingPostalCode</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>Name</field>
+            <operator>NotEqualTo</operator>
+            <value>
+                <elementReference>$Record.PersonMailingPostalCode</elementReference>
             </value>
         </filters>
         <getFirstRecordOnly>true</getFirstRecordOnly>
-        <object>Account</object>
+        <object>Service_Area_Zip_Code__c</object>
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordLookups>
     <start>
@@ -103,11 +134,13 @@
         </filters>
         <object>Account</object>
         <schedule>
+            <dayOfMonthToRun>0</dayOfMonthToRun>
             <frequency>Weekly</frequency>
+            <frequencyNumber>0</frequencyNumber>
             <startDate>2026-08-25</startDate>
             <startTime>07:00:00.000Z</startTime>
         </schedule>
         <triggerType>Scheduled</triggerType>
     </start>
-    <status>Draft</status>
+    <status>Active</status>
 </Flow>

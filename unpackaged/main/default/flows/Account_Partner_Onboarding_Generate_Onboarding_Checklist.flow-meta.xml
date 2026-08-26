@@ -2,6 +2,86 @@
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata">
     <apiVersion>67.0</apiVersion>
     <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <assignments>
+        <name>Assign_Template</name>
+        <label>Assign Template</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignmentItems>
+            <assignToReference>varTemplateName</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Get_Onboarding_Template.UniqueName</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Onboarding_Template_Found</targetReference>
+        </connector>
+    </assignments>
+    <decisions>
+        <name>Check_Kill_Switches</name>
+        <label>Check Kill Switches</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <defaultConnector>
+            <targetReference>Related_Action_Plan</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Switch Enabled</defaultConnectorLabel>
+        <rules>
+            <name>Switch_Disabled</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Setup.Automation_Kill_Switch__c.Disable_Partner_Onboarding_Automation__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Setup.Global_Kill_Switch__c.Disable_All__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Setup.Object_Kill_Switch__c.Disable_Account__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Get_Onboarding_Template</targetReference>
+            </connector>
+            <label>Switch Disabled</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Onboarding_Template_Found</name>
+        <label>Onboarding Template Found</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <defaultConnector>
+            <targetReference>Related_Action_Plan</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Not Found</defaultConnectorLabel>
+        <rules>
+            <name>Template_Found</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Get_Onboarding_Template</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Get_Onboarding_Template_Version</targetReference>
+            </connector>
+            <label>Template Found</label>
+        </rules>
+    </decisions>
     <decisions>
         <name>Partner_Types</name>
         <label>Partner Types</label>
@@ -59,6 +139,56 @@
             <label>Remaining Types</label>
         </rules>
     </decisions>
+    <decisions>
+        <name>Plan_Exists</name>
+        <label>Plan Exists</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <defaultConnector>
+            <targetReference>Related_Action_Plan</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>No_Existing_Plan</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Plan_Existing_Plan</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Create_Onboarding_Action_Plan</targetReference>
+            </connector>
+            <label>No Existing Plan</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Version_Found</name>
+        <label>Version Found</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <defaultConnector>
+            <targetReference>Related_Action_Plan</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>No Version</defaultConnectorLabel>
+        <rules>
+            <name>Version_Exists</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Get_Onboarding_Template_Version</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Plan_Existing_Plan</targetReference>
+            </connector>
+            <label>Version Exists</label>
+        </rules>
+    </decisions>
     <environments>Default</environments>
     <interviewLabel>Account - Partner Onboarding - Generate Onboarding Checklist {!$Flow.CurrentDateTime}</interviewLabel>
     <label>Account - Partner Onboarding - Generate Onboarding Checklist</label>
@@ -81,6 +211,136 @@
         </value>
     </processMetadataValues>
     <processType>AutoLaunchedFlow</processType>
+    <recordCreates>
+        <name>Create_Onboarding_Action_Plan</name>
+        <label>Create Onboarding Action Plan</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Related_Action_Plan</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>ActionPlanState</field>
+            <value>
+                <stringValue>Not Started</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>ActionPlanTemplateVersionId</field>
+            <value>
+                <elementReference>Get_Onboarding_Template_Version.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>ActionPlanType</field>
+            <value>
+                <stringValue>Sales</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Name</field>
+            <value>
+                <elementReference>varTemplateName</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>OwnerId</field>
+            <value>
+                <elementReference>$Record.OwnerId</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>StartDate</field>
+            <value>
+                <elementReference>$Flow.CurrentDate</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>TargetId</field>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <object>ActionPlan</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordCreates>
+    <recordLookups>
+        <name>Get_Onboarding_Template</name>
+        <label>Get Onboarding Template</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Assign_Template</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>UniqueName</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Partner_Onboarding</stringValue>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>ActionPlanTemplate</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <name>Get_Onboarding_Template_Version</name>
+        <label>Get Onboarding Template Version</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Version_Found</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>ActionPlanTemplateId</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>Get_Onboarding_Template.Id</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>Status</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Final</stringValue>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>ActionPlanTemplateVersion</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <name>Plan_Existing_Plan</name>
+        <label>Plan Existing Plan</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Plan_Exists</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>ActionPlanTemplateVersionId</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>Get_Onboarding_Template_Version.Id</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>TargetId</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>ActionPlan</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
     <recordLookups>
         <name>Related_Action_Plan</name>
         <label>Related Action Plan</label>
@@ -113,7 +373,7 @@
         <locationX>0</locationX>
         <locationY>0</locationY>
         <connector>
-            <targetReference>Related_Action_Plan</targetReference>
+            <targetReference>Check_Kill_Switches</targetReference>
         </connector>
         <filterLogic>and</filterLogic>
         <filters>
@@ -142,4 +402,11 @@
         <triggerType>RecordAfterSave</triggerType>
     </start>
     <status>Draft</status>
+    <variables>
+        <name>varTemplateName</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
 </Flow>

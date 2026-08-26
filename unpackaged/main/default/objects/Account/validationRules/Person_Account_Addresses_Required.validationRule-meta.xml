@@ -2,17 +2,14 @@
 <ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>Person_Account_Addresses_Required</fullName>
     <active>true</active>
-    <description>Required Fields upon creation: Mailing and Billing Address; City; Zip Code</description>
+    <description>Required Fields upon creation: Mailing Address; City; Zip Code</description>
     <errorConditionFormula>AND(
   IsPersonAccount,
   OR(
     ISBLANK(PersonMailingStreet),
     ISBLANK(PersonMailingCity),
-    ISBLANK(PersonMailingPostalCode),
-    ISBLANK(BillingAddress),
-    ISBLANK(BillingCity),
-    ISBLANK(BillingPostalCode)
+    ISBLANK(PersonMailingPostalCode)
   )
 )</errorConditionFormula>
-    <errorMessage>Mailing and Billing Address Info are required.</errorMessage>
+    <errorMessage>Mailing Address, City and Zip Code Info are required.</errorMessage>
 </ValidationRule>

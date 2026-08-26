@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>67.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <environments>Default</environments>
+    <formulas>
+        <name>fNewLevelInt</name>
+        <dataType>Number</dataType>
+        <expression>CASE({!$Record.Employer_Level__c},
+  &quot;Level 1&quot;, 1,
+  &quot;Level 2&quot;, 2,
+  &quot;Level 3&quot;, 3,
+  0)</expression>
+        <scale>0</scale>
+    </formulas>
+    <formulas>
+        <name>fPriorLevelInt</name>
+        <dataType>Number</dataType>
+        <expression>CASE({!$Record__Prior.Employer_Level__c},
+  &quot;Level 1&quot;, 1,
+  &quot;Level 2&quot;, 2,
+  &quot;Level 3&quot;, 3,
+  0)</expression>
+        <scale>0</scale>
+    </formulas>
+    <formulas>
+        <name>fTargetTemplateId</name>
+        <dataType>String</dataType>
+        <expression>CASE({!$Record.Employer_Level__c},
+  &quot;Level 2&quot;, &quot;0PRWE000000M2kj4AC&quot;,
+  &quot;Level 3&quot;, &quot;0PRWE000000M2mL4AS&quot;,
+  &quot;&quot;)</expression>
+    </formulas>
+    <interviewLabel>Account - Before Save - Gate Employer Level Change {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Account - Before Save - Gate Employer Level Change</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <start>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Employer_Level__c</field>
+            <operator>IsChanged</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Partner_Type__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Employer</stringValue>
+            </value>
+        </filters>
+        <object>Account</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>InvalidDraft</status>
+    <variables>
+        <name>varOutstandingItems</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+</Flow>

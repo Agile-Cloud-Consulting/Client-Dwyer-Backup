@@ -3,7 +3,7 @@
     <caseAccessLevel>Edit</caseAccessLevel>
     <contactAccessLevel>Edit</contactAccessLevel>
     <mayForecastManagerShare>false</mayForecastManagerShare>
-    <name>PMO - Project Management</name>
+    <name>Operations</name>
     <opportunityAccessLevel>Edit</opportunityAccessLevel>
-    <parentRole>Technology</parentRole>
+    <parentRole>DWD_Executive</parentRole>
 </Role>

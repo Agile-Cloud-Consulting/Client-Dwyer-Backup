@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Disable_Partner_Onboarding_Automation__c</fullName>
+    <defaultValue>false</defaultValue>
+    <label>Disable Partner Onboarding Automation</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

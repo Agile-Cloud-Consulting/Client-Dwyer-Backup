@@ -3,7 +3,7 @@
     <caseAccessLevel>Edit</caseAccessLevel>
     <contactAccessLevel>Edit</contactAccessLevel>
     <mayForecastManagerShare>false</mayForecastManagerShare>
-    <name>Admin of Salesforce</name>
+    <name>Employer Onboarding and Career Track Specialist</name>
     <opportunityAccessLevel>Edit</opportunityAccessLevel>
-    <parentRole>Technology</parentRole>
+    <parentRole>Director_of_Scholar_Employment_Support_Center</parentRole>
 </Role>

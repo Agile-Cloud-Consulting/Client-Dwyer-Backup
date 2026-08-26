@@ -1598,11 +1598,6 @@
         <default>false</default>
         <visible>false</visible>
     </applicationVisibilities>
-    <applicationVisibilities>
-        <application>standard__Platform</application>
-        <default>true</default>
-        <visible>true</visible>
-    </applicationVisibilities>
     <customMetadataTypeAccesses>
         <enabled>true</enabled>
         <name>omnistudio__DocumentTemplateSetting__mdt</name>
@@ -6664,6 +6659,16 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>ProgramEnrollment.Region__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>ProgramEnrollment.Service_Area__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>ProgramEnrollment.StartDate</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -8968,6 +8973,9 @@
         <layout>BusinessProcessTypeDef-Business Process Type Definition Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
+        <layout>CEC_Assignment__mdt-CEC Assignment Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>DocumentType-Document Type Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
@@ -9035,6 +9043,9 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>PricebookEntry-Price Book Entry</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>RecordAlertActionableTarget-Record Alert Actionable Target Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>RecordAlertCategory-Record Alert Category Layout</layout>

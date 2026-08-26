@@ -5,5 +5,5 @@
     <mayForecastManagerShare>false</mayForecastManagerShare>
     <name>Manager of Scholar Success Coach</name>
     <opportunityAccessLevel>Edit</opportunityAccessLevel>
-    <parentRole>Regional_Scholar_Success_Coach_Lead</parentRole>
+    <parentRole>Director_of_Career_Services</parentRole>
 </Role>

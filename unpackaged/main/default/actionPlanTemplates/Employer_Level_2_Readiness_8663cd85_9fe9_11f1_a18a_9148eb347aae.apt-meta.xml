@@ -4,7 +4,7 @@
         <actionPlanTemplateItemValue>
             <itemEntityType>Task</itemEntityType>
             <name>Subject</name>
-            <valueLiteral>Level 2 Task 2</valueLiteral>
+            <valueLiteral>Level 2 Placeholder - pending checklist content</valueLiteral>
         </actionPlanTemplateItemValue>
         <actionPlanTemplateItemValue>
             <itemEntityType>Task</itemEntityType>
@@ -14,7 +14,7 @@
         <actionPlanTemplateItemValue>
             <itemEntityType>Task</itemEntityType>
             <name>ActivityDate</name>
-            <valueFormula>StartDate + 1</valueFormula>
+            <valueFormula>StartDate + 0</valueFormula>
         </actionPlanTemplateItemValue>
         <actionPlanTemplateItemValue>
             <itemEntityType>Task</itemEntityType>
@@ -24,7 +24,7 @@
         <actionPlanTemplateItemValue>
             <itemEntityType>Task</itemEntityType>
             <name>ReminderDateTime</name>
-            <valueFormula>StartDate + 1 - 0 +</valueFormula>
+            <valueFormula>StartDate + 0 - 0 +</valueFormula>
         </actionPlanTemplateItemValue>
         <actionPlanTemplateItemValue>
             <itemEntityType>Task</itemEntityType>
@@ -33,124 +33,12 @@
         </actionPlanTemplateItemValue>
         <isRequired>true</isRequired>
         <itemEntityType>Task</itemEntityType>
-        <name>Level 2 Task 2</name>
-        <uniqueName>Level_2_Task_2_5189e0e2_9fea_11f1_8eec_95d103b0503e</uniqueName>
+        <name>Level 2 Placeholder - pending checklist content</name>
+        <uniqueName>Level_2_Placeholder_pending_checklist_con_c3f16a75_a08c_11f1_adbd_fd9058f81e00</uniqueName>
     </actionPlanTemplateItem>
-    <actionPlanTemplateItem>
-        <actionPlanTemplateItemValue>
-            <itemEntityType>Task</itemEntityType>
-            <name>Subject</name>
-            <valueLiteral>Level 2 Task 1</valueLiteral>
-        </actionPlanTemplateItemValue>
-        <actionPlanTemplateItemValue>
-            <itemEntityType>Task</itemEntityType>
-            <name>Priority</name>
-            <valueLiteral>Normal</valueLiteral>
-        </actionPlanTemplateItemValue>
-        <actionPlanTemplateItemValue>
-            <itemEntityType>Task</itemEntityType>
-            <name>ActivityDate</name>
-            <valueFormula>StartDate + 1</valueFormula>
-        </actionPlanTemplateItemValue>
-        <actionPlanTemplateItemValue>
-            <itemEntityType>Task</itemEntityType>
-            <name>IsReminderSet</name>
-            <valueLiteral>false</valueLiteral>
-        </actionPlanTemplateItemValue>
-        <actionPlanTemplateItemValue>
-            <itemEntityType>Task</itemEntityType>
-            <name>ReminderDateTime</name>
-            <valueFormula>StartDate + 1 - 0 +</valueFormula>
-        </actionPlanTemplateItemValue>
-        <actionPlanTemplateItemValue>
-            <itemEntityType>Task</itemEntityType>
-            <name>OwnerId</name>
-            <valueFormula>TaskAssignmentTargetObjects.Account.Id</valueFormula>
-        </actionPlanTemplateItemValue>
-        <isRequired>true</isRequired>
-        <itemEntityType>Task</itemEntityType>
-        <name>Level 2 Task 1</name>
-        <uniqueName>Level_2_Task_1_3eee8a62_9fea_11f1_8495_cfeddc097aa7</uniqueName>
-    </actionPlanTemplateItem>
-    <actionPlanTemplateItemDependencies>
-        <creationType>OnPreviousItemCompleted</creationType>
-        <name>name</name>
-        <previousTemplateItem>
-            <actionPlanTemplateItemValue>
-                <itemEntityType>Task</itemEntityType>
-                <name>Subject</name>
-                <valueLiteral>Level 2 Task 1</valueLiteral>
-            </actionPlanTemplateItemValue>
-            <actionPlanTemplateItemValue>
-                <itemEntityType>Task</itemEntityType>
-                <name>Priority</name>
-                <valueLiteral>Normal</valueLiteral>
-            </actionPlanTemplateItemValue>
-            <actionPlanTemplateItemValue>
-                <itemEntityType>Task</itemEntityType>
-                <name>ActivityDate</name>
-                <valueFormula>StartDate + 1</valueFormula>
-            </actionPlanTemplateItemValue>
-            <actionPlanTemplateItemValue>
-                <itemEntityType>Task</itemEntityType>
-                <name>IsReminderSet</name>
-                <valueLiteral>false</valueLiteral>
-            </actionPlanTemplateItemValue>
-            <actionPlanTemplateItemValue>
-                <itemEntityType>Task</itemEntityType>
-                <name>ReminderDateTime</name>
-                <valueFormula>StartDate + 1 - 0 +</valueFormula>
-            </actionPlanTemplateItemValue>
-            <actionPlanTemplateItemValue>
-                <itemEntityType>Task</itemEntityType>
-                <name>OwnerId</name>
-                <valueFormula>TaskAssignmentTargetObjects.Account.Id</valueFormula>
-            </actionPlanTemplateItemValue>
-            <isRequired>true</isRequired>
-            <itemEntityType>Task</itemEntityType>
-            <name>Level 2 Task 1</name>
-            <uniqueName>Level_2_Task_1_3eee8a62_9fea_11f1_8495_cfeddc097aa7</uniqueName>
-        </previousTemplateItem>
-        <templateItem>
-            <actionPlanTemplateItemValue>
-                <itemEntityType>Task</itemEntityType>
-                <name>Subject</name>
-                <valueLiteral>Level 2 Task 2</valueLiteral>
-            </actionPlanTemplateItemValue>
-            <actionPlanTemplateItemValue>
-                <itemEntityType>Task</itemEntityType>
-                <name>Priority</name>
-                <valueLiteral>Normal</valueLiteral>
-            </actionPlanTemplateItemValue>
-            <actionPlanTemplateItemValue>
-                <itemEntityType>Task</itemEntityType>
-                <name>ActivityDate</name>
-                <valueFormula>StartDate + 1</valueFormula>
-            </actionPlanTemplateItemValue>
-            <actionPlanTemplateItemValue>
-                <itemEntityType>Task</itemEntityType>
-                <name>IsReminderSet</name>
-                <valueLiteral>false</valueLiteral>
-            </actionPlanTemplateItemValue>
-            <actionPlanTemplateItemValue>
-                <itemEntityType>Task</itemEntityType>
-                <name>ReminderDateTime</name>
-                <valueFormula>StartDate + 1 - 0 +</valueFormula>
-            </actionPlanTemplateItemValue>
-            <actionPlanTemplateItemValue>
-                <itemEntityType>Task</itemEntityType>
-                <name>OwnerId</name>
-                <valueFormula>TaskAssignmentTargetObjects.Account.Id</valueFormula>
-            </actionPlanTemplateItemValue>
-            <isRequired>true</isRequired>
-            <itemEntityType>Task</itemEntityType>
-            <name>Level 2 Task 2</name>
-            <uniqueName>Level_2_Task_2_5189e0e2_9fea_11f1_8eec_95d103b0503e</uniqueName>
-        </templateItem>
-    </actionPlanTemplateItemDependencies>
     <isAdHocItemCreationEnabled>false</isAdHocItemCreationEnabled>
     <name>Employer Level 2 Readiness</name>
-    <status>Draft</status>
+    <status>Final</status>
     <targetEntityType>Account</targetEntityType>
     <uniqueName>Employer_Level_2_Readiness_8663cd85_9fe9_11f1_a18a_9148eb347aae</uniqueName>
 </ActionPlanTemplate>

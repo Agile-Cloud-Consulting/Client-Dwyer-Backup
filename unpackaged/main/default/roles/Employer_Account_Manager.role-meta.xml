@@ -3,7 +3,7 @@
     <caseAccessLevel>Edit</caseAccessLevel>
     <contactAccessLevel>Edit</contactAccessLevel>
     <mayForecastManagerShare>false</mayForecastManagerShare>
-    <name>Project Management Analyst</name>
+    <name>Employer Account Manager</name>
     <opportunityAccessLevel>Edit</opportunityAccessLevel>
-    <parentRole>PMO_Project_Management</parentRole>
+    <parentRole>Director_of_Scholar_Employment_Support_Center</parentRole>
 </Role>
