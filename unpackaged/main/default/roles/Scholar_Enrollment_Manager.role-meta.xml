@@ -3,7 +3,7 @@
     <caseAccessLevel>Edit</caseAccessLevel>
     <contactAccessLevel>Edit</contactAccessLevel>
     <mayForecastManagerShare>false</mayForecastManagerShare>
-    <name>Scholar Enrollment Manager</name>
+    <name>Manager of Enrollment Advisors</name>
     <opportunityAccessLevel>Edit</opportunityAccessLevel>
     <parentRole>Director_of_Scholar_Education_Support_Center</parentRole>
 </Role>

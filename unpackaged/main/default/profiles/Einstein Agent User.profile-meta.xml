@@ -294,6 +294,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Account.Manual_Geography_Override__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Account.NumberOfEmployees</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -315,6 +320,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Account.Region__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Account.Service_Area__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -5839,6 +5849,16 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Service_Area_Zip_Code__c.Zip_Code_Description__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Service_Area__c.Service_Area_Description__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Shift.BackgroundColor</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -7709,6 +7729,9 @@
         <layout>Global-Global Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
+        <layout>Incident-Incident Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>InterestTag-Interest Tag Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
@@ -7758,6 +7781,15 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>Region__c-Region Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Service_Area_Zip_Code__c-Service Area Zip Code Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Service_Area__c-Service Area Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>State__c-States Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>SurveyQuestion-Survey Question Layout</layout>
@@ -9260,12 +9292,28 @@
         <visibility>Hidden</visibility>
     </tabVisibilities>
     <tabVisibilities>
+        <tab>Region__c</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
         <tab>SectionBlock__c</tab>
         <visibility>Hidden</visibility>
     </tabVisibilities>
     <tabVisibilities>
         <tab>Section__c</tab>
         <visibility>Hidden</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>Service_Area_Zip_Code__c</tab>
+        <visibility>Hidden</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>Service_Area__c</tab>
+        <visibility>Hidden</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>State__c</tab>
+        <visibility>DefaultOn</visibility>
     </tabVisibilities>
     <tabVisibilities>
         <tab>Vlocity_Flex_Card_Home</tab>

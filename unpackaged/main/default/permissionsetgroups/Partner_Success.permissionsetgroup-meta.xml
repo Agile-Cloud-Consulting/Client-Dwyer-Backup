@@ -3,10 +3,11 @@
     <hasActivationRequired>false</hasActivationRequired>
     <label>Partner Success</label>
     <permissionSets>CRED_Account_Teams</permissionSets>
-    <permissionSets>CRED_Accounts_Person_Account_Relationships_and_Affiliations</permissionSets>
     <permissionSets>CRED_Interactions_and_Interaction_Summaries</permissionSets>
     <permissionSets>CRED_Record_Alerts</permissionSets>
     <permissionSets>CRED_Referrals</permissionSets>
+    <permissionSets>CRE_Accounts_Person_Account_Relationships_and_Affiliations</permissionSets>
+    <permissionSets>CRE_Regions</permissionSets>
     <permissionSets>DWD_Sensitive_Activity_Details</permissionSets>
     <status>Updated</status>
 </PermissionSetGroup>

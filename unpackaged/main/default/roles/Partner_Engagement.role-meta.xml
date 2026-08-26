@@ -3,7 +3,7 @@
     <caseAccessLevel>Edit</caseAccessLevel>
     <contactAccessLevel>Edit</contactAccessLevel>
     <mayForecastManagerShare>false</mayForecastManagerShare>
-    <name>Partner Engagement</name>
+    <name>Partner Development</name>
     <opportunityAccessLevel>Edit</opportunityAccessLevel>
     <parentRole>Partners</parentRole>
 </Role>

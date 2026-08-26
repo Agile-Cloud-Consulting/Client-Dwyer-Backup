@@ -2578,16 +2578,16 @@ i.mce-i-resize {
 
 @font-face {
   font-family: 'tinymce';
-  src: url('fonts/tinymce.eot?orgId=00Dal00001NfKLB');
-  src: url('fonts/tinymce.eot?orgId=00Dal00001NfKLB#iefix') format('embedded-opentype'), url('fonts/tinymce.woff?orgId=00Dal00001NfKLB') format('woff'), url('fonts/tinymce.ttf?orgId=00Dal00001NfKLB') format('truetype'), url('fonts/tinymce.svg?orgId=00Dal00001NfKLB#tinymce') format('svg');
+  src: url('fonts/tinymce.eot?orgId=00DWE00000To0SL');
+  src: url('fonts/tinymce.eot?orgId=00DWE00000To0SL#iefix') format('embedded-opentype'), url('fonts/tinymce.woff?orgId=00DWE00000To0SL') format('woff'), url('fonts/tinymce.ttf?orgId=00DWE00000To0SL') format('truetype'), url('fonts/tinymce.svg?orgId=00DWE00000To0SL#tinymce') format('svg');
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'tinymce-small';
-  src: url('fonts/tinymce-small.eot?orgId=00Dal00001NfKLB');
-  src: url('fonts/tinymce-small.eot?orgId=00Dal00001NfKLB#iefix') format('embedded-opentype'), url('fonts/tinymce-small.woff?orgId=00Dal00001NfKLB') format('woff'), url('fonts/tinymce-small.ttf?orgId=00Dal00001NfKLB') format('truetype'), url('fonts/tinymce-small.svg?orgId=00Dal00001NfKLB#tinymce') format('svg');
+  src: url('fonts/tinymce-small.eot?orgId=00DWE00000To0SL');
+  src: url('fonts/tinymce-small.eot?orgId=00DWE00000To0SL#iefix') format('embedded-opentype'), url('fonts/tinymce-small.woff?orgId=00DWE00000To0SL') format('woff'), url('fonts/tinymce-small.ttf?orgId=00DWE00000To0SL') format('truetype'), url('fonts/tinymce-small.svg?orgId=00DWE00000To0SL#tinymce') format('svg');
   font-weight: normal;
   font-style: normal;
 }

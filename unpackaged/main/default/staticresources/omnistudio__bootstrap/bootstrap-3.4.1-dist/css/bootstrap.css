@@ -267,8 +267,8 @@ td, th {
 
 @font-face {
   font-family: "Glyphicons Halflings";
-  src: url("../fonts/glyphicons-halflings-regular.eot?orgId=00Dal00001NfKLB");
-  src: url("../fonts/glyphicons-halflings-regular.eot?orgId=00Dal00001NfKLB#iefix") format("embedded-opentype"), url("../fonts/glyphicons-halflings-regular.woff2?orgId=00Dal00001NfKLB") format("woff2"), url("../fonts/glyphicons-halflings-regular.woff?orgId=00Dal00001NfKLB") format("woff"), url("../fonts/glyphicons-halflings-regular.ttf?orgId=00Dal00001NfKLB") format("truetype"), url("../fonts/glyphicons-halflings-regular.svg?orgId=00Dal00001NfKLB#glyphicons_halflingsregular") format("svg");
+  src: url("../fonts/glyphicons-halflings-regular.eot?orgId=00DWE00000To0SL");
+  src: url("../fonts/glyphicons-halflings-regular.eot?orgId=00DWE00000To0SL#iefix") format("embedded-opentype"), url("../fonts/glyphicons-halflings-regular.woff2?orgId=00DWE00000To0SL") format("woff2"), url("../fonts/glyphicons-halflings-regular.woff?orgId=00DWE00000To0SL") format("woff"), url("../fonts/glyphicons-halflings-regular.ttf?orgId=00DWE00000To0SL") format("truetype"), url("../fonts/glyphicons-halflings-regular.svg?orgId=00DWE00000To0SL#glyphicons_halflingsregular") format("svg");
 }
 
 .glyphicon {
