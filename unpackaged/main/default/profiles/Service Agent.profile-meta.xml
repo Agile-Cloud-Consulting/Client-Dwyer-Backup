@@ -8998,6 +8998,9 @@
         <layout>BusinessProcessTypeDef-Business Process Type Definition Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
+        <layout>CEC_Assignment__mdt-CEC Assignment Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>DocumentType-Document Type Layout</layout>
     </layoutAssignments>
     <layoutAssignments>

@@ -8,6 +8,7 @@
     <permissionSets>CRED_Referrals</permissionSets>
     <permissionSets>CRE_Accounts_Person_Account_Relationships_and_Affiliations</permissionSets>
     <permissionSets>CRE_Regions</permissionSets>
+    <permissionSets>DWD_Action_Plan_Access</permissionSets>
     <permissionSets>DWD_Sensitive_Activity_Details</permissionSets>
     <status>Updated</status>
 </PermissionSetGroup>

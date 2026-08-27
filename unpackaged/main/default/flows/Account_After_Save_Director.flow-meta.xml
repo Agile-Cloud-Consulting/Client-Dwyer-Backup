@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>67.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <decisions>
+        <name>Check_Kill_Switch</name>
+        <label>Check Kill Switch</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <defaultConnectorLabel>Kill Switch Enabled</defaultConnectorLabel>
+        <rules>
+            <name>Kill_Switch_Disabled</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Setup.Automation_Kill_Switch__c.Disable_Partner_Account_Routing__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Setup.Global_Kill_Switch__c.Disable_All__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Setup.Object_Kill_Switch__c.Disable_Account__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Route_to_Regional_CEC_Queue</targetReference>
+            </connector>
+            <label>Kill Switch Disabled</label>
+        </rules>
+    </decisions>
+    <environments>Default</environments>
+    <interviewLabel>Account - After Save - Director {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Account - After Save - Director</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <start>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Check_Kill_Switch</targetReference>
+        </connector>
+        <filterFormula>AND(
+  NOT({!$Record.IsPersonAccount}),
+  NOT(ISBLANK(TEXT({!$Record.Partner_Type__c}))),
+  NOT(ISBLANK({!$Record.Service_Area__c})),
+  NOT({!$Record.Manual_Geography_Override__c})
+)</filterFormula>
+        <object>Account</object>
+        <recordTriggerType>Create</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+    <subflows>
+        <name>Route_to_Regional_CEC_Queue</name>
+        <label>Route to Regional CEC Queue</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <flowName>Account_Sub_Route_to_Regional_CEC_Queue</flowName>
+        <inputAssignments>
+            <name>varAccountId</name>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>varServiceAreaId</name>
+            <value>
+                <elementReference>$Record.Service_Area__c</elementReference>
+            </value>
+        </inputAssignments>
+    </subflows>
+</Flow>
