@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ActionPlanTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <isAdHocItemCreationEnabled>false</isAdHocItemCreationEnabled>
+    <name>Partner Onboarding - Employer</name>
+    <status>Draft</status>
+    <targetEntityType>Account</targetEntityType>
+    <uniqueName>Partner_Onboarding_Employer_3e6360b5_a128_11f1_b743_f565b4792ec9</uniqueName>
+</ActionPlanTemplate>
