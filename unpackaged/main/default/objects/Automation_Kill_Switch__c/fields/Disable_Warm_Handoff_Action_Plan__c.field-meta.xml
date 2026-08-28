@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Disable_Warm_Handoff_Action_Plan__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Disables the Opportunity - On Edit - Apply Warm Handoff Action Plan flow.</description>
+    <inlineHelpText>Check to disable the Warm Handoff Action Plan automation on Partner Opportunities.</inlineHelpText>
+    <label>Disable Warm Handoff Action Plan</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PermissionSetGroup xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>DWDECI-37. SIS persona PSG, mirroring Partner Success/Development. Scoped to sensitive Account access for now; expand once DWDECI-238 is ready for build.</description>
+    <hasActivationRequired>false</hasActivationRequired>
+    <label>Support &amp; Intervention Services</label>
+    <permissionSets>DWD_Sensitive_Partner_Data</permissionSets>
+    <status>Updated</status>
+</PermissionSetGroup>

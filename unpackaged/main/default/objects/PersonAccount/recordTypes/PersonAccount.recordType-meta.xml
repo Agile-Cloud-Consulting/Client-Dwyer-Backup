@@ -50,6 +50,8 @@
             <default>false</default>
         </values>
     </picklistValues>
+    
+    
     <picklistValues>
         <picklist>Industry</picklist>
         <values>
@@ -181,6 +183,10 @@
             <default>false</default>
         </values>
     </picklistValues>
+    
+    
+    
+    
     <picklistValues>
         <picklist>Ownership</picklist>
         <values>
@@ -200,6 +206,10 @@
             <default>false</default>
         </values>
     </picklistValues>
+    
+    
+    
+    
     <picklistValues>
         <picklist>Rating</picklist>
         <values>
@@ -215,6 +225,7 @@
             <default>false</default>
         </values>
     </picklistValues>
+    
     <picklistValues>
         <picklist>Type</picklist>
         <values>

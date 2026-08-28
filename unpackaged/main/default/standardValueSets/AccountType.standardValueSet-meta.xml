@@ -2,6 +2,31 @@
 <StandardValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
     <sorted>false</sorted>
     <standardValue>
+        <fullName>Non-Profit / 501(c)(3)</fullName>
+        <default>false</default>
+        <label>Non-Profit / 501(c)(3)</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Local Business / Corporate</fullName>
+        <default>false</default>
+        <label>Local Business / Corporate</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Educational Institution</fullName>
+        <default>false</default>
+        <label>Educational Institution</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Community Group / Association</fullName>
+        <default>false</default>
+        <label>Community Group / Association</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Government / Public Sector</fullName>
+        <default>false</default>
+        <label>Government / Public Sector</label>
+    </standardValue>
+    <standardValue>
         <fullName>Analyst</fullName>
         <default>false</default>
         <label>Analyst</label>

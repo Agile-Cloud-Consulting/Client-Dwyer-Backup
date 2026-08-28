@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Scholar_Paperwork_Check_In_Notes__c</fullName>
+    <description>Bi-weekly partner meeting agenda item: Partners are responsible for getting signatures on initial programmatic paperwork (sent via DocuSign); this tracks completion status as discussed.</description>
+    <label>Scholar Paperwork Check-In Notes</label>
+    <length>32768</length>
+    <trackHistory>false</trackHistory>
+    <type>LongTextArea</type>
+    <visibleLines>5</visibleLines>
+</CustomField>

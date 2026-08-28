@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>67.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <description>Task quick action &quot;Log Sensitive Detail&quot;. Captures a confidential narrative for a touchpoint and commits it via the system-context &quot;Task - Autolaunched - Commit Sensitive Detail&quot; subflow, so a user without DWD_Sensitive_Activity_Details can record the detail but never gains read access to Sensitive_Details__c afterward (same pattern as the DWDECI-19 SSN capture). The Subflow element does not support a fault connector in Metadata API, so the actual DML fault handling (ErrorLogger.logFromFlow, ACC Base Utilities Log Error action) lives in the child autolaunched flow&#39;s Update_Sensitive_Task step.</description>
+    <environments>Default</environments>
+    <interviewLabel>Task - Screen Flow - Log Sensitive Detail {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Task - Screen Flow - Log Sensitive Detail</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>Flow</processType>
+    <screens>
+        <description>Confirms the sensitive detail was logged.</description>
+        <name>Confirmation_Screen</name>
+        <label>Confirmation</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <allowBack>false</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>false</allowPause>
+        <fields>
+            <name>Confirmation_Text</name>
+            <fieldText>&lt;p&gt;Sensitive detail logged.&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>true</showHeader>
+    </screens>
+    <screens>
+        <description>Captures the confidential narrative. The entering user never reads Sensitive_Details__c back - the value only ever flows forward into the system-context subflow.</description>
+        <name>Log_Sensitive_Detail_Screen</name>
+        <label>Log Sensitive Detail</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>false</allowPause>
+        <connector>
+            <targetReference>Commit_Sensitive_Detail</targetReference>
+        </connector>
+        <fields>
+            <name>Sensitive_Details_Input</name>
+            <fieldText>Sensitive Details</fieldText>
+            <fieldType>LargeTextArea</fieldType>
+            <helpText>&lt;p&gt;Visible only to authorized viewers (Executives, Partner Team Directors). Max 255 characters.&lt;/p&gt;</helpText>
+            <isRequired>true</isRequired>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
+            <validationRule>
+                <errorMessage>&lt;p&gt;Please limit Sensitive Details to 255 characters.&lt;/p&gt;</errorMessage>
+                <formulaExpression>LEN({!Sensitive_Details_Input}) &lt;= 255</formulaExpression>
+            </validationRule>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>true</showHeader>
+    </screens>
+    <start>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Log_Sensitive_Detail_Screen</targetReference>
+        </connector>
+    </start>
+    <status>Active</status>
+    <subflows>
+        <description>Commits Sensitive__c and Sensitive_Details__c via the system-context subflow, so this screen flow&#39;s own running-user permissions are never used for the write.</description>
+        <name>Commit_Sensitive_Detail</name>
+        <label>Commit Sensitive Detail</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Confirmation_Screen</targetReference>
+        </connector>
+        <flowName>Task_Autolaunched_Commit_Sensitive_Detail</flowName>
+        <inputAssignments>
+            <name>recordId</name>
+            <value>
+                <elementReference>recordId</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>sensitiveDetails</name>
+            <value>
+                <elementReference>Sensitive_Details_Input</elementReference>
+            </value>
+        </inputAssignments>
+    </subflows>
+    <variables>
+        <name>recordId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+</Flow>

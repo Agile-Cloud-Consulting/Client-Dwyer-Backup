@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <label><!-- Disable Partner Onboarding Automation --></label>
+        <name>Disable_Partner_Onboarding_Automation__c</name>
+    </CustomFieldTranslation>

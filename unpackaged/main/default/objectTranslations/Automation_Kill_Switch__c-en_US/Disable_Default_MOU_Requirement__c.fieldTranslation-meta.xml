@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- Check to disable auto-defaulting Facility_MOU_Required__c on new Partner Expansion / Amendment Opportunities. --></help>
+        <label><!-- Disable Default MOU Requirement --></label>
+        <name>Disable_Default_MOU_Requirement__c</name>
+    </CustomFieldTranslation>

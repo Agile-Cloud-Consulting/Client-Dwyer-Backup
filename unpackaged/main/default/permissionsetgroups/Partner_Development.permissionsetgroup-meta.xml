@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PermissionSetGroup xmlns="http://soap.sforce.com/2006/04/metadata">
+    <hasActivationRequired>false</hasActivationRequired>
+    <label>Partner Development</label>
+    <permissionSets>CRED_Account_Teams</permissionSets>
+    <permissionSets>CRED_Leads</permissionSets>
+    <permissionSets>CRED_Opportunities</permissionSets>
+    <permissionSets>CRED_Referrals</permissionSets>
+    <permissionSets>CRE_Accounts_Person_Account_Relationships_and_Affiliations</permissionSets>
+    <permissionSets>CRE_Interactions_and_Interaction_Summaries</permissionSets>
+    <permissionSets>CRE_Record_Alerts</permissionSets>
+    <status>Updated</status>
+</PermissionSetGroup>
