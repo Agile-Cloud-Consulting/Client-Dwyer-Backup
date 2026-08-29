@@ -1,26 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <SharingRules xmlns="http://soap.sforce.com/2006/04/metadata">
     <sharingCriteriaRules>
-        <fullName>Partners_Team_Mutual_Visibility</fullName>
-        <accessLevel>Edit</accessLevel>
-        <accountSettings>
-            <caseAccessLevel>None</caseAccessLevel>
-            <contactAccessLevel>Edit</contactAccessLevel>
-            <opportunityAccessLevel>Edit</opportunityAccessLevel>
-        </accountSettings>
-        <description>Account OWD is Private (required for Person Account/Scholar protection; OWD is per-object so Business Account inherits it too). Grants mutual Edit visibility on Business Account records only, across the whole Partners branch (Partner Engagement + Partner Success and all subordinate roles), matching Interaction.Partners_Team_Mutual_Visibility from DWDECI-38. Scoped to RecordTypeId=Business Account so Scholar/Person Account records stay locked out. Case access excluded to keep Case segregated per DWDECI-31/37.</description>
-        <label>Partners Team Mutual Visibility</label>
-        <sharedTo>
-            <roleAndSubordinates>Partners</roleAndSubordinates>
-        </sharedTo>
-        <criteriaItems>
-            <field>RecordTypeId</field>
-            <operation>equals</operation>
-            <value>Business Account</value>
-        </criteriaItems>
-        <includeRecordsOwnedByAll>true</includeRecordsOwnedByAll>
-    </sharingCriteriaRules>
-    <sharingCriteriaRules>
         <fullName>Secondary_School_and_College</fullName>
         <accessLevel>Read</accessLevel>
         <accountSettings>
@@ -37,6 +17,25 @@
             <field>RecordTypeId</field>
             <operation>equals</operation>
             <value>Secondary School,College</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>true</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>Share_all_business_accounts_internally</fullName>
+        <accessLevel>Edit</accessLevel>
+        <accountSettings>
+            <caseAccessLevel>None</caseAccessLevel>
+            <contactAccessLevel>Edit</contactAccessLevel>
+            <opportunityAccessLevel>None</opportunityAccessLevel>
+        </accountSettings>
+        <label>Share all business accounts internally</label>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Business Account</value>
         </criteriaItems>
         <includeRecordsOwnedByAll>true</includeRecordsOwnedByAll>
     </sharingCriteriaRules>

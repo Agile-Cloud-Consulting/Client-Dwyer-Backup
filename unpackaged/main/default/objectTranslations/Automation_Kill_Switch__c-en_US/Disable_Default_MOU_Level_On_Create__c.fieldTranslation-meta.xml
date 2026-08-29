@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- Check to disable auto-defaulting a new child Account&apos;s MOU_Level__c (Per Facility, or Corporate Level when the parent is Corporate Level). --></help>
+        <label><!-- Disable Default MOU Level On Create --></label>
+        <name>Disable_Default_MOU_Level_On_Create__c</name>
+    </CustomFieldTranslation>
