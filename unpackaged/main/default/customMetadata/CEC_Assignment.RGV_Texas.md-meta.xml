@@ -8,7 +8,7 @@
     </values>
     <values>
         <field>Queue_Developer_Name__c</field>
-        <value xsi:type="xsd:string">CEC_TX_RGV</value>
+        <value xsi:type="xsd:string">CEC_TX_Rio_Grande_Valley</value>
     </values>
     <values>
         <field>Region_Name__c</field>

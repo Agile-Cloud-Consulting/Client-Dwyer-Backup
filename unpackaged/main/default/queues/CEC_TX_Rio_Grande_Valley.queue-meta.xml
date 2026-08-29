@@ -3,6 +3,9 @@
     <doesIncludeBosses>false</doesIncludeBosses>
     <doesSendEmailToMembers>false</doesSendEmailToMembers>
     <name>CEC - TX - Rio Grande Valley</name>
+    <queueMembers>
+        
+    </queueMembers>
     <queueSobject>
         <sobjectType>Task</sobjectType>
     </queueSobject>
