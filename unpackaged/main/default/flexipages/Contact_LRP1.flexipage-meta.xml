@@ -101,16 +101,6 @@
                     <name>uiBehavior</name>
                     <value>none</value>
                 </fieldInstanceProperties>
-                <fieldItem>Record.Type</fieldItem>
-                <identifier>RecordTypeField</identifier>
-            </fieldInstance>
-        </itemInstances>
-        <itemInstances>
-            <fieldInstance>
-                <fieldInstanceProperties>
-                    <name>uiBehavior</name>
-                    <value>none</value>
-                </fieldInstanceProperties>
                 <fieldItem>Record.Partner_Status__c</fieldItem>
                 <identifier>RecordPartner_Status__cField</identifier>
                 <visibilityRule>
@@ -161,16 +151,6 @@
                 </fieldInstanceProperties>
                 <fieldItem>Record.Fax</fieldItem>
                 <identifier>RecordFaxField</identifier>
-            </fieldInstance>
-        </itemInstances>
-        <itemInstances>
-            <fieldInstance>
-                <fieldInstanceProperties>
-                    <name>uiBehavior</name>
-                    <value>required</value>
-                </fieldInstanceProperties>
-                <fieldItem>Record.Website</fieldItem>
-                <identifier>RecordWebsiteField</identifier>
             </fieldInstance>
         </itemInstances>
         <itemInstances>
