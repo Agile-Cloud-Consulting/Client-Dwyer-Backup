@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Licenseless C2C permset granting the Platform Metabolism slagent integration user access for NextGen agent authoring.</description>
+    <hasActivationRequired>true</hasActivationRequired>
+    <label>Platform Metabolism Slagent Permset</label>
+    <license>Cloud Integration User</license>
+</PermissionSet>

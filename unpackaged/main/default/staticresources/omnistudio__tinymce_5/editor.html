@@ -33,7 +33,13 @@
             let _config;
             let _rteId;
 
-            window.addEventListener("message", receiveMessage, false);
+            window.addEventListener("message", (event) => {
+                // Check if the origin of event is same as the current window origin
+                if (event.origin === window.parent.location.origin) {
+                    receiveMessage();
+                }
+            },
+            false);
 
             function receiveMessage() {
                 switch (event.data.message) {

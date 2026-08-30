@@ -130,13 +130,20 @@
     <enableFeeds>false</enableFeeds>
     <externalSharingModel>Private</externalSharingModel>
     <searchLayouts>
-        <customTabListAdditionalFields>Account</customTabListAdditionalFields>
-        <customTabListAdditionalFields>RelatedAccount</customTabListAdditionalFields>
-        <customTabListAdditionalFields>PartyRoleRelation</customTabListAdditionalFields>
-        <customTabListAdditionalFields>IsActive</customTabListAdditionalFields>
-        <customTabListAdditionalFields>RelatedInverseRecord</customTabListAdditionalFields>
-        <customTabListAdditionalFields>StartDate</customTabListAdditionalFields>
-        <customTabListAdditionalFields>EndDate</customTabListAdditionalFields>
+        <lookupDialogsAdditionalFields>Account</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>RelatedAccount</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>PartyRoleRelation</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>IsActive</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>RelatedInverseRecord</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>StartDate</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>EndDate</lookupDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Account</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>RelatedAccount</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>PartyRoleRelation</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>IsActive</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>RelatedInverseRecord</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>StartDate</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>EndDate</lookupPhoneDialogsAdditionalFields>
         <searchResultsAdditionalFields>Account</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>RelatedAccount</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>PartyRoleRelation</searchResultsAdditionalFields>

@@ -2604,6 +2604,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>DocumentChecklistItem.Comments</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>DocumentChecklistItem.Instruction</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -2625,6 +2630,16 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>DocumentChecklistItem.UploadedById</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>DocumentChecklistItem.ValidatedById</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>DocumentChecklistItem.ValidationDateTime</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -6623,6 +6638,15 @@
         <readable>true</readable>
     </fieldPermissions>
     <layoutAssignments>
+        <layout>AcademicRole-Academic Role Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>AcademicRoleMapping-Academic Role Mapping Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>AcademicTarget-Academic Target Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>AccountTeamMember-Account Team Member Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
@@ -6647,10 +6671,22 @@
         <layout>ApplicationSubtypeDefinition-Application Subtype Definition Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
+        <layout>AttendancePolicy-Attendance Policy Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>AttendancePolicySourceType-Attendance Policy Source Type Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>AttendanceSourceData-Attendance Source Data Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>BusinessProcessTypeDef-Business Process Type Definition Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>CEC_Assignment__mdt-CEC Assignment Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>DesignatedContactAssignment-Designated Contact Assignment Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>DocumentType-Document Type Layout</layout>
@@ -6678,6 +6714,12 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>InterestTag-Interest Tag Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>LearnerAchievement-Learner Achievement Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>LearnerAchievementMethod-Learner Achievement Method Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>LearningAchievementConfig-Learning Achievement Configuration Layout</layout>
@@ -6709,6 +6751,9 @@
     <layoutAssignments>
         <layout>Opportunity-Opportunity Layout</layout>
         <recordType>Opportunity.Partner_Expansion_Amendment</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>PartyProfileAddress-Party Profile Address</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>PersonAccount-Person Account Layout</layout>

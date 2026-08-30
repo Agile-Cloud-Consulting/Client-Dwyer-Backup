@@ -2306,7 +2306,11 @@ angular.module('documentTemplateApp').controller('documentTemplateCtrl', functio
         $scope.templateData.templateSignature = templateDetails[getTemplateField('IsSignatureRequired__c')];
         $scope.templateData.templateTrackRedlines = templateDetails[getTemplateField('TrackContractRedlines__c')];
         if (useTemplateId) {
-            if (templateDetails[getTemplateField('TokenData__c')]) {
+            // W-22567881: TokenData__c (TokenList) JSON is only for Vlocity Web Templates. 
+            // parsing it for other type of template in OS package used to throw an uncaught error.
+            // which looked like the "New Document Template" screen.
+            if (templateDetails[getTemplateField('TokenData__c')] && 
+                templateDetails[getTemplateField('TemplateContentFormat__c')] === 'Vlocity Web Template') {
                 templateTokens = angular.fromJson(templateDetails[getTemplateField('TokenData__c')]);
             }
             $scope.templateData.templateName = templateDetails.Name;

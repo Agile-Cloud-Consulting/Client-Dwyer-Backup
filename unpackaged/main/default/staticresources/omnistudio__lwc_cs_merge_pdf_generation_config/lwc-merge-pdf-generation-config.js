@@ -1,15 +1,37 @@
 var clientSidePdfGenerationConfig;
 function handleMergeMessage(event) {
+    // @W-23232762: Check if the origin of event is same as the current window origin.
+    // Wrapped in try/catch: reading window.parent.location.origin throws a SecurityError
+    // when the iframe is cross-origin with its parent; treat that as an untrusted message.
+    try {
+        if (event.origin !== window.parent.location.origin) {
+            return;
+        }
+    } catch (e) {
+        return; // cross-origin parent — treat as untrusted
+    }
     if (event.isTrusted && typeof event.data === 'object') {
         switch (event.data.type) {
             case 'LOAD_MERGE_CORE_CONTROLS':
                 clientSidePdfGenerationConfig = JSON.parse(event.data.params);
                 console.log(clientSidePdfGenerationConfig);
+                // @W-18591716: CheckMarx : validate URL scheme before assigning to script.src
+                // to reject javascript:/data:/etc. injected via postMessage params.
+                var coreControlsUrl = clientSidePdfGenerationConfig && clientSidePdfGenerationConfig['core_controls'];
+                var parsedCoreControlsUrl;
+                try {
+                    parsedCoreControlsUrl = new URL(coreControlsUrl, window.location.href);
+                } catch (e) {
+                    return;
+                }
+                if (parsedCoreControlsUrl.protocol !== 'https:' && parsedCoreControlsUrl.protocol !== 'http:') {
+                    return;
+                }
                 var script = document.createElement('script');
                 script.onload = function () {
                     init(clientSidePdfGenerationConfig);
                 };
-                script.src = encodeURI(clientSidePdfGenerationConfig['core_controls']);
+                script.src = encodeURI(coreControlsUrl);
 
                 document.head.appendChild(script);
                 window.removeEventListener("message", handleMergeMessage);

@@ -17,7 +17,6 @@ function processImageTokenData(docXTokenData, action) {
             opts.centered = false;
             opts.getImage=function(tagValue, tagName) {
                 var imageBlob = ImageContentBlob[tagValue[imageTokenJsonKey]];
-            
                 if(imageBlob){
                     var imgBlob = removeBlobPrefix(ImageContentBlob[tagValue[imageTokenJsonKey]]);
                     if(imgBlob)
@@ -27,7 +26,7 @@ function processImageTokenData(docXTokenData, action) {
                 } else
                     return '';
             }
-            
+
             opts.getSize=function(img, tagValue, tagName) {
                 if(ImageSizeMap[tagValue[imageTokenJsonKey]] == undefined) {
                     return [0, 0];
@@ -82,34 +81,44 @@ function processImageTokenData(docXTokenData, action) {
             return null;
         }
 
-        function fetchImageContent(urls) {
-            Promise.all(urls.map(url => fetch(url))).then(responses => 
+        function fetchImageContent(urls, onComplete) {
+            Promise.all(urls.map(url => fetch(url))).then(responses =>
                 Promise.all(responses.map(res => res.blob()))
             ).then(imageBlobs => {
                 var i = 0;
                 var size = urls.length;
                 urls.forEach(url => {
                     var reader = new FileReader();
-                    reader.readAsDataURL(imageBlobs[i++]); 
+                    reader.readAsDataURL(imageBlobs[i++]);
                     reader.onloadend = function() {
                        ImageContentBlob[url] = reader.result;
                         size = size -1;
                         if(size === 0) {
-                            Promise.all(Object.keys(ImageContentBlob).map(key => getImageSize(key, ImageContentBlob[key])))
+                            var urlKeys = Object.keys(ImageContentBlob).filter(function(k) { return urls.indexOf(k) >= 0; });
+                            Promise.all(urlKeys.map(key => getImageSize(key, ImageContentBlob[key])))
                                 .then(imageDimensions => {
                                 imageDimensions.forEach(dimension => {
                                     ImageSizeMap = deepmerge(ImageSizeMap, dimension)
                                 })
-                                // BUG FIX: Module is created only after all data  populated.
-                                var imageModule = processImageModule();
-                                var result = {
-                                    'imageModule': imageModule
+                                if(onComplete) {
+                                    onComplete();
+                                } else {
+                                    var imageModule = processImageModule();
+                                    resolve({ 'imageModule': imageModule });
                                 }
-                                resolve(result);
-                            }); 
+                            }).catch(error => {
+                                if(onComplete) { onComplete([{ showToUser: false, message: error.message }]); } else { reject(error); }
+                            });
                         }
                     }
                 });
+            }).catch(error => {
+                console.error('error fetching static resource images: ', error);
+                if(onComplete) {
+                    onComplete([{ showToUser: false, message: error.message }]);
+                } else {
+                    reject(error);
+                }
             });
         }
 
@@ -120,11 +129,14 @@ function processImageTokenData(docXTokenData, action) {
                     var imageSize = {};
                     imageSize.height = image.height;
                     imageSize.width = image.width;
-                    
+
                     var result = {};
                     result[imageUrl] = imageSize;
-                    
+
                     resolve(result);
+                };
+                image.onerror = function() {
+                    reject(new Error('Failed to load image: ' + imageUrl));
                 };
                 image.src = dataUri;
             });
@@ -136,7 +148,7 @@ function processImageTokenData(docXTokenData, action) {
             } else return '';
         }
 
-        function getImageContent(idList) {
+        function getImageContent(idList, onComplete) {
             if(typeof action === 'function') {
                 let inputMap = {'imageKeyList':idList};
 
@@ -148,9 +160,9 @@ function processImageTokenData(docXTokenData, action) {
                     optionsMap: dataMap.optionsMap
                 };
 
-                action(dataMapValue).then(function(result){    
-                    if(!result.error) { 
-                        processImageBlobResults(result.result, idList);
+                action(dataMapValue).then(function(result){
+                    if(!result.error) {
+                        processImageBlobResults(result.result, idList, onComplete);
                     } else {
                         let errorMessage = `${result.result.error}`;
                         let error = {
@@ -158,17 +170,17 @@ function processImageTokenData(docXTokenData, action) {
                             message: errorMessage
                         };
                         console.error('error: ', error);
-                        reject(error);
-                    }    
+                        if(onComplete) { onComplete([error]); } else { reject(error); }
+                    }
                 }).catch(error => {
                     console.error('error: ', error);
-                    reject(error);
+                    if(onComplete) { onComplete([error]); } else { reject(error); }
                   });
             }
             else {
                 action.getImageContent(idList).then(function(result) {
-                    if(!result.error) { 
-                        processImageBlobResults(result, idList);
+                    if(!result.error) {
+                        processImageBlobResults(result, idList, onComplete);
                     } else{
                         let errorMessage = `${result.result.error}`;
                         let error = {
@@ -176,8 +188,8 @@ function processImageTokenData(docXTokenData, action) {
                             message: errorMessage
                         };
                         console.error('error: ', error);
-                        reject(error);
-                    } 
+                        if(onComplete) { onComplete([error]); } else { reject(error); }
+                    }
                 }, function(error) {
                     console.error('error: ', error);
                     let errorMessage = `${error.message}`;
@@ -185,10 +197,10 @@ function processImageTokenData(docXTokenData, action) {
                         showToUser:true,
                         message: errorMessage
                     };
-                    reject(errorDetails);
+                    if(onComplete) { onComplete([errorDetails]); } else { reject(errorDetails); }
                 }).catch(error => {
                     console.error('error: ', error);
-                    reject(error);
+                    if(onComplete) { onComplete([error]); } else { reject(error); }
                   });
             }
         }
@@ -197,9 +209,9 @@ function processImageTokenData(docXTokenData, action) {
             //var imageTokenFilterList = [];
             for(var token in tokenData) {
                 if(token.startsWith('IMG_')){
-                    // get url of each IMG_Token 
+                    // get url of each IMG_Token
                     if(values.indexOf(tokenData[token][imageTokenJsonKey]) >= 0) {
-                        delete tokenData[token]; 
+                        delete tokenData[token];
                     }
                 }
                 else if(Array.isArray(tokenData[token])){
@@ -216,18 +228,18 @@ function processImageTokenData(docXTokenData, action) {
             }
         }
 
-        function processImageBlobResults(result, idList) {
+        function processImageBlobResults(result, idList, onComplete) {
             console.log('### getImageContent response: ', result);
             if(result.invalidIds) {
                 deleteTokensWithInvalidId(docXTokenData, result.invalidIds);
             }
-                
+
             if(result.imageContentMap)
                 ImageContentBlob = deepmerge(ImageContentBlob, result.imageContentMap);
-            
+
             if(result.hasMoreData) {
                 var imagesLeft = idList.slice(result.nextChunkStartIndex);
-                getImageContent(imagesLeft);
+                getImageContent(imagesLeft, onComplete);
             } else {
                 var errors = [];
 
@@ -236,8 +248,9 @@ function processImageTokenData(docXTokenData, action) {
                     error.showToUser = true
                     errors.push(error);
                 }
-                
-                Promise.allSettled(Object.keys(ImageContentBlob).map(key => getImageSize(key, ImageContentBlob[key]))).then(function(imageDimensions) { 
+
+                var idKeys = Object.keys(ImageContentBlob).filter(function(k) { return !isStaticResourceUrl(k); });
+                Promise.allSettled(idKeys.map(key => getImageSize(key, ImageContentBlob[key]))).then(function(imageDimensions) {
                     imageDimensions.forEach(dimension => {
                         if(dimension.reason) {
                             errors.push(dimension.reason);
@@ -245,18 +258,17 @@ function processImageTokenData(docXTokenData, action) {
                             ImageSizeMap = deepmerge(ImageSizeMap, dimension.value);
                     })
 
-                    // FIX: Module is created only after all data is populated.
-                    var imageModule = processImageModule();
-                    var resultObj = { 
-                        'imageModule': imageModule 
-                    };
-                    
-                    if(errors.length)
-                    {
-                        console.error('error: ', errors);
-                        resultObj.errors = errors;
+                    if(onComplete) {
+                        onComplete(errors.length ? errors : null);
+                    } else {
+                        var imageModule = processImageModule();
+                        var resultObj = { 'imageModule': imageModule };
+                        if(errors.length) {
+                            console.error('error: ', errors);
+                            resultObj.errors = errors;
+                        }
+                        resolve(resultObj);
                     }
-                    resolve(resultObj);
                 })
             }
         }
@@ -288,12 +300,33 @@ function processImageTokenData(docXTokenData, action) {
             resolve(true);
             return;
         }
-        
-        if(isStaticResourceUrl(imageTokenList[0])) {
-            var urls = [...new Set(imageTokenList)];
+
+        var urls = [...new Set(imageTokenList.filter(item => isStaticResourceUrl(item)))];
+        var idList = [...new Set(imageTokenList.filter(item => !isStaticResourceUrl(item)))];
+
+        if(urls.length > 0 && idList.length > 0) {
+            // Handle mixed image sources (static resources + IDs) in parallel
+            var pendingHandlers = 2;
+            var mixedErrors = [];
+
+            var onHandlerComplete = function(errors) {
+                if(errors && errors.length) { mixedErrors = mixedErrors.concat(errors); }
+                pendingHandlers--;
+                if(pendingHandlers === 0) {
+                    var resultObj = { 'imageModule': processImageModule() };
+                    if(mixedErrors.length) {
+                        console.error('error: ', mixedErrors);
+                        resultObj.errors = mixedErrors;
+                    }
+                    resolve(resultObj);
+                }
+            }
+
+            fetchImageContent(urls, onHandlerComplete);
+            getImageContent(idList, onHandlerComplete);
+        } else if(urls.length > 0) {
             fetchImageContent(urls);
         } else {
-            var idList = [...new Set(imageTokenList)];
             getImageContent(idList);
         }
     });
