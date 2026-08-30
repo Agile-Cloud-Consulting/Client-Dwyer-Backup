@@ -24,7 +24,7 @@
   </body>
   <script>
     (function () {
-      let url = '{!$CurrentPage.URL}';
+      let url = '{!JSENCODE($CurrentPage.URL)}';
       let flexCardIds = getUrlParam(url, 'id');
       let deploybulk = getUrlParam(url, 'deploybulk');
       window.addEventListener("message", receiveMessage, false);
@@ -39,7 +39,7 @@
           }
           renderLoader(true);
           componentLoading = true;
-          let orgNamespace = '{!namespace}';
+          let orgNamespace = '{!JSENCODE(namespace)}';
           orgNamespace = orgNamespace ? orgNamespace : 'c';
           $Lightning.use(orgNamespace + ':ltngOutAppSupport', function () {
             $Lightning.createComponent(`${orgNamespace ? orgNamespace : 'c'}:flexCardCompile`,

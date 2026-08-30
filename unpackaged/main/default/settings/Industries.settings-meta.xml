@@ -10,6 +10,7 @@
     <enableAccountScoreEnabled>false</enableAccountScoreEnabled>
     <enableActionPlanTaskComment>false</enableActionPlanTaskComment>
     <enableActionableList>false</enableActionableList>
+    <enableActionableListDMO>false</enableActionableListDMO>
     <enableAlumniRelations>true</enableAlumniRelations>
     <enableAnyResourceTypeOrgPref>false</enableAnyResourceTypeOrgPref>
     <enableAppFrmAnywhereOrgPref>true</enableAppFrmAnywhereOrgPref>

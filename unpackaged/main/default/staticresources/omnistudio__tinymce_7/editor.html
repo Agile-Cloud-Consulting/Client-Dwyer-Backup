@@ -113,66 +113,40 @@
                         config.setupConfig.forEach(config => {
                             if (config.type === "addMenuButton") {
                                 if (config.menufn === "insertHtml") {
-                                    if (config.items && config.items.length > 0) {
-                                        if(config.name === "customstyles") {
-                                            editor.ui.registry.addMenuButton('customstyles', {
-                                                text: 'Block Type',
-                                                fetch(callback) {
-                                                    const items = staticStylesFormat.map(styleFormat => {
-                                                        return {
-                                                            type: 'nestedmenuitem',
-                                                            text: styleFormat.title,
-                                                            getSubmenuItems: () => styleFormat.items.map(item => {
-                                                                const it = {
-                                                                    type: 'menuitem',
-                                                                    text: item.title,
-                                                                    onAction() {
-                                                                        changeBlockType(item.format ? item.format : item.block, item.title);
-                                                                    }
-                                                                };
-                                                                const format = (item.format ? item.format : item.block).toLowerCase();
-                                                                const selectedBlock = editor.selection.getSelectedBlocks()[0].localName.toLowerCase();
-                                                                if (format === selectedBlock) {
-                                                                    it.icon = "checkmark";
+                                    if(config.name === "customstyles") {
+                                        editor.ui.registry.addMenuButton('customstyles', {
+                                            text: 'Block Type',
+                                            fetch(callback) {
+                                                const items = staticStylesFormat.map(styleFormat => {
+                                                    return {
+                                                        type: 'nestedmenuitem',
+                                                        text: styleFormat.title,
+                                                        getSubmenuItems: () => styleFormat.items.map(item => {
+                                                            const it = {
+                                                                type: 'menuitem',
+                                                                text: item.title,
+                                                                onAction() {
+                                                                    changeBlockType(item.format ? item.format : item.block, item.title);
                                                                 }
-                                                                return it;
-                                                            })
-                                                        };
-                                                    });
-                                                    callback(items);
-                                                },
-                                                onSetup(api) {
-                                                    function updateLabel() {
-                                                        const selectedBlock = editor.selection.getSelectedBlocks()[0];
-                                                        let label = 'Block Type';
-                                                        if (selectedBlock) {
-                                                            const tag = selectedBlock.localName.toLowerCase();
-                                                            // Map tag to label
-                                                            const allItems = staticStylesFormat.flatMap(group => group.items);
-                                                            const found = allItems.find(item => {
-                                                                const format = (item.format ? item.format : item.block).toLowerCase();
-                                                                return format === tag;
-                                                            });
-                                                            if (found) {
-                                                                label = found.title;
+                                                            };
+                                                            const format = (item.format ? item.format : item.block).toLowerCase();
+                                                            const selectedBlock = editor.selection.getSelectedBlocks()[0].localName.toLowerCase();
+                                                            if (format === selectedBlock) {
+                                                                it.icon = "checkmark";
                                                             }
-                                                        }
-                                                        api.setText(label);
-                                                    }
-                                                    editor.on('NodeChange', updateLabel);
-                                                    // Set initial label
-                                                    updateLabel();
-                                                    return function cleanup() {
-                                                        editor.off('NodeChange', updateLabel);
+                                                            return it;
+                                                        })
                                                     };
-                                                }
-                                            });
-                                        }
-                                        else {
-                                            editor.ui.registry.addMenuButton(config.name, {
-                                                text: config.text,
-                                                fetch: function (callback) {
-                                                    let items = [];
+                                                });
+                                                callback(items);
+                                            }
+                                        });
+                                    } else {
+                                        editor.ui.registry.addMenuButton(config.name, {
+                                            text: config.text,
+                                            fetch: function (callback) {
+                                                let items = [];
+                                                if (config.items && config.items.length > 0) {
                                                     config.items.forEach(item => {
                                                         items.push({
                                                             type: item.type,
@@ -180,12 +154,12 @@
                                                             onAction: function () {
                                                                 editor.insertContent(item.html);
                                                             }
-                                                        })
+                                                        });
                                                     });
-                                                    callback(items);
                                                 }
-                                            });
-                                        }
+                                                callback(items);
+                                            }
+                                        });
                                     }
                                 } else if(config.menufn === "classtoggle") {
                                     editor.ui.registry.addMenuButton(config.name, {

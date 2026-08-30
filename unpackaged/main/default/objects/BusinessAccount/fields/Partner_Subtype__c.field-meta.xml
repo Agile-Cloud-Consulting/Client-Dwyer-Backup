@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Partner_Subtype__c</fullName>
+    <label>Partner Subtype</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <controllingField>Partner_Type__c</controllingField>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Non Profit</fullName>
+                <default>false</default>
+                <label>Non Profit</label>
+            </value>
+            <value>
+                <fullName>Faith Based</fullName>
+                <default>false</default>
+                <label>Faith Based</label>
+            </value>
+            <value>
+                <fullName>Transportation</fullName>
+                <default>false</default>
+                <label>Transportation</label>
+            </value>
+            <value>
+                <fullName>Medical Care</fullName>
+                <default>false</default>
+                <label>Medical Care</label>
+            </value>
+            <value>
+                <fullName>Drug Testing</fullName>
+                <default>false</default>
+                <label>Drug Testing</label>
+            </value>
+            <value>
+                <fullName>Child Care</fullName>
+                <default>false</default>
+                <label>Child Care</label>
+            </value>
+            <value>
+                <fullName>High School</fullName>
+                <default>false</default>
+                <label>High School</label>
+            </value>
+            <value>
+                <fullName>Trade Schools</fullName>
+                <default>false</default>
+                <label>Trade Schools</label>
+            </value>
+            <value>
+                <fullName>College/University</fullName>
+                <default>false</default>
+                <label>College/University</label>
+            </value>
+            <value>
+                <fullName>Skilled Nursing Facilities (SNFs)</fullName>
+                <default>false</default>
+                <label>Skilled Nursing Facilities (SNFs)</label>
+            </value>
+            <value>
+                <fullName>Doctor&#39;s Offices</fullName>
+                <default>false</default>
+                <label>Doctor&#39;s Offices</label>
+            </value>
+            <value>
+                <fullName>Home Health</fullName>
+                <default>false</default>
+                <label>Home Health</label>
+            </value>
+            <value>
+                <fullName>Hospitals</fullName>
+                <default>false</default>
+                <label>Hospitals</label>
+            </value>
+            <value>
+                <fullName>Clinics</fullName>
+                <default>false</default>
+                <label>Clinics</label>
+            </value>
+            <value>
+                <fullName>Labs</fullName>
+                <default>false</default>
+                <label>Labs</label>
+            </value>
+            <value>
+                <fullName>Mobile Labs</fullName>
+                <default>false</default>
+                <label>Mobile Labs</label>
+            </value>
+            <value>
+                <fullName>Memory Care</fullName>
+                <default>false</default>
+                <label>Memory Care</label>
+            </value>
+            <value>
+                <fullName>Hospice</fullName>
+                <default>false</default>
+                <label>Hospice</label>
+            </value>
+            <value>
+                <fullName>Federal</fullName>
+                <default>false</default>
+                <label>Federal</label>
+            </value>
+            <value>
+                <fullName>State</fullName>
+                <default>false</default>
+                <label>State</label>
+            </value>
+            <value>
+                <fullName>County</fullName>
+                <default>false</default>
+                <label>County</label>
+            </value>
+            <value>
+                <fullName>City</fullName>
+                <default>false</default>
+                <label>City</label>
+            </value>
+        </valueSetDefinition>
+        <valueSettings>
+            <controllingFieldValue>CBO</controllingFieldValue>
+            <valueName>Non Profit</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>CBO</controllingFieldValue>
+            <valueName>Faith Based</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Vendor</controllingFieldValue>
+            <valueName>Transportation</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Vendor</controllingFieldValue>
+            <valueName>Medical Care</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Vendor</controllingFieldValue>
+            <valueName>Drug Testing</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Vendor</controllingFieldValue>
+            <valueName>Child Care</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Trainer</controllingFieldValue>
+            <valueName>High School</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Trainer</controllingFieldValue>
+            <valueName>Trade Schools</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Trainer</controllingFieldValue>
+            <valueName>College/University</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Employer</controllingFieldValue>
+            <valueName>Skilled Nursing Facilities (SNFs)</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Employer</controllingFieldValue>
+            <valueName>Doctor&#39;s Offices</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Employer</controllingFieldValue>
+            <valueName>Home Health</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Employer</controllingFieldValue>
+            <valueName>Hospitals</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Employer</controllingFieldValue>
+            <valueName>Clinics</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Employer</controllingFieldValue>
+            <valueName>Labs</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Employer</controllingFieldValue>
+            <valueName>Mobile Labs</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Employer</controllingFieldValue>
+            <valueName>Memory Care</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Employer</controllingFieldValue>
+            <valueName>Hospice</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Government Organization</controllingFieldValue>
+            <valueName>Federal</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Government Organization</controllingFieldValue>
+            <valueName>State</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Government Organization</controllingFieldValue>
+            <valueName>County</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Government Organization</controllingFieldValue>
+            <valueName>City</valueName>
+        </valueSettings>
+    </valueSet>
+</CustomField>

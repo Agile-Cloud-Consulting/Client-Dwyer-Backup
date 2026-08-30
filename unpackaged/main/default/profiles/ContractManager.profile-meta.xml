@@ -4724,6 +4724,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>DocumentChecklistItem.Comments</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>DocumentChecklistItem.Instruction</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -4745,6 +4750,16 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>DocumentChecklistItem.UploadedById</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>DocumentChecklistItem.ValidatedById</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>DocumentChecklistItem.ValidationDateTime</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -7089,7 +7104,42 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>PartyExpense.ApprovedRecordId</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>PartyExpense.VerifiedById</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>PartyFinancialAsset.ApprovedRecordId</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>PartyFinancialAsset.VerifiedById</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>PartyIncome.ApprovedRecordId</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>PartyIncome.VerifiedById</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>PartyProfile.AccountId</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>PartyProfile.ApplicantId</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -7115,11 +7165,6 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>PartyProfile.BusinessEntityIncNumber</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>PartyProfile.BusinessEntityName</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -7189,6 +7234,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>PartyProfile.EndDate</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>PartyProfile.Ethnicity</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -7230,6 +7280,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>PartyProfile.IsBusEntyListonStockExch</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>PartyProfile.IsDisabled</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -7324,6 +7379,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>PartyProfile.Race</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>PartyProfile.RelatedPartyProfileId</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -7340,6 +7400,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>PartyProfile.Stage</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>PartyProfile.StartDate</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -7370,6 +7435,46 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>PartyProfile.Type</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>PartyProfileAddress.AddressType</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>PartyProfileAddress.ApprovedRecordId</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>PartyProfileAddress.IsPrimaryAddress</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>PartyProfileAddress.PartyId</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>PartyProfileAddress.PartyProfileId</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>PartyProfileAddress.ValidityEndDate</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>PartyProfileAddress.ValidityStartDate</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>PartyProfileAddress.VerifiedById</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -7600,6 +7705,21 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>PaymentRequestLine.UnitPrice</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>PersonDisability.ApprovedRecordId</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>PersonDisability.VerificationStatus</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>PersonDisability.VerifyingUserId</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -10716,6 +10836,15 @@
         <flow>EDU_Admissions_Update_IAT_Status_According_to_Recommendation</flow>
     </flowAccesses>
     <layoutAssignments>
+        <layout>AcademicRole-Academic Role Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>AcademicRoleMapping-Academic Role Mapping Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>AcademicTarget-Academic Target Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>AccountTeamMember-Account Team Member Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
@@ -10740,10 +10869,22 @@
         <layout>ApplicationSubtypeDefinition-Application Subtype Definition Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
+        <layout>AttendancePolicy-Attendance Policy Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>AttendancePolicySourceType-Attendance Policy Source Type Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>AttendanceSourceData-Attendance Source Data Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>BusinessProcessTypeDef-Business Process Type Definition Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>CEC_Assignment__mdt-CEC Assignment Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>DesignatedContactAssignment-Designated Contact Assignment Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>DocumentType-Document Type Layout</layout>
@@ -10768,6 +10909,12 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>InterestTag-Interest Tag Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>LearnerAchievement-Learner Achievement Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>LearnerAchievementMethod-Learner Achievement Method Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>LearningAchievementConfig-Learning Achievement Configuration Layout</layout>
@@ -10799,6 +10946,9 @@
     <layoutAssignments>
         <layout>Opportunity-Opportunity Layout</layout>
         <recordType>Opportunity.Partner_Expansion_Amendment</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>PartyProfileAddress-Party Profile Address</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>PersonAccount-Person Account Layout</layout>

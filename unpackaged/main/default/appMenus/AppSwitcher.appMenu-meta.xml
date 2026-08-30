@@ -264,4 +264,8 @@
         <name>Base_Utilities</name>
         <type>CustomApplication</type>
     </appMenuItems>
+    <appMenuItems>
+        <name>standard__OEConsole</name>
+        <type>CustomApplication</type>
+    </appMenuItems>
 </AppMenu>

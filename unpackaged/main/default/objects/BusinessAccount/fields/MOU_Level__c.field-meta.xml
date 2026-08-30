@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>MOU_Level__c</fullName>
+    <description>DWDECI-43. Indicates whether this Partner papers its MOU at the Corporate Level or Per Facility. Read by the Opportunity - On Create - Default MOU Requirement flow, and cascaded down to child Accounts by the Account - On Edit - Cascade MOU Level flow when set to Corporate Level.</description>
+    <label>MOU Level</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Corporate Level</fullName>
+                <default>false</default>
+                <label>Corporate Level</label>
+            </value>
+            <value>
+                <fullName>Per Facility</fullName>
+                <default>false</default>
+                <label>Per Facility</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

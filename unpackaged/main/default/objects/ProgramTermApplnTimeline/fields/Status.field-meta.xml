@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Status</fullName>
+    <inlineHelpText>Specifies the lifecycle status of the Application Timeline. Only Active timelines accept new applications. For example, Draft, Active, Closed, Archived, or Canceled.</inlineHelpText>
+    <trackHistory>false</trackHistory>
+</CustomField>

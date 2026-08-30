@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Sensitive_Inbound_Details__c</fullName>
+    <description>DWDECI-37. Manually-entered sensitive inbound information from this Partner. FLS = no access on all profiles by default (including System Administrator, per Metadata API behavior for new fields). Read/Edit only via the DWD_Sensitive_Partner_Data permission set, assigned to Support &amp; Intervention Services roles and Rachel Foster per the Security Model Workbook.</description>
+    <label>Sensitive Inbound Details</label>
+    <length>32768</length>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>LongTextArea</type>
+    <visibleLines>10</visibleLines>
+</CustomField>
