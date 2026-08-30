@@ -130,11 +130,16 @@
     <enableFeeds>false</enableFeeds>
     <externalSharingModel>Private</externalSharingModel>
     <searchLayouts>
-        <customTabListAdditionalFields>RoleName</customTabListAdditionalFields>
-        <customTabListAdditionalFields>RelatedRoleName</customTabListAdditionalFields>
-        <customTabListAdditionalFields>RelationshipObjectName</customTabListAdditionalFields>
-        <customTabListAdditionalFields>ShouldCreaInversRoleAuto</customTabListAdditionalFields>
-        <customTabListAdditionalFields>RelatedInverseRecord</customTabListAdditionalFields>
+        <lookupDialogsAdditionalFields>RoleName</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>RelatedRoleName</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>RelationshipObjectName</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>ShouldCreaInversRoleAuto</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>RelatedInverseRecord</lookupDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>RoleName</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>RelatedRoleName</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>RelationshipObjectName</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>ShouldCreaInversRoleAuto</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>RelatedInverseRecord</lookupPhoneDialogsAdditionalFields>
         <searchResultsAdditionalFields>RoleName</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>RelatedRoleName</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>RelationshipObjectName</searchResultsAdditionalFields>

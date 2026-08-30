@@ -8,9 +8,7 @@
            cache="false"
            controller="omnistudio.AccessTokenController">
 
-    <html xmlns="http://www.w3.org/2000/svg"
-          xmlns:xlink="http://www.w3.org/1999/xlink"
-          lang="en">
+    <html lang="en">
 
     <head>
         <meta http-equiv="x-ua-compatible"
@@ -26,15 +24,14 @@
         <p id="operation-message"></p>
 
         <script type="text/javascript">
-            let url = location.href.split('/apex/'); 
+            let url = location.href.split('/apex/');
             window.conn = new jsforce.Connection({ accessToken: '{!vlocAccessToken}', version: '37.0', instanceUrl : url[0]});
             console.log('docgenFileUtilVF initialized:'+url[0]);
-            //conn.metadata.pollTimeout = 600000;  // 10 minute polling timeout
             const POST_MESSAGE_KEY = '{!JSENCODE($CurrentPage.parameters.postmessagekey)}';
             const messageEl = document.getElementById('operation-message');
             const GET_CONTENT_VERSION_OPERATION = 'GET_CONTENT_VERSION';
             const SAVE_CONTENT_VERSION_OPERATION = 'SAVE_CONTENT_VERSION';
-            
+
             window.addEventListener("message", (event) => {
                 console.log('docgenFileUtilVF event.origin:'+ event.origin);
                 if (event.data.key === POST_MESSAGE_KEY) {
@@ -43,11 +40,20 @@
                     } else if (event.data.operation === SAVE_CONTENT_VERSION_OPERATION) {
                         startSaveContentVersionViaJSForce(event.data);
                     } else {
-                        console.log('Invalid operation:'+event.data.operation);
-                        console.log(event.data);
+                        console.error('DocGenFileUtil: Invalid operation:'+event.data.operation);
                     }
                 }
             });
+
+            // Handshake: signal parent LWC that message listener is registered and ready.
+            // This prevents race conditions caused by LWS src pre-flight (core 264+) which
+            // can clear/rewrite same-origin iframe src, causing the parent to send postMessages
+            // before this page's listener is active. The parent waits for this VF_READY signal
+            // before sending any operations.
+            window.parent.postMessage({
+                key: POST_MESSAGE_KEY,
+                operation: 'VF_READY'
+            }, '*');
 
             function startGetContentVersionViaJSForce(data){
                 // Validate fetch payload to be string only
@@ -65,14 +71,12 @@
                 }
                 
                 window.conn.sobject('ContentVersion').retrieve(data.payload, function(err, response) {
-                    console.log('CV');
                     let CV = response;
                     if(Array.isArray(response)) { //response sometimes returns an array
                         CV = response[0];
                     }
-                    console.log(CV)
-                    if (err) { 
-                        console.error('Failed to get content version:'+data.payload);
+                    if (err) {
+                        console.error('DocGenFileUtil: Failed to get content version');
                         console.error(err);
                     }
 
@@ -81,7 +85,7 @@
                         CV.VersionData = base64Data;
                         postBackResponse(data.operation, CV);
                     }).catch(error => {
-                        console.log(error);
+                        console.error(error);
                     });
                 });
             }
@@ -104,8 +108,8 @@
                 
                 // proceed with sanitised payload
                 window.conn.sobject('ContentVersion').create(sanitizedPayload, function(err, ret) {
-                    if (err || !ret.success) { 
-                        console.error('Failed to save content version:'+data.payload);
+                    if (err || !ret.success) {
+                        console.error('DocGenFileUtil: Failed to save content version');
                         console.error(err);
                     }
                     postBackResponse(data.operation, ret);

@@ -173,6 +173,11 @@
         <visible>true</visible>
     </applicationVisibilities>
     <applicationVisibilities>
+        <application>standard__OEConsole</application>
+        <default>false</default>
+        <visible>true</visible>
+    </applicationVisibilities>
+    <applicationVisibilities>
         <application>standard__OnlineSales</application>
         <default>false</default>
         <visible>false</visible>
@@ -2724,6 +2729,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>DocumentChecklistItem.Comments</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>DocumentChecklistItem.Instruction</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -2745,6 +2755,16 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>DocumentChecklistItem.UploadedById</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>DocumentChecklistItem.ValidatedById</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>DocumentChecklistItem.ValidationDateTime</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -7686,7 +7706,16 @@
         <layout>AcademicReviewRequestItem-Academic Review Request Item Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
+        <layout>AcademicRole-Academic Role Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>AcademicRoleMapping-Academic Role Mapping Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>AcademicSession-Academic Session Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>AcademicTarget-Academic Target Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>AcademicTerm-Academic Term Layout</layout>
@@ -7835,6 +7864,15 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>AssignedResource-Assigned Resource Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>AttendancePolicy-Attendance Policy Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>AttendancePolicySourceType-Attendance Policy Source Type Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>AttendanceSourceData-Attendance Source Data Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>AuthorizationForm-Authorization Form Layout</layout>
@@ -8106,6 +8144,9 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>DelegatedAccount-External Managed Account Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>DesignatedContactAssignment-Designated Contact Assignment Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Disclosure-Disclosure Layout</layout>
@@ -8386,6 +8427,12 @@
         <layout>Lead-Lead Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
+        <layout>LearnerAchievement-Learner Achievement Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>LearnerAchievementMethod-Learner Achievement Method Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>LearnerPathway-Learner Pathway Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
@@ -8549,6 +8596,9 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>PartyProfile-Party Profile</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>PartyProfileAddress-Party Profile Address</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>PartyRelationshipGroup-Party Relationship Group Layout</layout>

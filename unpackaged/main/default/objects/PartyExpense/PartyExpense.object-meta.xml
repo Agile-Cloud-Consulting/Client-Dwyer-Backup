@@ -133,9 +133,13 @@
         <customTabListAdditionalFields>Party</customTabListAdditionalFields>
         <customTabListAdditionalFields>TotalAmount</customTabListAdditionalFields>
         <customTabListAdditionalFields>Type</customTabListAdditionalFields>
+        <customTabListAdditionalFields>StartDateTime</customTabListAdditionalFields>
+        <customTabListAdditionalFields>EndDateTime</customTabListAdditionalFields>
         <searchResultsAdditionalFields>Party</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>TotalAmount</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>Type</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>StartDateTime</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>EndDateTime</searchResultsAdditionalFields>
     </searchLayouts>
     <sharingModel>Private</sharingModel>
 </CustomObject>

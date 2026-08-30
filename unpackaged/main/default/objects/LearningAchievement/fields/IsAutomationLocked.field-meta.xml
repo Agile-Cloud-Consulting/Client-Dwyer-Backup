@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>IsAutomationLocked</fullName>
+    <inlineHelpText>Indicates whether the learning achievement is locked due to process dependencies (true) or not (false).</inlineHelpText>
+    <trackHistory>false</trackHistory>
+</CustomField>

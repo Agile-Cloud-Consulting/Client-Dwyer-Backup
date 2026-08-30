@@ -132,8 +132,17 @@
     <searchLayouts>
         <customTabListAdditionalFields>Party</customTabListAdditionalFields>
         <customTabListAdditionalFields>IncomeAmount</customTabListAdditionalFields>
+        <customTabListAdditionalFields>IncomeStatus</customTabListAdditionalFields>
+        <lookupDialogsAdditionalFields>Party</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>IncomeAmount</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>IncomeStatus</lookupDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Party</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>IncomeAmount</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>IncomeStatus</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>EmployerPhone</lookupPhoneDialogsAdditionalFields>
         <searchResultsAdditionalFields>Party</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>IncomeAmount</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>IncomeStatus</searchResultsAdditionalFields>
     </searchLayouts>
     <sharingModel>Private</sharingModel>
 </CustomObject>

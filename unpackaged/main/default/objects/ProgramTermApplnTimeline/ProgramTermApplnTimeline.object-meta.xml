@@ -134,18 +134,22 @@
         <customTabListAdditionalFields>ApplicationTimeline</customTabListAdditionalFields>
         <customTabListAdditionalFields>AcademicTerm</customTabListAdditionalFields>
         <customTabListAdditionalFields>ActionPlanTemplateVersion</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Status</customTabListAdditionalFields>
         <lookupDialogsAdditionalFields>LearningProgram</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>ApplicationTimeline</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>AcademicTerm</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>ActionPlanTemplateVersion</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Status</lookupDialogsAdditionalFields>
         <lookupPhoneDialogsAdditionalFields>LearningProgram</lookupPhoneDialogsAdditionalFields>
         <lookupPhoneDialogsAdditionalFields>ApplicationTimeline</lookupPhoneDialogsAdditionalFields>
         <lookupPhoneDialogsAdditionalFields>AcademicTerm</lookupPhoneDialogsAdditionalFields>
         <lookupPhoneDialogsAdditionalFields>ActionPlanTemplateVersion</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Status</lookupPhoneDialogsAdditionalFields>
         <searchResultsAdditionalFields>LearningProgram</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>ApplicationTimeline</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>AcademicTerm</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>ActionPlanTemplateVersion</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Status</searchResultsAdditionalFields>
     </searchLayouts>
     <sharingModel>Read</sharingModel>
 </CustomObject>

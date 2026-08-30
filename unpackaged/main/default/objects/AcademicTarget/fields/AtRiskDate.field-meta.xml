@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>AtRiskDate</fullName>
+    <inlineHelpText>The date on which the Academic Target is considered at risk if the at-risk threshold hasn&#39;t been reached.</inlineHelpText>
+    <trackHistory>false</trackHistory>
+</CustomField>

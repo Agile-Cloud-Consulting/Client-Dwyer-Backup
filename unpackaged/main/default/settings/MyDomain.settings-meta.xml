@@ -18,7 +18,7 @@
     <enableShareBrowserSessionIOSForAuth>false</enableShareBrowserSessionIOSForAuth>
     <instancedUrlRedirectHandling>NoRedirect</instancedUrlRedirectHandling>
     <isFirstPartyCookieUseRequired>false</isFirstPartyCookieUseRequired>
-    <isIcorInstApiTrafficBlocked>false</isIcorInstApiTrafficBlocked>
+    <isIcorInstApiTrafficBlocked>true</isIcorInstApiTrafficBlocked>
     <isInstancedApiTrafficBlocked>true</isInstancedApiTrafficBlocked>
     <logRedirections>false</logRedirections>
     <myDomainName>dwyerworkforcedevelopmentedu</myDomainName>

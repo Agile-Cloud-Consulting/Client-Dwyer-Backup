@@ -3906,6 +3906,11 @@
         <visible>true</visible>
     </applicationVisibilities>
     <applicationVisibilities>
+        <application>standard__OEConsole</application>
+        <default>false</default>
+        <visible>true</visible>
+    </applicationVisibilities>
+    <applicationVisibilities>
         <application>standard__OnlineSales</application>
         <default>false</default>
         <visible>true</visible>
@@ -4210,6 +4215,21 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>AcademicSession.Type</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>AcademicTarget.AtRiskDate</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>AcademicTarget.AtRiskNumber</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>AcademicTarget.LearningProgramId</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -4994,6 +5014,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>ApplicationStageDefExt.Description</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>ApplicationStageDefinition.Description</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -5685,6 +5710,81 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>AssignedResource.Role</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>AttendanceEntry.ConfidenceScore</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>AttendanceEntry.CorrectedAt</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>AttendanceEntry.CorrectedById</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>AttendanceEntry.CorrectionReason</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>AttendanceEntry.IsActive</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>AttendanceEntry.IsArchived</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>AttendanceEntry.IsCountedTowardAbsence</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>AttendanceEntry.IsOverridden</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>AttendanceEntry.IsResolved</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>AttendanceEntry.ParentOrGuardianId</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>AttendanceRecording.CorrectionCount</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>AttendanceRecording.IsArchived</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>AttendanceRecording.IsSystemGenerated</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>AttendanceRecording.ResolutionTimestamp</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>AttendanceRecording.Status</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -8319,6 +8419,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>CourseCreditTransferAppln.Comment</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>CourseCreditTransferAppln.IndividualApplicationId</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -8419,6 +8524,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>CourseOffering.AttendancePolicyId</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>CourseOffering.Description</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -8434,7 +8544,17 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>CourseOffering.HasLimitedCapacity</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>CourseOffering.IsActive</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>CourseOffering.IsAlternativeGradeRelated</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -8809,12 +8929,52 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>DesignatedContactAssignment.Description</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>DesignatedContactAssignment.DesignatedContactEmail</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>DesignatedContactAssignment.DesignatedContactName</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>DesignatedContactAssignment.DesignatedContactPhone</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>DesignatedContactAssignment.EndDate</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>DesignatedContactAssignment.Priority</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>DesignatedContactAssignment.RelationshipId</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>DocTemplateSectionCondition.ConditionExpression</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>DocumentChecklistItem.AccountId</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>DocumentChecklistItem.Comments</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -8850,6 +9010,16 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>DocumentChecklistItem.UploadedById</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>DocumentChecklistItem.ValidatedById</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>DocumentChecklistItem.ValidationDateTime</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -10999,6 +11169,41 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>LearnerAchievement.AcademicPeriodId</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>LearnerAchievement.DurationUnit</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>LearnerAchievement.LetterGrade</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>LearnerAchievement.NumericGrade</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>LearnerAchievement.UnitsEarned</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>LearnerAchievementMethod.LearningOutcomeItemId</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>LearnerAchievementMethod.Reason</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>LearnerPathway.Description</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -11339,6 +11544,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>LearnerProgramRqmtProgress.LearnerAchievementId</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Learning.AcademicLevel</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -11355,6 +11565,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Learning.Category</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Learning.ChangeDescription</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -11399,12 +11614,37 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Learning.LearningSystemIdentifier</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Learning.PreviousLearningVerId</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Learning.ProviderId</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Learning.RevisedLearningVerId</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Learning.Status</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Learning.Type</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Learning.Version</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -11459,6 +11699,16 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>LearningCourse.AttendancePolicyId</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>LearningCourse.ChangeDescription</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>LearningCourse.CipCode</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -11509,6 +11759,16 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>LearningCourse.LearningSystemIdentifier</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>LearningCourse.PreviousLearningVerId</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>LearningCourse.Product2Id</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -11519,7 +11779,22 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>LearningCourse.RevisedLearningVerId</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>LearningCourse.Status</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>LearningCourse.SubjectAbbreviation</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>LearningCourse.Version</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -11670,6 +11945,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>LearningProgram.ActiveToDate</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>LearningProgram.AttendancePolicyId</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -12944,7 +13224,42 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>PartyExpense.ApprovedRecordId</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>PartyExpense.VerifiedById</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>PartyFinancialAsset.ApprovedRecordId</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>PartyFinancialAsset.VerifiedById</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>PartyIncome.ApprovedRecordId</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>PartyIncome.VerifiedById</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>PartyProfile.AccountId</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>PartyProfile.ApplicantId</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -13044,6 +13359,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>PartyProfile.EndDate</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>PartyProfile.Ethnicity</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -13085,6 +13405,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>PartyProfile.IsBusEntyListonStockExch</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>PartyProfile.IsDisabled</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -13179,6 +13504,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>PartyProfile.Race</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>PartyProfile.RelatedPartyProfileId</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -13195,6 +13525,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>PartyProfile.Stage</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>PartyProfile.StartDate</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -13225,6 +13560,46 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>PartyProfile.Type</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>PartyProfileAddress.AddressType</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>PartyProfileAddress.ApprovedRecordId</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>PartyProfileAddress.IsPrimaryAddress</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>PartyProfileAddress.PartyId</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>PartyProfileAddress.PartyProfileId</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>PartyProfileAddress.ValidityEndDate</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>PartyProfileAddress.ValidityStartDate</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>PartyProfileAddress.VerifiedById</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -13544,6 +13919,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>PersonDisability.ApprovedRecordId</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>PersonDisability.IndividualId</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -13574,12 +13954,22 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>PersonDisability.VerificationStatus</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>PersonDisability.VerifiedBy</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>PersonDisability.VerifiedByOther</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>PersonDisability.VerifyingUserId</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -17596,7 +17986,16 @@
         <layout>AcademicReviewRequestItem-Academic Review Request Item Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
+        <layout>AcademicRole-Academic Role Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>AcademicRoleMapping-Academic Role Mapping Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>AcademicSession-Academic Session Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>AcademicTarget-Academic Target Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>AcademicTerm-Academic Term Layout</layout>
@@ -17745,6 +18144,15 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>AssignedResource-Assigned Resource Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>AttendancePolicy-Attendance Policy Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>AttendancePolicySourceType-Attendance Policy Source Type Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>AttendanceSourceData-Attendance Source Data Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>AuthorizationForm-Authorization Form Layout</layout>
@@ -18016,6 +18424,9 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>DelegatedAccount-External Managed Account Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>DesignatedContactAssignment-Designated Contact Assignment Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Disclosure-Disclosure Layout</layout>
@@ -18296,6 +18707,12 @@
         <layout>Lead-Lead Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
+        <layout>LearnerAchievement-Learner Achievement Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>LearnerAchievementMethod-Learner Achievement Method Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>LearnerPathway-Learner Pathway Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
@@ -18459,6 +18876,9 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>PartyProfile-Party Profile</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>PartyProfileAddress-Party Profile Address</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>PartyRelationshipGroup-Party Relationship Group Layout</layout>

@@ -1,7 +1,7 @@
 {
   "name": "vlocityomnioutlwc",
   "description": "Vlocity OmniOut for LWC",
-  "version": "262.7.1",
+  "version": "264.2.0",
   "author": "Vlocity, Inc.",
   "license": "SEE LICENSE IN LICENSE.txt",
   "dependencies": {
@@ -17,12 +17,12 @@
     "cookie-parser": "^1.4.5",
     "request-promise": "^4.2.6",
     "querystring-es3": "^0.2.1",
-    "@omnistudio/sdk": "262.7.1",
-    "@omnistudio/resources": "262.7.1",
-    "@omnistudio/platform": "262.7.1",
-    "@omnistudio/components": "262.7.1",
-    "@omnistudio/cards": "262.7.1",
-    "@omnistudio/oui": "262.7.1"
+    "@omnistudio/sdk": "264.2.0",
+    "@omnistudio/resources": "264.2.0",
+    "@omnistudio/platform": "264.2.0",
+    "@omnistudio/components": "264.2.0",
+    "@omnistudio/cards": "264.2.0",
+    "@omnistudio/oui": "264.2.0"
   },
   "overrides": {
     "postcss": "8.4.31",

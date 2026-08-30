@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>IsArchived</fullName>
+    <inlineHelpText>Indicates whether the attendance recording is archived (true) or not (false).</inlineHelpText>
+    <trackHistory>false</trackHistory>
+</CustomField>
