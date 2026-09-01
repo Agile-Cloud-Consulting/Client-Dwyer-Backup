@@ -201,6 +201,15 @@
         <type>Flexipage</type>
         <profile>DWD Standard User</profile>
     </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Business_Account_LRP</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.Business_Account</recordType>
+        <type>Flexipage</type>
+        <profile>EDC Staff User</profile>
+    </profileActionOverrides>
     <tabs>standard-Account</tabs>
     <tabs>standard-RecordAlert</tabs>
     <tabs>standard-Referral</tabs>

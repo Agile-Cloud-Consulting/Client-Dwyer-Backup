@@ -6,6 +6,7 @@
     <permissionSets>CRED_Interactions_and_Interaction_Summaries</permissionSets>
     <permissionSets>CRED_Record_Alerts</permissionSets>
     <permissionSets>CRED_Referrals</permissionSets>
+    <permissionSets>CRED_Task_Event_Activities</permissionSets>
     <permissionSets>CRE_Accounts_Person_Account_Relationships_and_Affiliations</permissionSets>
     <permissionSets>CRE_Regions</permissionSets>
     <permissionSets>DWD_Action_Plan_Access</permissionSets>
