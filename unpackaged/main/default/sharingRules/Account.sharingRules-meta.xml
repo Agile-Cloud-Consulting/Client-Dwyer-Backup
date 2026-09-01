@@ -42,10 +42,10 @@
     </sharingCriteriaRules>
     <sharingCriteriaRules>
         <fullName>Share_all_business_accounts_internally</fullName>
-        <accessLevel>Edit</accessLevel>
+        <accessLevel>Read</accessLevel>
         <accountSettings>
             <caseAccessLevel>None</caseAccessLevel>
-            <contactAccessLevel>Edit</contactAccessLevel>
+            <contactAccessLevel>Read</contactAccessLevel>
             <opportunityAccessLevel>None</opportunityAccessLevel>
         </accountSettings>
         <label>Share all business accounts internally</label>
