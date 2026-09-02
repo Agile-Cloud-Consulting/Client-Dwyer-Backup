@@ -53,7 +53,7 @@
         <enforceIpRangesEveryRequest>false</enforceIpRangesEveryRequest>
         <enforceUserDeviceRevoked>false</enforceUserDeviceRevoked>
         <forceLogoutOnSessionTimeout>true</forceLogoutOnSessionTimeout>
-        <forceRelogin>true</forceRelogin>
+        <forceRelogin>false</forceRelogin>
         <grantCameraAccess>TrustedUrls</grantCameraAccess>
         <grantMicrophoneAccess>TrustedUrls</grantMicrophoneAccess>
         <hasRetainedLoginHints>false</hasRetainedLoginHints>

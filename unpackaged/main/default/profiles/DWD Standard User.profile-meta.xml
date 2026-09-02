@@ -3774,7 +3774,17 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Event.IsAllDayEvent</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Event.IsVisibleInSelfService</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Event.Location</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -6999,6 +7009,14 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>OmniScriptView-OmniScript Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Opportunity-Opportunity Layout</layout>
+        <recordType>Opportunity.Partner</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Opportunity-Partner Expansion Layout</layout>
+        <recordType>Opportunity.Partner_Expansion_Amendment</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>PartyProfileAddress-Party Profile Address</layout>
