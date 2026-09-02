@@ -7598,7 +7598,7 @@
         <recordType>Opportunity.Partner</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Opportunity-Opportunity Layout</layout>
+        <layout>Opportunity-Partner Expansion Layout</layout>
         <recordType>Opportunity.Partner_Expansion_Amendment</recordType>
     </layoutAssignments>
     <layoutAssignments>
