@@ -33,7 +33,6 @@
     <enableIncludeDisclaimerMessage>false</enableIncludeDisclaimerMessage>
     <enableInsights>true</enableInsights>
     <enableInsightsHCMode>false</enableInsightsHCMode>
-    <enableJoinedReportInDcrPref>false</enableJoinedReportInDcrPref>
     <enableLightningReportBuilder>true</enableLightningReportBuilder>
     <enableLotusNotesImages>false</enableLotusNotesImages>
     <enableMassEnableReportBuilder>true</enableMassEnableReportBuilder>
@@ -70,6 +69,7 @@
     <enableWaveIndexMVDim>false</enableWaveIndexMVDim>
     <enableWaveIndexMVDimV2>false</enableWaveIndexMVDimV2>
     <enableWaveRecordNavigation>false</enableWaveRecordNavigation>
+    <enableWaveReplication>true</enableWaveReplication>
     <enableWaveReplication>true</enableWaveReplication>
     <enableWaveSharingInheritance>true</enableWaveSharingInheritance>
     <enableWaveSqlCFIndexing>false</enableWaveSqlCFIndexing>
