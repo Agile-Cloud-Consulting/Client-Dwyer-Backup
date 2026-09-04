@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Scholar_Account__c</fullName>
+    <label>Scholar Account</label>
+    <lookupFilter>
+        <active>true</active>
+        <filterItems>
+            <field>Account.IsPersonAccount</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </filterItems>
+        <isOptional>false</isOptional>
+    </lookupFilter>
+    <referenceTo>Account</referenceTo>
+    <relationshipLabel>Affiliations</relationshipLabel>
+    <relationshipName>Scholar_Affiliations</relationshipName>
+    <relationshipOrder>0</relationshipOrder>
+    <reparentableMasterDetail>true</reparentableMasterDetail>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>MasterDetail</type>
+    <writeRequiresMasterRead>false</writeRequiresMasterRead>
+</CustomField>

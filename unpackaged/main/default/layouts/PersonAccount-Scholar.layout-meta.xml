@@ -545,6 +545,10 @@
         <fields>IssuerName</fields>
         <relatedList>RelatedPersonAcademicCredentialList</relatedList>
     </relatedLists>
+    <relatedLists>
+        <fields>NAME</fields>
+        <relatedList>Affiliation__c.Scholar_Account__c</relatedList>
+    </relatedLists>
     <showEmailCheckbox>false</showEmailCheckbox>
     <showHighlightsPanel>false</showHighlightsPanel>
     <showInteractionLogPanel>false</showInteractionLogPanel>

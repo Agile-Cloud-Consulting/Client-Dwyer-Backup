@@ -126,6 +126,14 @@
         <fields>Name</fields>
         <relatedList>Assessments</relatedList>
     </relatedLists>
+    <relatedLists>
+        <fields>Name</fields>
+        <fields>ParticipantContact</fields>
+        <fields>CourseOffering</fields>
+        <fields>ParticipantAffiliation</fields>
+        <fields>ParticipationStatus</fields>
+        <relatedList>CourseOfferingParticipant.Program_Enrollment__c</relatedList>
+    </relatedLists>
     <showEmailCheckbox>false</showEmailCheckbox>
     <showRunAssignmentRulesCheckbox>false</showRunAssignmentRulesCheckbox>
     <showSubmitAndAttachButton>false</showSubmitAndAttachButton>

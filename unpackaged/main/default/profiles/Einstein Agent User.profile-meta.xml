@@ -7523,6 +7523,9 @@
         <layout>ActionPlanTemplateVersion-Action Plan Template Version Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
+        <layout>Affiliation__c-Affiliation Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>ApplicationRecordTypeConfig-Application RecordType Config Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
@@ -9120,6 +9123,10 @@
         <recordType>Section__c.Top</recordType>
         <visible>false</visible>
     </recordTypeVisibilities>
+    <tabVisibilities>
+        <tab>Affiliation__c</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities>
     <tabVisibilities>
         <tab>Base_Utilities_Documentation</tab>
         <visibility>Hidden</visibility>

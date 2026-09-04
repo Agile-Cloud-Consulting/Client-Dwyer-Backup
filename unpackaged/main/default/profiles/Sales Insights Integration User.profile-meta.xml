@@ -42,6 +42,41 @@
         <default>false</default>
         <visible>false</visible>
     </applicationVisibilities>
+    <applicationVisibilities>
+        <application>standard__AllTabSet</application>
+        <default>true</default>
+        <visible>true</visible>
+    </applicationVisibilities>
+    <applicationVisibilities>
+        <application>standard__IndustriesEcm</application>
+        <default>false</default>
+        <visible>true</visible>
+    </applicationVisibilities>
+    <applicationVisibilities>
+        <application>standard__IndustriesEpc</application>
+        <default>false</default>
+        <visible>true</visible>
+    </applicationVisibilities>
+    <applicationVisibilities>
+        <application>standard__LightningSalesConsole</application>
+        <default>false</default>
+        <visible>true</visible>
+    </applicationVisibilities>
+    <applicationVisibilities>
+        <application>standard__OEConsole</application>
+        <default>false</default>
+        <visible>true</visible>
+    </applicationVisibilities>
+    <applicationVisibilities>
+        <application>standard__PardotAppV1</application>
+        <default>false</default>
+        <visible>true</visible>
+    </applicationVisibilities>
+    <applicationVisibilities>
+        <application>standard__ScaleTestApp</application>
+        <default>false</default>
+        <visible>true</visible>
+    </applicationVisibilities>
     <fieldPermissions>
         <editable>true</editable>
         <field>Account.AccountSource</field>
@@ -7635,6 +7670,9 @@
         <layout>ActionPlanTemplateVersion-Action Plan Template Version Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
+        <layout>Affiliation__c-Affiliation Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>ApplicationRecordTypeConfig-Application RecordType Config Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
@@ -9232,6 +9270,10 @@
         <recordType>Section__c.Top</recordType>
         <visible>false</visible>
     </recordTypeVisibilities>
+    <tabVisibilities>
+        <tab>Affiliation__c</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities>
     <tabVisibilities>
         <tab>Base_Utilities_Documentation</tab>
         <visibility>Hidden</visibility>
