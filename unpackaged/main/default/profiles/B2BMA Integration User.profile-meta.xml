@@ -171,7 +171,7 @@
     <applicationVisibilities>
         <application>standard__ScaleTestApp</application>
         <default>false</default>
-        <visible>true</visible>
+        <visible>false</visible>
     </applicationVisibilities>
     <fieldPermissions>
         <editable>false</editable>
