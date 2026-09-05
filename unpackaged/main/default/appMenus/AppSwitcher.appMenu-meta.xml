@@ -265,10 +265,6 @@
         <type>CustomApplication</type>
     </appMenuItems>
     <appMenuItems>
-        <name>standard__ScaleTestApp</name>
-        <type>CustomApplication</type>
-    </appMenuItems>
-    <appMenuItems>
         <name>standard__OEConsole</name>
         <type>CustomApplication</type>
     </appMenuItems>
