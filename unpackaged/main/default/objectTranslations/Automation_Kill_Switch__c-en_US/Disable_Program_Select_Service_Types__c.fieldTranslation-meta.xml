@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- Check to disable the admin screen flow that selects Service Types from the master list and mass-generates Benefit records for a Program. --></help>
+        <label><!-- Disable Program Select Service Types --></label>
+        <name>Disable_Program_Select_Service_Types__c</name>
+    </CustomFieldTranslation>

@@ -35,6 +35,11 @@
                 <default>false</default>
                 <label>Government Organization</label>
             </value>
+            <value>
+                <fullName>Affiliation</fullName>
+                <default>false</default>
+                <label>Affiliation</label>
+            </value>
         </valueSetDefinition>
     </valueSet>
 </CustomField>

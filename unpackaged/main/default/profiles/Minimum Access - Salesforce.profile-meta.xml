@@ -6855,6 +6855,9 @@
         <recordType>PersonAccount.Scholar</recordType>
     </layoutAssignments>
     <layoutAssignments>
+        <layout>ProductCategory-Category Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>RecordAlertActionableTarget-Record Alert Actionable Target Layout</layout>
     </layoutAssignments>
     <layoutAssignments>

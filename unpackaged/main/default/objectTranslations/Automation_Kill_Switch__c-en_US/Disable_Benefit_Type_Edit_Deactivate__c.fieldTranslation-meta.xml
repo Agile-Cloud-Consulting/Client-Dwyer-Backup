@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- Check to disable the admin screen flow that edits or deactivates a Service Type and cascades the change to its child Benefit records across all active Programs. --></help>
+        <label><!-- Disable Benefit Type Edit Deactivate --></label>
+        <name>Disable_Benefit_Type_Edit_Deactivate__c</name>
+    </CustomFieldTranslation>

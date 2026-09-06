@@ -341,6 +341,10 @@
             <default>false</default>
         </values>
         <values>
+            <fullName>Local</fullName>
+            <default>false</default>
+        </values>
+        <values>
             <fullName>Medical Care</fullName>
             <default>false</default>
         </values>
@@ -350,6 +354,10 @@
         </values>
         <values>
             <fullName>Mobile Labs</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>National</fullName>
             <default>false</default>
         </values>
         <values>
@@ -375,6 +383,10 @@
     </picklistValues>
     <picklistValues>
         <picklist>Partner_Type__c</picklist>
+        <values>
+            <fullName>Affiliation</fullName>
+            <default>false</default>
+        </values>
         <values>
             <fullName>CBO</fullName>
             <default>false</default>

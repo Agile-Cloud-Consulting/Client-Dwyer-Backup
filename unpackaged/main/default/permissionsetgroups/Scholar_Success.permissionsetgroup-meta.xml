@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PermissionSetGroup xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>DWDECI-92. Scholar-facing persona PSG (e.g. Success Coach), mirroring Partner Success/Development. Grants Account/Scholar CRUD plus Record Alert (Business Incidents) CRUD/FLS for full standalone testing.</description>
+    <hasActivationRequired>false</hasActivationRequired>
+    <label>Scholar Success</label>
+    <permissionSets>CRED_Record_Alerts</permissionSets>
+    <permissionSets>CRE_Accounts_Person_Account_Relationships_and_Affiliations</permissionSets>
+    <status>Updated</status>
+</PermissionSetGroup>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- Check to disable the admin screen flow that creates a new Service Type and pushes Benefit records to selected Programs. --></help>
+        <label><!-- Disable Benefit Type Create and Push --></label>
+        <name>Disable_Benefit_Type_Create_and_Push__c</name>
+    </CustomFieldTranslation>

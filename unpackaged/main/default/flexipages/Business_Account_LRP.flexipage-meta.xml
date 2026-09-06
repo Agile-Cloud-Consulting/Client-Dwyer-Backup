@@ -147,30 +147,18 @@
         </itemInstances>
         <itemInstances>
             <fieldInstance>
-                <fieldInstanceProperties>
-                    <name>uiBehavior</name>
-                    <value>none</value>
-                </fieldInstanceProperties>
-                <fieldItem>Record.Service_Area__c</fieldItem>
-                <identifier>RecordService_Area__cField</identifier>
-            </fieldInstance>
-        </itemInstances>
-        <itemInstances>
-            <fieldInstance>
-                <fieldInstanceProperties>
-                    <name>uiBehavior</name>
-                    <value>none</value>
-                </fieldInstanceProperties>
                 <fieldItem>Record.Region__c</fieldItem>
                 <identifier>RecordRegion__cField</identifier>
             </fieldInstance>
         </itemInstances>
         <itemInstances>
             <fieldInstance>
-                <fieldInstanceProperties>
-                    <name>uiBehavior</name>
-                    <value>none</value>
-                </fieldInstanceProperties>
+                <fieldItem>Record.Service_Area__c</fieldItem>
+                <identifier>RecordService_Area__cField</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
                 <fieldItem>Record.Manual_Geography_Override__c</fieldItem>
                 <identifier>RecordManual_Geography_Override__cField</identifier>
             </fieldInstance>
@@ -247,50 +235,6 @@
                 </fieldInstanceProperties>
                 <fieldItem>Record.Level_of_Relationship__c</fieldItem>
                 <identifier>RecordLevel_of_Relationship__cField</identifier>
-            </fieldInstance>
-        </itemInstances>
-        <itemInstances>
-            <fieldInstance>
-                <fieldInstanceProperties>
-                    <name>uiBehavior</name>
-                    <value>none</value>
-                </fieldInstanceProperties>
-                <fieldItem>Record.MOU_Level__c</fieldItem>
-                <identifier>RecordMOU_Level_cField</identifier>
-            </fieldInstance>
-        </itemInstances>
-        <itemInstances>
-            <fieldInstance>
-                <fieldInstanceProperties>
-                    <name>uiBehavior</name>
-                    <value>none</value>
-                </fieldInstanceProperties>
-                <fieldItem>Record.Employer_Level__c</fieldItem>
-                <identifier>RecordEmployer_Level_cField</identifier>
-                <visibilityRule>
-                    <criteria>
-                        <leftValue>{!Record.Partner_Type__c}</leftValue>
-                        <operator>EQUAL</operator>
-                        <rightValue>Employer</rightValue>
-                    </criteria>
-                </visibilityRule>
-            </fieldInstance>
-        </itemInstances>
-        <itemInstances>
-            <fieldInstance>
-                <fieldInstanceProperties>
-                    <name>uiBehavior</name>
-                    <value>none</value>
-                </fieldInstanceProperties>
-                <fieldItem>Record.Employer_Level_Effective_Date__c</fieldItem>
-                <identifier>RecordEmployer_Level_Effective_Date_cField</identifier>
-                <visibilityRule>
-                    <criteria>
-                        <leftValue>{!Record.Partner_Type__c}</leftValue>
-                        <operator>EQUAL</operator>
-                        <rightValue>Employer</rightValue>
-                    </criteria>
-                </visibilityRule>
             </fieldInstance>
         </itemInstances>
         <name>Facet-f67b2e02-bc34-4acd-97e9-c7083d09152e</name>

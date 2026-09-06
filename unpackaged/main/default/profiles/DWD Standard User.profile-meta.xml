@@ -7782,6 +7782,9 @@
         <layout>PreliminaryApplicationRef-Preliminary Application Reference Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
+        <layout>ProductCategory-Category Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>Program-Program Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
@@ -10320,7 +10323,7 @@
     </tabVisibilities>
     <tabVisibilities>
         <tab>standard-report</tab>
-        <visibility>DefaultOff</visibility>
+        <visibility>DefaultOn</visibility>
     </tabVisibilities>
     <userPermissions>
         <enabled>true</enabled>

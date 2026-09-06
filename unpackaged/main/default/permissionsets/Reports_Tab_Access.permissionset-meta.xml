@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>DWDECI-31. Surfaces the Reports tab for users whose profile has it set to Default Off, so they can build/run reports needed for QA validation (e.g. the peer activity-count check). Assign only where needed for testing.</description>
+    <hasActivationRequired>false</hasActivationRequired>
+    <label>Reports Tab Access</label>
+    <tabSettings>
+        <tab>standard-report</tab>
+        <visibility>Visible</visibility>
+    </tabSettings>
+</PermissionSet>

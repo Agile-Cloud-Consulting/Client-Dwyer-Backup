@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Active__c</fullName>
+    <defaultValue>true</defaultValue>
+    <description>DWDECI-119. Unchecking this (via the Edit/Deactivate screen flow, not direct edit) soft-deactivates this Service Type and cascades IsActive = false to every child Benefit record (standard field) across all Programs. Past Benefit Assignments and associations remain intact and reportable.</description>
+    <inlineHelpText>Whether this Service Type can still be pushed to Programs or assigned. Deactivate via the Edit/Deactivate screen flow so child Benefit records across all Programs are updated too.</inlineHelpText>
+    <label>Active</label>
+    <type>Checkbox</type>
+</CustomField>

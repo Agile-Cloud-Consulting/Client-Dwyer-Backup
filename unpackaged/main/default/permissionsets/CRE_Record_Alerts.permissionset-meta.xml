@@ -61,4 +61,53 @@
         <enabled>true</enabled>
         <name>FSCAlertFrameworkUserAccess</name>
     </userPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>RecordAlert.Category_Label__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>RecordAlert.Description</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>RecordAlert.IsActive</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>RecordAlert.ParentId</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>RecordAlert.RecordAlertCategoryId</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>RecordAlert.Severity</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>RecordAlert.SnoozeUntilDate</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>RecordAlert.SourceSystemIdentifier</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>RecordAlert.Subject</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <tabSettings>
+        <tab>standard-RecordAlert</tab>
+        <visibility>Visible</visibility>
+    </tabSettings>
 </PermissionSet>

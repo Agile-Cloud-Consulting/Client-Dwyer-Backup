@@ -73,12 +73,22 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>RecordAlert.IsActive</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>RecordAlert.ParentId</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>RecordAlert.RecordAlertCategoryId</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>RecordAlert.Severity</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -96,4 +106,8 @@
         <field>RecordAlert.Subject</field>
         <readable>true</readable>
     </fieldPermissions>
+    <tabSettings>
+        <tab>standard-RecordAlert</tab>
+        <visibility>Visible</visibility>
+    </tabSettings>
 </PermissionSet>

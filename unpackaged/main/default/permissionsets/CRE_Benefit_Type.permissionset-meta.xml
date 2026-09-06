@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>DWDECI-119. Read-only access to the standard BenefitType object (master Service Type catalog) for staff who need to see the list but not manage it. Creation/edit/deactivation stays admin-only via the dedicated screen flows.</description>
+    <hasActivationRequired>false</hasActivationRequired>
+    <label>CRE - Benefit Type</label>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>BenefitType.Active__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <objectPermissions>
+        <allowCreate>false</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>false</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>BenefitType</object>
+        <viewAllFields>false</viewAllFields>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
+</PermissionSet>

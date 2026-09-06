@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Disable_Program_Select_Service_Types__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Disables the Program - Screen Flow - Select Service Types flow (DWDECI-119).</description>
+    <inlineHelpText>Check to disable the admin screen flow that selects Service Types from the master list and mass-generates Benefit records for a Program.</inlineHelpText>
+    <label>Disable Program Select Service Types</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

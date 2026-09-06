@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Disable_Benefit_Type_Create_and_Push__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Disables the Benefit Type - Screen Flow - Create &amp; Push flow (DWDECI-119).</description>
+    <inlineHelpText>Check to disable the admin screen flow that creates a new Service Type and pushes Benefit records to selected Programs.</inlineHelpText>
+    <label>Disable Benefit Type Create and Push</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>
