@@ -293,6 +293,26 @@
                 </visibilityRule>
             </fieldInstance>
         </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.Sends_Sensitive_Info__c</fieldItem>
+                <identifier>RecordSends_Sensitive_Info_cField</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.Sensitive_Inbound_Details__c</fieldItem>
+                <identifier>RecordSensitive_Inbound_Details_cField</identifier>
+            </fieldInstance>
+        </itemInstances>
         <name>Facet-f67b2e02-bc34-4acd-97e9-c7083d09152e</name>
         <type>Facet</type>
     </flexiPageRegions>

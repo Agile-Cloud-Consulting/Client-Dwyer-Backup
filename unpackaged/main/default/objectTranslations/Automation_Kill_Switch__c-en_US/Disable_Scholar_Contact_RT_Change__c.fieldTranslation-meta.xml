@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- Check to disable the block on changing a Person Account&apos;s record type between Scholar and Contact. --></help>
+        <label><!-- Disable Scholar Contact RT Change --></label>
+        <name>Disable_Scholar_Contact_RT_Change__c</name>
+    </CustomFieldTranslation>
