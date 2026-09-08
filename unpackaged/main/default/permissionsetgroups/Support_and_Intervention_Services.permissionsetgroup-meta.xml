@@ -3,6 +3,12 @@
     <description>DWDECI-37. SIS persona PSG, mirroring Partner Success/Development. Scoped to sensitive Account access for now; expand once DWDECI-238 is ready for build.</description>
     <hasActivationRequired>false</hasActivationRequired>
     <label>Support &amp; Intervention Services</label>
+    <permissionSets>CRED_Case_Interaction_Summary_Care_Plan_Care_Plan</permissionSets>
+    <permissionSets>CRED_High_Level_Benefit_Access</permissionSets>
+    <permissionSets>CRE_Interactions_and_Interaction_Summaries</permissionSets>
+    <permissionSets>CRE_Task_Event_Activities</permissionSets>
     <permissionSets>DWD_Sensitive_Partner_Data</permissionSets>
+    <permissionSets>R_Education_Cloud_Program_and_Learning</permissionSets>
+    <permissionSets>R_Relationships_and_Affiliations</permissionSets>
     <status>Updated</status>
 </PermissionSetGroup>

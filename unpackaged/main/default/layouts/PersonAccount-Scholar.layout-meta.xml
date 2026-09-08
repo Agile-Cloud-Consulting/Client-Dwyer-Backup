@@ -46,6 +46,10 @@
                 <behavior>Edit</behavior>
                 <field>Manual_Geography_Override__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>SSN__pc</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>

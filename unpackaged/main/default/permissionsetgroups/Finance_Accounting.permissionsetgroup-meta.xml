@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PermissionSetGroup xmlns="http://soap.sforce.com/2006/04/metadata">
+    <hasActivationRequired>false</hasActivationRequired>
+    <label>Finance / Accounting</label>
+    <permissionSets>CRE_Task_Event_Activities</permissionSets>
+    <permissionSets>R_Education_Cloud_Program_and_Learning</permissionSets>
+    <permissionSets>R_Fundrasing</permissionSets>
+    <permissionSets>R_Relationships_and_Affiliations</permissionSets>
+    <permissionSets>View_Benefit_Amounts</permissionSets>
+    <status>Updated</status>
+</PermissionSetGroup>
