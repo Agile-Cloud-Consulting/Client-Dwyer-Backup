@@ -8336,6 +8336,9 @@
         <layout>Global-Global Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
+        <layout>Incident-Incident Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>InterestTag-Interest Tag Layout</layout>
     </layoutAssignments>
     <layoutAssignments>

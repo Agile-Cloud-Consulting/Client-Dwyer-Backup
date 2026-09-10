@@ -7517,6 +7517,9 @@
         <layout>Icon__c-Icon Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
+        <layout>Incident-Incident Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>IndividualApplication-Individual Application Layout</layout>
     </layoutAssignments>
     <layoutAssignments>

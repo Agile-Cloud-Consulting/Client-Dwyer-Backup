@@ -10416,6 +10416,11 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>Incident.MilestoneTimer</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>Incident.ParentIncidentId</field>
         <readable>true</readable>
@@ -18102,6 +18107,9 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>Global-Global Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Incident-Incident Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>InterestTag-Interest Tag Layout</layout>
