@@ -53,4 +53,8 @@
         <viewAllFields>true</viewAllFields>
         <viewAllRecords>false</viewAllRecords>
     </objectPermissions>
+    <tabSettings>
+        <tab>standard-ActionPlan</tab>
+        <visibility>Available</visibility>
+    </tabSettings>
 </PermissionSet>
