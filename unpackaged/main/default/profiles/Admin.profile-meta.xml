@@ -5347,6 +5347,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Assessment.Program_Enrollment__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Assessment.ResponseContextId</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -7633,6 +7638,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Contact.ReportsToId</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Contact.SSN__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>

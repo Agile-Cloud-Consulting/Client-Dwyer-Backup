@@ -134,6 +134,19 @@
         <fields>ParticipationStatus</fields>
         <relatedList>CourseOfferingParticipant.Program_Enrollment__c</relatedList>
     </relatedLists>
+    <relatedLists>
+        <fields>Name</fields>
+        <fields>LastModifiedDate</fields>
+        <fields>LastModifiedBy</fields>
+        <fields>Account</fields>
+        <fields>Case</fields>
+        <fields>Parent</fields>
+        <fields>Contact</fields>
+        <fields>OmniProcess</fields>
+        <fields>Identifier</fields>
+        <fields>Assessor</fields>
+        <relatedList>Assessment.Program_Enrollment__c</relatedList>
+    </relatedLists>
     <showEmailCheckbox>false</showEmailCheckbox>
     <showRunAssignmentRulesCheckbox>false</showRunAssignmentRulesCheckbox>
     <showSubmitAndAttachButton>false</showSubmitAndAttachButton>

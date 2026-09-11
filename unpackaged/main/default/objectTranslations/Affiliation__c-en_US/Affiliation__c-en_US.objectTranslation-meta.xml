@@ -8,11 +8,6 @@
         <plural>true</plural>
         <value>Affiliations</value>
     </caseValues>
-    
-    
-    
-    
-    
     <layouts>
         <layout>Affiliation Layout</layout>
         <sections>
@@ -20,5 +15,10 @@
             <section>Custom Links</section>
         </sections>
     </layouts>
+    
+    
+    
+    
+    
     <startsWith>Consonant</startsWith>
 </CustomObjectTranslation>
