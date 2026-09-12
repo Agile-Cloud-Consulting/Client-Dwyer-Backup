@@ -106,11 +106,6 @@
         <default>false</default>
         <visible>false</visible>
     </applicationVisibilities>
-    <applicationVisibilities>
-        <application>standard__Platform</application>
-        <default>true</default>
-        <visible>true</visible>
-    </applicationVisibilities>
     <fieldPermissions>
         <editable>true</editable>
         <field>Account.AccountSource</field>
@@ -6600,6 +6595,9 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>OmniFlexCardView-Flexcard Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>OmniIntegrationProcdView-Integration Procedure Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>OmniInteractionAccessConfig-Omni Interaction Access Configuration Layout</layout>

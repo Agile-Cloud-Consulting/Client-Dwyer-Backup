@@ -10,5 +10,6 @@
     <permissionSets>CRE_Accounts_Person_Account_Relationships_and_Affiliations</permissionSets>
     <permissionSets>CRE_Interactions_and_Interaction_Summaries</permissionSets>
     <permissionSets>CRE_Record_Alerts</permissionSets>
+    <permissionSets>DWD_Allow_Access_to_Edu_Objects</permissionSets>
     <status>Updated</status>
 </PermissionSetGroup>

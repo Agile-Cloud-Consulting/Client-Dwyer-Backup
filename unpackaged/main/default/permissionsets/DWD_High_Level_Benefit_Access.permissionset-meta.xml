@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
-    <description>CRED access to Benefit Assignment and read access to the Benefit Assignment Amount field via FLS</description>
     <hasActivationRequired>false</hasActivationRequired>
-    <label>CRED - High-Level Benefit Access</label>
+    <label>DWD High-Level Benefit Access</label>
+    <license>EducationCloudAccessPsl</license>
     <fieldPermissions>
         <editable>true</editable>
         <field>BenefitAssignment.AssignmentDate</field>
@@ -138,10 +138,6 @@
         <viewAllFields>false</viewAllFields>
         <viewAllRecords>false</viewAllRecords>
     </objectPermissions>
-    <tabSettings>
-        <tab>standard-Benefit</tab>
-        <visibility>Available</visibility>
-    </tabSettings>
     <tabSettings>
         <tab>standard-BenefitAssignment</tab>
         <visibility>Available</visibility>

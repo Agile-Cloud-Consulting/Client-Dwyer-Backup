@@ -43,6 +43,10 @@
                 <behavior>Edit</behavior>
                 <field>Date_Onboarding_Completed__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Contact_Status__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>

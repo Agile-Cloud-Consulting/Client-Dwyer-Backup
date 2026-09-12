@@ -1598,21 +1598,6 @@
         <default>false</default>
         <visible>false</visible>
     </applicationVisibilities>
-    <applicationVisibilities>
-        <application>standard__DataManager</application>
-        <default>false</default>
-        <visible>true</visible>
-    </applicationVisibilities>
-    <applicationVisibilities>
-        <application>standard__PardotAppV1</application>
-        <default>false</default>
-        <visible>true</visible>
-    </applicationVisibilities>
-    <applicationVisibilities>
-        <application>standard__Platform</application>
-        <default>true</default>
-        <visible>true</visible>
-    </applicationVisibilities>
     <customMetadataTypeAccesses>
         <enabled>true</enabled>
         <name>omnistudio__DocumentTemplateSetting__mdt</name>
@@ -3450,6 +3435,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Contact.BuyerAttributes</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Contact.Contact_Status__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -6659,16 +6649,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>ProgramEnrollment.Region__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>ProgramEnrollment.Service_Area__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
         <field>ProgramEnrollment.StartDate</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -9049,6 +9029,9 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>OmniFlexCardView-Flexcard Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>OmniIntegrationProcdView-Integration Procedure Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>OmniInteractionAccessConfig-Omni Interaction Access Configuration Layout</layout>

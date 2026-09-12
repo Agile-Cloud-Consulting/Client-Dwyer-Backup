@@ -18,6 +18,42 @@
         <type>Flexipage</type>
         <pageOrSobjectType>Affiliation__c</pageOrSobjectType>
     </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <comment>Action override updated by Lightning App Builder during activation.</comment>
+        <content>Contact_LRP1</content>
+        <formFactor>Large</formFactor>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Flexipage</type>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <comment>Action override updated by Lightning App Builder during activation.</comment>
+        <content>Contact_LRP1</content>
+        <formFactor>Small</formFactor>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Flexipage</type>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <comment>Action override created by Lightning App Builder during activation.</comment>
+        <content>Benefit_Assignment_LRP</content>
+        <formFactor>Large</formFactor>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Flexipage</type>
+        <pageOrSobjectType>BenefitAssignment</pageOrSobjectType>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <comment>Action override created by Lightning App Builder during activation.</comment>
+        <content>Benefit_Assignment_LRP</content>
+        <formFactor>Small</formFactor>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Flexipage</type>
+        <pageOrSobjectType>BenefitAssignment</pageOrSobjectType>
+    </actionOverrides>
     <brand>
         <headerColor>#0070D2</headerColor>
         <shouldOverrideOrgTheme>true</shouldOverrideOrgTheme>
@@ -233,6 +269,7 @@
     <tabs>standard-Referral</tabs>
     <tabs>standard-GiftTransaction</tabs>
     <tabs>standard-Benefit</tabs>
+    <tabs>standard-BenefitAssignment</tabs>
     <tabs>standard-Learning</tabs>
     <tabs>standard-LearningCourse</tabs>
     <tabs>standard-Program</tabs>
@@ -246,6 +283,9 @@
     <tabs>Service_Area__c</tabs>
     <tabs>Service_Area_Zip_Code__c</tabs>
     <tabs>Affiliation__c</tabs>
+    <tabs>standard-CourseOffering</tabs>
+    <tabs>standard-CourseOfferingParticipant</tabs>
+    <tabs>standard-CourseOfferingPtcpResult</tabs>
     <uiType>Lightning</uiType>
     <utilityBar>Dwyer_UtilityBar</utilityBar>
 </CustomApplication>

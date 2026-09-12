@@ -3,6 +3,7 @@
     <hasActivationRequired>false</hasActivationRequired>
     <label>Finance / Accounting</label>
     <permissionSets>CRE_Task_Event_Activities</permissionSets>
+    <permissionSets>DWD_Allow_Access_to_Edu_Objects</permissionSets>
     <permissionSets>R_Education_Cloud_Program_and_Learning</permissionSets>
     <permissionSets>R_Fundrasing</permissionSets>
     <permissionSets>R_Relationships_and_Affiliations</permissionSets>

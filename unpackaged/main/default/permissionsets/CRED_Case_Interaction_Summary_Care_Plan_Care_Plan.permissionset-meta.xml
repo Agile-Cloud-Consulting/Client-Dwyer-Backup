@@ -465,7 +465,7 @@
     </tabSettings>
     <tabSettings>
         <tab>standard-CarePlanTemplate</tab>
-        <visibility>Available</visibility>
+        <visibility>Visible</visibility>
     </tabSettings>
     <tabSettings>
         <tab>standard-Case</tab>

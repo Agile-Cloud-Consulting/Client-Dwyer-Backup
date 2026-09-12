@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Contact_Status__c</fullName>
+    <description>Tracks the current status of the contact</description>
+    <label>Contact Status</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Referred to Non-Profit</fullName>
+                <default>false</default>
+                <label>Referred to Non-Profit</label>
+            </value>
+            <value>
+                <fullName>Training Readiness</fullName>
+                <default>false</default>
+                <label>Training Readiness</label>
+            </value>
+            <value>
+                <fullName>Refer to Trainer</fullName>
+                <default>false</default>
+                <label>Refer to Trainer</label>
+            </value>
+            <value>
+                <fullName>Pre-Enrollment</fullName>
+                <default>false</default>
+                <label>Pre-Enrollment</label>
+            </value>
+            <value>
+                <fullName>Enrollment</fullName>
+                <default>false</default>
+                <label>Enrollment</label>
+            </value>
+            <value>
+                <fullName>In Training</fullName>
+                <default>false</default>
+                <label>In Training</label>
+            </value>
+            <value>
+                <fullName>Post Training</fullName>
+                <default>false</default>
+                <label>Post Training</label>
+            </value>
+            <value>
+                <fullName>CNA (Credentialing)</fullName>
+                <default>false</default>
+                <label>CNA (Credentialing)</label>
+            </value>
+            <value>
+                <fullName>Job Readiness</fullName>
+                <default>false</default>
+                <label>Job Readiness</label>
+            </value>
+            <value>
+                <fullName>Searching In-Field</fullName>
+                <default>false</default>
+                <label>Searching In-Field</label>
+            </value>
+            <value>
+                <fullName>Search Out-of-Field</fullName>
+                <default>false</default>
+                <label>Search Out-of-Field</label>
+            </value>
+            <value>
+                <fullName>Placement</fullName>
+                <default>false</default>
+                <label>Placement</label>
+            </value>
+            <value>
+                <fullName>Employed</fullName>
+                <default>false</default>
+                <label>Employed</label>
+            </value>
+            <value>
+                <fullName>Advancement Eligibility Review</fullName>
+                <default>false</default>
+                <label>Advancement Eligibility Review</label>
+            </value>
+            <value>
+                <fullName>Advancement Consultation</fullName>
+                <default>false</default>
+                <label>Advancement Consultation</label>
+            </value>
+            <value>
+                <fullName>Upskill</fullName>
+                <default>false</default>
+                <label>Upskill</label>
+            </value>
+            <value>
+                <fullName>On-Going Development</fullName>
+                <default>false</default>
+                <label>On-Going Development</label>
+            </value>
+            <value>
+                <fullName>Career Advancement</fullName>
+                <default>false</default>
+                <label>Career Advancement</label>
+            </value>
+            <value>
+                <fullName>Mentor</fullName>
+                <default>false</default>
+                <label>Mentor</label>
+            </value>
+            <value>
+                <fullName>Referred to Other Workforce</fullName>
+                <default>false</default>
+                <label>Referred to Other Workforce</label>
+            </value>
+            <value>
+                <fullName>Personal Pause</fullName>
+                <default>false</default>
+                <label>Personal Pause</label>
+            </value>
+            <value>
+                <fullName>Self Exit</fullName>
+                <default>false</default>
+                <label>Self Exit</label>
+            </value>
+            <value>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+                <label>Withdrawn</label>
+            </value>
+            <value>
+                <fullName>Removed</fullName>
+                <default>false</default>
+                <label>Removed</label>
+            </value>
+            <value>
+                <fullName>Out of Range</fullName>
+                <default>false</default>
+                <label>Out of Range</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

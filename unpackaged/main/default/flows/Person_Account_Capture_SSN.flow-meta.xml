@@ -9,6 +9,31 @@
         </value>
     </customProperties>
     <decisions>
+        <name>SSN_Already_On_Record</name>
+        <label>SSN Already On Record</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <defaultConnector>
+            <targetReference>Enter_SSN</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>No SSN Yet</defaultConnectorLabel>
+        <rules>
+            <name>Already_Populated</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>ssnAlreadyPopulated</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>SSN_Already_Filled_On_Record</targetReference>
+            </connector>
+            <label>Already Populated</label>
+        </rules>
+    </decisions>
+    <decisions>
         <name>SSN_Values_Match</name>
         <label>SSN Values Match</label>
         <locationX>0</locationX>
@@ -35,7 +60,7 @@
     </decisions>
     <environments>Default</environments>
     <interviewLabel>Person Account - Capture SSN {!$Flow.CurrentDateTime}</interviewLabel>
-    <label>Person Account - Capture SSN</label>
+    <label>Person Account - Screen Flow - Capture SSN</label>
     <processMetadataValues>
         <name>BuilderType</name>
         <value>
@@ -103,12 +128,36 @@
         <showHeader>true</showHeader>
     </screens>
     <screens>
+        <name>SSN_Already_Filled_On_Record</name>
+        <label>SSN Already Filled On Record</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <allowBack>false</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>false</allowPause>
+        <fields>
+            <name>SSNFilled</name>
+            <fieldText>&lt;p&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;This scholar already has a Social Security Number. Do not enter a new one. Please check with a user who has view access to the SSN field to confirm the number you have received matches what is already recorded.&lt;/span&gt;&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>true</showHeader>
+    </screens>
+    <screens>
         <name>SSN_Mismatch</name>
         <label>SSN Mismatch</label>
         <locationX>0</locationX>
         <locationY>0</locationY>
         <allowBack>true</allowBack>
-        <allowFinish>true</allowFinish>
+        <allowFinish>false</allowFinish>
         <allowPause>false</allowPause>
         <connector>
             <targetReference>Success</targetReference>
@@ -157,7 +206,7 @@
         <locationX>0</locationX>
         <locationY>0</locationY>
         <connector>
-            <targetReference>Enter_SSN</targetReference>
+            <targetReference>SSN_Already_Populated</targetReference>
         </connector>
     </start>
     <status>Active</status>
@@ -183,11 +232,38 @@
             </value>
         </inputAssignments>
     </subflows>
+    <subflows>
+        <name>SSN_Already_Populated</name>
+        <label>SSN Already Populated</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>SSN_Already_On_Record</targetReference>
+        </connector>
+        <flowName>Person_Account_Check_SSN_Populated</flowName>
+        <inputAssignments>
+            <name>recordId</name>
+            <value>
+                <elementReference>recordId</elementReference>
+            </value>
+        </inputAssignments>
+        <outputAssignments>
+            <assignToReference>ssnAlreadyPopulated</assignToReference>
+            <name>ssnIsPopulated</name>
+        </outputAssignments>
+    </subflows>
     <variables>
         <name>recordId</name>
         <dataType>String</dataType>
         <isCollection>false</isCollection>
         <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>ssnAlreadyPopulated</name>
+        <dataType>Boolean</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
         <isOutput>false</isOutput>
     </variables>
 </Flow>

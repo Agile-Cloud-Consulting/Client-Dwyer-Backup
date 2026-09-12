@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Allows internal org users to access Programs, Benefits, and Goal objects and features.
+Access Education Cloud Objects and Access Education Cloud Components</description>
+    <hasActivationRequired>false</hasActivationRequired>
+    <label>DWD Allow Access to Edu Objects</label>
+    <userPermissions>
+        <enabled>true</enabled>
+        <name>AccessEducationCloud</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>true</enabled>
+        <name>BenefitManagementAccess</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>true</enabled>
+        <name>CarePlansAccess</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>true</enabled>
+        <name>UseEducationCloudComp</name>
+    </userPermissions>
+</PermissionSet>
