@@ -4649,6 +4649,21 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Affiliation__c.End_Date__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Affiliation__c.Role__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Affiliation__c.Start_Date__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Applicant.AccountId</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -7614,6 +7629,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Contact.SSN_Captured__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Contact.Title</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -8584,6 +8604,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>CourseOffering.Training_Partner__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>CourseOffering.WaitlistCapacity</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -8620,6 +8645,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>CourseOfferingParticipant.ParticipationStatus</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>CourseOfferingParticipant.Program_Enrollment__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -18013,6 +18043,9 @@
         <layout>ActionPlanTemplateVersion-Action Plan Template Version Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
+        <layout>Affiliation__c-Affiliation Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>ApplicationRecordTypeConfig-Application RecordType Config Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
@@ -19614,6 +19647,10 @@
         <recordType>Section__c.Top</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
+    <tabVisibilities>
+        <tab>Affiliation__c</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities>
     <tabVisibilities>
         <tab>Base_Utilities_Documentation</tab>
         <visibility>Hidden</visibility>
