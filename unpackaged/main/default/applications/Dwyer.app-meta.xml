@@ -21,7 +21,7 @@
     <actionOverrides>
         <actionName>View</actionName>
         <comment>Action override updated by Lightning App Builder during activation.</comment>
-        <content>Contact_LRP1</content>
+        <content>Business_Account_LRP</content>
         <formFactor>Large</formFactor>
         <skipRecordTypeSelect>false</skipRecordTypeSelect>
         <type>Flexipage</type>
@@ -30,7 +30,7 @@
     <actionOverrides>
         <actionName>View</actionName>
         <comment>Action override updated by Lightning App Builder during activation.</comment>
-        <content>Contact_LRP1</content>
+        <content>Business_Account_LRP</content>
         <formFactor>Small</formFactor>
         <skipRecordTypeSelect>false</skipRecordTypeSelect>
         <type>Flexipage</type>
@@ -254,15 +254,6 @@
         <recordType>PersonAccount.PersonAccount</recordType>
         <type>Flexipage</type>
         <profile>DWD Standard User</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>Business_Account_LRP</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Account</pageOrSobjectType>
-        <recordType>Account.Business_Account</recordType>
-        <type>Flexipage</type>
-        <profile>EDC Staff User</profile>
     </profileActionOverrides>
     <tabs>standard-Account</tabs>
     <tabs>standard-RecordAlert</tabs>

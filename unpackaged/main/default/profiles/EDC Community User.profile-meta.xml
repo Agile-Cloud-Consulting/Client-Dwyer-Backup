@@ -7482,6 +7482,12 @@
         <recordType>Opportunity.Partner_Expansion_Amendment</recordType>
     </layoutAssignments>
     <layoutAssignments>
+        <layout>PartnershipAgreement-Partnership Agreement Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>PartnershipPersonPlacement-Partnership Person Placement Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>PartyProfileAddress-Party Profile Address</layout>
     </layoutAssignments>
     <layoutAssignments>

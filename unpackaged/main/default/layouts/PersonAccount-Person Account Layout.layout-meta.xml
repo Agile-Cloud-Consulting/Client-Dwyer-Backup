@@ -344,7 +344,11 @@
     </quickActionList>
     <relatedLists>
         <fields>NAME</fields>
-        <relatedList>Affiliation__c.Partner_Account__c</relatedList>
+        <fields>Partner_Account__c</fields>
+        <fields>Role__c</fields>
+        <fields>Start_Date__c</fields>
+        <fields>End_Date__c</fields>
+        <relatedList>Affiliation__c.Scholar_Account__c</relatedList>
     </relatedLists>
     <relatedLists>
         <fields>Name</fields>

@@ -39,6 +39,10 @@
                 <behavior>Edit</behavior>
                 <field>Program_Enrollment__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Course_Offering_Participant__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>

@@ -13,7 +13,7 @@
         <isOptional>false</isOptional>
     </lookupFilter>
     <referenceTo>Account</referenceTo>
-    <relationshipLabel>Affiliations</relationshipLabel>
+    <relationshipLabel>Affiliated Scholars</relationshipLabel>
     <relationshipName>Partner_Affiliations</relationshipName>
     <required>true</required>
     <trackHistory>false</trackHistory>

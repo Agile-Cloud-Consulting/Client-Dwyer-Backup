@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ActionPlanTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <isAdHocItemCreationEnabled>false</isAdHocItemCreationEnabled>
+    <name>test</name>
+    <status>Draft</status>
+    <targetEntityType>Account</targetEntityType>
+    <uniqueName>test_1a6deff5_b05f_11f1_9a65_27b32bcc6a26</uniqueName>
+</ActionPlanTemplate>

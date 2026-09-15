@@ -53,11 +53,6 @@
     </userPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Event.Sensitive__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
         <field>Interaction.AccountId</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -134,11 +129,6 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Interaction.StartTime</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Task.Sensitive__c</field>
         <readable>true</readable>
     </fieldPermissions>
 </PermissionSet>

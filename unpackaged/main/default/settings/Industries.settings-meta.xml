@@ -35,7 +35,7 @@
     <enableCompliantDataSharingForInteraction>false</enableCompliantDataSharingForInteraction>
     <enableCompliantDataSharingForInteractionSummary>false</enableCompliantDataSharingForInteractionSummary>
     <enableCompliantDataSharingForOpportunity>false</enableCompliantDataSharingForOpportunity>
-    <enableCorporateRelations>false</enableCorporateRelations>
+    <enableCorporateRelations>true</enableCorporateRelations>
     <enableCosConflicts>false</enableCosConflicts>
     <enableCreateMultiAttendeeEventOrgPref>false</enableCreateMultiAttendeeEventOrgPref>
     <enableCriteriaBasedSearchAndFilter>true</enableCriteriaBasedSearchAndFilter>

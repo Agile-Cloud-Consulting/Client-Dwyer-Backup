@@ -151,5 +151,5 @@
         <searchResultsAdditionalFields>Interaction</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>PartnerAccount</searchResultsAdditionalFields>
     </searchLayouts>
-    <sharingModel>ReadWrite</sharingModel>
+    <sharingModel>Private</sharingModel>
 </CustomObject>

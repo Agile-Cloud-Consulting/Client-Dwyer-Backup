@@ -118,6 +118,19 @@
         <fields>CORE.USERS.FULL_NAME</fields>
         <relatedList>RelatedActivityList</relatedList>
     </relatedLists>
+    <relatedLists>
+        <fields>Name</fields>
+        <fields>LastModifiedDate</fields>
+        <fields>LastModifiedBy</fields>
+        <fields>Account</fields>
+        <fields>Case</fields>
+        <fields>Parent</fields>
+        <fields>Contact</fields>
+        <fields>OmniProcess</fields>
+        <fields>Identifier</fields>
+        <fields>Assessor</fields>
+        <relatedList>Assessment.Course_Offering_Participant__c</relatedList>
+    </relatedLists>
     <showEmailCheckbox>false</showEmailCheckbox>
     <showRunAssignmentRulesCheckbox>false</showRunAssignmentRulesCheckbox>
     <showSubmitAndAttachButton>false</showSubmitAndAttachButton>

@@ -41,7 +41,44 @@
             <label>Block adding Offering Participant</label>
         </rules>
     </decisions>
-    <description>Block Reenrollment for Removed or Self Exit Scholars</description>
+    <decisions>
+        <description>Check Kill Switch</description>
+        <name>Check_Kill_Switch</name>
+        <label>Check Kill Switch</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <defaultConnector>
+            <targetReference>Check_Contact_Status</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Block_Automation</name>
+            <conditionLogic>or</conditionLogic>
+            <conditions>
+                <leftValueReference>$Setup.Global_Kill_Switch__c.Disable_All__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Setup.Automation_Kill_Switch__c.Disable_Reenrollment_for_Removed_or_self__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Setup.Object_Kill_Switch__c.Disable_Course_Offering_Participant__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <label>Block Automation</label>
+        </rules>
+    </decisions>
+    <description>Block Re enrollment for Removed or Self Exit Scholars</description>
     <environments>Default</environments>
     <interviewLabel>Program Enrollment - Block Reenrollment for Removed or Self Exit Scholars {!$Flow.CurrentDateTime}</interviewLabel>
     <label>Program Enrollment - Block Reenrollment for Removed or Self Exit Scholars</label>
@@ -68,7 +105,7 @@
         <locationX>0</locationX>
         <locationY>0</locationY>
         <connector>
-            <targetReference>Check_Contact_Status</targetReference>
+            <targetReference>Check_Kill_Switch</targetReference>
         </connector>
         <object>CourseOfferingParticipant</object>
         <recordTriggerType>Create</recordTriggerType>

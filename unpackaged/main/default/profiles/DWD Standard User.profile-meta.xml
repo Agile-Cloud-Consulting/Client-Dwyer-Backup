@@ -7678,6 +7678,17 @@
         <layout>OperatingHours-Operating Hours Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
+        <layout>Opportunity-Opportunity Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Opportunity-Opportunity Layout</layout>
+        <recordType>Opportunity.Partner</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Opportunity-Partner Expansion Layout</layout>
+        <recordType>Opportunity.Partner_Expansion_Amendment</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>OutreachSourceCode-Outreach Source Code Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
@@ -7685,6 +7696,12 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>Page__c-Page Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>PartnershipAgreement-Partnership Agreement Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>PartnershipPersonPlacement-Partnership Person Placement Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>PartyCategory-Party Category Layout</layout>
@@ -8540,7 +8557,7 @@
     </tabVisibilities>
     <tabVisibilities>
         <tab>Region__c</tab>
-        <visibility>DefaultOn</visibility>
+        <visibility>DefaultOff</visibility>
     </tabVisibilities>
     <tabVisibilities>
         <tab>SectionBlock__c</tab>
@@ -8552,15 +8569,15 @@
     </tabVisibilities>
     <tabVisibilities>
         <tab>Service_Area_Zip_Code__c</tab>
-        <visibility>DefaultOn</visibility>
+        <visibility>DefaultOff</visibility>
     </tabVisibilities>
     <tabVisibilities>
         <tab>Service_Area__c</tab>
-        <visibility>DefaultOn</visibility>
+        <visibility>DefaultOff</visibility>
     </tabVisibilities>
     <tabVisibilities>
         <tab>State__c</tab>
-        <visibility>DefaultOn</visibility>
+        <visibility>DefaultOff</visibility>
     </tabVisibilities>
     <tabVisibilities>
         <tab>Vlocity_Flex_Card_Home</tab>

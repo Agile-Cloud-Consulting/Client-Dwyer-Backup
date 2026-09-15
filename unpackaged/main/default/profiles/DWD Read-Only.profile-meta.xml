@@ -7930,6 +7930,12 @@
         <layout>OmniScriptView-OmniScript Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
+        <layout>PartnershipAgreement-Partnership Agreement Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>PartnershipPersonPlacement-Partnership Person Placement Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>RecordAlertCategory-Record Alert Category Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
@@ -10934,7 +10940,7 @@
     </tabVisibilities>
     <tabVisibilities>
         <tab>standard-PartyRoleRelation</tab>
-        <visibility>DefaultOff</visibility>
+        <visibility>DefaultOn</visibility>
     </tabVisibilities>
     <tabVisibilities>
         <tab>standard-PaymentInstrument</tab>
@@ -11090,7 +11096,7 @@
     </tabVisibilities>
     <tabVisibilities>
         <tab>standard-ProgramEnrollment</tab>
-        <visibility>Hidden</visibility>
+        <visibility>DefaultOn</visibility>
     </tabVisibilities>
     <tabVisibilities>
         <tab>standard-ProgramRecommendationRule</tab>
