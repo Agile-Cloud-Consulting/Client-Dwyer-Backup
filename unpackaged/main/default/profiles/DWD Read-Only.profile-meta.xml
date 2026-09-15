@@ -1611,7 +1611,7 @@
     <applicationVisibilities>
         <application>standard__AllTabSet</application>
         <default>true</default>
-        <visible>true</visible>
+        <visible>false</visible>
     </applicationVisibilities>
     <applicationVisibilities>
         <application>standard__Alumni</application>
@@ -1794,11 +1794,6 @@
         <visible>true</visible>
     </applicationVisibilities>
     <applicationVisibilities>
-        <application>standard__ScaleTestApp</application>
-        <default>false</default>
-        <visible>true</visible>
-    </applicationVisibilities>
-    <applicationVisibilities>
         <application>standard__Service</application>
         <default>false</default>
         <visible>true</visible>
@@ -1843,12 +1838,12 @@
         <name>omnistudio__UISettings__c</name>
     </customSettingAccesses>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>Account.AccountSource</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>Account.BillingAddress</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -1863,6 +1858,11 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>Account.Funding_Sources__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>Account.Gift_Entry_External_Id__c</field>
         <readable>true</readable>
@@ -1874,7 +1874,22 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Account.MOU_Level__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Account.Manual_Geography_Override__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Account.Offboarding_Description__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Account.Offboarding_Reason__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -1894,22 +1909,17 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Account.Region__c</field>
+        <field>Account.Partner_Type__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Account.Service_Area__c</field>
+        <field>Account.Phone</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
-        <field>Account.Type</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Account.Website</field>
+        <editable>false</editable>
+        <field>Account.Region__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -1985,6 +1995,21 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>ActionPlan.StatusCode</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Affiliation__c.End_Date__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Affiliation__c.Role__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Affiliation__c.Start_Date__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -2163,48 +2188,78 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>Assessment.AccountId</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
+        <field>Assessment.AssessmentLanguage</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Assessment.AssessmentRating</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
+        <field>Assessment.AssessmentStatusReason</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Assessment.CaseId</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
+        <field>Assessment.Comments</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Assessment.CompletedDateTime</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Assessment.ContactId</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>Assessment.EffectiveDateTime</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>Assessment.ExpirationDateTime</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>Assessment.OmniProcessId</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>Assessment.ParentId</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Assessment.Program_Enrollment__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Assessment.ResponseContextId</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Assessment.Score</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -3164,12 +3219,37 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Contact.Donor__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Contact.MailingAddress</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Contact.MobilePhone</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Contact.Onboarding_Tier__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>Contact.Partner_Contact_Status__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Contact.Partner__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Contact.Phone</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -3235,6 +3315,176 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>ContactProfile.Primary_Language__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>CourseOffering.AcademicSessionId</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>CourseOffering.AttendancePolicyId</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>CourseOffering.AvailabilityStatus</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>CourseOffering.Description</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>CourseOffering.EndDate</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>CourseOffering.EnrollmentCapacity</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>CourseOffering.External_ID__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>CourseOffering.HasLimitedCapacity</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>CourseOffering.IsActive</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>CourseOffering.IsAlternativeGradeRelated</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>CourseOffering.IsWaitlistActive</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>CourseOffering.PrimaryFacultyId</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>CourseOffering.SectionNumber</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>CourseOffering.StartDate</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>CourseOffering.Training_Partner__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>CourseOffering.WaitlistCapacity</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>CourseOffering.WaitlistStatus</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>CourseOfferingParticipant.AcademicRoleId</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>CourseOfferingParticipant.AcademicTermEnrollmentId</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>CourseOfferingParticipant.AddedToWaitlist</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>CourseOfferingParticipant.DroppedDateTime</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>CourseOfferingParticipant.EndDate</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>CourseOfferingParticipant.EnrollmentOfferDeclined</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>CourseOfferingParticipant.EnrollmentOfferExpiration</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>CourseOfferingParticipant.External_ID__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>CourseOfferingParticipant.IsRepeatAttempt</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>CourseOfferingParticipant.ParticipantAccountId</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>CourseOfferingParticipant.ParticipantAffiliation</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>CourseOfferingParticipant.ParticipationStatus</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>CourseOfferingParticipant.Program_Enrollment__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>CourseOfferingParticipant.RegistrationDateTime</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>CourseOfferingParticipant.StartDate</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>CourseOfferingParticipant.Summary</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>CourseOfferingParticipant.WaitlistScore</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -3774,51 +4024,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Event.Description</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Event.IsAllDayEvent</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Event.IsVisibleInSelfService</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Event.Location</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Event.Sensitive_Details__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Event.Sensitive__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Event.Type</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Event.WhatId</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Event.WhoId</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
         <field>GeneratedDocument.ContentVersionId</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -4095,21 +4300,6 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>InteractionSummary.PartnerAccountId</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Lead.Manual_Geography_Override__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Lead.Region__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Lead.Service_Area__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -5894,46 +6084,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Task.ActivityDate</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Task.Description</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Task.IsVisibleInSelfService</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Task.Sensitive_Details__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Task.Sensitive__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Task.Type</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Task.WhatId</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Task.WhoId</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
         <field>TransactionJournal.AccountingModelConfigName</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -6911,21 +7061,6 @@
         <flow>EDU_Admissions_Update_IAT_Status_According_to_Recommendation</flow>
     </flowAccesses>
     <layoutAssignments>
-        <layout>AcademicRole-Academic Role Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>AcademicRoleMapping-Academic Role Mapping Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>AcademicTarget-Academic Target Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>AccountTeamMember-Account Team Member Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Account_Team_Default__mdt-Account Team Default Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
         <layout>ActionPlanTemplate-Action Plan Template Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
@@ -6938,37 +7073,16 @@
         <layout>ActionPlanTemplateVersion-Action Plan Template Version Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Affiliation__c-Affiliation Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
         <layout>ApplicationRecordTypeConfig-Application RecordType Config Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>ApplicationSubtypeDefinition-Application Subtype Definition Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>AttendancePolicy-Attendance Policy Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>AttendancePolicySourceType-Attendance Policy Source Type Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>AttendanceSourceData-Attendance Source Data Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
         <layout>BusinessProcessTypeDef-Business Process Type Definition Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>CEC_Assignment__mdt-CEC Assignment Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>DesignatedContactAssignment-Designated Contact Assignment Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
         <layout>DocumentType-Document Type Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Event-Event Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>ExplainabilityActionDef-Explainability Action Definition Layout</layout>
@@ -6986,16 +7100,7 @@
         <layout>FlowRecord-Flow Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Incident-Incident Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
         <layout>InterestTag-Interest Tag Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>LearnerAchievement-Learner Achievement Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>LearnerAchievementMethod-Learner Achievement Method Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>LearningAchievementConfig-Learning Achievement Configuration Layout</layout>
@@ -7019,33 +7124,7 @@
         <layout>OmniScriptView-OmniScript Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Opportunity-Opportunity Layout</layout>
-        <recordType>Opportunity.Partner</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Opportunity-Partner Expansion Layout</layout>
-        <recordType>Opportunity.Partner_Expansion_Amendment</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>PartyProfileAddress-Party Profile Address</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Region__c-Region Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Service_Area_Zip_Code__c-Service Area Zip Code Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Service_Area__c-Service Area Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>State__c-States Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
         <layout>SurveyQuestion-Survey Question Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Task-Task Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>UserAlt-User Profile Layout</layout>
@@ -7069,7 +7148,16 @@
         <layout>AcademicReviewRequestItem-Academic Review Request Item Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
+        <layout>AcademicRole-Academic Role Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>AcademicRoleMapping-Academic Role Mapping Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>AcademicSession-Academic Session Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>AcademicTarget-Academic Target Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>AcademicTerm-Academic Term Layout</layout>
@@ -7115,6 +7203,12 @@
         <layout>AccountContactRelation-Account Contact Relationship Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
+        <layout>AccountTeamMember-Account Team Member Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Account_Team_Default__mdt-Account Team Default Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>ActionPlan-Action Plan Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
@@ -7125,6 +7219,9 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>ActionPlnTmplItmDependency-Action Plan Template Item Dependency Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Affiliation__c-Affiliation Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Applicant-Applicant Layout</layout>
@@ -7208,6 +7305,15 @@
         <layout>AssignedResource-Assigned Resource Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
+        <layout>AttendancePolicy-Attendance Policy Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>AttendancePolicySourceType-Attendance Policy Source Type Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>AttendanceSourceData-Attendance Source Data Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>Benefit-Benefit Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
@@ -7242,6 +7348,9 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>BusinessProfile-Business Profile Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>CEC_Assignment__mdt-CEC Assignment Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>CalcMatrixColumnRange-Decision Matrix Column Range Layout</layout>
@@ -7374,6 +7483,9 @@
         <layout>ConstituentRole-Constituent Role Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
+        <layout>Contact-Contact Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>ContactContactRelation-Contact Contact Relationship Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
@@ -7417,6 +7529,9 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>CourseOfrgRubricCriterion-Course Offering Rubric Criterion Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>DesignatedContactAssignment-Designated Contact Assignment Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Disclosure-Disclosure Layout</layout>
@@ -7634,6 +7749,9 @@
         <layout>Icon__c-Icon Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
+        <layout>Incident-Incident Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>IndividualApplication-Individual Application Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
@@ -7671,6 +7789,12 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>InvolvementGroupMember-Involvement Group Member  Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>LearnerAchievement-Learner Achievement Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>LearnerAchievementMethod-Learner Achievement Method Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>LearnerPathway-Learner Pathway Layout</layout>
@@ -7818,6 +7942,9 @@
         <layout>PartyProfile-Party Profile</layout>
     </layoutAssignments>
     <layoutAssignments>
+        <layout>PartyProfileAddress-Party Profile Address</layout>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>PartyRelationshipGroup-Party Relationship Group Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
@@ -7926,6 +8053,9 @@
         <layout>RegClCmplControlVer-Regulation Clause Compliance Control Version Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
+        <layout>Region__c-Region Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>Regulation-Regulation Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
@@ -8009,6 +8139,12 @@
         <layout>ServiceTerritoryWorkType-Service Territory Work Type Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
+        <layout>Service_Area_Zip_Code__c-Service Area Zip Code Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Service_Area__c-Service Area Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>Setup_Page_Map__mdt-Setup Page Map Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
@@ -8022,6 +8158,9 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>SkillRequirement-Skill Requirement Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>State__c-States Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>SuccessTeam-Success Team Layout</layout>
@@ -8148,7 +8287,27 @@
         <modifyAllRecords>false</modifyAllRecords>
         <object>Account</object>
         <viewAllFields>false</viewAllFields>
-        <viewAllRecords>false</viewAllRecords>
+        <viewAllRecords>true</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>false</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>false</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>Affiliation__c</object>
+        <viewAllFields>false</viewAllFields>
+        <viewAllRecords>true</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>false</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>false</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>Assessment</object>
+        <viewAllFields>false</viewAllFields>
+        <viewAllRecords>true</viewAllRecords>
     </objectPermissions>
     <objectPermissions>
         <allowCreate>false</allowCreate>
@@ -8158,7 +8317,7 @@
         <modifyAllRecords>false</modifyAllRecords>
         <object>Contact</object>
         <viewAllFields>false</viewAllFields>
-        <viewAllRecords>false</viewAllRecords>
+        <viewAllRecords>true</viewAllRecords>
     </objectPermissions>
     <objectPermissions>
         <allowCreate>false</allowCreate>
@@ -8169,6 +8328,26 @@
         <object>ContractLineItem</object>
         <viewAllFields>false</viewAllFields>
         <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>false</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>false</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>CourseOffering</object>
+        <viewAllFields>false</viewAllFields>
+        <viewAllRecords>true</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>false</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>false</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>CourseOfferingParticipant</object>
+        <viewAllFields>false</viewAllFields>
+        <viewAllRecords>true</viewAllRecords>
     </objectPermissions>
     <objectPermissions>
         <allowCreate>false</allowCreate>
@@ -8206,47 +8385,7 @@
         <allowEdit>false</allowEdit>
         <allowRead>true</allowRead>
         <modifyAllRecords>false</modifyAllRecords>
-        <object>Region__c</object>
-        <viewAllFields>false</viewAllFields>
-        <viewAllRecords>false</viewAllRecords>
-    </objectPermissions>
-    <objectPermissions>
-        <allowCreate>false</allowCreate>
-        <allowDelete>false</allowDelete>
-        <allowEdit>false</allowEdit>
-        <allowRead>true</allowRead>
-        <modifyAllRecords>false</modifyAllRecords>
         <object>ServiceContract</object>
-        <viewAllFields>false</viewAllFields>
-        <viewAllRecords>false</viewAllRecords>
-    </objectPermissions>
-    <objectPermissions>
-        <allowCreate>false</allowCreate>
-        <allowDelete>false</allowDelete>
-        <allowEdit>false</allowEdit>
-        <allowRead>true</allowRead>
-        <modifyAllRecords>false</modifyAllRecords>
-        <object>Service_Area_Zip_Code__c</object>
-        <viewAllFields>false</viewAllFields>
-        <viewAllRecords>false</viewAllRecords>
-    </objectPermissions>
-    <objectPermissions>
-        <allowCreate>false</allowCreate>
-        <allowDelete>false</allowDelete>
-        <allowEdit>false</allowEdit>
-        <allowRead>true</allowRead>
-        <modifyAllRecords>false</modifyAllRecords>
-        <object>Service_Area__c</object>
-        <viewAllFields>false</viewAllFields>
-        <viewAllRecords>false</viewAllRecords>
-    </objectPermissions>
-    <objectPermissions>
-        <allowCreate>false</allowCreate>
-        <allowDelete>false</allowDelete>
-        <allowEdit>false</allowEdit>
-        <allowRead>true</allowRead>
-        <modifyAllRecords>false</modifyAllRecords>
-        <object>State__c</object>
         <viewAllFields>false</viewAllFields>
         <viewAllRecords>false</viewAllRecords>
     </objectPermissions>
@@ -8453,6 +8592,11 @@
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
+        <recordType>Opportunity.Partner_Expansion_Amendment</recordType>
+        <visible>false</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>false</default>
         <personAccountDefault>true</personAccountDefault>
         <recordType>PersonAccount.Contact</recordType>
         <visible>true</visible>
@@ -8542,11 +8686,11 @@
     </tabVisibilities>
     <tabVisibilities>
         <tab>Service_Area_Zip_Code__c</tab>
-        <visibility>DefaultOn</visibility>
+        <visibility>Hidden</visibility>
     </tabVisibilities>
     <tabVisibilities>
         <tab>Service_Area__c</tab>
-        <visibility>DefaultOn</visibility>
+        <visibility>Hidden</visibility>
     </tabVisibilities>
     <tabVisibilities>
         <tab>State__c</tab>
@@ -9002,7 +9146,7 @@
     </tabVisibilities>
     <tabVisibilities>
         <tab>standard-Case</tab>
-        <visibility>DefaultOn</visibility>
+        <visibility>DefaultOff</visibility>
     </tabVisibilities>
     <tabVisibilities>
         <tab>standard-CaseEpisode</tab>
@@ -9410,7 +9554,7 @@
     </tabVisibilities>
     <tabVisibilities>
         <tab>standard-GiftDesignation</tab>
-        <visibility>DefaultOn</visibility>
+        <visibility>DefaultOff</visibility>
     </tabVisibilities>
     <tabVisibilities>
         <tab>standard-GiftEntry</tab>
@@ -9430,7 +9574,7 @@
     </tabVisibilities>
     <tabVisibilities>
         <tab>standard-GiftTransaction</tab>
-        <visibility>DefaultOn</visibility>
+        <visibility>DefaultOff</visibility>
     </tabVisibilities>
     <tabVisibilities>
         <tab>standard-GiftTribute</tab>
@@ -9758,7 +9902,7 @@
     </tabVisibilities>
     <tabVisibilities>
         <tab>standard-Opportunity</tab>
-        <visibility>DefaultOn</visibility>
+        <visibility>DefaultOff</visibility>
     </tabVisibilities>
     <tabVisibilities>
         <tab>standard-Order</tab>
@@ -9842,7 +9986,7 @@
     </tabVisibilities>
     <tabVisibilities>
         <tab>standard-PartyRoleRelation</tab>
-        <visibility>DefaultOff</visibility>
+        <visibility>DefaultOn</visibility>
     </tabVisibilities>
     <tabVisibilities>
         <tab>standard-PaymentInstrument</tab>
@@ -10014,7 +10158,7 @@
     </tabVisibilities>
     <tabVisibilities>
         <tab>standard-ProgramEnrollment</tab>
-        <visibility>DefaultOff</visibility>
+        <visibility>DefaultOn</visibility>
     </tabVisibilities>
     <tabVisibilities>
         <tab>standard-ProgramRecommendationRule</tab>
@@ -10314,7 +10458,7 @@
     </tabVisibilities>
     <tabVisibilities>
         <tab>standard-report</tab>
-        <visibility>DefaultOn</visibility>
+        <visibility>DefaultOff</visibility>
     </tabVisibilities>
     <userPermissions>
         <enabled>true</enabled>
@@ -10331,6 +10475,14 @@
     <userPermissions>
         <enabled>true</enabled>
         <name>LightningConsoleAllowedForUser</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>true</enabled>
+        <name>LightningExperienceUser</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>true</enabled>
+        <name>RunReports</name>
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>

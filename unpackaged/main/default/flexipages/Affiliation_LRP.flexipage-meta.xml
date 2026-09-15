@@ -61,6 +61,16 @@
                     <name>uiBehavior</name>
                     <value>required</value>
                 </fieldInstanceProperties>
+                <fieldItem>Record.Partner_Account__c</fieldItem>
+                <identifier>RecordPartner_Account_cField</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>required</value>
+                </fieldInstanceProperties>
                 <fieldItem>Record.Scholar_Account__c</fieldItem>
                 <identifier>RecordScholar_Account_cField</identifier>
             </fieldInstance>
@@ -75,6 +85,10 @@
                 <identifier>RecordRole_cField</identifier>
             </fieldInstance>
         </itemInstances>
+        <name>Facet-30af392b-fbcc-44a8-bbfc-2e99cdb0c289</name>
+        <type>Facet</type>
+    </flexiPageRegions>
+    <flexiPageRegions>
         <itemInstances>
             <fieldInstance>
                 <fieldInstanceProperties>
@@ -93,20 +107,6 @@
                 </fieldInstanceProperties>
                 <fieldItem>Record.End_Date__c</fieldItem>
                 <identifier>RecordEnd_Date_cField</identifier>
-            </fieldInstance>
-        </itemInstances>
-        <name>Facet-30af392b-fbcc-44a8-bbfc-2e99cdb0c289</name>
-        <type>Facet</type>
-    </flexiPageRegions>
-    <flexiPageRegions>
-        <itemInstances>
-            <fieldInstance>
-                <fieldInstanceProperties>
-                    <name>uiBehavior</name>
-                    <value>required</value>
-                </fieldInstanceProperties>
-                <fieldItem>Record.Partner_Account__c</fieldItem>
-                <identifier>RecordPartner_Account_cField</identifier>
             </fieldInstance>
         </itemInstances>
         <name>Facet-dea1c554-2361-40d5-9627-8ee14190ba7d</name>

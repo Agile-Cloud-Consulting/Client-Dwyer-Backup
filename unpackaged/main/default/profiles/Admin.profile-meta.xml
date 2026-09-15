@@ -5314,6 +5314,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Assessment.Course_Offering_Participant__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Assessment.EffectiveDateTime</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -5335,6 +5340,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Assessment.ParentId</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Assessment.Program_Enrollment__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -7525,6 +7535,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Contact.BuyerAttributes</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Contact.Contact_Status__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
