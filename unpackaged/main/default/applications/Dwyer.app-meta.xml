@@ -196,6 +196,7 @@
     <tabs>standard-Campaign</tabs>
     <tabs>standard-report</tabs>
     <tabs>standard-Dashboard</tabs>
+    <tabs>standard-Assessment</tabs>
     <uiType>Lightning</uiType>
     <utilityBar>Dwyer_UtilityBar</utilityBar>
 </CustomApplication>

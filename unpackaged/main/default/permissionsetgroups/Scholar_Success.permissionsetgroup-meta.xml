@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PermissionSetGroup xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>DWDECI-92 / DWDECI-240. Success Coach persona PSG. Record Alerts moved CRED to CRE: create/read/edit Business Incidents, no delete. Activities are CRE now that EditTask/EditEvent are off the DWD Standard User profile. See docs/design.md.</description>
+    <hasActivationRequired>false</hasActivationRequired>
+    <label>Scholar Success Coach</label>
+    <permissionSets>CRE_Benefit_Assignment</permissionSets>
+    <permissionSets>CRE_Interactions_and_Interaction_Summaries</permissionSets>
+    <permissionSets>CRE_Record_Alerts</permissionSets>
+    <permissionSets>CRE_Task_Event_Activities</permissionSets>
+    <permissionSets>DWD_Allow_Access_to_Edu_Objects</permissionSets>
+    <permissionSets>R_Accounts_Person_Account_Relationships_Affiliations</permissionSets>
+    <permissionSets>R_Education_Cloud_Program_and_Learning</permissionSets>
+    <status>Updated</status>
+</PermissionSetGroup>
