@@ -368,7 +368,7 @@
         <inputAssignments>
             <field>TargetId</field>
             <value>
-                <elementReference>$Record.AccountId</elementReference>
+                <elementReference>$Record.Id</elementReference>
             </value>
         </inputAssignments>
         <object>ActionPlan</object>
@@ -380,7 +380,7 @@
         <label>Get Warm Handoff Template</label>
         <locationX>0</locationX>
         <locationY>0</locationY>
-        <assignNullValuesIfNoRecordsFound>true</assignNullValuesIfNoRecordsFound>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>Get_Warm_Handoff_Template_Version</targetReference>
         </connector>
@@ -392,7 +392,7 @@
             <field>UniqueName</field>
             <operator>EqualTo</operator>
             <value>
-                <stringValue>Formal_Warm_Handoff</stringValue>
+                <stringValue>Formal_Warm_Handoff_181d0a12_b112_11f1_b12f_0bf85e75a51f</stringValue>
             </value>
         </filters>
         <getFirstRecordOnly>true</getFirstRecordOnly>
@@ -405,7 +405,7 @@
         <label>Get Warm Handoff Template Version</label>
         <locationX>0</locationX>
         <locationY>0</locationY>
-        <assignNullValuesIfNoRecordsFound>true</assignNullValuesIfNoRecordsFound>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>Is_Template_Version_Found</targetReference>
         </connector>

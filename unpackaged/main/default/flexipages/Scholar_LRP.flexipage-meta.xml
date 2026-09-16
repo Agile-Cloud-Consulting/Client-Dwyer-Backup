@@ -302,6 +302,16 @@
                 <identifier>RecordSSN_Captured_pcField</identifier>
             </fieldInstance>
         </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.Contact_Status__pc</fieldItem>
+                <identifier>RecordContact_Status_pcField</identifier>
+            </fieldInstance>
+        </itemInstances>
         <name>Facet-08d1eafb-5ae8-480e-8220-f6b1f62c7e58</name>
         <type>Facet</type>
     </flexiPageRegions>

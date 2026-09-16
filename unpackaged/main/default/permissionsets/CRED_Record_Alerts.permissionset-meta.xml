@@ -40,7 +40,7 @@
         <allowRead>true</allowRead>
         <modifyAllRecords>false</modifyAllRecords>
         <object>RecordAlert</object>
-        <viewAllFields>false</viewAllFields>
+        <viewAllFields>true</viewAllFields>
         <viewAllRecords>false</viewAllRecords>
     </objectPermissions>
     <objectPermissions>
@@ -61,11 +61,6 @@
         <enabled>true</enabled>
         <name>FSCAlertFrameworkUserAccess</name>
     </userPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>RecordAlert.Category_Label__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>RecordAlert.Description</field>
