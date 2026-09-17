@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Disable_Default_MOU_Level_On_Create__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Disables the Account - Before Save - Default MOU Level on Create flow.</description>
+    <inlineHelpText>Check to disable auto-defaulting a new child Account&#39;s MOU_Level__c (Per Facility, or Corporate Level when the parent is Corporate Level).</inlineHelpText>
+    <label>Disable Default MOU Level On Create</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

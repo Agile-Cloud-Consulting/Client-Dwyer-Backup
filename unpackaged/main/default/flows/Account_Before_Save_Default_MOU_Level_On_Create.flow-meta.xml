@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>67.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <assignments>
+        <description>Sets the new record&#39;s MOU_Level__c to Corporate Level via fast field update (before-save, no DML).</description>
+        <name>Set_MOU_Level_Corporate</name>
+        <label>Set MOU Level Corporate</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.MOU_Level__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Corporate Level</stringValue>
+            </value>
+        </assignmentItems>
+    </assignments>
+    <assignments>
+        <description>Sets the new record&#39;s MOU_Level__c to Per Facility via fast field update (before-save, no DML). Default assumption per AC when the parent is not Corporate Level (Per Facility or blank).</description>
+        <name>Set_MOU_Level_Per_Facility</name>
+        <label>Set MOU Level Per Facility</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.MOU_Level__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Per Facility</stringValue>
+            </value>
+        </assignmentItems>
+    </assignments>
+    <decisions>
+        <description>Only new Accounts with a Parent Account populated get an MOU Level default; top-level Business Accounts are untouched.</description>
+        <name>Has_Parent_Account</name>
+        <label>Has Parent Account?</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <defaultConnectorLabel>No Parent Account</defaultConnectorLabel>
+        <rules>
+            <name>Has_Parent</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.ParentId</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Get_Parent_Account</targetReference>
+            </connector>
+            <label>Has Parent</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>Short-circuits when any ACC Base Utilities kill switch covering this automation is active: the global master switch, the Account object switch, or this flow&#39;s own named-automation switch.</description>
+        <name>Is_Kill_Switch_Active</name>
+        <label>Is Kill Switch Active?</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <defaultConnectorLabel>Kill Switch Active</defaultConnectorLabel>
+        <rules>
+            <name>All_Kill_Switches_Clear</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Setup.Global_Kill_Switch__c.Disable_All__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Setup.Object_Kill_Switch__c.Disable_Account__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Setup.Automation_Kill_Switch__c.Disable_Default_MOU_Level_On_Create__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Has_Parent_Account</targetReference>
+            </connector>
+            <label>All Kill Switches Clear</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>Only a Corporate Level parent defaults the child to Corporate Level; Per Facility or blank parents default the child to Per Facility.</description>
+        <name>Is_Parent_Corporate_Level</name>
+        <label>Is Parent Corporate Level?</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <defaultConnector>
+            <targetReference>Set_MOU_Level_Per_Facility</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Not Corporate Level</defaultConnectorLabel>
+        <rules>
+            <name>Is_Corporate_Level</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Get_Parent_Account.MOU_Level__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Corporate Level</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Set_MOU_Level_Corporate</targetReference>
+            </connector>
+            <label>Is Corporate Level</label>
+        </rules>
+    </decisions>
+    <description>DWDECI-43. On new child Account creation (ParentId populated), defaults MOU_Level__c to Per Facility, or to Corporate Level if the parent Account&#39;s MOU_Level__c is Corporate Level. Before-save fast field update - no DML. Checks the Global, Object (Account), and Automation kill switches from ACC Base Utilities. No fault-path error logging: Salesforce disallows Action elements entirely in Record-Run-Before-Save flows, so a Get Parent Account failure surfaces as a standard Salesforce save error to the user rather than an Error_Log__c record (same convention as Opportunity_On_Create_Default_MOU_Requirement). Leaves the existing Account_On_Edit_Cascade_MOU_Level flow untouched - that flow separately handles cascading to already-existing children when an existing parent is edited to Corporate Level.</description>
+    <environments>Default</environments>
+    <interviewLabel>Account - Before Save - Default MOU Level on Create {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Account - Before Save - Default MOU Level on Create</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordLookups>
+        <description>Resolves the parent Account&#39;s MOU_Level__c. Guarded so a missing/blank record just falls through to Not Corporate Level (child defaults to Per Facility).</description>
+        <name>Get_Parent_Account</name>
+        <label>Get Parent Account</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignNullValuesIfNoRecordsFound>true</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Is_Parent_Corporate_Level</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.ParentId</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Account</object>
+        <queriedFields>Id</queriedFields>
+        <queriedFields>MOU_Level__c</queriedFields>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <start>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Is_Kill_Switch_Active</targetReference>
+        </connector>
+        <object>Account</object>
+        <recordTriggerType>Create</recordTriggerType>
+        <triggerType>RecordBeforeSave</triggerType>
+    </start>
+    <status>Active</status>
+</Flow>
