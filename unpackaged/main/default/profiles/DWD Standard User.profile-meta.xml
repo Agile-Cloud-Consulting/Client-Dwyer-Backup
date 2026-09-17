@@ -6997,6 +6997,9 @@
         <layout>InterestTag-Interest Tag Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
+        <layout>Lead-Lead Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>LearnerAchievement-Learner Achievement Layout</layout>
     </layoutAssignments>
     <layoutAssignments>

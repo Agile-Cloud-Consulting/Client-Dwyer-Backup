@@ -8,4 +8,8 @@
         <field>Account.Sensitive_Inbound_Details__c</field>
         <readable>true</readable>
     </fieldPermissions>
+    <customPermissions>
+        <enabled>true</enabled>
+        <name>Update_Sensitive_Inbound_Details</name>
+    </customPermissions>
 </PermissionSet>

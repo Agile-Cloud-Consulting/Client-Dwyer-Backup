@@ -7103,6 +7103,9 @@
         <layout>InterestTag-Interest Tag Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
+        <layout>Lead-Lead Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>LearningAchievementConfig-Learning Achievement Configuration Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
