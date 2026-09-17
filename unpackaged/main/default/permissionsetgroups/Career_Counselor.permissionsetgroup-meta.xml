@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PermissionSetGroup xmlns="http://soap.sforce.com/2006/04/metadata">
+    <hasActivationRequired>false</hasActivationRequired>
+    <label>Career Counselor</label>
+    <permissionSets>CRE_Education_Cloud_Program_Learning</permissionSets>
+    <permissionSets>CRE_Task_Event_Activities</permissionSets>
+    <permissionSets>DWD_Allow_Access_to_Edu_Objects</permissionSets>
+    <permissionSets>R_Accounts_Person_Account_Relationships_Affiliations</permissionSets>
+    <permissionSets>R_Benefit_Assignment</permissionSets>
+    <permissionSets>R_Record_Alerts</permissionSets>
+    <permissionSets>R_Referrals</permissionSets>
+    <status>Updated</status>
+</PermissionSetGroup>

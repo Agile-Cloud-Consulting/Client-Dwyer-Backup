@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PermissionSetGroup xmlns="http://soap.sforce.com/2006/04/metadata">
+    <hasActivationRequired>false</hasActivationRequired>
+    <label>Communications / Marketing</label>
+    <permissionSets>CRE_Campaigns</permissionSets>
+    <permissionSets>CRE_Contacts</permissionSets>
+    <permissionSets>CRE_Leads</permissionSets>
+    <permissionSets>MCAE_Admin</permissionSets>
+    <status>Updated</status>
+</PermissionSetGroup>
