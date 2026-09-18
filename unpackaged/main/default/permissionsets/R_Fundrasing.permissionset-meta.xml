@@ -3,6 +3,7 @@
     <description>Read only on the Fundraising objects; GiftCommitment, GiftTransaction, GiftTransactionDesignation, GiftDesignation, GiftDefaultDesignation.</description>
     <hasActivationRequired>false</hasActivationRequired>
     <label>R - Fundrasing</label>
+    <license>EducationCloudAccessPsl</license>
     <fieldPermissions>
         <editable>false</editable>
         <field>GiftCommitment.CampaignId</field>
