@@ -3,7 +3,7 @@
     <caseAccessLevel>Edit</caseAccessLevel>
     <contactAccessLevel>Edit</contactAccessLevel>
     <mayForecastManagerShare>false</mayForecastManagerShare>
-    <name>Manager of Scholar Success Coach</name>
+    <name>Sr. Partner Success Manager</name>
     <opportunityAccessLevel>Edit</opportunityAccessLevel>
-    <parentRole>Director_of_Career_Services</parentRole>
+    <parentRole>Regional_Partner_Success_Managers</parentRole>
 </Role>

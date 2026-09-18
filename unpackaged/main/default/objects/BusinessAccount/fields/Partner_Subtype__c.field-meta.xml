@@ -121,6 +121,16 @@
                 <default>false</default>
                 <label>City</label>
             </value>
+            <value>
+                <fullName>National</fullName>
+                <default>false</default>
+                <label>National</label>
+            </value>
+            <value>
+                <fullName>Local</fullName>
+                <default>false</default>
+                <label>Local</label>
+            </value>
         </valueSetDefinition>
         <valueSettings>
             <controllingFieldValue>CBO</controllingFieldValue>
@@ -209,6 +219,14 @@
         <valueSettings>
             <controllingFieldValue>Government Organization</controllingFieldValue>
             <valueName>City</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Affiliation</controllingFieldValue>
+            <valueName>National</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Affiliation</controllingFieldValue>
+            <valueName>Local</valueName>
         </valueSettings>
     </valueSet>
 </CustomField>

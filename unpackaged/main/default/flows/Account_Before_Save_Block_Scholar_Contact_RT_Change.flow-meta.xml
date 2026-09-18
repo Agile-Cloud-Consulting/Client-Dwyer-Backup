@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>67.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <customErrors>
+        <description>Blocks the save with a page-level error when a Person Account&#39;s record type is changing between Scholar and Contact in either direction.</description>
+        <name>Show_Error_Scholar_Contact_RT_Change</name>
+        <label>Show Error - Scholar Contact RT Change</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <customErrorMessages>
+            <errorMessage>Person Accounts cannot be changed between the Scholar and Contact record types. Contact your Salesforce administrator if this reclassification is required.</errorMessage>
+            <isFieldError>false</isFieldError>
+        </customErrorMessages>
+    </customErrors>
+    <decisions>
+        <description>Blocked only when the record type is genuinely changing between Scholar and Contact, checked by name (RecordType.DeveloperName) rather than hardcoded Record Type Ids so this deploys unchanged across every org. No admin exemption - blocks everyone per ticket decision.</description>
+        <name>Is_Blocked_RT_Change</name>
+        <label>Is Blocked RT Change?</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <defaultConnectorLabel>Not a Blocked Change</defaultConnectorLabel>
+        <rules>
+            <name>Blocked_Direction</name>
+            <conditionLogic>(1 AND 2) OR (3 AND 4)</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record__Prior.RecordType.DeveloperName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Scholar</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.RecordType.DeveloperName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Contact</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record__Prior.RecordType.DeveloperName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Contact</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.RecordType.DeveloperName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Scholar</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Show_Error_Scholar_Contact_RT_Change</targetReference>
+            </connector>
+            <label>Blocked Direction</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>Short-circuits when any ACC Base Utilities kill switch covering this automation is active: the global master switch, the Account object switch, or this flow&#39;s own named-automation switch.</description>
+        <name>Is_Kill_Switch_Active</name>
+        <label>Is Kill Switch Active?</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <defaultConnectorLabel>Kill Switch Active</defaultConnectorLabel>
+        <rules>
+            <name>All_Kill_Switches_Clear</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Setup.Global_Kill_Switch__c.Disable_All__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Setup.Object_Kill_Switch__c.Disable_Account__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Setup.Automation_Kill_Switch__c.Disable_Scholar_Contact_RT_Change__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Is_Blocked_RT_Change</targetReference>
+            </connector>
+            <label>All Kill Switches Clear</label>
+        </rules>
+    </decisions>
+    <description>DWDECI-129. Blocks changing a Person Account&#39;s record type between Scholar and Contact (either direction), for all users including System Administrators - no exemption, per ticket decision. Compares RecordType.DeveloperName by name (not Id) so no hardcoded, environment-specific values - deploys unchanged to any org. The Record Type check is done in a Decision, not the Start filter, per the established pattern in this org (a RecordType.DeveloperName cross-object Start filter deploys and activates cleanly but throws an unhandled runtime exception on every trigger - see Opportunity_On_Create_Default_MOU_Requirement). Uses the native Custom Error element since Record-Run-Before-Save flows disallow Action elements entirely.</description>
+    <environments>Default</environments>
+    <interviewLabel>Account - Before Save - Block Scholar Contact RT Change {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Account - Before Save - Block Scholar Contact RT Change</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <start>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Is_Kill_Switch_Active</targetReference>
+        </connector>
+        <object>Account</object>
+        <recordTriggerType>Update</recordTriggerType>
+        <triggerType>RecordBeforeSave</triggerType>
+    </start>
+    <status>Active</status>
+</Flow>
