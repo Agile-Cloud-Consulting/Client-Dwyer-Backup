@@ -3,12 +3,17 @@
     <hasActivationRequired>false</hasActivationRequired>
     <label>Partner Success</label>
     <permissionSets>CRED_Account_Teams</permissionSets>
-    <permissionSets>CRED_Interactions_and_Interaction_Summaries</permissionSets>
-    <permissionSets>CRED_Record_Alerts</permissionSets>
-    <permissionSets>CRED_Referrals</permissionSets>
-    <permissionSets>CRE_Accounts_Person_Account_Relationships_and_Affiliations</permissionSets>
+    <permissionSets>CRE_Business_Accounts</permissionSets>
+    <permissionSets>CRE_Course_Offering</permissionSets>
+    <permissionSets>CRE_Interactions_and_Interaction_Summaries</permissionSets>
+    <permissionSets>CRE_Record_Alerts</permissionSets>
+    <permissionSets>CRE_Referrals</permissionSets>
     <permissionSets>CRE_Regions</permissionSets>
+    <permissionSets>CRE_Relationships_and_Affiliations</permissionSets>
+    <permissionSets>CRE_Task_Event_Activities</permissionSets>
     <permissionSets>DWD_Action_Plan_Access</permissionSets>
+    <permissionSets>DWD_Allow_Access_to_Edu_Objects</permissionSets>
     <permissionSets>DWD_Sensitive_Activity_Details</permissionSets>
+    <permissionSets>R_Partner_Pipeline</permissionSets>
     <status>Updated</status>
 </PermissionSetGroup>
