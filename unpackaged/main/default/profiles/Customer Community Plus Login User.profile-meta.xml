@@ -7923,6 +7923,9 @@
         <layout>PricebookEntry-Price Book Entry</layout>
     </layoutAssignments>
     <layoutAssignments>
+        <layout>RecordAlertActionableTarget-Record Alert Actionable Target Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>Region__c-Region Layout</layout>
     </layoutAssignments>
     <layoutAssignments>

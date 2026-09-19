@@ -6967,6 +6967,9 @@
         <layout>CEC_Assignment__mdt-CEC Assignment Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
+        <layout>Campaign-Campaign Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>DesignatedContactAssignment-Designated Contact Assignment Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
@@ -7036,6 +7039,9 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>PartyProfileAddress-Party Profile Address</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>RecordAlertActionableTarget-Record Alert Actionable Target Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Region__c-Region Layout</layout>

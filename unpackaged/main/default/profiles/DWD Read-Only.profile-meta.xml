@@ -7082,6 +7082,9 @@
         <layout>BusinessProcessTypeDef-Business Process Type Definition Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
+        <layout>Campaign-Campaign Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>DocumentType-Document Type Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
@@ -7125,6 +7128,9 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>OmniScriptView-OmniScript Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>RecordAlertActionableTarget-Record Alert Actionable Target Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>SurveyQuestion-Survey Question Layout</layout>
