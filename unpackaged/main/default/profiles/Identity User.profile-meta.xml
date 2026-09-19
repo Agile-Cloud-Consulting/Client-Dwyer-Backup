@@ -9224,6 +9224,9 @@
         <layout>RecordAlertCategory-Record Alert Category Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
+        <layout>RecordAlertDataSource-Record Alert Data Source Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>Region__c-Region Layout</layout>
     </layoutAssignments>
     <layoutAssignments>

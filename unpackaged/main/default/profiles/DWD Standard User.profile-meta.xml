@@ -7836,6 +7836,9 @@
         <layout>RecordAlertActionableTarget-Record Alert Actionable Target Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
+        <layout>RecordAlertDataSource-Record Alert Data Source Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>RecurrenceSchedule-Recurrence Schedule Layout</layout>
     </layoutAssignments>
     <layoutAssignments>

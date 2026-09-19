@@ -7939,6 +7939,9 @@
         <layout>RecordAlertCategory-Record Alert Category Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
+        <layout>RecordAlertDataSource-Record Alert Data Source Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>SurveyQuestion-Survey Question Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
